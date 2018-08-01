@@ -36,7 +36,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+<!--test-->
     <build>
         <plugins>
             <plugin>
