@@ -21,17 +21,28 @@ import java.util.List;
  * @since 1.0.0
  */
 public class StatusInfo {
-//    the codeid
+    /**
+     * the codeid
+     */
     @JsonProperty("code")
     private int code;
-//    the msg to remind
+    /**
+     * the msg to remind
+     */
     @JsonProperty("msg")
     private String msg;
-//    the list of orderinfo
+    /**
+     *  the list of orderinfo
+     */
     @JsonProperty("data")
     private List<OrderInfo> orderInfoList;
+    
     /**
-     have all arguments constructor
+     * @Author Chen
+     * @Description //TODO have all arguments constructor
+     * @Date 9:55 2018/8/2
+     * @Param [code, msg, orderInfoList]
+     * @return 
      **/
     public StatusInfo(int code, String msg, List<OrderInfo> orderInfoList) {
         this.code = code;

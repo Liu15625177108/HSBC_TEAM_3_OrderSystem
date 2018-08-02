@@ -23,41 +23,70 @@ import java.util.List;
  * @since 1.0.0
  */
 public class OrderInfo {
-//    the id of order
+    /**
+     * the id of order
+     */
     @JsonProperty("orderId")
     private String orderId;
-//    the name of buyer
+    /**
+     * the name of buyer
+     */
     @JsonProperty("buyerName")
     private String buyerName;
-//    the phone of buyer
+    /**
+     * the phone of buyer
+     */
     @JsonProperty("buyerPhone")
     private String buyerPhone;
-//    the address of buyer
+    /**
+     * the address of buyer
+     */
     @JsonProperty("buyerAddress")
     private String buyerAddress;
-//    the operid of buyer
+    /**
+     * the operid of buyer
+     */
     @JsonProperty("buyerOperId")
     private String buyerOperId;
-//    the amount of order
+    /**
+     * the amount of order
+     */
     @JsonProperty("orderAmount")
     private int orderAmount;
-//    the status of order
+    /**
+     * the status of order
+     */
     @JsonProperty("orderStatus")
     private int orderStatus;
-//    the status of pay
+    /**
+     * the status of pay
+     */
     @JsonProperty("payStatus")
     private int payStatus;
-//    the time where be ceated
+    /**
+     * the time where be ceated
+     */
     @JsonProperty("createTime")
     private Date createTime;
-//    the tiem where be update
+    /**
+     * the tiem where be update
+     */
     @JsonProperty("updateTime")
     private Date updateTime;
-//    the list of orderdetail
+    /**
+     * the list of orderdetail
+     */
     @JsonProperty("orderDetailInfoList")
     private List<OrderDetailInfo> orderDetailInfoList;
+  
     /**
-        have all arguments constructor
+     * @Author Chen
+     * @Description //TODO have all arguments constructor
+     * @Date 9:55 2018/8/2
+     * @Param [orderId, buyerName, buyerPhone, buyerAddress, 
+     *          buyerOperId, orderAmount, orderStatus, payStatus, 
+     *          createTime, updateTime, orderDetailInfoList]
+     * @return 
      **/
     public OrderInfo(String orderId, String buyerName, String buyerPhone,
                      String buyerAddress, String buyerOperId, int orderAmount,
