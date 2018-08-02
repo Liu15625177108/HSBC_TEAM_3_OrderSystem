@@ -7,15 +7,14 @@
     <artifactId>ordersystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
-
+    <!-- lookup parent from repository -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> 
     </parent>
 
     <properties>
@@ -23,25 +22,76 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-
+    <!-- springboot  the start rely on web-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>-->
+        <!--test class to ues mockmvc-->
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- the start rley on test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--the rely on lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!--the rely on log-->
+      <!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>-->
+        <!--to use lombok plug-in-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>-->
     </dependencies>
-<!--test-->
+    <scm>
+        <url>https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem</url>
+        <connection>scm:git:https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem.git</connection>
+        <developerConnection>scm:git:https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem.git</developerConnection>
+    </scm>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <configuration>
+                    <connectionType>developerConnection</connectionType>
+                    <username>CHENL0</username>
+                    <password>79513Aa123</password>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <username>CHENL0</username>
+                    <password>79513Aa123</password>
+                    <tagBase>${project.artifactId}-${project.version}</tagBase>
+                    <goals>-f pom.xml deploy</goals>
+                </configuration>
             </plugin>
         </plugins>
     </build>
