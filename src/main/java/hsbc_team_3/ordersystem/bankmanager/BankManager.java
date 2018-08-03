@@ -3,27 +3,27 @@ package hsbc_team_3.ordersystem.bankmanager;
 import java.io.Serializable;
 
 /**
- * @ClassName BankManagerLogin
+ * @ClassName BankManager
  * @Author:Jerry.Liu;
  * @Description:  The class describe the person who is the bank manager.
  * @Package hsbc_team_3.ordersystem.bankmanager
  * @Date 2018/8/2 11:06
  */
-public class BankManagerLogin implements Serializable {
+public class BankManager implements Serializable {
 
     private String  workerNum;                              //bank manager's work number
     private String  workerName;                             //bacnk manager's name;
     private String  workerDepartment;                       // the department of bank manager
-    private String  loginPassword;                          // the login password of the manager
+//    private String  loginPassword;                          // the login password of the manager
 
-    public BankManagerLogin(String workerNum, String workerName, String workerDepartment, String loginPassword) {
+    public BankManager(String workerNum, String workerName, String workerDepartment) {
         this.workerNum = workerNum;
         this.workerName = workerName;
         this.workerDepartment = workerDepartment;
-        this.loginPassword = loginPassword;
+
     }
 
-    public BankManagerLogin(){}
+    public BankManager(){}
 
     public String getWorkerNum() {
         return workerNum;
@@ -49,11 +49,11 @@ public class BankManagerLogin implements Serializable {
         this.workerDepartment = workerDepartment;
     }
 
-    public String getLoginPassword() {
-        return loginPassword;
-    }
-
-    public void setLoginPassword(String loginPassword) {
-        this.loginPassword = loginPassword;
-    }
+//    public String getLoginPassword() {
+//        return loginPassword;
+//    }
+//
+//    public void setLoginPassword(String loginPassword) {
+//        this.loginPassword = loginPassword;
+//    }
 }
