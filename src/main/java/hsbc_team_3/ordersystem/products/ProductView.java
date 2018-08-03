@@ -2,7 +2,7 @@ package hsbc_team_3.ordersystem.products;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Project:ordersystem
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class ProductView {
 
     @JsonProperty("products")
-    private ArrayList<ProductInfoView> productInfoViewList;
+    private List<ProductInfoView> productInfoViewList;
 
-    public void setProductInfoViewList(ArrayList<ProductInfoView> productInfoViewList) {
+    public void setProductInfoViewList(List<ProductInfoView> productInfoViewList) {
         this.productInfoViewList = productInfoViewList;
     }
 }
