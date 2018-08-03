@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.Assert.*;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -39,6 +41,8 @@ public class BankManageControllerTest {
     private WebApplicationContext wac;
     //simulate mvc environment;
     private MockMvc mockMvc;
+    @MockBean
+    private  BankManagerService bankManagerService;
     @Before
     public void setup(){
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
@@ -52,15 +56,31 @@ public class BankManageControllerTest {
     *@Package: hsbc_team_3.ordersystem.bankmanager
     */
     public void managerLogin() throws Exception{
+
+        ReturnValue <BankManager> returnValue=new ReturnValue<BankManager>();
+        BankManager bankManager=new BankManager("1233231","Jerry","dev");
+
+        given(this.bankManagerService.login("1233231","123456")).willReturn(true);
+        given(this.bankManagerService.findByWorkernum("1233231")).willReturn(bankManager);
+
+        given(this.bankManagerService.login("123456","123456")).willReturn(false);
+
+
         String result =
-                mockMvc.perform(get("/manager/login").accept(MediaType.APPLICATION_JSON))       // return json's message
+                mockMvc.perform(get("/manager/login?workernumber=1233231&password=123456").accept(MediaType.APPLICATION_JSON))       // return json's message
                 .andExpect(status().isOk())                             // ensure the http.code is ok;
                 .andExpect(jsonPath("$.length()").value(3))     //  ensure the length of json is 3
                 .andReturn().getResponse().getContentAsString();                            // return reponse's value
         Logger logger= LoggerFactory.getLogger(BankManageControllerTest.class);
         logger.info(result);                                                                //  output
 
+         result =
+                mockMvc.perform(get("/manager/login?workernumber=123456&password=123456").accept(MediaType.APPLICATION_JSON))       // return json's message
+                        .andExpect(status().isOk())                             // ensure the http.code is ok;
+                        .andExpect(jsonPath("$.length()").value(3))     //  ensure the length of json is 3
+                        .andReturn().getResponse().getContentAsString();                            // return reponse's value
 
+        logger.info(result);
 
 
     }

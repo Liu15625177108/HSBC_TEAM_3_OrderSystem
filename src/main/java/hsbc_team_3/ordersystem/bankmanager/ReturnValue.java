@@ -9,14 +9,14 @@ import java.io.Serializable;
  * @Package hsbc_team_3.ordersystem.bankmanager
  * @Date 2018/8/3 10:39
  */
-public class ReturnValue implements Serializable {
+public class ReturnValue <T>implements Serializable {
     private String code;                // the code of server return
     private String msg;                 //  the message of the login's status.
-    private BankManager bankManager;    //  the information of login's manager
+    private T bankManager;             //  the information of login's manager
 
     public  ReturnValue(){}
 
-    public ReturnValue(String code, String msg, BankManager bankManager) {
+    public ReturnValue(String code, String msg, T bankManager) {
         this.code = code;
         this.msg = msg;
         this.bankManager = bankManager;
@@ -38,11 +38,11 @@ public class ReturnValue implements Serializable {
         this.msg = msg;
     }
 
-    public BankManager getBankManager() {
+    public T getBankManager() {
         return bankManager;
     }
 
-    public void setBankManager(BankManager bankManager) {
+    public void setBankManager(T bankManager) {
         this.bankManager = bankManager;
     }
 }
