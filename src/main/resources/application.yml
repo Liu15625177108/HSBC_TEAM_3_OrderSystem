@@ -1,3 +1,11 @@
 spring:
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
   profiles:
     active: prod
+server:
+  tomcat:
+    uri-encoding: UTF-8
