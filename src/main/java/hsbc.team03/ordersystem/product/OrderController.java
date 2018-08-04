@@ -43,7 +43,8 @@ public class OrderController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(String userId){
+    Object toOrder(HttpServletRequest request){
+        String userId= (String) request.getSession().getAttribute("userId");
         if(userId!=null&&!userId.equals("")) {
             //To compare userMoney and orderPrice
             if (userService.getMoney() > orderService.getOrderPrice()) {

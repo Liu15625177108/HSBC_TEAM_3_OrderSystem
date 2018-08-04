@@ -1,6 +1,7 @@
 package hsbc.team03.ordersystem.product;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
 import hsbc.team03.ordersystem.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +51,7 @@ public class OrderControllerTest {
         
         OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),"信用卡",2,
                 "Chen","1111111111","岗顶",300);
-        ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
+        ResultView resultView=new ResultView<OrderInfo>(200,"success",orderInfo);
         given(this.orderService.toOrder()).willReturn(resultView);
 
         /**
@@ -61,9 +62,16 @@ public class OrderControllerTest {
         double orderPice=orderInfo.getProductNumber()*orderInfo.getProductPrice();
         given(this.orderService.getOrderPrice()).willReturn(orderPice);
         
-
+        //
+        /*ObjectMapper mapper=new ObjectMapper();
+        String jsonSring="{\"orderid\":\"17e5372f-dfc1-41e7-b37a-a1edae87d299\"," +
+                "\"productname\":\"信用卡\",\"productnumber\":2,\"username\":\"Chen\"," +
+                "\"userphone\":\"1111111111\",\"useraddress\":\"岗顶\",\"productprice\":300.0}";*/
+//        OrderInfo orderInfo1=mapper.readValue(jsonSring,OrderInfo.class);
         String result=this.mvc.perform(post("/order/toorder")
-                .param("userId","CommonsUtils.getUUID()").accept(MediaType.APPLICATION_JSON))
+                .sessionAttr("userId","CommonsUtils.getUUID()")
+//                .content(mapper.writeValueAsString(orderInfo1))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(); //return response's value
