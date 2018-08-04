@@ -1,20 +1,15 @@
-package hsbc_team_3.ordersystem.bankmanager;
-
-import org.springframework.stereotype.Service;
+package hsbc.team03.ordersystem.bankmanager;
 
 /**
- * @ClassName BankManagerService
+ * @ClassName BankManagerServiceDao
  * @Author:Jerry.Liu;
  * @Description://TODO
  * @Package hsbc_team_3.ordersystem.bankmanager
- * @Date 2018/8/3 11:40
+ * @Date 2018/8/3 12:03
  */
-
-public interface BankManagerService{
+public interface BankManagerServiceDao {
 
     boolean login (String workernum,String password);
 
     Object findByWorkernum(String worknum);
-
-
 }

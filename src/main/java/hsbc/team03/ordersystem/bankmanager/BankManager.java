@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.bankmanager;
+package hsbc.team03.ordersystem.bankmanager;
 
 import java.io.Serializable;
 

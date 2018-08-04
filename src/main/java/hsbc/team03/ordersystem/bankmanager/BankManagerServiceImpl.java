@@ -1,6 +1,5 @@
-package hsbc_team_3.ordersystem.bankmanager;
+package hsbc.team03.ordersystem.bankmanager;
 
-import org.apache.catalina.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
