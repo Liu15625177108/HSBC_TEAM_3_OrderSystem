@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:43     1.0              the pojo of user
  */
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -42,11 +42,11 @@ public class UserInfo {
     @JsonProperty(value="paypassword")
     private String payPassword;
 
- /*   public UserInfo(String userId, String userName, double userMoney, String payPassword) {
+   public UserInfo(String userId, String userName, double userMoney, String payPassword) {
         this.userId = userId;
         this.userName = userName;
         this.userMoney = userMoney;
         this.payPassword = payPassword;
-    }*/
+    }
     
 }

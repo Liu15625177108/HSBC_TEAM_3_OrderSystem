@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:36     1.0              the pojo of order
  */
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -59,14 +59,16 @@ public class OrderInfo implements Serializable {
     @JsonProperty(value = "productprice")
     private double productPrice;
     
- /*   public OrderInfo(String orderId, String productName, String productNumber, String userName, String userPhone, String userAddress) {
+    public OrderInfo(String orderId, String productName, int productNumber, String userName,
+                     String userPhone, String userAddress, double productPrice) {
         this.orderId = orderId;
         this.productName = productName;
         this.productNumber = productNumber;
         this.userName = userName;
         this.userPhone = userPhone;
         this.userAddress = userAddress;
-    }*/
+        this.productPrice=productPrice;
+    }
 
 
 }

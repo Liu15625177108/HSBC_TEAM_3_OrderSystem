@@ -8,14 +8,15 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:35     1.0              the controller of order
  */
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
-import hsbc_team_3.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -40,13 +41,12 @@ public class OrderController {
      * @Param []
      * @return java.lang.Object
      **/
-    @PostMapping(value = "/toorder/{userInfo}/{orderInfo}")
+    @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(@PathVariable UserInfo userInfo,@PathVariable OrderInfo orderInfo,@RequestParam String payPassword){
-       System.out.println(payPassword);
-        if(userService.getMoney(userInfo)>orderService.getOrderPrice(orderInfo)){
-           if(userService.toValidatePayPassword(payPassword,userInfo)){
-               Object resultView=orderService.toOrder(orderInfo);
+    Object toOrder(){
+        if(userService.getMoney()>orderService.getOrderPrice()){
+           if(userService.toValidatePayPassword()){
+               Object resultView=orderService.toOrder();
                String reuslt=resultView.toString();
                log.info(reuslt);
                return resultView; 

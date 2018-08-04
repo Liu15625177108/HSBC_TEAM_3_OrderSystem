@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/3 5:11     1.0              the service of user
  */
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
 /**
  * @description<br>
@@ -24,18 +24,18 @@ public interface UserService {
      * @Author Chen
      * @Description //TODO To get money
      * @Date 5:56 2018/8/3
-     * @Param []
+     * @Param [UserInfo userInfo]
      * @return double
      **/
-    double getMoney(UserInfo userInfo);
+    double getMoney();
     
     /**
      * @Author Chen
      * @Description //TODO To validate pay password
      * @Date 5:56 2018/8/3
-     * @Param [payPassword]
+     * @Param [payPassword,userInfo]
      * @return boolean
      **/
-    boolean toValidatePayPassword(String payPassword,UserInfo userInfo);
+    boolean toValidatePayPassword();
 }
  

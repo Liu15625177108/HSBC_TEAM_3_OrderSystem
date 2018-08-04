@@ -1,6 +1,6 @@
-package hsbc_team_3.ordersystem;
+package hsbc.team03.ordersystem;
 
-import hsbc_team_3.ordersystem.product.OrderController;
+import hsbc.team03.ordersystem.product.OrderController;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 

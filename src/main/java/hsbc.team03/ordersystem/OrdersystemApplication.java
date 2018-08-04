@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem;
+package hsbc.team03.ordersystem;
 
 
 import org.springframework.boot.SpringApplication;
@@ -11,15 +11,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @SpringBootApplication
 public class OrdersystemApplication {
     //to deal utf-8
-    @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-        characterEncodingFilter.setForceEncoding(true);
-        characterEncodingFilter.setEncoding("UTF-8");
-        registrationBean.setFilter(characterEncodingFilter);
-        return registrationBean;
-    }
     public static void main(String[] args) {
         SpringApplication.run(OrdersystemApplication.class, args);
 

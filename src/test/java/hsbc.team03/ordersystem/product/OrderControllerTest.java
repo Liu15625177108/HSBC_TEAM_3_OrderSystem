@@ -1,8 +1,8 @@
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
 
-import hsbc_team_3.ordersystem.commonsutils.CommonsUtils;
-import hsbc_team_3.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
+import hsbc.team03.ordersystem.result.ResultView;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,33 +32,38 @@ public class OrderControllerTest {
     private UserService userService;
     @Test
     public void testToOrder() throws Exception {
-        UserInfo userInfo=new UserInfo();
-        userInfo.setPayPassword("123");
+        /**
+         * to simulate the toValidatePayPassword() 
+         */
+        UserInfo userInfo=new UserInfo(CommonsUtils.getUUID(),"Chen",
+                100000,"123");
         String paypassword="123";
-        given(this.userService.toValidatePayPassword(paypassword,userInfo)).willReturn(true);
-        
-        userInfo.setUserMoney(1000000.0);;
-        double money=100000.0;
-        given(this.userService.getMoney(userInfo)).willReturn(money);
-        
-        OrderInfo orderInfo=new OrderInfo();
-        orderInfo.setOrderId(CommonsUtils.getUUID());
-        orderInfo.setProductName("信用卡");
-        orderInfo.setProductNumber(2);
-        orderInfo.setUserAddress("岗顶");
-        orderInfo.setUserName("Chen");
-        orderInfo.setUserPhone("1111111111");
-        orderInfo.setProductPrice(300);
-        ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
-        given(this.orderService.toOrder(orderInfo)).willReturn(resultView);
+        given(this.userService.toValidatePayPassword()).willReturn(true);
 
+        /**
+         * to simulate the getMoney() 
+         */
+        double money=100000.0;
+        given(this.userService.getMoney()).willReturn(money);
+        
+        OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),"信用卡",2,
+                "岗顶","Chen","1111111111",300);
+        ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
+        given(this.orderService.toOrder()).willReturn(resultView);
+
+        /**
+         * to simulate the getOrderPrice() 
+         */
         orderInfo.setProductNumber(2);
         orderInfo.setProductPrice(300);
         double orderPice=orderInfo.getProductNumber()*orderInfo.getProductPrice();
-        given(this.orderService.getOrderPrice(orderInfo)).willReturn(orderPice);
+        given(this.orderService.getOrderPrice()).willReturn(orderPice);
         
-        this.mvc.perform(post("/order/toorder?userInfo=userInfo&orderInfo=orderInfo&payPassword=paypassword")
+
+        this.mvc.perform(post("/order/toorder")
+
                 .accept(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk());
     }
 }

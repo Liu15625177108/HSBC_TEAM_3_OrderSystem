@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 22:05     1.0               Configuring Interceptors
  */
-package hsbc_team_3.ordersystem.commonsutils;
+package hsbc.team03.ordersystem.commonsutils;
 
 
 
@@ -33,8 +33,8 @@ import java.util.List;
 public class AdapterConfig extends WebMvcConfigurationSupport{
     
     @Bean
-    LoginInterceptor loginInterceptor() {
-        return new LoginInterceptor();
+    hsbc.team03.ordersystem.commonsutils.LoginInterceptor loginInterceptor() {
+        return new hsbc.team03.ordersystem.commonsutils.LoginInterceptor();
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

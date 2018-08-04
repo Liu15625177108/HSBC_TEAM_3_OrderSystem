@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:37     1.0              the interface of orderservice
  */
-package hsbc_team_3.ordersystem.product;
+package hsbc.team03.ordersystem.product;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public interface OrderService {
     * @Param [orderInfo]
     * @return Object
     **/
-    Object toOrder(OrderInfo orderInfo);
+    Object toOrder();
  
     /**
      * @Author Chen
@@ -37,6 +37,6 @@ public interface OrderService {
      * @Param []
      * @return double
      **/
-    double getOrderPrice(OrderInfo orderInfo);
+    double getOrderPrice();
 }
  
