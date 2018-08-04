@@ -3,6 +3,7 @@ package hsbc.team03.ordersystem.product;
 
 import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
 import hsbc.team03.ordersystem.result.ResultView;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import static org.testng.Assert.*;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=OrderController.class)
 @WebMvcTest(OrderController.class)
+@Slf4j
 public class OrderControllerTest {
     @Autowired
     private MockMvc mvc;
@@ -47,7 +49,7 @@ public class OrderControllerTest {
         given(this.userService.getMoney()).willReturn(money);
         
         OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),"信用卡",2,
-                "岗顶","Chen","1111111111",300);
+                "Chen","1111111111","岗顶",300);
         ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
         given(this.orderService.toOrder()).willReturn(resultView);
 
@@ -60,10 +62,11 @@ public class OrderControllerTest {
         given(this.orderService.getOrderPrice()).willReturn(orderPice);
         
 
-        this.mvc.perform(post("/order/toorder")
-
-                .accept(MediaType.APPLICATION_JSON))
+        String result=this.mvc.perform(post("/order/toorder")
+                .param("userId","CommonsUtils.getUUID()").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.length()").value(3))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString(); //return response's value
+        log.info(result);
     }
 }

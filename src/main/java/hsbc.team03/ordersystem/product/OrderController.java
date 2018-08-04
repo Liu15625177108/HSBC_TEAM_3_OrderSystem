@@ -43,22 +43,30 @@ public class OrderController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(){
-        if(userService.getMoney()>orderService.getOrderPrice()){
-           if(userService.toValidatePayPassword()){
-               Object resultView=orderService.toOrder();
-               String reuslt=resultView.toString();
-               log.info(reuslt);
-               return resultView; 
-           }
-           String result="Sorry,your password is wrong,please reenter it";
-           log.info(result);
-           ResultView resultView=new ResultView<String>(401,"error",result);
-           return resultView;
+    Object toOrder(String userId){
+        if(userId!=null&&!userId.equals("")) {
+            //To compare userMoney and orderPrice
+            if (userService.getMoney() > orderService.getOrderPrice()) {
+                //to check userPayPassword
+                if (userService.toValidatePayPassword()) {
+                    Object resultView = orderService.toOrder();
+                    String reuslt = resultView.toString();
+                    log.info(reuslt);
+                    return resultView;
+                }
+                String result = "Sorry,your password is wrong,please reenter it";
+                log.info(result);
+                ResultView resultView = new ResultView<String>(401, "error", result);
+                return resultView;
+            }
+            String result = "Sorry,your money is not enough,please recharge";
+            log.info(result);
+            ResultView resultView = new ResultView<String>(401, "error", result);
+            return resultView;
         }
-        String result="Sorry,your money is not enough,please recharge";
+        String result = "Sorry,you haven't login,please login";
         log.info(result);
-        ResultView resultView=new ResultView<String>(401,"error",result);
+        ResultView resultView = new ResultView<String>(401, "error", result);
         return resultView;
     }
 }

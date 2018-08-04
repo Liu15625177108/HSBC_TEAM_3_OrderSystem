@@ -10,7 +10,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 @SpringBootApplication
 public class OrdersystemApplication {
-    //to deal utf-8
+
     public static void main(String[] args) {
         SpringApplication.run(OrdersystemApplication.class, args);
 

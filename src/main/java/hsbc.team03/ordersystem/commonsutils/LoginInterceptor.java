@@ -32,11 +32,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
-        // TODO Auto-generated method stub
+        //  Auto-generated method stub
         logger.info("------LginInterceptor------");
-        //获取session
+        // get session
         HttpSession session = request.getSession(true);
-        //判断用户ID是否存在，不存在就跳转到登录界面
+        //if userId is not exist
         if(session.getAttribute("userId") == null){
             logger.info("----对不起您还没登录,请先登录----");
             return false;
