@@ -1,4 +1,6 @@
 # HSBC_TEAM_3_OrderSystem
 
-Menber:
-Jeff Jerry Alan Chen Evan 
+<h1>Members</h1>
+<p> Jeff  Jerry Alan Chen Evan</p>
+
+
