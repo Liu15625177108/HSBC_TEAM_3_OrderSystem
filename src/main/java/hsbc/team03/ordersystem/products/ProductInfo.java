@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.products;
+package hsbc.team03.ordersystem.products;
 
 import lombok.Data;
 

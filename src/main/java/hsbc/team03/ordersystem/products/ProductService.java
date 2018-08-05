@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.products;
+package hsbc.team03.ordersystem.products;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface ProductService {
      * @Author Alan Ruan
      * @Date 2018/08/03 10:41:22
      * @Param []
-     * @Return java.util.List<hsbc_team_3.ordersystem.products.ProductInfoView>
+     * @Return java.util.List<ProductInfoView>
      */
     List<ProductInfoView> listAll();
 

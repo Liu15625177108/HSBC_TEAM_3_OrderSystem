@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.result;
+package hsbc.team03.ordersystem.result;
 
 /**
  * Project:ordersystem

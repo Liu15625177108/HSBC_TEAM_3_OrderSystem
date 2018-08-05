@@ -1,6 +1,6 @@
-package hsbc_team_3.ordersystem.products;
+package hsbc.team03.ordersystem.products;
 
-import hsbc_team_3.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.result.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
