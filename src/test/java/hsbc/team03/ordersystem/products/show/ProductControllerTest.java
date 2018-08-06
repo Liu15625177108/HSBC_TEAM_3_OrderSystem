@@ -70,7 +70,7 @@ public class ProductControllerTest {
         given(this.productService.listAll()).willReturn(list);
 
         this.mvc.perform(get("/user/product/list").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())//.andExpect(jsonPath("$.length()").value(3));
+                .andExpect(status().isOk())//.andExpect(jsonPath("$.length()").value(3))
         .andExpect(content().string(TEST));
     }
 }
