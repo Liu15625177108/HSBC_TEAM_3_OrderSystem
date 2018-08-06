@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.products;
+package hsbc.team03.ordersystem.products.show;
 
 import hsbc.team03.ordersystem.result.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;

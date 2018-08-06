@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.products;
+package hsbc.team03.ordersystem.products.show;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

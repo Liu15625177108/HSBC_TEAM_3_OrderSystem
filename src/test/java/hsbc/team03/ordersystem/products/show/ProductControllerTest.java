@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.products;
+package hsbc.team03.ordersystem.products.show;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -69,7 +70,7 @@ public class ProductControllerTest {
         given(this.productService.listAll()).willReturn(list);
 
         this.mvc.perform(get("/user/product/list").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());//.andExpect(jsonPath("$.length()").value(3));
-        //.andExpect(content().string(TEST));
+                .andExpect(status().isOk())//.andExpect(jsonPath("$.length()").value(3));
+        .andExpect(content().string(TEST));
     }
 }

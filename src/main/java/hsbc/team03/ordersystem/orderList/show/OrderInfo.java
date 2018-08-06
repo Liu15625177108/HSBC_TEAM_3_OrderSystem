@@ -1,6 +1,6 @@
-package hsbc.team03.ordersystem.orderList;
+package hsbc.team03.ordersystem.orderList.show;
 
-import hsbc.team03.ordersystem.products.ProductInfo;
+import hsbc.team03.ordersystem.products.show.ProductInfo;
 
 import java.util.List;
 
