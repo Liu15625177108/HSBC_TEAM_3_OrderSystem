@@ -30,6 +30,18 @@ public class ResultView<T> {
         this.status = status;
     }
 
+    public T getData() {
+        return data;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
     @Override
     public String toString(){
         return "status: " + this.status + "; msg: " + this.msg + "; data: " + this.data.toString();

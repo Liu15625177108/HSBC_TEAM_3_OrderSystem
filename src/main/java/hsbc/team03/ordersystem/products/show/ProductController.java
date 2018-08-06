@@ -25,6 +25,7 @@ public class ProductController {
 
         ResultView resultView = new ResultView();
         ProductView productView = new ProductView();
+
 //        ProductInfoView productInfoView = new ProductInfoView();
 //
 //        ArrayList<ProductInfoView> list = new ArrayList<>();

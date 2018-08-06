@@ -1,5 +1,7 @@
 package hsbc.team03.ordersystem.orderList.show;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
@@ -9,10 +11,11 @@ import java.util.List;
  * Date:2018-08-06 09:30
  * Description://TODO
  */
+@Service
 public class OrderServiceImpl implements OrderService{
 
     @Override
-    public List<OrderView> findAllOrder() {
+    public List<OrderInfo> findAllOrder() {
         return null;
     }
 }

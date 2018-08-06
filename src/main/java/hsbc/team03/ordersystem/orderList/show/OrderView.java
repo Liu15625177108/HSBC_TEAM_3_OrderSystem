@@ -1,6 +1,8 @@
 package hsbc.team03.ordersystem.orderList.show;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
 
 /**
  * Project:ordersystem
@@ -11,31 +13,14 @@ import java.util.Date;
  */
 public class OrderView {
 
-    //订单日期
-    private Date orderTime;
+    @JsonProperty("orderlist")
+    private List<OrderInfo> orderInfoList;
 
-    //订单地址
-    private String address;
-
-    //订单号
-    private String orderId;
-
-    //订单详细信息
-    private OrderInfo orderInfo;
-
-    public void setAddress(String address) {
-        this.address = address;
+    public List<OrderInfo> getOrderInfoList() {
+        return orderInfoList;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public void setOrderInfo(OrderInfo orderInfo) {
-        this.orderInfo = orderInfo;
-    }
-
-    public void setOrderTime(Date orderTime) {
-        this.orderTime = orderTime;
+    public void setOrderInfoList(List<OrderInfo> orderInfoList) {
+        this.orderInfoList = orderInfoList;
     }
 }
