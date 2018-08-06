@@ -12,6 +12,6 @@ import java.util.List;
 public interface OrderService {
 
     //列出所有订单
-    List<OrderView> findAllOrder();
+    List<OrderInfo> findAllOrder();
 
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService{
 
     @Override
-    public List<OrderView> findAllOrder() {
+    public List<OrderInfo> findAllOrder() {
         return null;
     }
 }
