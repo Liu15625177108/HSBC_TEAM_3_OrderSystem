@@ -1,380 +1,299 @@
-2018-08-06 14:13:21.019  INFO 12748 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 12748 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
-2018-08-06 14:13:21.022  INFO 12748 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 14:13:21.255  INFO 12748 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4135c3b: startup date [Mon Aug 06 14:13:21 CST 2018]; root of context hierarchy
-2018-08-06 14:13:25.265  INFO 12748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
-2018-08-06 14:13:25.322  INFO 12748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-08-06 14:13:25.323  INFO 12748 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
-2018-08-06 14:13:25.489  INFO 12748 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
-2018-08-06 14:13:25.913  INFO 12748 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-08-06 14:13:25.913  INFO 12748 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4658 ms
-2018-08-06 14:13:26.024  INFO 12748 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2018-08-06 14:13:26.036  INFO 12748 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-08-06 14:13:26.362  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/login],methods=[GET]}" onto public hsbc.team03.ordersystem.bankmanager.ReturnValue hsbc.team03.ordersystem.bankmanager.BankManageController.managerLogin(java.lang.String,java.lang.String)
-2018-08-06 14:13:26.370  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login/dologin],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.374  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/verify-code],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.verifyCode(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.375  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/username-check],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.usernameCheck(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.376  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/login-message],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.loginMessage(hsbc.team03.ordersystem.loginregister.UserInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.377  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/phone-number],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.sendVerifyMessage(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.379  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.OrderInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.381  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/product/list],methods=[GET]}" onto public hsbc.team03.ordersystem.result.ResultView hsbc.team03.ordersystem.products.show.ProductController.getList()
-2018-08-06 14:13:26.392  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 14:13:26.393  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 14:13:26.550  INFO 12748 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4135c3b: startup date [Mon Aug 06 14:13:21 CST 2018]; root of context hierarchy
-2018-08-06 14:13:27.324  INFO 12748 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2018-08-06 14:13:27.504  INFO 12748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
-2018-08-06 14:13:27.528  INFO 12748 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 8.452 seconds (JVM running for 14.124)
-2018-08-06 14:13:56.474  INFO 13060 --- [main] h.t.o.product.OrderControllerTest        : Starting OrderControllerTest on ca-PC with PID 13060 (started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
-2018-08-06 14:13:56.476  INFO 13060 --- [main] h.t.o.product.OrderControllerTest        : The following profiles are active: prod
-2018-08-06 14:13:56.517  INFO 13060 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7283d3eb: startup date [Mon Aug 06 14:13:56 CST 2018]; root of context hierarchy
-2018-08-06 14:14:01.612  INFO 13060 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 14:14:02.182  INFO 13060 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@7283d3eb: startup date [Mon Aug 06 14:13:56 CST 2018]; root of context hierarchy
-2018-08-06 14:14:02.399  INFO 13060 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.OrderInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 14:14:02.403  INFO 13060 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 14:14:02.404  INFO 13060 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 14:14:02.508  INFO 13060 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 14:14:02.509  INFO 13060 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 14:14:02.951  INFO 13060 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 14:14:02.952  INFO 13060 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 14:14:02.975  INFO 13060 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 22 ms
-2018-08-06 14:14:03.134  INFO 13060 --- [main] h.t.o.product.OrderControllerTest        : Started OrderControllerTest in 10.71 seconds (JVM running for 14.482)
-2018-08-06 14:14:06.271  INFO 13060 --- [main] h.t.ordersystem.product.OrderController  : ResultView(status=200, msg=success, data=OrderInfo(orderId=deabaab1-b098-400a-92e1-bc7829746b79, productName=信用卡, productNumber=2, userName=Chen, userPhone=1111111111, userAddress=岗顶, productPrice=300.0))
-2018-08-06 14:14:06.698  INFO 13060 --- [main] h.t.o.product.OrderControllerTest        : {"status":200,"msg":"success","data":{"orderid":"deabaab1-b098-400a-92e1-bc7829746b79","productname":"信用卡","productnumber":2,"username":"Chen","userphone":"1111111111","useraddress":"岗顶","productprice":300.0}}
-2018-08-06 14:14:06.707  INFO 13060 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7283d3eb: startup date [Mon Aug 06 14:13:56 CST 2018]; root of context hierarchy
-<<<<<<< HEAD
-2018-08-06 16:27:03.343  INFO 11288 --- [main] h.t.o.product.OrderControllerTest        : Starting OrderControllerTest on PaulGeorge with PID 11288 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:27:03.345  INFO 11288 --- [main] h.t.o.product.OrderControllerTest        : The following profiles are active: prod
-2018-08-06 16:27:03.391  INFO 11288 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4bff7da0: startup date [Mon Aug 06 16:27:03 CST 2018]; root of context hierarchy
-2018-08-06 16:27:06.144  INFO 11288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:27:06.560  INFO 11288 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4bff7da0: startup date [Mon Aug 06 16:27:03 CST 2018]; root of context hierarchy
-2018-08-06 16:27:06.717  INFO 11288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.OrderInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:27:06.724  INFO 11288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:27:06.725  INFO 11288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:27:06.794  INFO 11288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:27:06.794  INFO 11288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:27:07.141  INFO 11288 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:27:07.141  INFO 11288 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:27:07.178  INFO 11288 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 36 ms
-2018-08-06 16:27:07.251  INFO 11288 --- [main] h.t.o.product.OrderControllerTest        : Started OrderControllerTest in 5.51 seconds (JVM running for 8.109)
-2018-08-06 16:27:07.864  INFO 11288 --- [main] h.t.ordersystem.product.OrderController  : ResultView(status=200, msg=success, data=OrderInfo(orderId=1837abf3-bbc1-43d6-92ea-44ca113c6a87, productName=信用卡, productNumber=2, userName=Chen, userPhone=1111111111, userAddress=岗顶, productPrice=300.0))
-2018-08-06 16:27:08.212  INFO 11288 --- [main] h.t.o.product.OrderControllerTest        : {"status":200,"msg":"success","data":{"orderid":"1837abf3-bbc1-43d6-92ea-44ca113c6a87","productname":"信用卡","productnumber":2,"username":"Chen","userphone":"1111111111","useraddress":"岗顶","productprice":300.0}}
-2018-08-06 16:27:08.223  INFO 11288 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4bff7da0: startup date [Mon Aug 06 16:27:03 CST 2018]; root of context hierarchy
-2018-08-06 16:28:49.773  INFO 12284 --- [main] h.t.o.b.BankManageControllerTest         : Starting BankManageControllerTest on PaulGeorge with PID 12284 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:28:49.775  INFO 12284 --- [main] h.t.o.b.BankManageControllerTest         : The following profiles are active: prod
-2018-08-06 16:28:49.906  INFO 12284 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@35a3d49f: startup date [Mon Aug 06 16:28:49 CST 2018]; root of context hierarchy
-2018-08-06 16:28:52.967  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/login],methods=[GET]}" onto public hsbc.team03.ordersystem.bankmanager.ReturnValue hsbc.team03.ordersystem.bankmanager.BankManageController.managerLogin(java.lang.String,java.lang.String)
-2018-08-06 16:28:52.972  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login/dologin],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.977  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/username-check],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.usernameCheck(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.978  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/login-message],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.loginMessage(hsbc.team03.ordersystem.loginregister.UserInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.979  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/verify-code],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.verifyCode(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.981  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/phone-number],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.sendVerifyMessage(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.983  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.OrderInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.984  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/product/list],methods=[GET]}" onto public hsbc.team03.ordersystem.result.ResultView hsbc.team03.ordersystem.products.show.ProductController.getList()
-2018-08-06 16:28:52.992  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:28:52.993  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:28:53.130  INFO 12284 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@35a3d49f: startup date [Mon Aug 06 16:28:49 CST 2018]; root of context hierarchy
-2018-08-06 16:28:54.541  INFO 12284 --- [main] h.t.o.b.BankManageControllerTest         : Started BankManageControllerTest in 6.044 seconds (JVM running for 8.841)
-2018-08-06 16:28:54.602  INFO 12284 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:28:54.604  INFO 12284 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:28:54.628  INFO 12284 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 24 ms
-2018-08-06 16:28:54.980  INFO 12284 --- [main] h.t.o.b.BankManageControllerTest         : {"code":"200","msg":"success","bankManager":{"workerNum":"1233231","workerName":"Jerry","workerDepartment":"dev"}}
-2018-08-06 16:28:54.984  INFO 12284 --- [main] h.t.o.b.BankManageControllerTest         : {"code":"500","msg":"failure","bankManager":null}
-2018-08-06 16:28:54.994  INFO 12284 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@35a3d49f: startup date [Mon Aug 06 16:28:49 CST 2018]; root of context hierarchy
-2018-08-06 16:29:01.937  INFO 10196 --- [main] h.t.o.loginregister.LoginControllerTest  : Starting LoginControllerTest on PaulGeorge with PID 10196 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:29:01.938  INFO 10196 --- [main] h.t.o.loginregister.LoginControllerTest  : The following profiles are active: prod
-2018-08-06 16:29:02.052  INFO 10196 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@51c693d: startup date [Mon Aug 06 16:29:02 CST 2018]; root of context hierarchy
-2018-08-06 16:29:04.741  INFO 10196 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:05.135  INFO 10196 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@51c693d: startup date [Mon Aug 06 16:29:02 CST 2018]; root of context hierarchy
-2018-08-06 16:29:05.290  INFO 10196 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login/dologin],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:05.323  INFO 10196 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:05.328  INFO 10196 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:29:05.410  INFO 10196 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:05.411  INFO 10196 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:05.721  INFO 10196 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:29:05.721  INFO 10196 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:29:05.760  INFO 10196 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 37 ms
-2018-08-06 16:29:05.850  INFO 10196 --- [main] h.t.o.loginregister.LoginControllerTest  : Started LoginControllerTest in 4.897 seconds (JVM running for 7.139)
-2018-08-06 16:29:06.391  INFO 10196 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@51c693d: startup date [Mon Aug 06 16:29:02 CST 2018]; root of context hierarchy
-2018-08-06 16:29:18.862  INFO 5236 --- [main] h.t.o.l.RegisterControllerTest           : Starting RegisterControllerTest on PaulGeorge with PID 5236 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:29:18.864  INFO 5236 --- [main] h.t.o.l.RegisterControllerTest           : The following profiles are active: prod
-2018-08-06 16:29:18.970  INFO 5236 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@a82c5f1: startup date [Mon Aug 06 16:29:18 CST 2018]; root of context hierarchy
-2018-08-06 16:29:21.922  INFO 5236 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:22.377  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@a82c5f1: startup date [Mon Aug 06 16:29:18 CST 2018]; root of context hierarchy
-2018-08-06 16:29:22.508  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/phone-number],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.sendVerifyMessage(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:22.510  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/verify-code],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.verifyCode(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:22.511  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/login-message],methods=[POST]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.loginMessage(hsbc.team03.ordersystem.loginregister.UserInfo,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:22.513  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register/username-check],methods=[GET]}" onto public hsbc.team03.ordersystem.loginregister.ResultView hsbc.team03.ordersystem.loginregister.RegisterController.usernameCheck(java.lang.String,javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:22.516  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:29:22.517  INFO 5236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:29:22.573  INFO 5236 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:22.574  INFO 5236 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:29:22.838  INFO 5236 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:29:22.838  INFO 5236 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:29:22.874  INFO 5236 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 35 ms
-2018-08-06 16:29:23.068  INFO 5236 --- [main] h.t.o.l.RegisterControllerTest           : Started RegisterControllerTest in 5.891 seconds (JVM running for 8.837)
-2018-08-06 16:29:23.101  INFO 5236 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@a82c5f1: startup date [Mon Aug 06 16:29:18 CST 2018]; root of context hierarchy
-2018-08-06 16:50:13.358  INFO 11452 --- [main] h.t.o.p.show.ProductControllerTest       : Starting ProductControllerTest on PaulGeorge with PID 11452 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:50:13.361  INFO 11452 --- [main] h.t.o.p.show.ProductControllerTest       : The following profiles are active: prod
-2018-08-06 16:50:13.430  INFO 11452 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1c852c0f: startup date [Mon Aug 06 16:50:13 CST 2018]; root of context hierarchy
-2018-08-06 16:50:16.377  INFO 11452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:50:16.786  INFO 11452 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@1c852c0f: startup date [Mon Aug 06 16:50:13 CST 2018]; root of context hierarchy
-2018-08-06 16:50:16.937  INFO 11452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/product/list],methods=[GET]}" onto public hsbc.team03.ordersystem.result.ResultView hsbc.team03.ordersystem.products.show.ProductController.getList()
-2018-08-06 16:50:16.942  INFO 11452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:50:16.943  INFO 11452 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:50:17.015  INFO 11452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:50:17.016  INFO 11452 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:50:17.336  INFO 11452 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:50:17.336  INFO 11452 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:50:17.378  INFO 11452 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 39 ms
-2018-08-06 16:50:17.449  INFO 11452 --- [main] h.t.o.p.show.ProductControllerTest       : Started ProductControllerTest in 5.438 seconds (JVM running for 8.373)
-2018-08-06 16:50:17.946  INFO 11452 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@1c852c0f: startup date [Mon Aug 06 16:50:13 CST 2018]; root of context hierarchy
-2018-08-06 16:51:09.667  INFO 8120 --- [main] h.t.o.p.show.ProductControllerTest       : Starting ProductControllerTest on PaulGeorge with PID 8120 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
-2018-08-06 16:51:09.673  INFO 8120 --- [main] h.t.o.p.show.ProductControllerTest       : The following profiles are active: prod
-2018-08-06 16:51:09.750  INFO 8120 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@48c76607: startup date [Mon Aug 06 16:51:09 CST 2018]; root of context hierarchy
-2018-08-06 16:51:12.622  INFO 8120 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:51:13.024  INFO 8120 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@48c76607: startup date [Mon Aug 06 16:51:09 CST 2018]; root of context hierarchy
-2018-08-06 16:51:13.171  INFO 8120 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/product/list],methods=[GET]}" onto public hsbc.team03.ordersystem.result.ResultView hsbc.team03.ordersystem.products.show.ProductController.getList()
-2018-08-06 16:51:13.178  INFO 8120 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 16:51:13.180  INFO 8120 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 16:51:13.240  INFO 8120 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:51:13.240  INFO 8120 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 16:51:13.495  INFO 8120 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
-2018-08-06 16:51:13.495  INFO 8120 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-08-06 16:51:13.524  INFO 8120 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 27 ms
-2018-08-06 16:51:13.597  INFO 8120 --- [main] h.t.o.p.show.ProductControllerTest       : Started ProductControllerTest in 5.471 seconds (JVM running for 8.544)
-2018-08-06 16:51:14.048  INFO 8120 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@48c76607: startup date [Mon Aug 06 16:51:09 CST 2018]; root of context hierarchy
-=======
-2018-08-06 17:33:33.617  INFO 8656 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 8656 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:33:33.647  INFO 8656 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:33:34.266  INFO 8656 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4645e6ac: startup date [Mon Aug 06 17:33:34 CST 2018]; root of context hierarchy
-2018-08-06 17:33:35.224  WARN 8656 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-2018-08-06 17:33:35.418 ERROR 8656 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	... 18 common frames omitted
-
-2018-08-06 17:34:31.002  INFO 3016 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 3016 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:34:31.004  INFO 3016 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:34:31.086  INFO 3016 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c68147f: startup date [Mon Aug 06 17:34:31 CST 2018]; root of context hierarchy
-2018-08-06 17:34:31.478  WARN 3016 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-2018-08-06 17:34:31.507 ERROR 3016 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	... 18 common frames omitted
-
-2018-08-06 17:35:13.682  INFO 7432 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 7432 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:35:13.712  INFO 7432 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:35:13.778  INFO 7432 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@431bf9ad: startup date [Mon Aug 06 17:35:13 CST 2018]; root of context hierarchy
-2018-08-06 17:35:14.123  WARN 7432 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-2018-08-06 17:35:14.189 ERROR 7432 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	... 18 common frames omitted
-
-2018-08-06 17:36:23.273  INFO 9696 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9696 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:36:23.274  INFO 9696 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:36:23.333  INFO 9696 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5edecf60: startup date [Mon Aug 06 17:36:23 CST 2018]; root of context hierarchy
-2018-08-06 17:36:23.591  WARN 9696 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-2018-08-06 17:36:23.644 ERROR 9696 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
-Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
-	... 18 common frames omitted
-
-2018-08-06 17:40:53.699  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9920 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:40:53.700  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:40:53.770  INFO 9920 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@358cb9: startup date [Mon Aug 06 17:40:53 CST 2018]; root of context hierarchy
-2018-08-06 17:40:55.522  INFO 9920 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1b676e1d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-08-06 17:40:56.115  INFO 9920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
-2018-08-06 17:40:56.147  INFO 9920 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-08-06 17:40:56.148  INFO 9920 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
-2018-08-06 17:40:56.154  INFO 9920 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;F:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_102\bin\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\System32;C:\Program Files\nodejs;F:\SVNRepository\bin;C:\Subversion\bin;F:\Skype\Phone\;F:\Git\bin;E:\apache-maven-3.3.9\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Git\bin;.]
-2018-08-06 17:40:56.300  INFO 9920 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-08-06 17:40:56.300  INFO 9920 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2530 ms
-2018-08-06 17:40:56.383  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2018-08-06 17:40:56.388  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-08-06 17:40:56.389  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2018-08-06 17:40:56.389  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2018-08-06 17:40:56.390  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2018-08-06 17:40:56.598  INFO 9920 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-08-06 17:40:56.610  INFO 9920 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-08-07 00:04:19.166  INFO 7564 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on PaulGeorge with PID 7564 (C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem\target\classes started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
+2018-08-07 00:04:19.177  INFO 7564 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-07 00:04:19.706  INFO 7564 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5573c699: startup date [Tue Aug 07 00:04:19 CST 2018]; root of context hierarchy
+2018-08-07 00:04:22.522  INFO 7564 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55ee5275] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-08-07 00:04:23.134  INFO 7564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2018-08-07 00:04:23.161  INFO 7564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-07 00:04:23.161  INFO 7564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-07 00:04:23.166  INFO 7564 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\java jdk8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\Python3.6.5\Scripts\;D:\Python3.6.5\;C:\ProgramData\Oracle\Java\javapath;D:\JDK\bin;C:\Program Files (x86)\Lenovo\FusionEngine;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;D:\matlab\runtime\win64;D:\matlab\bin;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;D:\xampp\php;D:\php-7.1.10;D:\wamp64\bin\php\php7.1.9;D:\wamp64\bin\php\php7.0.23;D:\wamp64\bin\php\php5.6.31;D:\wamp64\www\yii\framework;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;D:\node.js\;%CATALINA_HOME%\bin\;D:\Tomcat 8.5\bin\;C:\JAVA\bin;D:\java jdk8\bin;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\Git 2.13.0\Git\cmd;D:\MySQL Server 5.5\bin;D:\maven\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;C:\JAVA\bin;D:\Users\lenovo\Anaconda2;D:\Users\lenovo\Anaconda2\Scripts;D:\Users\lenovo\Anaconda2\Library\bin;C:\ProgramData\Oracle\Java\javapath;D:\JDK\bin;C:\Program Files (x86)\Lenovo\FusionEngine;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;D:\matlab\runtime\win64;D:\matlab\bin;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files;.]
+2018-08-07 00:04:23.335  INFO 7564 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-07 00:04:23.336  INFO 7564 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3630 ms
+2018-08-07 00:04:23.443  INFO 7564 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-07 00:04:23.448  INFO 7564 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-07 00:04:23.449  INFO 7564 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-07 00:04:23.450  INFO 7564 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-07 00:04:23.450  INFO 7564 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-07 00:04:23.756  INFO 7564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-08-07 00:04:23.776  INFO 7564 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-08-06 17:40:56.809  INFO 9920 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-08-06 17:40:56.811  INFO 9920 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-08-06 17:40:56.858  INFO 9920 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-08-06 17:40:57.003  INFO 9920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-08-06 17:40:57.200  INFO 9920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-08-06 17:40:57.214  INFO 9920 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-08-06 17:40:57.900  INFO 9920 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-08-06 17:40:58.451  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:40:58.955  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@358cb9: startup date [Mon Aug 06 17:40:53 CST 2018]; root of context hierarchy
-2018-08-06 17:40:59.077  WARN 9920 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-08-06 17:40:59.220  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView hsbc.team03.ordersystem.displayproduct.controller.ManagerController.managerPage()
-2018-08-06 17:40:59.223  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/productlist],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ManagerController.getAllProduct()
-2018-08-06 17:40:59.224  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/modify/products],methods=[POST]}" onto public boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.modifyProduct()
-2018-08-06 17:40:59.225  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/add/products],methods=[GET]}" onto public java.lang.Boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.addProduct()
-2018-08-06 17:40:59.226  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/delete/products],methods=[DELETE]}" onto public int hsbc.team03.ordersystem.displayproduct.controller.ManagerController.deleteProductByProductCode()
-2018-08-06 17:40:59.228  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get/products],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ProductController.getProduct()
-2018-08-06 17:40:59.248  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 17:40:59.251  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 17:40:59.365  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:40:59.366  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:41:00.359  WARN 9920 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2018-08-06 17:41:00.447  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2018-08-06 17:41:00.451  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
-2018-08-06 17:41:00.466  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
-2018-08-06 17:41:00.610  INFO 9920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
-2018-08-06 17:41:00.620  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 7.91 seconds (JVM running for 9.809)
-2018-08-06 17:41:11.794  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9348 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
-2018-08-06 17:41:11.795  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
-2018-08-06 17:41:11.849  INFO 9348 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7c880dca: startup date [Mon Aug 06 17:41:11 CST 2018]; root of context hierarchy
-2018-08-06 17:41:13.430  INFO 9348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a9b57ce5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-08-06 17:41:13.997  INFO 9348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
-2018-08-06 17:41:14.020  INFO 9348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-08-06 17:41:14.020  INFO 9348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
-2018-08-06 17:41:14.028  INFO 9348 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;F:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_102\bin\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\System32;C:\Program Files\nodejs;F:\SVNRepository\bin;C:\Subversion\bin;F:\Skype\Phone\;F:\Git\bin;E:\apache-maven-3.3.9\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Git\bin;.]
-2018-08-06 17:41:14.149  INFO 9348 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-08-06 17:41:14.149  INFO 9348 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2300 ms
-2018-08-06 17:41:14.228  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2018-08-06 17:41:14.234  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-08-06 17:41:14.234  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2018-08-06 17:41:14.235  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2018-08-06 17:41:14.235  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2018-08-06 17:41:14.443  INFO 9348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-08-06 17:41:14.456  INFO 9348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2018-08-06 17:41:14.672  INFO 9348 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
-2018-08-06 17:41:14.674  INFO 9348 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-08-06 17:41:14.723  INFO 9348 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-2018-08-06 17:41:14.866  INFO 9348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-08-06 17:41:15.058  INFO 9348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-08-06 17:41:15.071  INFO 9348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2018-08-06 17:41:15.714  INFO 9348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-08-06 17:41:16.278  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:41:16.560  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7c880dca: startup date [Mon Aug 06 17:41:11 CST 2018]; root of context hierarchy
-2018-08-06 17:41:16.596  WARN 9348 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-08-06 17:41:16.635  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView hsbc.team03.ordersystem.displayproduct.controller.ManagerController.managerPage()
-2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/productlist],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ManagerController.getAllProduct()
-2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/modify/products],methods=[POST]}" onto public boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.modifyProduct()
-2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/add/products],methods=[GET]}" onto public java.lang.Boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.addProduct()
-2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/delete/products],methods=[DELETE]}" onto public int hsbc.team03.ordersystem.displayproduct.controller.ManagerController.deleteProductByProductCode()
-2018-08-06 17:41:16.638  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get/products],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ProductController.getProduct()
-2018-08-06 17:41:16.646  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-08-06 17:41:16.646  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-08-06 17:41:16.687  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:41:16.687  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-08-06 17:41:17.068  WARN 9348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2018-08-06 17:41:17.102  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2018-08-06 17:41:17.103  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
-2018-08-06 17:41:17.110  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
-2018-08-06 17:41:17.157  INFO 9348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
-2018-08-06 17:41:17.161  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 6.085 seconds (JVM running for 7.994)
->>>>>>> 7b7525c1378d5498e8c4d4a6652fc79ae2a01ee0
+2018-08-07 00:04:23.960  INFO 7564 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-08-07 00:04:23.963  INFO 7564 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-08-07 00:04:24.023  INFO 7564 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-07 00:04:24.226  INFO 7564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-07 00:04:25.375 ERROR 7564 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'ordersystem'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:925) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1704) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1250) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:834) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.24.jar:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-2.7.9.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:259) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:233) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:242) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:861) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:888) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+
+2018-08-07 00:04:25.378  WARN 7564 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : Unknown database 'ordersystem'
+2018-08-07 00:04:25.389  INFO 7564 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-08-07 00:04:25.409  INFO 7564 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000422: Disabling contextual LOB creation as connection was null
+2018-08-07 00:04:25.927  INFO 7564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-07 00:04:26.932 ERROR 7564 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'ordersystem'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:925) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1704) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1250) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:834) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.24.jar:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-2.7.9.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:329) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:312) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:892) [hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+
+2018-08-07 00:04:26.938  WARN 7564 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1049, SQLState: 42000
+2018-08-07 00:04:26.939 ERROR 7564 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unknown database 'ordersystem'
+2018-08-07 00:04:26.942  WARN 7564 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+2018-08-07 00:04:26.945  INFO 7564 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-08-07 00:04:26.964  INFO 7564 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-08-07 00:04:26.974 ERROR 7564 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1089) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:859) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:402) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 21 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:69) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:329) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:312) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:892) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 25 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'ordersystem'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:925) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1704) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1250) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2483) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:834) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47) ~[mysql-connector-java-5.1.24.jar:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_121]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_121]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317) ~[mysql-connector-java-5.1.24.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:534) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-2.7.9.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-2.7.9.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.2.17.Final.jar:5.2.17.Final]
+	... 40 common frames omitted
+
+2018-08-07 00:06:17.511  INFO 7860 --- [main] h.t.o.p.show.ProductControllerTest       : Starting ProductControllerTest on PaulGeorge with PID 7860 (started by lenovo in C:\Users\lenovo\Desktop\HSBC_TEAM_3_OrderSystem\HSBC_TEAM_3_OrderSystem)
+2018-08-07 00:06:17.514  INFO 7860 --- [main] h.t.o.p.show.ProductControllerTest       : The following profiles are active: prod
+2018-08-07 00:06:17.626  INFO 7860 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6aa61224: startup date [Tue Aug 07 00:06:17 CST 2018]; root of context hierarchy
+2018-08-07 00:06:20.328  INFO 7860 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-07 00:06:20.751  INFO 7860 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6aa61224: startup date [Tue Aug 07 00:06:17 CST 2018]; root of context hierarchy
+2018-08-07 00:06:20.897  INFO 7860 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-07 00:06:20.900  INFO 7860 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-07 00:06:20.964  INFO 7860 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-07 00:06:20.966  INFO 7860 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-07 00:06:21.248  INFO 7860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2018-08-07 00:06:21.250  INFO 7860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2018-08-07 00:06:21.288  INFO 7860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 37 ms
+2018-08-07 00:06:21.496  INFO 7860 --- [main] h.t.o.p.show.ProductControllerTest       : Started ProductControllerTest in 5.764 seconds (JVM running for 9.255)
+2018-08-07 00:06:21.750  INFO 7860 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6aa61224: startup date [Tue Aug 07 00:06:17 CST 2018]; root of context hierarchy
