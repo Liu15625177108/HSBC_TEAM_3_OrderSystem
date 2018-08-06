@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem;
+package hsbc.team03.ordersystem;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
