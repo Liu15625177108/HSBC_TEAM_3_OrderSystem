@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.controller;
+package hsbc.team03.ordersystem.displayproduct.controller;
 
 import hsbc.team03.ordersystem.common.SortUtils;
 import hsbc.team03.ordersystem.displayproduct.model.Product;

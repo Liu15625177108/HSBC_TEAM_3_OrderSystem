@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.repository;
+package hsbc.team03.ordersystem.displayproduct.repository;
 import hsbc.team03.ordersystem.displayproduct.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

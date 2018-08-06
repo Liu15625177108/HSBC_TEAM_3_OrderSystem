@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.serviceimpl;
+package hsbc.team03.ordersystem.displayproduct.serviceimpl;
 
 import hsbc.team03.ordersystem.common.DataUtils;
 import hsbc.team03.ordersystem.common.UUIDUtils;

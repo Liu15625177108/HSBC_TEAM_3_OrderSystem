@@ -1,7 +1,7 @@
-package hsbc_team_3.ordersystem.displayproduct.controller;
+package hsbc.team03.ordersystem.displayproduct.controller;
 
-import hsbc.team03.ordersystem.displayproduct.model.Product;
 import hsbc.team03.ordersystem.displayproduct.serviceimpl.ManagerServiceImpl;
+import hsbc.team03.ordersystem.displayproduct.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

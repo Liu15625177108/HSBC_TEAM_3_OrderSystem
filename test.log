@@ -40,3 +40,237 @@
 2018-08-06 14:14:06.271  INFO 13060 --- [main] h.t.ordersystem.product.OrderController  : ResultView(status=200, msg=success, data=OrderInfo(orderId=deabaab1-b098-400a-92e1-bc7829746b79, productName=信用卡, productNumber=2, userName=Chen, userPhone=1111111111, userAddress=岗顶, productPrice=300.0))
 2018-08-06 14:14:06.698  INFO 13060 --- [main] h.t.o.product.OrderControllerTest        : {"status":200,"msg":"success","data":{"orderid":"deabaab1-b098-400a-92e1-bc7829746b79","productname":"信用卡","productnumber":2,"username":"Chen","userphone":"1111111111","useraddress":"岗顶","productprice":300.0}}
 2018-08-06 14:14:06.707  INFO 13060 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7283d3eb: startup date [Mon Aug 06 14:13:56 CST 2018]; root of context hierarchy
+2018-08-06 17:33:33.617  INFO 8656 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 8656 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:33:33.647  INFO 8656 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:33:34.266  INFO 8656 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4645e6ac: startup date [Mon Aug 06 17:33:34 CST 2018]; root of context hierarchy
+2018-08-06 17:33:35.224  WARN 8656 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+2018-08-06 17:33:35.418 ERROR 8656 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 18 common frames omitted
+
+2018-08-06 17:34:31.002  INFO 3016 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 3016 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:34:31.004  INFO 3016 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:34:31.086  INFO 3016 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c68147f: startup date [Mon Aug 06 17:34:31 CST 2018]; root of context hierarchy
+2018-08-06 17:34:31.478  WARN 3016 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+2018-08-06 17:34:31.507 ERROR 3016 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 18 common frames omitted
+
+2018-08-06 17:35:13.682  INFO 7432 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 7432 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:35:13.712  INFO 7432 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:35:13.778  INFO 7432 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@431bf9ad: startup date [Mon Aug 06 17:35:13 CST 2018]; root of context hierarchy
+2018-08-06 17:35:14.123  WARN 7432 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+2018-08-06 17:35:14.189 ERROR 7432 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 18 common frames omitted
+
+2018-08-06 17:36:23.273  INFO 9696 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9696 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:36:23.274  INFO 9696 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:36:23.333  INFO 9696 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5edecf60: startup date [Mon Aug 06 17:36:23 CST 2018]; root of context hierarchy
+2018-08-06 17:36:23.591  WARN 9696 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+2018-08-06 17:36:23.644 ERROR 9696 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [hsbc.team03.ordersystem.OrdersystemApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at hsbc.team03.ordersystem.OrdersystemApplication.main(OrdersystemApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_102]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_102]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_102]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_102]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'productController' for bean class [hsbc.team03.ordersystem.products.show.ProductController] conflicts with existing, non-compatible bean definition of same name and class [hsbc.team03.ordersystem.displayproduct.controller.ProductController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:288) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 18 common frames omitted
+
+2018-08-06 17:40:53.699  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9920 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:40:53.700  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:40:53.770  INFO 9920 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@358cb9: startup date [Mon Aug 06 17:40:53 CST 2018]; root of context hierarchy
+2018-08-06 17:40:55.522  INFO 9920 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1b676e1d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-08-06 17:40:56.115  INFO 9920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2018-08-06 17:40:56.147  INFO 9920 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-06 17:40:56.148  INFO 9920 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-06 17:40:56.154  INFO 9920 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;F:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_102\bin\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\System32;C:\Program Files\nodejs;F:\SVNRepository\bin;C:\Subversion\bin;F:\Skype\Phone\;F:\Git\bin;E:\apache-maven-3.3.9\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Git\bin;.]
+2018-08-06 17:40:56.300  INFO 9920 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-06 17:40:56.300  INFO 9920 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2530 ms
+2018-08-06 17:40:56.383  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-06 17:40:56.388  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-06 17:40:56.389  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-06 17:40:56.389  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-06 17:40:56.390  INFO 9920 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-06 17:40:56.598  INFO 9920 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-08-06 17:40:56.610  INFO 9920 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-06 17:40:56.809  INFO 9920 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-08-06 17:40:56.811  INFO 9920 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-08-06 17:40:56.858  INFO 9920 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-06 17:40:57.003  INFO 9920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-06 17:40:57.200  INFO 9920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-08-06 17:40:57.214  INFO 9920 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-08-06 17:40:57.900  INFO 9920 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-08-06 17:40:58.451  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:40:58.955  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@358cb9: startup date [Mon Aug 06 17:40:53 CST 2018]; root of context hierarchy
+2018-08-06 17:40:59.077  WARN 9920 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-08-06 17:40:59.220  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView hsbc.team03.ordersystem.displayproduct.controller.ManagerController.managerPage()
+2018-08-06 17:40:59.223  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/productlist],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ManagerController.getAllProduct()
+2018-08-06 17:40:59.224  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/modify/products],methods=[POST]}" onto public boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.modifyProduct()
+2018-08-06 17:40:59.225  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/add/products],methods=[GET]}" onto public java.lang.Boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.addProduct()
+2018-08-06 17:40:59.226  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/delete/products],methods=[DELETE]}" onto public int hsbc.team03.ordersystem.displayproduct.controller.ManagerController.deleteProductByProductCode()
+2018-08-06 17:40:59.228  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get/products],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ProductController.getProduct()
+2018-08-06 17:40:59.248  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-06 17:40:59.251  INFO 9920 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-06 17:40:59.365  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:40:59.366  INFO 9920 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:41:00.359  WARN 9920 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2018-08-06 17:41:00.447  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-06 17:41:00.451  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-08-06 17:41:00.466  INFO 9920 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-08-06 17:41:00.610  INFO 9920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
+2018-08-06 17:41:00.620  INFO 9920 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 7.91 seconds (JVM running for 9.809)
+2018-08-06 17:41:11.794  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 9348 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-06 17:41:11.795  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-06 17:41:11.849  INFO 9348 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7c880dca: startup date [Mon Aug 06 17:41:11 CST 2018]; root of context hierarchy
+2018-08-06 17:41:13.430  INFO 9348 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a9b57ce5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-08-06 17:41:13.997  INFO 9348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2018-08-06 17:41:14.020  INFO 9348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-06 17:41:14.020  INFO 9348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-06 17:41:14.028  INFO 9348 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;F:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_102\bin\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\System32;C:\Program Files\nodejs;F:\SVNRepository\bin;C:\Subversion\bin;F:\Skype\Phone\;F:\Git\bin;E:\apache-maven-3.3.9\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Git\bin;.]
+2018-08-06 17:41:14.149  INFO 9348 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-06 17:41:14.149  INFO 9348 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2300 ms
+2018-08-06 17:41:14.228  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-06 17:41:14.234  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-06 17:41:14.234  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-06 17:41:14.235  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-06 17:41:14.235  INFO 9348 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-06 17:41:14.443  INFO 9348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-08-06 17:41:14.456  INFO 9348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-06 17:41:14.672  INFO 9348 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-08-06 17:41:14.674  INFO 9348 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-08-06 17:41:14.723  INFO 9348 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-06 17:41:14.866  INFO 9348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-06 17:41:15.058  INFO 9348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-08-06 17:41:15.071  INFO 9348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-08-06 17:41:15.714  INFO 9348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-08-06 17:41:16.278  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:41:16.560  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7c880dca: startup date [Mon Aug 06 17:41:11 CST 2018]; root of context hierarchy
+2018-08-06 17:41:16.596  WARN 9348 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-08-06 17:41:16.635  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView hsbc.team03.ordersystem.displayproduct.controller.ManagerController.managerPage()
+2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/productlist],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ManagerController.getAllProduct()
+2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/modify/products],methods=[POST]}" onto public boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.modifyProduct()
+2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/add/products],methods=[GET]}" onto public java.lang.Boolean hsbc.team03.ordersystem.displayproduct.controller.ManagerController.addProduct()
+2018-08-06 17:41:16.637  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/delete/products],methods=[DELETE]}" onto public int hsbc.team03.ordersystem.displayproduct.controller.ManagerController.deleteProductByProductCode()
+2018-08-06 17:41:16.638  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get/products],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.model.Product> hsbc.team03.ordersystem.displayproduct.controller.ProductController.getProduct()
+2018-08-06 17:41:16.646  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-06 17:41:16.646  INFO 9348 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-06 17:41:16.687  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:41:16.687  INFO 9348 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-06 17:41:17.068  WARN 9348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2018-08-06 17:41:17.102  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-06 17:41:17.103  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-08-06 17:41:17.110  INFO 9348 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-08-06 17:41:17.157  INFO 9348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
+2018-08-06 17:41:17.161  INFO 9348 --- [restartedMain] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 6.085 seconds (JVM running for 7.994)

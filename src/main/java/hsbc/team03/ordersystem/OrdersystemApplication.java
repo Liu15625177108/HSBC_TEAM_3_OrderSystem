@@ -3,7 +3,7 @@ package hsbc.team03.ordersystem;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"hsbc.team03.ordersystem.displayproduct"})
 public class OrdersystemApplication {
 
     public static void main(String[] args) {
