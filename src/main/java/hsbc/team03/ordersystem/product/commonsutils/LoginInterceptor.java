@@ -8,9 +8,8 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 21:49     1.0              the Interceptor for login
  */
-package hsbc.team03.ordersystem.commonsutils;
+package hsbc.team03.ordersystem.product.commonsutils;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;

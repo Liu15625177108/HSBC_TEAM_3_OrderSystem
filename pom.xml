@@ -6,7 +6,7 @@
     <groupId>Hsbc_team_3</groupId>
     <artifactId>ordersystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
     <!-- lookup parent from repository -->
@@ -45,6 +45,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
+        </dependency>
+
         <!--the rely on lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

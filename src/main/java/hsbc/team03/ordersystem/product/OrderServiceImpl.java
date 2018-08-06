@@ -10,12 +10,7 @@
  */
 package hsbc.team03.ordersystem.product;
 
-import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
-import hsbc.team03.ordersystem.result.ResultView;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 /**
  * @description〈the impl of orderservice〉

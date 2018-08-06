@@ -10,14 +10,13 @@
  */
 package hsbc.team03.ordersystem.product;
 
-import hsbc.team03.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.product.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @description〈the controller of order〉
@@ -43,7 +42,7 @@ public class OrderController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(HttpServletRequest request){
+    Object toOrder(OrderInfo orderInfo,HttpServletRequest request){
         String userId= (String) request.getSession().getAttribute("userId");
         if(userId!=null&&!userId.equals("")) {
             //To compare userMoney and orderPrice

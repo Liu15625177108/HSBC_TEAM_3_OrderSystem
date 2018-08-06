@@ -1,15 +1,13 @@
 package hsbc.team03.ordersystem.product;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
-import hsbc.team03.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.product.commonsutils.CommonsUtils;
+import hsbc.team03.ordersystem.product.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,11 +15,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.testng.Assert.*;
+
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=OrderController.class)
 @WebMvcTest(OrderController.class)
@@ -70,7 +67,12 @@ public class OrderControllerTest {
 //        OrderInfo orderInfo1=mapper.readValue(jsonSring,OrderInfo.class);
         String result=this.mvc.perform(post("/order/toorder")
                 .sessionAttr("userId","CommonsUtils.getUUID()")
-//                .content(mapper.writeValueAsString(orderInfo1))
+                .param("orderId","CommonsUtils.getUUID()")
+                .param("productNumber","2")
+                .param("userName","Chen")
+                .param("userPhone","11111111111")
+               .param("userAddress","岗顶")
+                .param("productPrice","300.0")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk())

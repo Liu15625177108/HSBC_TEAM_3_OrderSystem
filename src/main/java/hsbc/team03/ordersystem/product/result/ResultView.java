@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 21:05     1.0              the class of reuslte to show
  */
-package hsbc.team03.ordersystem.result;
+package hsbc.team03.ordersystem.product.result;
 
 import lombok.Data;
 
