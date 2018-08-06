@@ -53,6 +53,7 @@ public class RegisterControllerTest {
         given(registerServices.findUserByUsername("ljf")).willReturn(null);
         given(registerServices.addUser(userInfo)).willReturn(true);
 
+
         this.mockMvc.perform(post("/user/register/phone-number?phone-number=15521301710").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"code\":200,\"msg\":\"message sent\",\"data\":null}"));
