@@ -25,7 +25,7 @@ public class RegisterServicesImpl implements RegisterServices {
 
     @Override
     public boolean addUser(UserInfo userInfo) {
-        return false;
+        return true;
     }
 
     public boolean verifyCode(String code, String sessioncode) {

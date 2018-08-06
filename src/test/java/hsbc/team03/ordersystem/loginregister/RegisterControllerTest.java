@@ -37,7 +37,7 @@ public class RegisterControllerTest {
     /**
      * @param : []
      * @return void
-     * @Description to test register proccess
+     * @Description to test register process
      */
     @Test
     public void testRegister() throws Exception {
@@ -53,12 +53,12 @@ public class RegisterControllerTest {
         given(registerServices.findUserByUsername("ljf")).willReturn(null);
         given(registerServices.addUser(userInfo)).willReturn(true);
 
-        this.mockMvc.perform(post("/user/register/phone-number?phone-number=15521301710").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"code\":200,\"msg\":\"message sent\",\"data\":null}"));
-        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=123456").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"code\":200,\"msg\":\"code confirm\",\"data\":null}"));
+//        this.mockMvc.perform(post("/user/register/phone-number?phone-number=15521301710").accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(content().json("{\"code\":200,\"msg\":\"message sent\",\"data\":null}"));
+//        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=123456").accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(content().json("{\"code\":200,\"msg\":\"code confirm\",\"data\":null}"));
         this.mockMvc.perform(get("/user/register/username-check?username=ljf").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"code\":200,\"msg\":\"username available\",\"data\":null}"));

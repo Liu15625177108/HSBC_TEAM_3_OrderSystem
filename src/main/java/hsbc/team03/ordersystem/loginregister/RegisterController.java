@@ -3,8 +3,9 @@ package hsbc.team03.ordersystem.loginregister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -18,19 +19,24 @@ import java.util.List;
 @RequestMapping("/user/register")
 public class RegisterController {
 
+    private final RegisterServicesImpl registerServices;
+
     @Autowired
-    private RegisterServicesImpl registerServices;
+    public RegisterController(RegisterServicesImpl registerServices) {
+        this.registerServices = registerServices;
+    }
 
     /**
-     * @param : phoneNumber, request
+     * @param : phoneNumber, response
      * @return void
      * @Description send message to phone
      */
     @PostMapping("/phone-number")
-    public ResultView sendVerifyMessage(@RequestParam("phone-number") String phoneNumber, HttpServletRequest request) {
+    public ResultView sendVerifyMessage(@RequestParam("phone-number") String phoneNumber, HttpServletResponse response) {
         String rand = SendSmsUtil.createRandNum();
         SendSmsUtil.sendMsgTo(phoneNumber, rand);
-        request.getSession().setAttribute("code", rand);
+        Cookie cookie = new Cookie("code", SendSmsUtil.sigMD5(rand));
+        response.addCookie(cookie);
         ResultView resultView = new ResultView();
         resultView.setCode(200);
         resultView.setMsg("message sent");
@@ -39,19 +45,24 @@ public class RegisterController {
 
     /**
      * @param :code, request
-     * @return java.util.HashMap<java.lang.String   ,   java.lang.Boolean>
+     * @return java.util.HashMap<java.lang.String       ,         j   a   v   a   . lang.Boolean>
      * @Description verify the code from user
      */
     @PostMapping("/verify-code")
     public ResultView verifyCode(@RequestParam("verifyCode") String code, HttpServletRequest request) {
         ResultView<String> resultView = new ResultView<>();
-        HttpSession session = request.getSession();
         String aName = "code";
-        if ("123456".equals(code) || registerServices.verifyCode(code, (String) session.getAttribute(aName))) {
+        String codes = null;
+        Cookie[] cookies = request.getCookies();
+        for (Cookie c : cookies) {
+            if (c.getName().equals(aName)) {
+                codes = c.getValue();
+            }
+        }
+        if (codes != null && SendSmsUtil.sigMD5(code).equals(codes)) {
             resultView.setCode(200);
             resultView.setMsg("code confirm");
-            session.removeAttribute(aName);
-            session.setAttribute("inputMessage", true);
+            return resultView;
         } else {
             resultView.setCode(500);
             resultView.setMsg("fail");
@@ -60,19 +71,13 @@ public class RegisterController {
     }
 
     /**
-     * @param :username, request
-     * @return java.util.HashMap<java.lang.String   ,   java.lang.Boolean>
+     * @param :username
+     * @return java.util.HashMap<java.lang.String       ,         j   a   v   a   .   l   ang.Boolean>
      * @Description check if the username available
      */
     @GetMapping("/username-check")
-    public ResultView usernameCheck(@RequestParam("username") String username, HttpServletRequest request) {
+    public ResultView usernameCheck(@RequestParam("username") String username) {
         ResultView resultView = new ResultView();
-        String aName = "inputMessage";
-        if (request.getSession().getAttribute(aName) == null) {
-            resultView.setCode(500);
-            resultView.setMsg("illegal operation");
-            return resultView;
-        }
         List list = registerServices.findUserByUsername(username);
         if (list == null || list.isEmpty()) {
             resultView.setCode(200);
@@ -93,12 +98,6 @@ public class RegisterController {
     @PostMapping("/login-message")
     public ResultView loginMessage(UserInfo userInfo, HttpServletRequest request) {
         ResultView resultView = new ResultView();
-        String aName = "inputMessage";
-        if (request.getSession().getAttribute(aName) == null) {
-            resultView.setCode(500);
-            resultView.setMsg("illegal operation");
-            return resultView;
-        }
         if (registerServices.addUser(userInfo)) {
             resultView.setCode(200);
             resultView.setMsg("register success");
@@ -111,68 +110,98 @@ public class RegisterController {
     }
 
 
+//    @Autowired
+//    private RegisterServicesImpl registerServices;
+//
 //    /**
-//     * @Description send message to phone
-//     * @param  phoneNumber
-//     *         request
-//     *         response
+//     * @param : phoneNumber, request
 //     * @return void
-//     *
+//     * @Description send message to phone
 //     */
-//    @RequestMapping("/phone-number")
-//    public void sendVerifyMessage(@RequestParam("phone-number") String phoneNumber, HttpServletRequest request,
-//                                  HttpServletResponse response){
+//    @PostMapping("/phone-number")
+//    public ResultView sendVerifyMessage(@RequestParam("phone-number") String phoneNumber, HttpServletRequest request) {
 //        String rand = SendSmsUtil.createRandNum();
-//        SendSmsUtil.sendMsgTo(phoneNumber,rand);
-//        response.setStatus(200);
-//        request.getSession().setAttribute("code",rand);
+//        SendSmsUtil.sendMsgTo(phoneNumber, rand);
+//        request.getSession().setAttribute("code", rand);
+//        ResultView resultView = new ResultView();
+//        resultView.setCode(200);
+//        resultView.setMsg("message sent");
+//        return resultView;
 //    }
 //
 //    /**
+//     * @param :code, request
+//     * @return java.util.HashMap<java.lang.String   ,    j a v a .lang.Boolean>
 //     * @Description verify the code from user
-//     * @param code, request, response
-//     * @return java.util.HashMap<java.lang.String,java.lang.Boolean>
-//     *
 //     */
-//    @RequestMapping("/verify-code")
-//    public HashMap<String,Boolean> verifyCode(@RequestParam("verifyCode") String code, HttpServletRequest request,
-//                                              HttpServletResponse response){
+//    @PostMapping("/verify-code")
+//    public ResultView verifyCode(@RequestParam("verifyCode") String code, HttpServletRequest request) {
+//        ResultView<String> resultView = new ResultView<>();
+//        HttpSession session = request.getSession();
 //        String aName = "code";
-//        HashMap<String,Boolean> hashMap = new HashMap<>(1);
-//        if(code.equals(request.getSession().getAttribute(aName))){
-//            response.setStatus(200);
-//            hashMap.put("verify",true);
+//        if ("123456".equals(code) || registerServices.verifyCode(code, (String) session.getAttribute(aName))) {
+//            resultView.setCode(200);
+//            resultView.setMsg("code confirm");
+//            session.removeAttribute(aName);
+//            session.setAttribute("inputMessage", true);
+//        } else {
+//            resultView.setCode(500);
+//            resultView.setMsg("fail");
 //        }
-//        else {
-//            response.setStatus(500);
-//            hashMap.put("verify",false);
-//        }
-//        return hashMap;
+//        return resultView;
 //    }
 //
 //    /**
+//     * @param :username, request
+//     * @return java.util.HashMap<java.lang.String   ,    j a v a . l ang.Boolean>
 //     * @Description check if the username available
-//     * @param username, request, response
-//     * @return java.util.HashMap<java.lang.String,java.lang.Boolean>
-//     *
 //     */
-//    @RequestMapping("/username-check")
-//    public HashMap<String,Boolean> usernameCheck(@RequestParam("username") String username,HttpServletRequest request,
-//                                                 HttpServletResponse response){
-//        HashMap<String,Boolean> hashMap = new HashMap<>(1);
+//    @GetMapping("/username-check")
+//    public ResultView usernameCheck(@RequestParam("username") String username, HttpServletRequest request) {
+//        ResultView resultView = new ResultView();
+//        String aName = "inputMessage";
+//        if (request.getSession().getAttribute(aName) == null) {
+//            resultView.setCode(500);
+//            resultView.setMsg("illegal operation");
+//            return resultView;
+//        }
 //        List list = registerServices.findUserByUsername(username);
-//        if(list.isEmpty()){
-//            hashMap.put("available",true);
+//        if (list == null || list.isEmpty()) {
+//            resultView.setCode(200);
+//            resultView.setMsg("username available");
+//        } else {
+//            resultView.setCode(500);
+//            resultView.setMsg("username non-available");
 //        }
-//        else {
-//            hashMap.put("available",false);
-//        }
-//        return hashMap;
+//        return resultView;
 //    }
 //
 //
-//    @RequestMapping("/login-message")
-//    public void loginMessage(UserInfo userInfo){
-//        registerServices.addUser(userInfo);
+//    /**
+//     * @param :userInfo, request
+//     * @return ResultView
+//     * @Description input register message of user
+//     */
+//    @PostMapping("/login-message")
+//    public ResultView loginMessage(UserInfo userInfo, HttpServletRequest request) {
+//        ResultView resultView = new ResultView();
+//        String aName = "inputMessage";
+//        if (request.getSession().getAttribute(aName) == null) {
+//            resultView.setCode(500);
+//            resultView.setMsg("illegal operation");
+//            return resultView;
+//        }
+//        if (registerServices.addUser(userInfo)) {
+//            resultView.setCode(200);
+//            resultView.setMsg("register success");
+//            request.getSession().removeAttribute("inputMessage");
+//        } else {
+//            resultView.setCode(500);
+//            resultView.setMsg("register fail");
+//        }
+//        return resultView;
 //    }
+
 }
+
+
