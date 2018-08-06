@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @ClassName BankManageController
  * @Author:Jerry.Liu;
@@ -28,19 +30,22 @@ public class BankManageController {
     *@Package: hsbc_team_3.ordersystem.bankmanager
     */
     public  ReturnValue managerLogin(@RequestParam(value = "workernumber",required = true) String workerNumber,
-                                     @RequestParam(value = "password",required = true)String workerPassword) {
+                                     @RequestParam(value = "password",required = true)String workerPassword,
+                                     HttpServletRequest request) {
         if (bankManagerService.login(workerNumber, workerPassword) == true) {
             ReturnValue<BankManager> returnValue = new ReturnValue<BankManager>();
             BankManager bankManager = (BankManager) bankManagerService.findByWorkernum(workerNumber);
             returnValue.setCode("200");
             returnValue.setMsg("success");
             returnValue.setBankManager(bankManager);
+            request.getSession().setAttribute("manager",bankManager);
             return returnValue;
         } else {
             ReturnValue<BankManager> returnValue = new ReturnValue<BankManager>();
             returnValue.setCode("500");
             returnValue.setMsg("failure");
             returnValue.setBankManager(null);
+            request.getSession().setAttribute("manager",null);
             return returnValue;
         }
     }
