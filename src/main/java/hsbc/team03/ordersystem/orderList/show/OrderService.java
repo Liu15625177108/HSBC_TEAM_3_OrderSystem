@@ -1,5 +1,7 @@
 package hsbc.team03.ordersystem.orderList.show;
 
+import java.util.List;
+
 /**
  * Project:ordersystem
  * Package:hsbc.team03.ordersystem.orderList.show
@@ -8,4 +10,8 @@ package hsbc.team03.ordersystem.orderList.show;
  * Description://TODO
  */
 public interface OrderService {
+
+    //列出所有订单
+    List<OrderView> findAllOrder();
+
 }

@@ -29,4 +29,9 @@ public class ResultView<T> {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    @Override
+    public String toString(){
+        return "status: " + this.status + "; msg: " + this.msg + "; data: " + this.data.toString();
+    }
 }

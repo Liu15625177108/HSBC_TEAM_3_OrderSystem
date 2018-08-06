@@ -1,22 +1,32 @@
 package hsbc.team03.ordersystem.orderList.show;
 
-import hsbc.team03.ordersystem.products.show.ProductInfo;
-
-import java.util.List;
-
 /**
  * Project:ordersystem
  * Package:hsbc_team_3.ordersystem.orderList
  * Author:Alan Ruan
  * Date:2018-08-03 17:30
- * Description://TODO
+ * Description:// 订单中的详细信息
  */
 public class OrderInfo {
 
-    //订单状态码, 1表示已支付, 0表示未支付
-    private Integer status;
+    //顾客姓名
+    private String consumerName;
 
-    //订单详情信息, 包含了产品的
-    private List<ProductInfo> orderInformation;
+    //商品名称
+    private String productName;
 
+    //商品数量
+    private int productNum;
+
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setProductNum(int productNum) {
+        this.productNum = productNum;
+    }
 }
