@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.serviceimpl;
+package hsbc.team03.ordersystem.displayproduct.serviceimpl;
 
 import hsbc.team03.ordersystem.displayproduct.model.Product;
 import hsbc.team03.ordersystem.displayproduct.repository.ProductRepository;

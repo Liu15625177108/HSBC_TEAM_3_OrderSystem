@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.model;
+package hsbc.team03.ordersystem.displayproduct.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

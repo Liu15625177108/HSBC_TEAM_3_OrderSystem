@@ -1,4 +1,4 @@
-package hsbc_team_3.ordersystem.displayproduct.controller;
+package hsbc.team03.ordersystem.displayproduct.controller;
 
 import hsbc.team03.ordersystem.common.SortUtils;
 import hsbc.team03.ordersystem.displayproduct.model.Product;
@@ -23,7 +23,6 @@ public class ProductController {
     private ProductService productService;
     public ProductController(ProductService productService) {
         this.productService = productService;
-
     }
     /**
     * @Description:  get products and sort by product's type
