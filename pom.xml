@@ -6,7 +6,7 @@
     <groupId>Hsbc_team_3</groupId>
     <artifactId>ordersystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
     <!-- lookup parent from repository -->
