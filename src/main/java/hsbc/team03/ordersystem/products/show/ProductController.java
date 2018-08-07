@@ -28,17 +28,13 @@ public class ProductController {
         ResultView<ProductView> resultView = new ResultView<ProductView>();
         ProductView productView = new ProductView();
 //        ProductInfoView productInfoView = new ProductInfoView();
-
 //        ArrayList<ProductInfoView> list = new ArrayList<>();
-//
 //        productInfoView.setProductId("1");
 //        productInfoView.setProductName("朝朝盈");
 //        productInfoView.setProductPrice(4.44);
 //        productInfoView.setProductDescription("稳赚不亏");
 //        productInfoView.setProductIcon("www.icon.com");
-//
 //        list.add(productInfoView);
-
         productView.setProductInfoViewList(productService.listAll());
 
         resultView.setStatus(1);
