@@ -9,7 +9,7 @@ import java.util.List;
  * Date:2018-08-03 10:39
  * Description://
  */
-public interface ProductService {
+public interface ProductShowService {
 
     /**
      * @Method listAll

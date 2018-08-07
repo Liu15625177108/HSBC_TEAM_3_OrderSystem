@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user/product")
-public class ProductController {
+public class ProductDetailShowController {
 
     @Autowired
-    private ProductService productService;
+    private ProductShowService productShowService;
 
     /**
      * @Method getList
@@ -34,7 +34,7 @@ public class ProductController {
         ResultView resultView = new ResultView();
         ProductView productView = new ProductView();
 
-        productView.setProductInfoViewList(productService.listAll());
+        productView.setProductInfoViewList(productShowService.listAll());
 
         resultView.setStatus(1);
         resultView.setMsg("已经登录");
