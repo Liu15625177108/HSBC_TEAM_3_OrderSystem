@@ -12,7 +12,7 @@ import java.util.List;
  * Description://TODO
  */
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductShowServiceImpl implements ProductShowService {
 
     @Override
     public List<ProductInfoView> listAll() {
