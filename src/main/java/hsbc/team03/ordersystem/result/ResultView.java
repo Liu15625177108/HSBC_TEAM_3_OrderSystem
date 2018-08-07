@@ -1,5 +1,7 @@
 package hsbc.team03.ordersystem.result;
 
+import java.io.Serializable;
+
 /**
  * Project:ordersystem
  * Package:hsbc_team_3.ordersystem.result
@@ -7,7 +9,7 @@ package hsbc.team03.ordersystem.result;
  * Date:2018-08-02 13:13
  * Description://TODO
  */
-public class ResultView<T> {
+public class ResultView<T> implements Serializable {
 
     //登录状态码
     private Integer status;
@@ -28,6 +30,18 @@ public class ResultView<T> {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public T getData() {
+        return data;
     }
 
     @Override

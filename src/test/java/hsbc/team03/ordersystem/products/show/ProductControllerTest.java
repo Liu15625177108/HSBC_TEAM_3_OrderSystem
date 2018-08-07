@@ -17,6 +17,7 @@ import java.util.List;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -36,9 +37,9 @@ public class ProductControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    private static final String TEST = "{\"status\":1,\"msg\":\"已经登录\",\"data\":{\"products\":[" +
-            "{\"id\":\"1111\",\"name\":\"朝朝盈\",\"price\":4.44,\"description\":\"赚得更多\",\"icon\":\"ZhaoZhaoYing.jpg\"}," +
-            "{\"id\":\"2222\",\"name\":\"余额宝\",\"price\":3.33,\"description\":\"稳赚不亏\",\"icon\":\".jpg\"}]}}";
+//    private static final String TEST = "{\"status\":1,\"msg\":\"已经登录\",\"data\":{\"products\":[" +
+//            "{\"id\":\"1111\",\"name\":\"朝朝盈\",\"price\":4.44,\"description\":\"赚得更多\",\"icon\":\"ZhaoZhaoYing.jpg\"}," +
+//            "{\"id\":\"2222\",\"name\":\"余额宝\",\"price\":3.33,\"description\":\"稳赚不亏\",\"icon\":\".jpg\"}]}}";
 
     @Test
     public void getList() throws Exception{
@@ -70,7 +71,7 @@ public class ProductControllerTest {
         given(this.productService.listAll()).willReturn(list);
 
         this.mvc.perform(get("/user/product/list").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())//.andExpect(jsonPath("$.length()").value(3))
-        .andExpect(content().string(TEST));
+                .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(3));
+
     }
 }

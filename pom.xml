@@ -14,7 +14,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
-        <relativePath/> 
+        <relativePath/>
     </parent>
 
     <properties>
@@ -126,6 +126,35 @@
                     <goals>-f pom.xml deploy</goals>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+
+                <configuration>
+                    <url>http://123.207.22.215:8080/manager/text</url>
+                    <server>admin</server>
+                    <username>admin</username>
+                    <password>123456</password>
+                    <update>true</update>
+                    <path>/webapps</path>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+                <!--&lt;!&ndash; tomcat deploy plugin &ndash;&gt;-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>tomcat-maven-plugin</artifactId>-->
+                <!--<version>2.2</version>-->
+                <!--<configuration>-->
+                    <!--<url>http://123.207.22.215:8080/manager/text</url>-->
+                    <!--<server>tomcat</server>-->
+                    <!--<username>root</username>-->
+                    <!--<password>123456</password>-->
+                    <!--<update>true</update>-->
+                    <!--<path>/webapps</path>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 

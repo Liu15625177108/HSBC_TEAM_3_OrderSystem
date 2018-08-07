@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 /**
  * Project:ordersystem
  * Package:hsbc_team_3.ordersystem.products
@@ -23,10 +25,10 @@ public class ProductController {
     @GetMapping("/list")
     public ResultView getList(){
 
-        ResultView resultView = new ResultView();
+        ResultView<ProductView> resultView = new ResultView<ProductView>();
         ProductView productView = new ProductView();
 //        ProductInfoView productInfoView = new ProductInfoView();
-//
+
 //        ArrayList<ProductInfoView> list = new ArrayList<>();
 //
 //        productInfoView.setProductId("1");
