@@ -17,10 +17,10 @@ import java.util.ArrayList;
  */
 @RestController
 @RequestMapping("/user/product")
-public class ProductController {
+public class ProductDetailShowController {
 
     @Autowired
-    private ProductService productService;
+    private ProductShowService productShowService;
 
     @GetMapping("/list")
     public ResultView getList(){
@@ -35,7 +35,7 @@ public class ProductController {
 //        productInfoView.setProductDescription("稳赚不亏");
 //        productInfoView.setProductIcon("www.icon.com");
 //        list.add(productInfoView);
-        productView.setProductInfoViewList(productService.listAll());
+        productView.setProductInfoViewList(productShowService.listAll());
 
         resultView.setStatus(1);
         resultView.setMsg("已经登录");

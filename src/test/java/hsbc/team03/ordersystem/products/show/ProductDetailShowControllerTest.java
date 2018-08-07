@@ -28,11 +28,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Description://TODO
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(ProductController.class)
-public class ProductControllerTest {
+@WebMvcTest(ProductDetailShowController.class)
+public class ProductDetailShowControllerTest {
 
     @MockBean
-    private ProductService productService;
+    private ProductShowService productShowService;
 
     @Autowired
     private MockMvc mvc;
@@ -70,7 +70,7 @@ public class ProductControllerTest {
         Logger logger = LoggerFactory.getLogger(list.toString());
 
 
-        given(this.productService.listAll()).willReturn(list);
+        given(this.productShowService.listAll()).willReturn(list);
 
         this.mvc.perform(get("/user/product/list").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.length()").value(3));
