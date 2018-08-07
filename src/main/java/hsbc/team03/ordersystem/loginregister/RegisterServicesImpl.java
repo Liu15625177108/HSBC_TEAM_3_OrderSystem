@@ -28,7 +28,4 @@ public class RegisterServicesImpl implements RegisterServices {
         return false;
     }
 
-    public boolean verifyCode(String code, String sessioncode) {
-        return code.equals(sessioncode);
-    }
 }

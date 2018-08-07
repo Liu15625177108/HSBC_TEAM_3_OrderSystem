@@ -40,7 +40,7 @@ public class LoginControllerTest {
     public void testLogin() throws Exception {
 
         UserInfo userInfo = new UserInfo();
-        userInfo.setPassord("123456");
+        userInfo.setPassword("123456");
         userInfo.setUsername("ljf");
 
         given(loginServices.findUserByUsername("ljf")).willReturn(userInfo);
