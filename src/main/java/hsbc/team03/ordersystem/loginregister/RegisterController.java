@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/user/register")
 public class RegisterController {
 
-    private final RegisterServicesImpl registerServices;
+    private RegisterServicesImpl registerServices;
 
     @Autowired
     public RegisterController(RegisterServicesImpl registerServices) {
@@ -45,7 +45,7 @@ public class RegisterController {
 
     /**
      * @param :code, request
-     * @return java.util.HashMap<java.lang.String       ,         j   a   v   a   . lang.Boolean>
+     * @return java.util.HashMap<java.lang.String , java.lang.Boolean>
      * @Description verify the code from user
      */
     @PostMapping("/verify-code")
@@ -72,13 +72,13 @@ public class RegisterController {
 
     /**
      * @param :username
-     * @return java.util.HashMap<java.lang.String       ,         j   a   v   a   .   l   ang.Boolean>
+     * @return java.util.HashMap<java.lang.String , java.lang.Boolean>
      * @Description check if the username available
      */
     @GetMapping("/username-check")
     public ResultView usernameCheck(@RequestParam("username") String username) {
         ResultView resultView = new ResultView();
-        List list = registerServices.findUserByUsername(username);
+        List<UserInfo> list = registerServices.findUserByUsername(username);
         if (list == null || list.isEmpty()) {
             resultView.setCode(200);
             resultView.setMsg("username available");
@@ -96,12 +96,11 @@ public class RegisterController {
      * @Description input register message of user
      */
     @PostMapping("/login-message")
-    public ResultView loginMessage(UserInfo userInfo, HttpServletRequest request) {
+    public ResultView loginMessage(@RequestBody UserInfo userInfo) {
         ResultView resultView = new ResultView();
         if (registerServices.addUser(userInfo)) {
             resultView.setCode(200);
             resultView.setMsg("register success");
-            request.getSession().removeAttribute("inputMessage");
         } else {
             resultView.setCode(500);
             resultView.setMsg("register fail");

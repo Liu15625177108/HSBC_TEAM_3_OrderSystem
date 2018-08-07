@@ -1,17 +1,22 @@
 package hsbc.team03.ordersystem.loginregister;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.servlet.http.Cookie;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -25,7 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @Created: 2018年08月03日 14:51:39
  **/
 @RunWith(SpringRunner.class)
-@WebMvcTest(RegisterController.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
 public class RegisterControllerTest {
 
     @Autowired
@@ -35,36 +41,78 @@ public class RegisterControllerTest {
     private RegisterServicesImpl registerServices;
 
     /**
+     * @Description test verify phone code
      * @param : []
      * @return void
-     * @Description to test register process
+     *
      */
     @Test
-    public void testRegister() throws Exception {
+    public void testVerifyCode() throws Exception {
+
+        Cookie cookie = new Cookie("code", "e10adc3949ba59abbe56e057f20f883e");
+
+        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=123456")
+                .accept(MediaType.APPLICATION_JSON).cookie(cookie))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"code\":200,\"msg\":\"code confirm\",\"data\":null}"));
+
+        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=15421")
+                .accept(MediaType.APPLICATION_JSON).cookie(cookie))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"code\":500,\"msg\":\"fail\",\"data\":null}"));
+
+        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=12006")
+                .accept(MediaType.APPLICATION_JSON).cookie(cookie))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"code\":500,\"msg\":\"fail\",\"data\":null}"));
+    }
+
+    /**
+     * @param : []
+     * @return void
+     * @Description to test if the username available
+     */
+    @Test
+    public void testUsernameCheck() throws Exception {
+        List<UserInfo> list = new ArrayList<>();
+        list.add(new UserInfo());
+        Mockito.when(this.registerServices.findUserByUsername("ljf")).thenReturn(list);
+
+        this.mockMvc.perform(get("/user/register/username-check?username=lkk").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"code\":200,\"msg\":\"username available\",\"data\":null}"));
+
+        this.mockMvc.perform(get("/user/register/username-check?username=ljf").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"code\":500,\"msg\":\"username non-available\",\"data\":null}"));
+    }
+
+
+    /**
+     * @Description test input login message
+     * @param : []
+     * @return void
+     *
+     */
+    @Test
+    public void testInputLoginMessage() throws Exception {
 
         HashMap<String, String> securityquestion = new HashMap<>(3);
         securityquestion.put("1+1=", "2");
         securityquestion.put("1+3=", "4");
         securityquestion.put("1+2=", "3");
-        UserInfo userInfo = new UserInfo(100, "ljf", "123456", "mike", 1, 20,
-                "manager", "50000", securityquestion);
+        UserInfo userInfo = new UserInfo(100, "ljf", "123456", "mike",
+                1, 20, "manager", "50000", securityquestion);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String requestbody = objectMapper.writeValueAsString(userInfo);
 
-        given(registerServices.verifyCode("123456", "[\\s\\S]*")).willReturn(true);
-        given(registerServices.findUserByUsername("ljf")).willReturn(null);
-        given(registerServices.addUser(userInfo)).willReturn(true);
 
-//        this.mockMvc.perform(post("/user/register/phone-number?phone-number=15521301710").accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().json("{\"code\":200,\"msg\":\"message sent\",\"data\":null}"));
-//        this.mockMvc.perform(post("/user/register/verify-code?verifyCode=123456").accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().json("{\"code\":200,\"msg\":\"code confirm\",\"data\":null}"));
-        this.mockMvc.perform(get("/user/register/username-check?username=ljf").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"code\":200,\"msg\":\"username available\",\"data\":null}"));
-        this.mockMvc.perform(post("/user/register/login-message").accept(MediaType.APPLICATION_JSON).requestAttr("userInfo", userInfo))
+        Mockito.when(this.registerServices.addUser(Mockito.any(UserInfo.class))).thenReturn(true);
+
+        this.mockMvc.perform(post("/user/register/login-message")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(requestbody).accept(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"code\":200,\"msg\":\"register success\",\"data\":null}"));
-
     }
 }
