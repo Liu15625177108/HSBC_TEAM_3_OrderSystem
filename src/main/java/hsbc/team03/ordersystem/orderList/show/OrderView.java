@@ -9,18 +9,26 @@ import java.util.List;
  * Package:hsbc.team03.ordersystem.orderList.show
  * Author:Alan Ruan
  * Date:2018-08-06 09:25
- * Description://订单视图信息, 包含订单日期,订单地址, 订单号, 以及详细订单信息
+ * Description://order's information view
  */
 public class OrderView {
 
-    @JsonProperty("Order")
+    @JsonProperty("orderlist")
     private List<OrderInfo> orderInfoList;
+
+
+    /**
+     * @Method get / set
+     * @Description //get &&  set method
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:37:05
+     * @Param []
+     */
+    public List<OrderInfo> getOrderInfoList() {
+        return orderInfoList;
+    }
 
     public void setOrderInfoList(List<OrderInfo> orderInfoList) {
         this.orderInfoList = orderInfoList;
-    }
-
-    public List<OrderInfo> getOrderInfoList() {
-        return orderInfoList;
     }
 }

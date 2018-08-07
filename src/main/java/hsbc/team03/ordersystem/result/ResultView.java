@@ -5,18 +5,26 @@ package hsbc.team03.ordersystem.result;
  * Package:hsbc_team_3.ordersystem.result
  * Author:Alan Ruan
  * Date:2018-08-02 13:13
- * Description://TODO
+ * Description://
  */
 public class ResultView<T> {
 
-    //登录状态码
+    //login status code
     private Integer status;
 
-    //登录提示信息
+    //login tips
     private String msg;
 
-    //具体内容
+    //detail
     private T data;
+
+
+    /**
+     * @Method set /  get
+     * @Description //get / set method
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:41:26
+     */
 
     public void setData(T data) {
         this.data = data;
@@ -30,16 +38,18 @@ public class ResultView<T> {
         this.status = status;
     }
 
-    public Integer getStatus() {
-        return status;
+    public T getData() {
+        return data;
+
     }
 
     public String getMsg() {
         return msg;
     }
 
-    public T getData() {
-        return data;
+    public Integer getStatus() {
+        return status;
+
     }
 
     @Override
