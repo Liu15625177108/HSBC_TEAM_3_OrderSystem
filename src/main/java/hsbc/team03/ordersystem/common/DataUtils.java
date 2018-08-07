@@ -1,5 +1,5 @@
 package hsbc.team03.ordersystem.common;
-import hsbc.team03.ordersystem.displayproduct.model.Product;
+import hsbc.team03.ordersystem.displayproduct.Product;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
