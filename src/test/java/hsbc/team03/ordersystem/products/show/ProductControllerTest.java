@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Package:hsbc_team_3.ordersystem.products
  * Author:Alan Ruan
  * Date:2018-08-02 15:30
- * Description://TODO
+ * Description://
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(ProductController.class)
@@ -40,6 +40,14 @@ public class ProductControllerTest {
             "{\"id\":\"1111\",\"name\":\"朝朝盈\",\"price\":4.44,\"description\":\"赚得更多\",\"icon\":\"ZhaoZhaoYing.jpg\"}," +
             "{\"id\":\"2222\",\"name\":\"余额宝\",\"price\":3.33,\"description\":\"稳赚不亏\",\"icon\":\"YuEBao.jpg\"}]}}";
 
+    /**
+     * @Method getList
+     * @Description //Test
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:43:05
+     * @Param []
+     * @Return void
+     */
     @Test
     public void getList() throws Exception{
 

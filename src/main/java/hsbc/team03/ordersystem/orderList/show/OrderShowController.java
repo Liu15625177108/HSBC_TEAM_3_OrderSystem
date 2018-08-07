@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Package:hsbc.team03.ordersystem.orderList.show
  * Author:Alan Ruan
  * Date:2018-08-06 09:25
- * Description://TODO
+ * Description://
  */
 @RestController
 @RequestMapping("/orderlist")
@@ -20,6 +20,14 @@ public class OrderShowController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * @Method showAllOrder
+     * @Description // show all order
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:36:27
+     * @Param []
+     * @Return hsbc.team03.ordersystem.result.ResultView
+     */
     @GetMapping("/show")
     public ResultView showAllOrder(){
 

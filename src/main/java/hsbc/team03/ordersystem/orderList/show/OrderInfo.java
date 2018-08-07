@@ -9,34 +9,42 @@ import java.util.Date;
  * Package:hsbc_team_3.ordersystem.orderList
  * Author:Alan Ruan
  * Date:2018-08-03 17:30
- * Description:// 订单中的详细信息
+ * Description:// Order‘s information
  */
 public class OrderInfo {
 
-    //顾客姓名
+    //Consumer's Name
     @JsonProperty("ConsumerName")
     private String consumerName;
 
-    //商品名称
+    //Product's Name
     @JsonProperty("ProductName")
     private String productName;
 
-    //商品数量
+    //Product’s Number
     @JsonProperty("ProductNum")
     private int productNum;
 
-    //订单地址
+    //Order's address
     @JsonProperty("Address")
     private String address;
 
-    //订单号
+    //order's id
     @JsonProperty("OrderId")
     private String orderId;
 
-    //订单时间
+    //order time
     @JsonProperty("OrderTime")
     private Date orderTime;
 
+    /**
+     * @Method set  &&   get  method
+     * @Description //  set/get method
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:33:29
+     * @Param []
+     * @Return void
+     */
     public void setAddress(String address) {
         this.address = address;
     }

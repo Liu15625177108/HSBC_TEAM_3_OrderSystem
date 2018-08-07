@@ -7,13 +7,13 @@ import java.util.List;
  * Package:hsbc_team_3.ordersystem.products
  * Author:Alan Ruan
  * Date:2018-08-03 10:39
- * Description://TODO
+ * Description://
  */
 public interface ProductService {
 
     /**
      * @Method listAll
-     * @Description //TODO
+     * @Description // list all product information
      * @Author Alan Ruan
      * @Date 2018/08/03 10:41:22
      * @Param []

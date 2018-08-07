@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * Package:hsbc.team03.ordersystem.orderList.show
  * Author:Alan Ruan
  * Date:2018-08-06 11:33
- * Description://TODO
+ * Description://
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(OrderShowController.class)
@@ -37,6 +37,14 @@ public class OrderShowControllerTest {
 
     public static final String ORDER_TEST_JSON = "{\"status\":1,\"msg\":\"已经是登录状态\",\"data\":{\"orderlist\":[{\"ConsumerName\":\"小锋\",\"ProductName\":\"龙卡VIP产品\",\"ProductNum\":1,\"Address\":\"华南师范大学\",\"OrderId\":\"A11\",\"OrderTime\":\"1970-01-01T00:00:02.018+0000\"},{\"ConsumerName\":\"小鑫\",\"ProductName\":\"黑金尊贵服务\",\"ProductNum\":2,\"Address\":\"SCNU\",\"OrderId\":\"B22\",\"OrderTime\":\"1970-01-01T00:00:00.036+0000\"}]}}";
 
+    /**
+     * @Method showAllOrder
+     * @Description //Test
+     * @Author Alan Ruan
+     * @Date 2018/08/07 09:42:43
+     * @Param []
+     * @Return void
+     */
     @Test
     public void showAllOrder() throws Exception{
 
