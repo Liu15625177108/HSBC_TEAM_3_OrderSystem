@@ -31,7 +31,7 @@ public class ProductDetailShowController {
     @GetMapping("/list")
     public ResultView getList(){
 
-        ResultView resultView = new ResultView();
+        ResultView<ProductView> resultView = new ResultView<ProductView>();
         ProductView productView = new ProductView();
 
         productView.setProductInfoViewList(productShowService.listAll());
