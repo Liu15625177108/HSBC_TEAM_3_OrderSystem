@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @Package: hsbc_team_3.ordersystem.loginregister
@@ -78,8 +77,8 @@ public class RegisterController {
     @GetMapping("/username-check")
     public ResultView usernameCheck(@RequestParam("username") String username) {
         ResultView resultView = new ResultView();
-        List<UserInfo> list = registerServices.findUserByUsername(username);
-        if (list == null || list.isEmpty()) {
+        UserInfo list = registerServices.findUserByUsername(username);
+        if (list == null) {
             resultView.setCode(200);
             resultView.setMsg("username available");
         } else {

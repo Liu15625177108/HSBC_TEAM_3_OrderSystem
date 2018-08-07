@@ -13,9 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.servlet.http.Cookie;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -74,9 +72,8 @@ public class RegisterControllerTest {
      */
     @Test
     public void testUsernameCheck() throws Exception {
-        List<UserInfo> list = new ArrayList<>();
-        list.add(new UserInfo());
-        Mockito.when(this.registerServices.findUserByUsername("ljf")).thenReturn(list);
+
+        Mockito.when(this.registerServices.findUserByUsername("ljf")).thenReturn(new UserInfo());
 
         this.mockMvc.perform(get("/user/register/username-check?username=lkk").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -101,7 +98,7 @@ public class RegisterControllerTest {
         securityquestion.put("1+1=", "2");
         securityquestion.put("1+3=", "4");
         securityquestion.put("1+2=", "3");
-        UserInfo userInfo = new UserInfo(100, "ljf", "123456", "mike",
+        UserInfo userInfo = new UserInfo("100", "ljf", "123456", "mike",
                 1, 20, "manager", "50000", securityquestion);
         ObjectMapper objectMapper = new ObjectMapper();
         String requestbody = objectMapper.writeValueAsString(userInfo);

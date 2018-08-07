@@ -37,7 +37,7 @@ public class LoginController {
         } else if (userInfo.getPassword().equals(password)) {
             resultView.setCode(200);
             resultView.setMsg("OK");
-            request.getSession().setAttribute("user", userInfo);
+            request.getSession().setAttribute("userId", userInfo.getUserId());
         } else {
             resultView.setCode(500);
             resultView.setMsg("wrong password");

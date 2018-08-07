@@ -13,16 +13,34 @@ import java.util.List;
  **/
 @Service
 public class RegisterServicesImpl implements RegisterServices {
+
+    /**
+     * @param : []
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @Description to get all user implement
+     */
     @Override
     public List<UserInfo> findAllUser() {
         return null;
     }
 
+    /**
+     * @Description to get user by username
+     * @param : [username]
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     *
+     */
     @Override
-    public List<UserInfo> findUserByUsername(String username) {
+    public UserInfo findUserByUsername(String username) {
         return null;
     }
 
+    /**
+     * @Description
+     * @param : [userInfo]
+     * @return boolean
+     *
+     */
     @Override
     public boolean addUser(UserInfo userInfo) {
         return false;

@@ -11,7 +11,7 @@ import java.util.Map;
  * @Created: 2018年08月03日 10:23:24
  **/
 public class UserInfo implements Serializable {
-    private long userId;
+    private String userId;
     private String username;
     private String password;
     private String realName;
@@ -24,7 +24,7 @@ public class UserInfo implements Serializable {
     public UserInfo() {
     }
 
-    public UserInfo(long userId, String username, String password, String realName, int gender,
+    public UserInfo(String userId, String username, String password, String realName, int gender,
                     int age, String position, String income, Map<String, String> securityQuestions) {
         this.userId = userId;
         this.username = username;
@@ -45,11 +45,11 @@ public class UserInfo implements Serializable {
         this.securityQuestions = securityQuestions;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

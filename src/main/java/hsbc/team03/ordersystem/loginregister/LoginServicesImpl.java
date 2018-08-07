@@ -13,11 +13,23 @@ import java.util.List;
  **/
 @Service
 public class LoginServicesImpl implements LoginServices {
+
+    /**
+     * @param : []
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @Description to get all the user
+     */
     @Override
     public List<UserInfo> findAllUser() {
         return null;
     }
 
+    /**
+     * @Description to get a user by username
+     * @param : [username]
+     * @return hsbc.team03.ordersystem.loginregister.UserInfo
+     *
+     */
     @Override
     public UserInfo findUserByUsername(String username) {
         return null;
