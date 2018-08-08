@@ -25,7 +25,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         } else {
             PrintWriter printWriter = response.getWriter();
             printWriter.append("please login");
-            printWriter.append(request.getRequestURL().toString());
             response.setStatus(200);
             return false;
         }

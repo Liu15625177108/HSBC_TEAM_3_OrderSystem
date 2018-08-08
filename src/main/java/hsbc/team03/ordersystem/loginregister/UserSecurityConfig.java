@@ -20,6 +20,8 @@ public class UserSecurityConfig extends WebMvcConfigurationSupport {
         InterceptorRegistration registry1 = registry.addInterceptor(new LoginInterceptor());
         registry1.addPathPatterns("/**");
         registry1.excludePathPatterns("/user/**");
+        registry1.excludePathPatterns("/error");
+        registry1.excludePathPatterns("/manager/login");
         super.addInterceptors(registry);
     }
 
