@@ -1,0 +1,541 @@
+2018-08-08 09:21:20.979  INFO 6456 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 6456 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:21:21.036  INFO 6456 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:21:21.592  INFO 6456 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 09:21:21 CST 2018]; root of context hierarchy
+2018-08-08 09:21:24.865  INFO 6456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:21:24.939  INFO 6456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:21:24.940  INFO 6456 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:21:24.956  INFO 6456 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:21:25.158  INFO 6456 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:21:25.158  INFO 6456 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3566 ms
+2018-08-08 09:21:25.216  INFO 6456 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:21:25.221  INFO 6456 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:21:25.495  INFO 6456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:21:25.502  INFO 6456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:21:25.502  INFO 6456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:21:25.620  INFO 6456 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 09:21:21 CST 2018]; root of context hierarchy
+2018-08-08 09:21:26.132  INFO 6456 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:21:26.215  INFO 6456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:21:26.229  INFO 6456 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 7.578 seconds (JVM running for 16.297)
+2018-08-08 09:22:23.804  INFO 6456 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:22:23.804  INFO 6456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:22:23.836  INFO 6456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 31 ms
+2018-08-08 09:27:32.696  INFO 4812 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 4812 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:27:32.699  INFO 4812 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:27:32.794  INFO 4812 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1b7cc17c: startup date [Wed Aug 08 09:27:32 CST 2018]; root of context hierarchy
+2018-08-08 09:27:34.976  INFO 4812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:27:35.018  INFO 4812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:27:35.018  INFO 4812 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:27:35.043  INFO 4812 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:27:35.203  INFO 4812 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:27:35.203  INFO 4812 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2409 ms
+2018-08-08 09:27:35.288  INFO 4812 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:27:35.292  INFO 4812 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:27:35.494  INFO 4812 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:27:35.512  INFO 4812 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:27:35.513  INFO 4812 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:27:35.628  INFO 4812 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1b7cc17c: startup date [Wed Aug 08 09:27:32 CST 2018]; root of context hierarchy
+2018-08-08 09:27:36.097  INFO 4812 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:27:36.148  INFO 4812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:27:36.153  INFO 4812 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 4.265 seconds (JVM running for 6.973)
+2018-08-08 09:28:29.295  INFO 4812 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:28:29.295  INFO 4812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:28:29.315  INFO 4812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-08-08 09:30:54.345  WARN 4812 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:32:28.538  INFO 8944 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 8944 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:32:28.540  INFO 8944 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:32:28.614  INFO 8944 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:32:28 CST 2018]; root of context hierarchy
+2018-08-08 09:32:30.973  INFO 8944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:32:31.006  INFO 8944 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:32:31.006  INFO 8944 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:32:31.012  INFO 8944 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:32:31.186  INFO 8944 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:32:31.187  INFO 8944 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2573 ms
+2018-08-08 09:32:31.242  INFO 8944 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:32:31.249  INFO 8944 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:32:31.420  INFO 8944 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:32:31.432  INFO 8944 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:32:31.432  INFO 8944 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:32:31.551  INFO 8944 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:32:28 CST 2018]; root of context hierarchy
+2018-08-08 09:32:32.156  INFO 8944 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:32:32.489  INFO 8944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:32:32.500  INFO 8944 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 5.5 seconds (JVM running for 8.335)
+2018-08-08 09:32:39.448  INFO 8944 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:32:39.448  INFO 8944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:32:39.469  INFO 8944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2018-08-08 09:36:30.496  INFO 9220 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 9220 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:36:30.500  INFO 9220 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:36:30.650  INFO 9220 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31304f14: startup date [Wed Aug 08 09:36:30 CST 2018]; root of context hierarchy
+2018-08-08 09:36:32.573  INFO 9220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:36:32.610  INFO 9220 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:36:32.611  INFO 9220 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:36:32.618  INFO 9220 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:36:32.846  INFO 9220 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:36:32.847  INFO 9220 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2196 ms
+2018-08-08 09:36:32.889  INFO 9220 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:36:32.895  INFO 9220 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:36:33.055  INFO 9220 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:36:33.067  INFO 9220 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],produces=[application/json;charset=utf-8]}" onto public void hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:36:33.079  INFO 9220 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:36:33.079  INFO 9220 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:36:33.195  INFO 9220 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31304f14: startup date [Wed Aug 08 09:36:30 CST 2018]; root of context hierarchy
+2018-08-08 09:36:33.649  INFO 9220 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:36:33.721  INFO 9220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:36:33.725  INFO 9220 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.975 seconds (JVM running for 6.389)
+2018-08-08 09:37:23.892  INFO 9220 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:37:23.893  INFO 9220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:37:23.913  INFO 9220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-08-08 09:37:23.925  WARN 9220 --- [http-nio-8080-exec-1] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/test1] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-08 09:37:37.443 ERROR 9220 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:39:34.810  INFO 9768 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 9768 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:39:34.813  INFO 9768 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:39:34.911  INFO 9768 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:39:34 CST 2018]; root of context hierarchy
+2018-08-08 09:39:36.796  INFO 9768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:39:36.828  INFO 9768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:39:36.829  INFO 9768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:39:36.841  INFO 9768 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:39:37.027  INFO 9768 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:39:37.028  INFO 9768 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2117 ms
+2018-08-08 09:39:37.086  INFO 9768 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:39:37.091  INFO 9768 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:39:37.268  INFO 9768 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:39:37.269  INFO 9768 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:39:37.283  INFO 9768 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:39:37.284  INFO 9768 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:39:37.382  INFO 9768 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:39:34 CST 2018]; root of context hierarchy
+2018-08-08 09:39:37.797  INFO 9768 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:39:37.891  INFO 9768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:39:37.896  INFO 9768 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.717 seconds (JVM running for 6.398)
+2018-08-08 09:40:00.536  INFO 9768 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:40:00.537  INFO 9768 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:40:00.556  INFO 9768 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-08-08 09:40:00.662 ERROR 9768 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:40:01.873 ERROR 9768 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:40:03.017 ERROR 9768 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:40:48.116  INFO 6368 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 6368 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:40:48.121  INFO 6368 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:40:48.199  INFO 6368 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 09:40:48 CST 2018]; root of context hierarchy
+2018-08-08 09:40:49.981  INFO 6368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:40:50.014  INFO 6368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:40:50.014  INFO 6368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:40:50.022  INFO 6368 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:40:50.203  INFO 6368 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:40:50.203  INFO 6368 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2004 ms
+2018-08-08 09:40:50.272  INFO 6368 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:40:50.281  INFO 6368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:40:50.520  INFO 6368 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:40:50.523  INFO 6368 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:40:50.532  INFO 6368 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:40:50.533  INFO 6368 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:40:50.670  INFO 6368 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 09:40:48 CST 2018]; root of context hierarchy
+2018-08-08 09:40:51.314  INFO 6368 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:40:51.403  INFO 6368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:40:51.408  INFO 6368 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.974 seconds (JVM running for 6.295)
+2018-08-08 09:40:58.671  INFO 6368 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:40:58.671  INFO 6368 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:40:58.689  INFO 6368 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-08-08 09:40:58.723 ERROR 6368 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:40:59.988 ERROR 6368 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'] with root cause
+
+javax.servlet.ServletException: Could not resolve view with name 'order/test1' in servlet with name 'dispatcherServlet'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_152]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_152]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_152]
+
+2018-08-08 09:41:52.844  INFO 7388 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 7388 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:41:52.847  INFO 7388 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:41:52.950  INFO 7388 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67c27493: startup date [Wed Aug 08 09:41:52 CST 2018]; root of context hierarchy
+2018-08-08 09:41:54.962  INFO 7388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:41:54.991  INFO 7388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:41:54.991  INFO 7388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:41:54.996  INFO 7388 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:41:55.215  INFO 7388 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:41:55.215  INFO 7388 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2265 ms
+2018-08-08 09:41:55.269  INFO 7388 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:41:55.275  INFO 7388 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:41:55.479  INFO 7388 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:41:55.480  INFO 7388 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:41:55.489  INFO 7388 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:41:55.490  INFO 7388 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:41:55.592  INFO 7388 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67c27493: startup date [Wed Aug 08 09:41:52 CST 2018]; root of context hierarchy
+2018-08-08 09:41:56.036  INFO 7388 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:41:56.124  INFO 7388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:41:56.133  INFO 7388 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.975 seconds (JVM running for 7.45)
+2018-08-08 09:42:07.365  INFO 7388 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:42:07.366  INFO 7388 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:42:07.385  INFO 7388 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-08-08 09:42:36.143  INFO 6236 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 6236 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:42:36.146  INFO 6236 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:42:36.213  INFO 6236 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:42:36 CST 2018]; root of context hierarchy
+2018-08-08 09:42:38.092  INFO 6236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:42:38.143  INFO 6236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:42:38.143  INFO 6236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:42:38.149  INFO 6236 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:42:38.296  INFO 6236 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:42:38.296  INFO 6236 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2083 ms
+2018-08-08 09:42:38.358  INFO 6236 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:42:38.367  INFO 6236 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:42:38.591  INFO 6236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:42:38.593  INFO 6236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:42:38.605  INFO 6236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:42:38.614  INFO 6236 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:42:38.715  INFO 6236 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:42:36 CST 2018]; root of context hierarchy
+2018-08-08 09:42:39.206  INFO 6236 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:42:39.260  INFO 6236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:42:39.266  INFO 6236 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.802 seconds (JVM running for 6.551)
+2018-08-08 09:43:06.374  INFO 6236 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:43:06.375  INFO 6236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:43:06.400  INFO 6236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2018-08-08 09:47:45.679  INFO 8260 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 8260 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 09:47:45.688  INFO 8260 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 09:47:45.757  INFO 8260 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:47:45 CST 2018]; root of context hierarchy
+2018-08-08 09:47:47.612  INFO 8260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 09:47:47.642  INFO 8260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 09:47:47.642  INFO 8260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 09:47:47.649  INFO 8260 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 09:47:47.824  INFO 8260 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 09:47:47.825  INFO 8260 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2068 ms
+2018-08-08 09:47:47.893  INFO 8260 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 09:47:47.900  INFO 8260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 09:47:48.110  INFO 8260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 09:47:48.112  INFO 8260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 09:47:48.124  INFO 8260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 09:47:48.125  INFO 8260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 09:47:48.242  INFO 8260 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6069db50: startup date [Wed Aug 08 09:47:45 CST 2018]; root of context hierarchy
+2018-08-08 09:47:48.667  INFO 8260 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 09:47:48.731  INFO 8260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 09:47:48.740  INFO 8260 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.889 seconds (JVM running for 6.66)
+2018-08-08 09:47:57.812  INFO 8260 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 09:47:57.812  INFO 8260 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 09:47:57.829  INFO 8260 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-08-08 10:05:46.404  INFO 11132 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 11132 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 10:05:46.406  INFO 11132 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 10:05:46.528  INFO 11132 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1bd4fdd: startup date [Wed Aug 08 10:05:46 CST 2018]; root of context hierarchy
+2018-08-08 10:05:48.563  INFO 11132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 10:05:48.599  INFO 11132 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 10:05:48.600  INFO 11132 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 10:05:48.609  INFO 11132 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 10:05:48.779  INFO 11132 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 10:05:48.779  INFO 11132 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2251 ms
+2018-08-08 10:05:48.878  INFO 11132 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 10:05:48.889  INFO 11132 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 10:05:49.158  INFO 11132 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 10:05:49.160  INFO 11132 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 10:05:49.178  INFO 11132 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 10:05:49.179  INFO 11132 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 10:05:49.308  INFO 11132 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1bd4fdd: startup date [Wed Aug 08 10:05:46 CST 2018]; root of context hierarchy
+2018-08-08 10:05:49.773  INFO 11132 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 10:05:49.855  INFO 11132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 10:05:49.860  INFO 11132 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 4.288 seconds (JVM running for 6.942)
+2018-08-08 10:06:02.244  INFO 11132 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 10:06:02.245  INFO 11132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 10:06:02.264  INFO 11132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-08-08 10:12:48.880  INFO 11396 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 11396 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 10:12:48.883  INFO 11396 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 10:12:48.967  INFO 11396 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 10:12:48 CST 2018]; root of context hierarchy
+2018-08-08 10:12:50.829  INFO 11396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 10:12:50.876  INFO 11396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 10:12:50.877  INFO 11396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 10:12:50.887  INFO 11396 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 10:12:51.097  INFO 11396 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 10:12:51.098  INFO 11396 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2132 ms
+2018-08-08 10:12:51.170  INFO 11396 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 10:12:51.175  INFO 11396 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 10:12:51.420  INFO 11396 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 10:12:51.421  INFO 11396 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 10:12:51.430  INFO 11396 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 10:12:51.431  INFO 11396 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 10:12:51.536  INFO 11396 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 10:12:48 CST 2018]; root of context hierarchy
+2018-08-08 10:12:52.056  INFO 11396 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 10:12:52.146  INFO 11396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 10:12:52.152  INFO 11396 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.919 seconds (JVM running for 6.664)
+2018-08-08 10:13:38.659  INFO 11396 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 10:13:38.660  INFO 11396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 10:13:38.680  INFO 11396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-08-08 10:20:10.393  INFO 9304 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 9304 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 10:20:10.396  INFO 9304 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 10:20:10.457  INFO 9304 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67c27493: startup date [Wed Aug 08 10:20:10 CST 2018]; root of context hierarchy
+2018-08-08 10:20:11.050  INFO 9304 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'loginInterceptor' with a different definition: replacing [Generic bean: class [hsbc.team03.ordersystem.commonsutils.LoginInterceptor]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\idea\HSBC_TEAM_3_OrderSystem\target\classes\hsbc\team03\ordersystem\commonsutils\LoginInterceptor.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=adapterConfig; factoryMethodName=loginInterceptor; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [hsbc/team03/ordersystem/commonsutils/AdapterConfig.class]]
+2018-08-08 10:20:12.219  INFO 9304 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 10:20:12.260  INFO 9304 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 10:20:12.261  INFO 9304 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 10:20:12.271  INFO 9304 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 10:20:12.420  INFO 9304 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 10:20:12.421  INFO 9304 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1964 ms
+2018-08-08 10:20:12.477  INFO 9304 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 10:20:12.484  INFO 9304 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 10:20:12.657  INFO 9304 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 10:20:12.658  INFO 9304 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 10:20:12.667  INFO 9304 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 10:20:12.668  INFO 9304 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 10:20:12.785  INFO 9304 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67c27493: startup date [Wed Aug 08 10:20:10 CST 2018]; root of context hierarchy
+2018-08-08 10:20:13.181  INFO 9304 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 10:20:13.263  INFO 9304 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 10:20:13.270  INFO 9304 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.825 seconds (JVM running for 6.142)
+2018-08-08 10:20:38.122  INFO 9304 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 10:20:38.123  INFO 9304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 10:20:38.139  INFO 9304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-08-08 10:27:13.643  INFO 11928 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 11928 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 10:27:13.646  INFO 11928 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 10:27:13.709  INFO 11928 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 10:27:13 CST 2018]; root of context hierarchy
+2018-08-08 10:27:14.379  INFO 11928 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'loginInterceptor' with a different definition: replacing [Generic bean: class [hsbc.team03.ordersystem.commonsutils.LoginInterceptor]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\idea\HSBC_TEAM_3_OrderSystem\target\classes\hsbc\team03\ordersystem\commonsutils\LoginInterceptor.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=adapterConfig; factoryMethodName=loginInterceptor; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [hsbc/team03/ordersystem/commonsutils/AdapterConfig.class]]
+2018-08-08 10:27:15.579  INFO 11928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 10:27:15.608  INFO 11928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 10:27:15.609  INFO 11928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 10:27:15.636  INFO 11928 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 10:27:15.828  INFO 11928 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 10:27:15.831  INFO 11928 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2122 ms
+2018-08-08 10:27:15.873  INFO 11928 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 10:27:15.878  INFO 11928 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 10:27:16.052  INFO 11928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 10:27:16.057  INFO 11928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 10:27:16.065  INFO 11928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 10:27:16.066  INFO 11928 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 10:27:16.195  INFO 11928 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4efbca5a: startup date [Wed Aug 08 10:27:13 CST 2018]; root of context hierarchy
+2018-08-08 10:27:16.700  INFO 11928 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 10:27:16.761  INFO 11928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 10:27:16.766  INFO 11928 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.76 seconds (JVM running for 6.411)
+2018-08-08 10:27:26.804  INFO 11928 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 10:27:26.804  INFO 11928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 10:27:26.823  INFO 11928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-08-08 10:27:26.836  INFO 11928 --- [http-nio-8080-exec-1] h.t.o.commonsutils.LoginInterceptor      : ------LginInterceptor------
+2018-08-08 10:27:26.840  INFO 11928 --- [http-nio-8080-exec-1] h.t.o.commonsutils.LoginInterceptor      : ----对不起您还没登录,请先登录----
+2018-08-08 10:28:19.722  INFO 11532 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on ca-PC with PID 11532 (F:\idea\HSBC_TEAM_3_OrderSystem\target\classes started by ca in F:\idea\HSBC_TEAM_3_OrderSystem)
+2018-08-08 10:28:19.725  INFO 11532 --- [main] h.t.ordersystem.OrdersystemApplication   : The following profiles are active: prod
+2018-08-08 10:28:19.789  INFO 11532 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1b7cc17c: startup date [Wed Aug 08 10:28:19 CST 2018]; root of context hierarchy
+2018-08-08 10:28:21.795  INFO 11532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-08-08 10:28:21.832  INFO 11532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-08 10:28:21.832  INFO 11532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-08 10:28:21.851  INFO 11532 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\erwin\jdk\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;H:\erwin\jdk\jdk1.8\bin;H:\erwin\jdk\jdk1.8\jre\bin;F:\Oracle\app\ca\product\11.2.0\dbhome_3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\SDK\platform-tools;F:\SDK\tools;%JBOSS_HOME%\bin;C:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Lenovo\Bluetooth Software\syswow64;C:\Users\ca\Desktop\rose_iso\common;F:\MongoDB\bin;F:\Maven\apache-maven-3.5.4\bin;F:\svn Server\bin;F:\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;F:\git_service\Git\bin;F:\appserv\Apache2.2\bin;F:\appserv\php5;F:\appserv\MySQL\bin;F:\Maven\apache-maven-3.5.4\bin;.]
+2018-08-08 10:28:22.012  INFO 11532 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-08 10:28:22.013  INFO 11532 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2224 ms
+2018-08-08 10:28:22.065  INFO 11532 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-08 10:28:22.070  INFO 11532 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-08 10:28:22.259  INFO 11532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/toorder],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.toOrder(hsbc.team03.ordersystem.product.ProductInfo,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-08 10:28:22.260  INFO 11532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/order/test1],methods=[POST],produces=[application/json;charset=utf-8]}" onto public java.lang.Object hsbc.team03.ordersystem.product.OrderController.test1()
+2018-08-08 10:28:22.270  INFO 11532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-08 10:28:22.270  INFO 11532 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-08 10:28:22.377  INFO 11532 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1b7cc17c: startup date [Wed Aug 08 10:28:19 CST 2018]; root of context hierarchy
+2018-08-08 10:28:22.895  INFO 11532 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-08 10:28:22.991  INFO 11532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-08-08 10:28:22.997  INFO 11532 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 3.972 seconds (JVM running for 6.511)
+2018-08-08 10:28:26.340  INFO 11532 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-08 10:28:26.341  INFO 11532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-08 10:28:26.359  INFO 11532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-08-08 10:28:26.373  INFO 11532 --- [http-nio-8080-exec-1] h.t.o.commonsutils.LoginInterceptor      : ------LginInterceptor------
+2018-08-08 10:28:26.377  INFO 11532 --- [http-nio-8080-exec-1] h.t.o.commonsutils.LoginInterceptor      : ----对不起您还没登录,请先登录----
