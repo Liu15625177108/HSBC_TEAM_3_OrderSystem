@@ -11,9 +11,9 @@ import java.util.Map;
  * @Created: 2018年08月03日 10:23:24
  **/
 public class UserInfo implements Serializable {
-    private long userId;
+    private String userId;
     private String username;
-    private String passord;
+    private String password;
     private String realName;
     private int gender;
     private int age;
@@ -24,11 +24,11 @@ public class UserInfo implements Serializable {
     public UserInfo() {
     }
 
-    public UserInfo(long userId, String username, String passord, String realName, int gender,
+    public UserInfo(String userId, String username, String password, String realName, int gender,
                     int age, String position, String income, Map<String, String> securityQuestions) {
         this.userId = userId;
         this.username = username;
-        this.passord = passord;
+        this.password = password;
         this.realName = realName;
         this.gender = gender;
         this.age = age;
@@ -45,11 +45,11 @@ public class UserInfo implements Serializable {
         this.securityQuestions = securityQuestions;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -61,12 +61,12 @@ public class UserInfo implements Serializable {
         this.username = username;
     }
 
-    public String getPassord() {
-        return passord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassord(String passord) {
-        this.passord = passord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRealName() {
@@ -107,5 +107,20 @@ public class UserInfo implements Serializable {
 
     public void setIncome(String income) {
         this.income = income;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", realName='" + realName + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                ", position='" + position + '\'' +
+                ", income='" + income + '\'' +
+                ", securityQuestions=" + securityQuestions +
+                '}';
     }
 }

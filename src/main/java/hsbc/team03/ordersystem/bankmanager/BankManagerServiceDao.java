@@ -9,7 +9,7 @@ package hsbc.team03.ordersystem.bankmanager;
  */
 public interface BankManagerServiceDao {
 
-    boolean login (String workernum,String password);
+    boolean login(String workernum, String password);
 
     Object findByWorkernum(String worknum);
 }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 public interface BankManagerService{
 
-    boolean login (String workernum,String password);
+    boolean login(String workernum, String password);
 
     Object findByWorkernum(String worknum);
 

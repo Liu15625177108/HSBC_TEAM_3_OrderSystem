@@ -1,4 +1,4 @@
-logging:
-  level:
-    root: info
-  file: test.log
+#logging:
+#  level:
+#    root: info
+#  file: test.log

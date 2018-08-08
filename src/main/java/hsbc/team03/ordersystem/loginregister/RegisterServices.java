@@ -19,10 +19,10 @@ public interface RegisterServices {
 
     /**
      * @param : [username]
-     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @return hsbc.team03.ordersystem.loginregister.UserInfo
      * @Description to get user by username
      */
-    List<UserInfo> findUserByUsername(String username);
+    UserInfo findUserByUsername(String username);
 
     /**
      * @param : [userInfo]
