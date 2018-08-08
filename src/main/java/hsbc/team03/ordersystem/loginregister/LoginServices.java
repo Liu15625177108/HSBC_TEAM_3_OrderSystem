@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @Package: hsbc_team_3.ordersystem.loginregister
  * @Program: ordersystem
- * @Description: login service interface
+ * @Description: login service interface for implement
  * @Author: Jeff.Li
  * @Created: 2018年08月03日 10:32:43
  **/
