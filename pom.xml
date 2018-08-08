@@ -6,7 +6,7 @@
     <groupId>Hsbc_team_3</groupId>
     <artifactId>ordersystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
     <!-- lookup parent from repository -->
@@ -118,13 +118,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 89f0fe0497832cfe8c2c68f6e2a97dbcabab6c8c
     </dependencies>
 
 
@@ -184,7 +177,4 @@
 
 </project>
 
-<<<<<<< HEAD
-=======
-</project>
->>>>>>> 89f0fe0497832cfe8c2c68f6e2a97dbcabab6c8c
+
