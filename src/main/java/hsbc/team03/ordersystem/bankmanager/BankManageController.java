@@ -19,6 +19,7 @@ public class BankManageController {
     @Autowired
     private  BankManagerService bankManagerService;
 
+
     @RequestMapping(path ="/manager/login",method = RequestMethod.GET)
     /**
     *@Author Jerry.Liu

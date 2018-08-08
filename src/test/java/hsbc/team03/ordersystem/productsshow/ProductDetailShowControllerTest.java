@@ -74,9 +74,7 @@ public class ProductDetailShowControllerTest {
         list.add(productInfoView2);
 
         System.out.println(list.toString());
-        Logger logger = LoggerFactory.getLogger(list.toString());
-
-
+       // Logger logger = LoggerFactory.getLogger(list.toString());
         given(this.productShowService.listAll()).willReturn(list);
 
         this.mvc.perform(get("/user/product/list")

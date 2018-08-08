@@ -6,7 +6,7 @@
     <groupId>Hsbc_team_3</groupId>
     <artifactId>ordersystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
     <!-- lookup parent from repository -->
@@ -85,6 +85,7 @@
             <version>1.11</version>
         </dependency>
 
+
         <!--the rely on lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -119,6 +120,11 @@
         </dependency>
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 89f0fe0497832cfe8c2c68f6e2a97dbcabab6c8c
     </dependencies>
 
 
@@ -178,3 +184,7 @@
 
 </project>
 
+<<<<<<< HEAD
+=======
+</project>
+>>>>>>> 89f0fe0497832cfe8c2c68f6e2a97dbcabab6c8c

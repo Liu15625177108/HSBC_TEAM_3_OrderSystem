@@ -8,15 +8,17 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 22:05     1.0               Configuring Interceptors
  */
-package hsbc.team03.ordersystem.product.commonsutils;
-
+package hsbc.team03.ordersystem.toorder.commonsutils;
 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -33,8 +35,8 @@ import java.util.List;
 public class AdapterConfig extends WebMvcConfigurationSupport{
     
     @Bean
-    hsbc.team03.ordersystem.product.commonsutils.LoginInterceptor loginInterceptor() {
-        return new hsbc.team03.ordersystem.product.commonsutils.LoginInterceptor();
+    LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.product.commonsutils;
+package hsbc.team03.ordersystem.toorder.commonsutils;
 
 import java.util.UUID;
 
