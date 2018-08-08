@@ -7,7 +7,7 @@ import lombok.Data;
  * Package:hsbc_team_3.ordersystem.products
  * Author:Alan Ruan
  * Date:2018-08-02 10:53
- * Description://TODO
+ * Description://
  */
 @Data
 public class ProductInfo {
