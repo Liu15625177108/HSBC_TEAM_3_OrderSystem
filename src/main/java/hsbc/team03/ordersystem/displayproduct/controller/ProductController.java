@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct.controller;
 
-import hsbc.team03.ordersystem.common.SortUtils;
+import hsbc.team03.ordersystem.displayproduct.common.SortUtils;
 import hsbc.team03.ordersystem.displayproduct.model.Product;
 import hsbc.team03.ordersystem.displayproduct.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

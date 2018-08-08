@@ -1,7 +1,7 @@
 package hsbc.team03.ordersystem.displayproduct.serviceimpl;
 
-import hsbc.team03.ordersystem.common.DataUtils;
-import hsbc.team03.ordersystem.common.UUIDUtils;
+import hsbc.team03.ordersystem.displayproduct.common.DataUtils;
+import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
 import hsbc.team03.ordersystem.displayproduct.model.Log;
 import hsbc.team03.ordersystem.displayproduct.model.Product;
 import hsbc.team03.ordersystem.displayproduct.repository.LogRepository;

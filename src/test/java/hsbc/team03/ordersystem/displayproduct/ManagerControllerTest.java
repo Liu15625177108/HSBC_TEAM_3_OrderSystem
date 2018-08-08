@@ -1,7 +1,7 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import com.alibaba.fastjson.JSONObject;
-import hsbc.team03.ordersystem.common.UUIDUtils;
+import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
 import hsbc.team03.ordersystem.displayproduct.model.Product;
 import org.junit.Before;
 import org.junit.Test;
