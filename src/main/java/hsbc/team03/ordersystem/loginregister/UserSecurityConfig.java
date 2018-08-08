@@ -22,6 +22,7 @@ public class UserSecurityConfig extends WebMvcConfigurationSupport {
         registry1.excludePathPatterns("/user/**");
         registry1.excludePathPatterns("/error");
         registry1.excludePathPatterns("/manager/login");
+        registry1.excludePathPatterns("/user/get/products");
         super.addInterceptors(registry);
     }
 
