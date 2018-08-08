@@ -1,10 +1,13 @@
 package hsbc.team03.ordersystem.displayproduct;
-import hsbc.team03.ordersystem.common.SortUtils;
+
+import hsbc.team03.ordersystem.displayproduct.common.SortUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
+
 /**
  * @Author:Evan
  * @Date:2018/8/2 14:47

@@ -1,13 +1,15 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 
+import hsbc.team03.ordersystem.displayproduct.Product;
+
 import java.util.List;
 
 /**
  * @Author:Evan
  * @Date:2018/8/2 14:46
  * @Describe：
- * @Return: products
+ * @Return:  products
  * @Param:
  */
 

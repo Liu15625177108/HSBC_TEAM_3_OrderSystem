@@ -1,5 +1,7 @@
 package hsbc.team03.ordersystem.displayproduct;
 
+import hsbc.team03.ordersystem.displayproduct.Product;
+
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ import java.util.List;
 public interface ProductService {
     /**
      * @return :list
-     * @Description: get all products
+     * @Description: get the all products
      * @Author: @Evan
      * @CreateDate: 2018/8/5 22:16
      * @UpdateDate: 2018/8/5 22:16
