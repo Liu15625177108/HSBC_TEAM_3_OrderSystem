@@ -4,7 +4,7 @@ package hsbc.team03.ordersystem.loginregister;
 /**
  * @Package: hsbc_team_3.ordersystem.loginregister
  * @Program: ordersystem
- * @Description: result view
+ * @Description: result view for returning
  * @Author: Jeff.Li
  * @Created: 2018年08月03日 11:39:15
  **/

@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * @Package: hsbc_team_3.ordersystem.loginregister
  * @Program: ordersystem
- * @Description: util of sending sms to phone
+ * @Description: util of sending message to phone
  * @Author: Jeff.Li
  * @Created: 2018年08月03日 09:28:02
  **/
