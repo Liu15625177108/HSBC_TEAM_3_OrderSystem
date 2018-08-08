@@ -11,14 +11,23 @@ import java.util.Map;
  * @Created: 2018年08月03日 10:23:24
  **/
 public class UserInfo implements Serializable {
+
     private String userId;
+
     private String username;
+
     private String password;
+
     private String realName;
+
     private int gender;
+
     private int age;
+
     private String position;
+
     private String income;
+
     private Map<String, String> securityQuestions;
 
     public UserInfo() {

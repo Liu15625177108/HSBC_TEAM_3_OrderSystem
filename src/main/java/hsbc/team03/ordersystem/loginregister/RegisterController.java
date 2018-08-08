@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 /**
  * @Package: hsbc_team_3.ordersystem.loginregister
@@ -95,7 +96,7 @@ public class RegisterController {
      * @Description input register message of user
      */
     @PostMapping("/login-message")
-    public ResultView loginMessage(@RequestBody UserInfo userInfo) {
+    public ResultView loginMessage(@RequestBody @Valid UserInfo userInfo) {
         ResultView resultView = new ResultView();
         if (registerServices.addUser(userInfo)) {
             resultView.setCode(200);
