@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct.common;
 
-import hsbc.team03.ordersystem.displayproduct.model.Product;
+import hsbc.team03.ordersystem.displayproduct.Product;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,6 @@
-package hsbc.team03.ordersystem.displayproduct.controller;
+package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.model.Product;
-import hsbc.team03.ordersystem.displayproduct.service.ManagerService;
-import hsbc.team03.ordersystem.displayproduct.serviceimpl.ManagerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

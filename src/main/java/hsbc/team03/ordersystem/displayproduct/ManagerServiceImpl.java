@@ -1,12 +1,12 @@
-package hsbc.team03.ordersystem.displayproduct.serviceimpl;
+package hsbc.team03.ordersystem.displayproduct;
 
 import hsbc.team03.ordersystem.displayproduct.common.DataUtils;
 import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
-import hsbc.team03.ordersystem.displayproduct.model.Log;
-import hsbc.team03.ordersystem.displayproduct.model.Product;
-import hsbc.team03.ordersystem.displayproduct.repository.LogRepository;
-import hsbc.team03.ordersystem.displayproduct.repository.ManagerRepository;
-import hsbc.team03.ordersystem.displayproduct.service.ManagerService;
+import hsbc.team03.ordersystem.displayproduct.Log;
+import hsbc.team03.ordersystem.displayproduct.Product;
+import hsbc.team03.ordersystem.displayproduct.LogRepository;
+import hsbc.team03.ordersystem.displayproduct.ManagerRepository;
+import hsbc.team03.ordersystem.displayproduct.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

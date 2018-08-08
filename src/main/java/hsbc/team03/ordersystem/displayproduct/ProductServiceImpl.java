@@ -1,8 +1,8 @@
-package hsbc.team03.ordersystem.displayproduct.serviceimpl;
+package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.model.Product;
-import hsbc.team03.ordersystem.displayproduct.repository.ProductRepository;
-import hsbc.team03.ordersystem.displayproduct.service.ProductService;
+import hsbc.team03.ordersystem.displayproduct.Product;
+import hsbc.team03.ordersystem.displayproduct.ProductRepository;
+import hsbc.team03.ordersystem.displayproduct.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

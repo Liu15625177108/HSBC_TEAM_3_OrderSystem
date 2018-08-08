@@ -1,6 +1,6 @@
-package hsbc.team03.ordersystem.displayproduct.service;
+package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.model.Product;
+import hsbc.team03.ordersystem.displayproduct.Product;
 
 import java.util.List;
 
