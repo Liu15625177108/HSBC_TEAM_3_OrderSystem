@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @description〈the controller of order〉
  * @author Chen
+ * @description〈the controller of order〉
  * @create 2018/8/2
  * @since 1.0.0
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/order" , produces = "application/json; charset=utf-8")
+@RequestMapping(value = "/order", produces = "application/json; charset=utf-8")
 public class OrderController {
     @Autowired
     private OrdersService ordersService;
@@ -47,40 +47,34 @@ public class OrderController {
     public @ResponseBody
     Object toOrder(@RequestBody ProductInfo productInfo, String payPassword, HttpServletRequest request) {
         UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
-        if (userInfo != null && !userInfo.equals("")) {
 
-            //To compare userMoney and orderPrice
-            if (userInfo.getUserMoney() > ordersService.getOrderPrice(productInfo.getProdcutNumber(), productInfo.getProdcutPrice())) {
+        //To compare userMoney and orderPrice
+        if (userInfo.getUserMoney() > ordersService.getOrderPrice(productInfo.getProdcutNumber(), productInfo.getProdcutPrice())) {
 
-                //to check userPayPassword
-                if (userService.toValidatePayPassword(userInfo, payPassword)) {
+            //to check userPayPassword
+            if (userService.toValidatePayPassword(userInfo, payPassword)) {
 
-                        Object resultView = ordersService.toOrder(productInfo, userInfo);
-                        String result = resultView.toString();
-                        log.info(result);
-                        return resultView;
-
-                    }
-
-                    String result = "Sorry,your password is wrong,please reenter it";
-                    log.info(result);
-                    ResultView resultView = new ResultView<String>(401, "error", result);
-
-                    return resultView;
-
-                }
-
-                String result = "Sorry,your money is not enough,please recharge";
+                Object resultView = ordersService.toOrder(productInfo, userInfo);
+                String result = resultView.toString();
                 log.info(result);
-                ResultView resultView = new ResultView<String>(401, "error", result);
                 return resultView;
+
             }
 
-            String result = "Sorry,you haven't login,please login";
+            String result = "Sorry,your password is wrong,please reenter it";
             log.info(result);
             ResultView resultView = new ResultView<String>(401, "error", result);
+
             return resultView;
 
         }
 
+        String result = "Sorry,your money is not enough,please recharge";
+        log.info(result);
+        ResultView resultView = new ResultView<String>(401, "error", result);
+        return resultView;
+
     }
+
+
+}
