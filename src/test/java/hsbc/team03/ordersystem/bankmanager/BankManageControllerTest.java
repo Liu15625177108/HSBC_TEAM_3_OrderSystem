@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -30,22 +31,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @Date 2018/8/3 10:50
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@WebMvcTest(BankManageController.class)
 public class BankManageControllerTest {
 
 
 
-    @Autowired
-    //reject web factory
-    private WebApplicationContext wac;
+//    @Autowired
+//    //reject web factory
+//    private WebApplicationContext wac;
     //simulate mvc environment;
+    @Autowired
     private MockMvc mockMvc;
     @MockBean
     private  BankManagerService bankManagerService;
-    @Before
-    public void setup(){
-        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-    }
+//    @Before
+//    public void setup(){
+//        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+//    }
     @Test
     /**
     *@Author Jerry.Liu
