@@ -47,7 +47,7 @@ public class ProductTest {
     @Test
     public void productTest() throws Exception {
         List<Product> list = new ArrayList<>();
-        
+
         Mockito.when(productService.getAllProduct()).thenReturn(list);
         this.mvc.perform(get("/user/get/products")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
