@@ -2,6 +2,11 @@ package hsbc.team03.ordersystem.displayproduct;
 
 import hsbc.team03.ordersystem.common.DataUtils;
 import hsbc.team03.ordersystem.common.UUIDUtils;
+import hsbc.team03.ordersystem.displayproduct.Log;
+import hsbc.team03.ordersystem.displayproduct.Product;
+import hsbc.team03.ordersystem.displayproduct.LogRepository;
+import hsbc.team03.ordersystem.displayproduct.ManagerRepository;
+import hsbc.team03.ordersystem.displayproduct.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +43,9 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public List<Product> productList() {
         /*get products from database  managerRepository.fillAll()*/
-        return managerRepository.findAll();
+//
+//        return managerRepository.findAll();
+        return null;
     }
 
     /**
@@ -51,27 +58,28 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public boolean addProduct(Product product) {
 
-        boolean tag;
-        /*check the product's code unique*/
-        tag = checkUniqueOfProduct(product);
-        /*if the productCode is unique,allow add product*/
-        if (tag) {
-            /*save the production to database*/
-            product = managerRepository.save(product);
-            /*if save fail,then managerRepository operation database return null,so it will return false*/
-            if (product == null) {
-                tag = false;
-                return tag;
-            }
-        }
-        return tag;
+//        boolean tag;
+//        /*check the product's code unique*/
+//        tag = checkUniqueOfProduct(product);
+//        /*if the productCode is unique,allow add product*/
+//        if (tag) {
+//            /*save the production to database*/
+//            product = managerRepository.save(product);
+//            /*if save fail,then managerRepository operation database return null,so it will return false*/
+//            if (product == null) {
+//                tag = false;
+//                return tag;
+//            }
+//        }
+//        return tag;
+        return false;
     }
 
     @Override
     public int deleteProductByProductCode(Product product) {
         int n = 0;
-        String msg = "delete product's of code =" + product.getProductCode();
-        /*judge the of current time and product's dueDate,if current'time not in the rang of dueDate ,can't not delete product*/
+       /* String msg = "delete product's of code =" + product.getProductCode();
+        *//*judge the of current time and product's dueDate,if current'time not in the rang of dueDate ,can't not delete product*//*
 
 
         DataUtils dataUtils = new DataUtils();
@@ -79,13 +87,13 @@ public class ManagerServiceImpl implements ManagerService {
         if (tag) {
             product.setStatus(0);
             managerRepository.save(product);
-            /*if manager modify the production information,it should be recording*/
+            *//*if manager modify the production information,it should be recording*//*
             Log log = new Log();
             setLog(log, product);
             log.setOperation(msg);
             logRepository.save(log);
             n = 1;
-        }
+        }*/
         return n;
     }
 

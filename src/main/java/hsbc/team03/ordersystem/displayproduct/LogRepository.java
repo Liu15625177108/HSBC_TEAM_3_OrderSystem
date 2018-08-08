@@ -1,4 +1,5 @@
 package hsbc.team03.ordersystem.displayproduct;
+import hsbc.team03.ordersystem.displayproduct.Log;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
