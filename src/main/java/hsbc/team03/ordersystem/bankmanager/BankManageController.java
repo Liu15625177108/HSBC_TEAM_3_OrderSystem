@@ -19,6 +19,7 @@ public class BankManageController {
     @Autowired
     private  BankManagerService bankManagerService;
 
+
     @RequestMapping(path ="/manager/login",method = RequestMethod.GET)
     /**
     *@Author Jerry.Liu
@@ -29,6 +30,7 @@ public class BankManageController {
     */
     public  ReturnValue managerLogin(@RequestParam(value = "workernumber",required = true) String workerNumber,
                                      @RequestParam(value = "password",required = true)String workerPassword) {
+
         if (bankManagerService.login(workerNumber, workerPassword) == true) {
             ReturnValue<BankManager> returnValue = new ReturnValue<BankManager>();
             BankManager bankManager = (BankManager) bankManagerService.findByWorkernum(workerNumber);
