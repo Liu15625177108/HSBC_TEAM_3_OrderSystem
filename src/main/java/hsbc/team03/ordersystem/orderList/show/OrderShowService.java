@@ -9,7 +9,7 @@ import java.util.List;
  * Date:2018-08-06 09:30
  * Description://order service, including findAllOrder method
  */
-public interface OrderService {
+public interface OrderShowService {
 
     /**
      * @Method findAllOrder

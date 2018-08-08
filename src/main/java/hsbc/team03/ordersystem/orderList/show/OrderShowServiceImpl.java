@@ -12,7 +12,7 @@ import java.util.List;
  * Description://
  */
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderShowServiceImpl implements OrderShowService {
 
     @Override
     public List<OrderInfo> findAllOrder() {

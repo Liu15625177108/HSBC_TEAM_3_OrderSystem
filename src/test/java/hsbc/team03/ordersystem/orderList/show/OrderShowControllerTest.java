@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 public class OrderShowControllerTest {
 
     @MockBean
-    private OrderService orderService;
+    private OrderShowService orderShowService;
 
     @Autowired
     private MockMvc mvc;
@@ -72,7 +72,7 @@ public class OrderShowControllerTest {
 
         System.out.println(orderInfoList.toString());
 
-        given(this.orderService.findAllOrder()).willReturn(orderInfoList);
+        given(this.orderShowService.findAllOrder()).willReturn(orderInfoList);
 
 
         this.mvc.perform(get("/orderlist/show").accept(MediaType.APPLICATION_JSON))

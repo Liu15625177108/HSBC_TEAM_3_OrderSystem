@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderShowController {
 
     @Autowired
-    private OrderService orderService;
+    private OrderShowService orderShowService;
 
     /**
      * @Method showAllOrder
@@ -34,7 +34,7 @@ public class OrderShowController {
         ResultView resultView = new ResultView();
 
         OrderView orderView = new OrderView();
-        orderView.setOrderInfoList(orderService.findAllOrder());
+        orderView.setOrderInfoList(orderShowService.findAllOrder());
 
         resultView.setStatus(1);
         resultView.setMsg("已经是登录状态");
