@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem;
+package hsbc.team03.ordersystem.displayproduct;
 
 import hsbc.team03.ordersystem.displayproduct.Log;
 import hsbc.team03.ordersystem.displayproduct.LogRepository;
