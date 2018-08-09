@@ -21,6 +21,8 @@ import java.util.List;
  */
 @Service
 public class LogServiceImpl implements LogService {
+    public static  final String FAIL="无满足要求的数据";
+    public static  final String SUCCESS="系统日志导出成功";
     final LogRepository logRepository;
 
     @Autowired
@@ -38,14 +40,15 @@ public class LogServiceImpl implements LogService {
             List<Log> logs=SystemLogUtils.screeningSystemLog(n,logList);
 
             /*3:导出日志到excel*/
-            SystemLogUtils.exportSystomLogToExcel(logs,response);
+            if (logs.size()>0){
+                SystemLogUtils.exportSystomLogToExcel(logs,response);
+            }
+            return FAIL;
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        return null;
+        return SUCCESS;
     }
 }

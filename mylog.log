@@ -1304,3 +1304,52 @@ java.lang.IllegalStateException: Optional int parameter 'pageNum' is present but
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_102]
 
+2018-08-09 11:35:43.334  INFO 7760 --- [main] h.t.ordersystem.OrdersystemApplication   : Starting OrdersystemApplication on 20160918-111417 with PID 7760 (G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem\target\classes started by Administrator in G:\EvanYaoQiHui\HSBC_TEAM_3_OrderSystem)
+2018-08-09 11:35:43.350  INFO 7760 --- [main] h.t.ordersystem.OrdersystemApplication   : No active profile set, falling back to default profiles: default
+2018-08-09 11:35:43.412  INFO 7760 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@163e4e87: startup date [Thu Aug 09 11:35:43 CST 2018]; root of context hierarchy
+2018-08-09 11:35:45.002  INFO 7760 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$de1588d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-08-09 11:35:46.572  INFO 7760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2018-08-09 11:35:46.653  INFO 7760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-09 11:35:46.653  INFO 7760 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+2018-08-09 11:35:46.668  INFO 7760 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;F:\app\Administrator\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_102\bin\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Windows\System32;C:\Program Files\nodejs;F:\SVNRepository\bin;C:\Subversion\bin;F:\Skype\Phone\;F:\Git\bin;E:\apache-maven-3.3.9\bin;C:\Users\Administrator\AppData\Roaming\npm;F:\Git\bin;.]
+2018-08-09 11:35:47.076  INFO 7760 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-09 11:35:47.076  INFO 7760 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3664 ms
+2018-08-09 11:35:47.201  INFO 7760 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-09 11:35:47.217  INFO 7760 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-09 11:35:47.217  INFO 7760 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-08-09 11:35:47.217  INFO 7760 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-08-09 11:35:47.217  INFO 7760 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-08-09 11:35:47.650  INFO 7760 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-08-09 11:35:47.682  INFO 7760 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-08-09 11:35:47.822  INFO 7760 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2018-08-09 11:35:47.822  INFO 7760 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-08-09 11:35:47.931  INFO 7760 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-08-09 11:35:48.183  INFO 7760 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-08-09 11:35:48.870  INFO 7760 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-08-09 11:35:48.901  INFO 7760 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-08-09 11:35:49.954  INFO 7760 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-08-09 11:35:51.063  INFO 7760 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-09 11:35:51.705  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@163e4e87: startup date [Thu Aug 09 11:35:43 CST 2018]; root of context hierarchy
+2018-08-09 11:35:51.768  WARN 7760 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-08-09 11:35:51.833  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/get/systemlog]}" onto public void hsbc.team03.ordersystem.displayproduct.LogController.getSystemLogList(javax.servlet.http.HttpServletResponse)
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/delete/products],methods=[DELETE]}" onto public int hsbc.team03.ordersystem.displayproduct.ManagerController.deleteProductByProductCode(hsbc.team03.ordersystem.displayproduct.Product)
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/modify/products],methods=[POST]}" onto public boolean hsbc.team03.ordersystem.displayproduct.ManagerController.modifyProduct(hsbc.team03.ordersystem.displayproduct.Product)
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto public org.springframework.web.servlet.ModelAndView hsbc.team03.ordersystem.displayproduct.ManagerController.managerPage()
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/productlist],methods=[GET]}" onto public java.util.List<hsbc.team03.ordersystem.displayproduct.Product> hsbc.team03.ordersystem.displayproduct.ManagerController.getAllProduct()
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/manager/add/products],methods=[POST]}" onto public java.lang.Boolean hsbc.team03.ordersystem.displayproduct.ManagerController.addProduct(hsbc.team03.ordersystem.displayproduct.Product)
+2018-08-09 11:35:51.848  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/get/products],methods=[GET]}" onto public org.springframework.data.domain.Page<hsbc.team03.ordersystem.displayproduct.Product> hsbc.team03.ordersystem.displayproduct.ProductController.getProduct()
+2018-08-09 11:35:51.866  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-09 11:35:51.866  INFO 7760 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-09 11:35:51.931  INFO 7760 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-09 11:35:51.931  INFO 7760 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-09 11:35:52.555  INFO 7760 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-09 11:35:52.555  INFO 7760 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-08-09 11:35:52.571  INFO 7760 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-08-09 11:35:52.667  INFO 7760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path ''
+2018-08-09 11:35:52.667  INFO 7760 --- [main] h.t.ordersystem.OrdersystemApplication   : Started OrdersystemApplication in 9.832 seconds (JVM running for 10.848)
+2018-08-09 11:35:56.565  INFO 7760 --- [http-nio-8092-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-09 11:35:56.565  INFO 7760 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-09 11:35:56.627  INFO 7760 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 62 ms
+2018-08-09 11:35:56.830  INFO 7760 --- [http-nio-8092-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
