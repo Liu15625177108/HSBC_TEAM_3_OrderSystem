@@ -1,5 +1,4 @@
-<<<<<<< HEAD:src/main/java/hsbc/team03/ordersystem/displayproduct/LogRepository.java
-=======
+
 /*
 >>>>>>> 0565a83164174a1aeb20e590e1facb0c30a1c1ca:src/main/java/hsbc/team03/ordersystem/displayproduct/LogRepository.java
 package hsbc.team03.ordersystem.displayproduct;

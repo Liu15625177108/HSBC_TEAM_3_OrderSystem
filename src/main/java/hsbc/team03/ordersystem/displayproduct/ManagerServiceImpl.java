@@ -4,11 +4,11 @@ import hsbc.team03.ordersystem.displayproduct.common.DataUtils;
 import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
 import hsbc.team03.ordersystem.displayproduct.Log;
 import hsbc.team03.ordersystem.displayproduct.Product;
-<<<<<<< HEAD:src/main/java/hsbc/team03/ordersystem/displayproduct/ManagerServiceImpl.java
-import hsbc.team03.ordersystem.displayproduct.LogRepository;
-import hsbc.team03.ordersystem.displayproduct.ManagerRepository;
-=======
->>>>>>> 0565a83164174a1aeb20e590e1facb0c30a1c1ca:src/main/java/hsbc/team03/ordersystem/displayproduct/ManagerServiceImpl.java
+
+//import hsbc.team03.ordersystem.displayproduct.LogRepository;
+//import hsbc.team03.ordersystem.displayproduct.ManagerRepository;import hsbc.team03.ordersystem.displayproduct.LogRepository;
+//import hsbc.team03.ordersystem.displayproduct.ManagerRepository;
+
 import hsbc.team03.ordersystem.displayproduct.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
