@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +22,20 @@ import java.util.List;
  */
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
+    @Override
+    public List<Product> getAllProduct() {
+        Product product1 = new Product("ewfsdgsrhdfgxvadfgsfnxzdz1", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
+        Product product2 = new Product("ewfsdgsrhdfgxvadfgsfnxzdz2", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
+        Product product3 = new Product("ewfsdgsrhdfgxvadfgsfnxzdz3", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
+        List<Product> list=new ArrayList<>();
+        list.add(product1);
+        list.add(product2);
+        list.add(product3);
+        return list;
+    }
+
+
+    /*   private ProductRepository productRepository;
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -35,5 +49,5 @@ public class ProductServiceImpl implements ProductService {
 //    @Override
 //    public Page<Product> findAll(Pageable pageable) {
 //        return productRepository.findAll(pageable);
-//    }
+//    }*/
 }

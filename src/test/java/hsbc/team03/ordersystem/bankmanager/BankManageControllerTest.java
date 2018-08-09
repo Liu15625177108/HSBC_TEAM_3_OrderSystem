@@ -37,10 +37,6 @@ public class BankManageControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private  BankManagerService bankManagerService;
-//    @Before
-//    public void setup(){
-//        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-//    }
     @Test
     /**
     *@Author Jerry.Liu
