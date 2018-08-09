@@ -4,7 +4,10 @@ import hsbc.team03.ordersystem.displayproduct.Product;
 import hsbc.team03.ordersystem.displayproduct.ProductRepository;
 import hsbc.team03.ordersystem.displayproduct.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,7 +18,7 @@ import java.util.List;
  * @Return:
  * @Param:
  */
-@Component
+@Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
     @Autowired
@@ -26,5 +29,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllProduct() {
         List<Product> list = productRepository.findAll();
         return list;
+    }
+
+    @Override
+    public Page<Product> getProductListByPage(PageRequest request) {
+        Page<Product> products= productRepository.findAll(request);
+        return products;
     }
 }
