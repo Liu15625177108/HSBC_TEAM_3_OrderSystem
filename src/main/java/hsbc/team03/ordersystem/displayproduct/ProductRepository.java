@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
  * @Param:
  */
 @Repository
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface ProductRepository /*extends JpaRepository<Product, String> */{
 
 }
