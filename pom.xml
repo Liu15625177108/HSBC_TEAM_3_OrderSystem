@@ -4,7 +4,7 @@
 
     <groupId>Hsbc_team_3</groupId>
     <artifactId>ordersystem</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>ordersystem</name>
     <description>Demo project for Spring Boot</description>
@@ -136,7 +136,7 @@
         <url>https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem</url>
         <connection>scm:git:https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem.git</connection>
         <developerConnection>scm:git:https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem.git</developerConnection>
-      <tag>ordersystem-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <build>
