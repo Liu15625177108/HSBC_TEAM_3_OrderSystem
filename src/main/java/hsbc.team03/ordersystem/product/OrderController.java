@@ -72,5 +72,10 @@ public class OrderController {
         ResultView resultView = new ResultView<String>(401, "error", result);
         return resultView;
     }
-
+    @PostMapping(value="/test1")
+    public @ResponseBody 
+    UserInfo test1(String a){
+        UserInfo userInfo=new UserInfo("11","chen",1.2,"12","123","汕头");
+        return userInfo;
+    }
 }

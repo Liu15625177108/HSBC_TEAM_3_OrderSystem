@@ -28,7 +28,7 @@ import java.util.List;
  * @create 2018/8/2
  * @since 1.0.0
  */
-@EnableWebMvc
+
 @Configuration
 public class AdapterConfig extends WebMvcConfigurationSupport{
     
@@ -40,7 +40,8 @@ public class AdapterConfig extends WebMvcConfigurationSupport{
     public void addInterceptors(InterceptorRegistry registry) {
         // addPathPatterns  to add interceptor
         // excludePathPatterns  to exculde interceptor
-        registry.addInterceptor( loginInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor( loginInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/order/test1");
         super.addInterceptors(registry);
     }
     //to deal utf-8 start
