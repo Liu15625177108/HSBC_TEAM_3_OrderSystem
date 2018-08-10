@@ -44,9 +44,9 @@ public class OrderControllerTest {
         ProductInfo productInfo=new ProductInfo(CommonsUtils.getUUID(),3,
                 100,"信用卡");
         OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),
-                productInfo.getProductName(),productInfo.getProdcutNumber(),
+                productInfo.getProductName(),productInfo.getProductNumber(),
                 userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProdcutPrice(),
+                userInfo.getUserAddress(),productInfo.getProductPrice(),
                 1,new Date());
         ResultView resultView=new ResultView<OrderInfo>(200,"success",orderInfo);
         
@@ -83,6 +83,7 @@ public class OrderControllerTest {
         
         given(this.orderService.getOrderInfoByOrderId(eq("123"))).willReturn(orderInfo);*/
         given(this.orderService.toCancelOrder(eq("01"))).willReturn(true);
+        given(this.orderService.updateOrderStatus(eq("01"))).willReturn(true);
         
         String result=this.mvc.perform(put("/order/tocancelorder")
                 .param("orderId","01"))

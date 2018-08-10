@@ -34,8 +34,8 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Object toOrder(ProductInfo productInfo,UserInfo userInfo) {
         OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
-                productInfo.getProdcutNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProdcutPrice(),1,new Date());
+                productInfo.getProductNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
+                userInfo.getUserAddress(),productInfo.getProductPrice(),1,new Date());
         ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
         return resultView;
     }
@@ -72,9 +72,28 @@ public class OrderServiceImpl implements OrderService{
         return false;
     }
 
+    /**
+     * @Author Chen
+     * @Description //TODO get orderInfo by orderid
+     * @Date 11:38 2018/8/10
+     * @Param [orderId]
+     * @return hsbc.team03.ordersystem.toorder.product.OrderInfo
+     **/
     @Override
     public OrderInfo getOrderInfoByOrderId(String orderId) {
         return null;
+    }
+
+    /**
+     * @Author Chen
+     * @Description //TODO update OrderStatus to 2
+     * @Date 11:39 2018/8/10
+     * @Param [OrderId]
+     * @return boolean
+     **/
+    @Override
+    public boolean updateOrderStatus(String orderId) {
+        return false;
     }
 
 

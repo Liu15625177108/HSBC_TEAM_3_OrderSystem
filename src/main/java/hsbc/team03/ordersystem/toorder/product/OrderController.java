@@ -46,7 +46,7 @@ public class OrderController {
         String userId = (String) request.getSession().getAttribute("userId");
         UserInfo userInfo = userService.getUserInfoByUserId(userId);
         //To compare userMoney and orderPrice
-        if (userInfo.getUserMoney() > orderService.getOrderPrice(productInfo.getProdcutNumber(), productInfo.getProdcutPrice())) {
+        if (userInfo.getUserMoney() > orderService.getOrderPrice(productInfo.getProductNumber(), productInfo.getProductPrice())) {
 
             //to check userPayPassword
             if (userService.toValidatePayPassword(userInfo, payPassword)) {
@@ -83,6 +83,7 @@ public class OrderController {
     Object toCancelOrder(@RequestParam("orderId") String orderId) {
         if (orderId != null && !orderId.equals("")) {
             if (orderService.toCancelOrder(orderId)) {
+                orderService.updateOrderStatus(orderId);
                 String result = "Your order has been cancelled";
                 ResultView resultView = new ResultView<String>(200, "success", result);
                 return resultView;

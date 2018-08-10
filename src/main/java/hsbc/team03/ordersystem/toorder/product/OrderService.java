@@ -39,7 +39,7 @@ public interface OrderService {
     
     /**
      * @Author Chen
-     * @Description //TODO 
+     * @Description //TODO cancelorder verify time
      * @Date 10:20 2018/8/10
      * @Param [orderId]
      * @return boolean
@@ -48,11 +48,21 @@ public interface OrderService {
     
     /**
      * @Author Chen
-     * @Description //TODO 
+     * @Description //TODO  get orderinfo by orderid
      * @Date 10:24 2018/8/10
      * @Param [orderId]
      * @return OrderInfo
      **/
     OrderInfo getOrderInfoByOrderId(String orderId);
+    
+    /**
+     * @Author Chen
+     * @Description //TODO 
+     * @Date 11:36 2018/8/10
+     * @Param [orderId]
+     * @return boolean
+     **/
+    boolean updateOrderStatus(String orderId);
+    
 }
  
