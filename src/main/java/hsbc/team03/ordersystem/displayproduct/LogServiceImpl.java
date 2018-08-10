@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.common.SystemLogUtils;
+import hsbc.team03.ordersystem.displayproduct.common.SystemLogTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,11 +33,11 @@ public class LogServiceImpl implements LogService {
         List<Log> logList = logRepository.findAll();
         try {
             /*2：对系统日志的筛选：对日期的筛选*/
-            SystemLogUtils systemLogUtils = new SystemLogUtils();
-            List<Log> logs = systemLogUtils.screeningSystemLog(n, logList);
+            SystemLogTool systemLogTool = new SystemLogTool();
+            List<Log> logs = systemLogTool.screeningSystemLog(n, logList);
             /*3:if the logs'size > 0,it has recorxd ,then output the record to excel table*/
             if (logs.size() > 0) {
-                systemLogUtils.exportSystomLogToExcel(logs, response);
+                systemLogTool.exportSystomLogToExcel(logs, response);
                 return SUCCESS;
             }
         } catch (ParseException e) {

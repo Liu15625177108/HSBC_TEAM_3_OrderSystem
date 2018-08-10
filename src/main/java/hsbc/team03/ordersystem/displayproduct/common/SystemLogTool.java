@@ -19,7 +19,7 @@ import java.util.List;
  * @Return:
  * @Param:
  */
-public class SystemLogUtils {
+public class SystemLogTool {
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public List<Log> screeningSystemLog(int n, List<Log> logList) throws ParseException {

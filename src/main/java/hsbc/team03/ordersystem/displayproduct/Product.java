@@ -11,11 +11,13 @@ import javax.persistence.Id;
 @Entity
 public class Product {
     /**
-     * 产品代码：如：004322
+     * id--UUID
      */
     @Id
     private String id;
-
+    /**
+     * 产品代码：如：004322
+     */
     private String productCode;
     /**
      * product' name
@@ -55,8 +57,8 @@ public class Product {
      */
     private int status;
 
-    public Product(String id,String productCode, String name, double price, String type, String description, String icon, String sellData, String deadline, String dueDate, int status) {
-        this.id=id;
+    public Product(String id, String productCode, String name, double price, String type, String description, String icon, String sellData, String deadline, String dueDate, int status) {
+        this.id = id;
         this.productCode = productCode;
         this.name = name;
         this.price = price;

@@ -2,6 +2,7 @@ package hsbc.team03.ordersystem.displayproduct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +20,7 @@ public class LogController {
 
     @Autowired
     LogService logService;
-
-    @RequestMapping(value = "/get/systemlog")
+    @RequestMapping(value = "/export/systemlog",method = RequestMethod.POST)
     public void getSystemLogList(int n, HttpServletResponse response) {
         String str = logService.getSystemLog(n, response);
     }

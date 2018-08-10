@@ -1,4 +1,5 @@
 package hsbc.team03.ordersystem.displayproduct.common;
+
 import hsbc.team03.ordersystem.displayproduct.Product;
 
 import java.text.ParseException;
@@ -44,15 +45,20 @@ public class DataUtils {
     }
 
     /**
+     * @return String Time
      * @method
-     * @author      @Evan
+     * @author @Evan
      * @version
-     * @return      String Time
-     * @date        2018/8/6 14:07
+     * @date 2018/8/6 14:07
      */
     public String getCurrentTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = sdf.format(new Date());
         return time;
+    }
+
+    public Date getSystemTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return new Date();
     }
 }
