@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:43     1.0              the pojo of user
  */
-package hsbc.team03.ordersystem.product;
+package hsbc.team03.ordersystem.toorder.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

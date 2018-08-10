@@ -8,17 +8,15 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 17:35     1.0              the controller of order
  */
-package hsbc.team03.ordersystem.product;
+package hsbc.team03.ordersystem.toorder.product;
 
-import hsbc.team03.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.toorder.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Chen
@@ -44,9 +42,9 @@ public class OrderController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(@RequestBody ProductInfo productInfo, String payPassword, HttpServletRequest request) {
-        UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
-
+    Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
+        String userId = (String) request.getSession().getAttribute("userId");
+        UserInfo userInfo = userService.getUserInfoByUserId(userId);
         //To compare userMoney and orderPrice
         if (userInfo.getUserMoney() > orderService.getOrderPrice(productInfo.getProdcutNumber(), productInfo.getProdcutPrice())) {
 
@@ -57,7 +55,7 @@ public class OrderController {
                 String result = resultView.toString();
                 log.info(result);
                 return resultView;
-                 
+
             }
 
             String result = "Sorry,your password is wrong,please reenter it";
@@ -72,10 +70,29 @@ public class OrderController {
         ResultView resultView = new ResultView<String>(401, "error", result);
         return resultView;
     }
-    @PostMapping(value="/test1")
-    public @ResponseBody 
-    UserInfo test1(String a){
-        UserInfo userInfo=new UserInfo("11","chen",1.2,"12","123","汕头");
+
+    @PostMapping(value = "/test1")
+    public @ResponseBody
+    UserInfo test1(String a) {
+        UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
         return userInfo;
+    }
+
+    @PutMapping(value = "/tocancelorder")
+    public @ResponseBody
+    Object toCancelOrder(@RequestParam("orderId") String orderId) {
+        if (orderId != null && !orderId.equals("")) {
+            if (orderService.toCancelOrder(orderId)) {
+                String result = "Your order has been cancelled";
+                ResultView resultView = new ResultView<String>(200, "success", result);
+                return resultView;
+            }
+            String result = "Your order cancellation failure,because has been more than seven days";
+            ResultView resultView = new ResultView<String>(401, "error", result);
+            return resultView;
+        }
+        String result = "Sorry,you must select at least one order";
+        ResultView resultView = new ResultView<String>(401, "error", result);
+        return resultView;
     }
 }

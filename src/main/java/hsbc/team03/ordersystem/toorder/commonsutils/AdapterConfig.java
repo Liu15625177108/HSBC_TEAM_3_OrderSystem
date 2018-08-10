@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * Chen          2018/8/2 22:05     1.0               Configuring Interceptors
  */
-package hsbc.team03.ordersystem.commonsutils;
+package hsbc.team03.ordersystem.toorder.commonsutils;
 
 
 
@@ -33,15 +33,15 @@ import java.util.List;
 public class AdapterConfig extends WebMvcConfigurationSupport{
     
     @Bean
-    hsbc.team03.ordersystem.commonsutils.LoginInterceptor loginInterceptor() {
-        return new hsbc.team03.ordersystem.commonsutils.LoginInterceptor();
+    LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // addPathPatterns  to add interceptor
         // excludePathPatterns  to exculde interceptor
-        registry.addInterceptor( loginInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/order/test1");
+//        registry.addInterceptor( loginInterceptor()).addPathPatterns("/**")
+//                .excludePathPatterns("/order/test1");
         super.addInterceptors(registry);
     }
     //to deal utf-8 start

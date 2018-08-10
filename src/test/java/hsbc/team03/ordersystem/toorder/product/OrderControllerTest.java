@@ -1,29 +1,29 @@
-package hsbc.team03.ordersystem.product;
+package hsbc.team03.ordersystem.toorder.product;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import hsbc.team03.ordersystem.commonsutils.CommonsUtils;
-import hsbc.team03.ordersystem.result.ResultView;
+import hsbc.team03.ordersystem.toorder.result.ResultView;
+import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Date;
+
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.testng.Assert.*;
+
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=OrderController.class)
 @WebMvcTest(OrderController.class)
@@ -46,13 +46,15 @@ public class OrderControllerTest {
         OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),
                 productInfo.getProductName(),productInfo.getProdcutNumber(),
                 userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProdcutPrice());
+                userInfo.getUserAddress(),productInfo.getProdcutPrice(),
+                1,new Date());
         ResultView resultView=new ResultView<OrderInfo>(200,"success",orderInfo);
         
         
         given(this.userService.toValidatePayPassword(Mockito.any(UserInfo.class),eq("123"))).willReturn(true);
         given(this.orderService.toOrder(Mockito.any(ProductInfo.class),Mockito.any(UserInfo.class))).willReturn(resultView);
         given(this.orderService.getOrderPrice(eq(3),eq(100.0))).willReturn(300.0);
+        given(this.userService.getUserInfoByUserId(eq("111"))).willReturn(userInfo);
         
         
         String jsonString="{\"productid\":\"17e5372f-dfc1-41e7-b37a-a1edae87d299\"," +
@@ -62,11 +64,31 @@ public class OrderControllerTest {
         String result =this.mvc.perform(post("/order/toorder")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(jsonString)
-                .sessionAttr("userInfo",userInfo)
+                .sessionAttr("userId","111")
                 .param("payPassword","123"))
                 .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(); //return response's value
         log.info(result);
+    }
+    
+    @Test
+    public void cancelOrder() throws Exception {
+    /*    String beginTime=new String("2018-08-7 10:22:22");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date bt=sdf.parse(beginTime);
+        OrderInfo orderInfo=new OrderInfo("01","信用卡",
+                12,"Chen","12313212312",
+                "岗顶",1000.0,1,bt);
+        
+        given(this.orderService.getOrderInfoByOrderId(eq("123"))).willReturn(orderInfo);*/
+        given(this.orderService.toCancelOrder(eq("01"))).willReturn(true);
+        
+        String result=this.mvc.perform(put("/order/tocancelorder")
+                .param("orderId","01"))
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+                System.out.println(result);
     }
 }
