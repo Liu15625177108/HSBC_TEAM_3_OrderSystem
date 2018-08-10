@@ -28,6 +28,8 @@ public interface UserService {
      * @Param [UserInfo userInfo,String payPassword]
      * @return boolean
      **/
-    boolean toValidatePayPassword(UserInfo userInfo, String payPassword);
+    boolean toValidatePayPassword(UserInfo userInfo,String payPassword);
+    
+    UserInfo getUserInfoByUserId(String userId);
 }
  

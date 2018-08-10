@@ -35,7 +35,7 @@ import java.util.List;
 public class AdapterConfig extends WebMvcConfigurationSupport{
     
     @Bean
-    LoginInterceptor loginInterceptor() {
+     LoginInterceptor loginInterceptor() {
         return new LoginInterceptor();
     }
     @Override

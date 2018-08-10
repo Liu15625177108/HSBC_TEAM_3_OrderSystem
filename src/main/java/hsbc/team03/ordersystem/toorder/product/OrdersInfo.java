@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2018-2018, CLPS
- * FileName: OrderInfo
+ * FileName: OrdersInfo
  * Author:   ca
  * Date:     2018/8/2 17:36
  * Description: the pojo of order
@@ -14,15 +14,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
- * @description〈the pojo of order〉
  * @author Chen
+ * @description〈the pojo of order〉
  * @create 2018/8/2
  * @since 1.0.0
  */
 @Data
-public class OrderInfo implements Serializable {
+public class OrdersInfo implements Serializable {
     /**
      * orderid
      */
@@ -58,16 +59,29 @@ public class OrderInfo implements Serializable {
      */
     @JsonProperty(value = "productprice")
     private double productPrice;
-    
-    public OrderInfo(String orderId, String productName, int productNumber, String userName,
-                     String userPhone, String userAddress, double productPrice) {
+    /**
+     * the status of order ，1 is open,2 is undetermined,0 is close
+     */
+    @JsonProperty(value = "orderstatus")
+    private int orderStatus;
+    /**
+     * the time of to order
+     */
+    @JsonProperty(value = "starttime")
+    private Date startTime;
+
+    public OrdersInfo(String orderId, String productName, int productNumber, String userName,
+                      String userPhone, String userAddress, double productPrice, int orderStatus,
+                      Date startTime) {
         this.orderId = orderId;
         this.productName = productName;
         this.productNumber = productNumber;
         this.userName = userName;
         this.userPhone = userPhone;
         this.userAddress = userAddress;
-        this.productPrice=productPrice;
+        this.productPrice = productPrice;
+        this.orderStatus = orderStatus;
+        this.startTime = startTime;
     }
 
 

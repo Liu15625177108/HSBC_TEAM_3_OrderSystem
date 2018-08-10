@@ -14,10 +14,7 @@ import hsbc.team03.ordersystem.toorder.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Controller
 @RequestMapping(value = "/order", produces = "application/json; charset=utf-8")
-public class OrderController {
+public class OrdersController {
     @Autowired
     private OrdersService ordersService;
     @Autowired
@@ -45,15 +42,16 @@ public class OrderController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(@RequestBody ProductInfo productInfo, String payPassword, HttpServletRequest request) {
-        UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
-
+    Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
+        String userId = (String) request.getSession().getAttribute("userId");
+        UserInfo userInfo = userService.getUserInfoByUserId(userId);
         //To compare userMoney and orderPrice
-        if (userInfo.getUserMoney() > ordersService.getOrderPrice(productInfo.getProdcutNumber(), productInfo.getProdcutPrice())) {
+        if (userInfo.getUserMoney() > ordersService.getOrderPrice(productInfo.getProductNumber(), productInfo.getProductPrice())) {
 
             //to check userPayPassword
             if (userService.toValidatePayPassword(userInfo, payPassword)) {
 
+               
                 Object resultView = ordersService.toOrder(productInfo, userInfo);
                 String result = resultView.toString();
                 log.info(result);
@@ -64,7 +62,6 @@ public class OrderController {
             String result = "Sorry,your password is wrong,please reenter it";
             log.info(result);
             ResultView resultView = new ResultView<String>(401, "error", result);
-
             return resultView;
 
         }
@@ -76,5 +73,29 @@ public class OrderController {
 
     }
 
+    @PostMapping(value = "/test1")
+    public @ResponseBody
+    UserInfo test1(String a) {
+        UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
+        return userInfo;
+    }
 
+    @PutMapping(value = "/tocancelorder")
+    public @ResponseBody
+    Object toCancelOrder(@RequestParam("orderId") String orderId) {
+        if (orderId != null && !orderId.equals("")) {
+            if (ordersService.toCancelOrder(orderId)) {
+                ordersService.updateOrderStatus(orderId);
+                String result = "Your order has been cancelled";
+                ResultView resultView = new ResultView<String>(200, "success", result);
+                return resultView;
+            }
+            String result = "Your order cancellation failure,because has been more than seven days";
+            ResultView resultView = new ResultView<String>(401, "error", result);
+            return resultView;
+        }
+        String result = "Sorry,you must select at least one order";
+        ResultView resultView = new ResultView<String>(401, "error", result);
+        return resultView;
+    }
 }

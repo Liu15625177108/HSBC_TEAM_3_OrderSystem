@@ -10,7 +10,10 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
+import net.bytebuddy.dynamic.TypeResolutionStrategy;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @description〈the impl of userservice〉
@@ -20,7 +23,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceimpl implements UserService {
-    
+
     /**
      * @Author Chen
      * @Description //TODO To validate paypassword
@@ -29,7 +32,7 @@ public class UserServiceimpl implements UserService {
      * @return boolean
      **/
     @Override
-    public boolean toValidatePayPassword(UserInfo userInfo, String payPassword) {
+    public boolean toValidatePayPassword(UserInfo userInfo,String payPassword) {
 
         if(payPassword!=null||!payPassword.equals(" ")){
            if(payPassword.equals(userInfo.getPayPassword())){
@@ -38,5 +41,10 @@ public class UserServiceimpl implements UserService {
             return false;
         }
         return false;
+    }
+
+    @Override
+    public UserInfo getUserInfoByUserId(String userId) {
+        return null;
     }
 }
