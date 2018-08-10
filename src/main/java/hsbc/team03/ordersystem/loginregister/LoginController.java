@@ -1,5 +1,6 @@
 package hsbc.team03.ordersystem.loginregister;
 
+import hsbc.team03.ordersystem.loginregister.resultview.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,23 +10,27 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Package: hsbc_team_3.ordersystem.loginregister
- * @Program: ordersystem
- * @Description: login api entrance
- * @Author: Jeff.Li
- * @Created: 2018年08月03日 10:29:15
+ * @package : hsbc_team_3.ordersystem.loginregister
+ * @program : ordersystem
+ * @description : login api entrance
+ * @author : Jeff.Li
+ * @date : 2018年08月03日 10:29:15
  **/
 @RestController
 @RequestMapping("/user/login")
 public class LoginController {
 
+    private final LoginServices loginServices;
+
     @Autowired
-    private LoginServices loginServices;
+    public LoginController(LoginServices loginServices) {
+        this.loginServices = loginServices;
+    }
 
     /**
      * @param username, password, request
      * @return ResultView
-     * @Description user login api
+     * @description user login api
      */
     @GetMapping("/dologin")
     public ResultView login(@RequestParam String username, @RequestParam String password, HttpServletRequest request) {
