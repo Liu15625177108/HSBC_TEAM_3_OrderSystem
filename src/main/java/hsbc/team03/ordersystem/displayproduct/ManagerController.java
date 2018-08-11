@@ -1,7 +1,11 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,16 +18,14 @@ import java.util.List;
  * @exception
  * @date 2018/8/5 22:14
  */
-@RestController
+@Controller
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
-
     public ManagerController(ManagerService managerService) {
         this.managerService = managerService;
     }
-
     /**
      * @Description:
      * @Author: @Evan
@@ -31,10 +33,10 @@ public class ManagerController {
      * @UpdateDate: 2018/8/5 21:56
      * @Version: 1.0
      */
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/manager-product", method = RequestMethod.GET)
     public ModelAndView managerPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("angular.html");
+        modelAndView.setViewName("managerproduct.html");
         return modelAndView;
     }
 
@@ -58,11 +60,16 @@ public class ManagerController {
      * @UpdateDate: 2018/8/5 21:57
      * @Version: 1.0
      */
-
     @RequestMapping(value = "/manager/modify/products", method = RequestMethod.POST)
-    public boolean modifyProduct(@RequestBody Product product) {
+    @ResponseBody
+    public boolean modifyProduct(Product product, MultipartFile file) {
 //     Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
-        boolean tag = managerService.modifyProduct(product);
+        boolean tag = false;
+        try {
+            tag = managerService.modifyProduct(product, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return tag;
     }
 
@@ -74,10 +81,16 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/add/products", method = RequestMethod.POST)
-    public Boolean addProduct(@RequestBody Product product) {
-        //  Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中海", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
-        boolean tag;
-        tag = managerService.addProduct(product);
+    @ResponseBody
+    public Boolean addProduct(Product product, @RequestParam(value = "file") MultipartFile file) {
+        // @RequestBody Product product Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中海", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
+        //@RequestParam(value = "name") String name,@RequestParam(value = "price") double price, @RequestParam(value = "type") String type,@RequestParam(value = "description") String description,@RequestParam(value = "sellData") String sellData,@RequestParam(value = "deadline") String deadline,@RequestParam(value = "dueDate") String dueDate
+        boolean tag = false;
+        try {
+            tag = managerService.addProduct(product, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return tag;
     }
 
@@ -88,8 +101,9 @@ public class ManagerController {
      * @UpdateDate: 2018/8/5 22:00
      * @Version: 1.0
      */
-    @RequestMapping(value = "/manager/delete/products", method = RequestMethod.DELETE)
-    public int deleteProductByProductCode(@RequestBody Product product) {
+    @RequestMapping(value = "/manager/delete/products", method = RequestMethod.POST)
+    @ResponseBody
+    public int deleteProductByProductCode(Product product) {
 //        Product product = new Product("xdghhmbhnllllgcgxdf", "200871", "中海基金", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 0);
         int n = 0;
         n = managerService.deleteProductByProductCode(product);

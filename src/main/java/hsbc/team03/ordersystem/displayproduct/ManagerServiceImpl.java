@@ -1,7 +1,9 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import hsbc.team03.ordersystem.displayproduct.common.CommonTool;
+import hsbc.team03.ordersystem.displayproduct.common.DataCheckTool;
 import hsbc.team03.ordersystem.displayproduct.common.DataUtils;
+import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,14 +22,17 @@ import java.util.List;
 public class ManagerServiceImpl implements ManagerService {
     private final LogRepository logRepository;
     private final ManagerRepository managerRepository;
+    private final DataCheckTool dataCheckTool;
     CommonTool commonTool = new CommonTool();
+
     /**
      * the ManagerServiceImpl constructor  is to init managerRepository
      */
     @Autowired
-    public ManagerServiceImpl(ManagerRepository managerRepository, LogRepository logRepository) {
+    public ManagerServiceImpl(ManagerRepository managerRepository, LogRepository logRepository, DataCheckTool dataCheckTool) {
         this.managerRepository = managerRepository;
         this.logRepository = logRepository;
+        this.dataCheckTool = dataCheckTool;
     }
 
     /**
@@ -42,6 +47,7 @@ public class ManagerServiceImpl implements ManagerService {
         /*get products from database  managerRepository.fillAll()*/
         return managerRepository.findAll();
     }
+
     /**
      * @Description: add products
      * @Author: @Evan
@@ -52,31 +58,42 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public boolean addProduct(Product product, MultipartFile file) throws IOException {
         boolean tag = false;
+        String flage = "0";
         /*check the data whether in a rule*/
         boolean checkDataBoolean = commonTool.checkData(product, file);
         if (checkDataBoolean) {
-            List<Product> products = managerRepository.findByStatus(1);
-            tag = commonTool.checkUniqueOfProduct(product,products);
-            /*if the productCode is unique,allow add product*/
-            if (tag) {
-                /*save the production to database*/
-                product = managerRepository.save(product);
-                /*if save fail,then managerRepository operation database return null,so it will return false*/
+            /*check the Icon's format of .jpeg .png .gif and upload icon*/
+            String uploadFileName = dataCheckTool.checkIconAndUploadIcon(file);
+            if (!flage.equals(uploadFileName)) {
+                /*check the productCode of unique*/
+                List<Product> products = managerRepository.findByStatus(1);
+                tag = commonTool.checkUniqueOfProduct(product, products);
+                /*if the productCode is unique,allow add product*/
+                if (tag) {
+                    /*save the production to database*/
+                    product.setId(UUIDUtils.getUUID());
+                    product.setStatus(1);
+                    product.setIcon(uploadFileName);
+                    managerRepository.save(product);
+                    /* *//*if save fail,then managerRepository operation database return null,so it will return false*//*
                 if (product == null) {
                     tag = false;
                     return tag;
+                }*/
                 }
             }
+
         }
         return tag;
     }
+
     @Override
     public int deleteProductByProductCode(Product product) {
         int n = 0;
         String msg = "delete product's of code =" + product.getProductCode();
         /*judge the of current time and product's dueDate,if current'time not in the rang of dueDate ,can't not delete product*/
         DataUtils dataUtils = new DataUtils();
-        boolean tag = dataUtils.compareTime(product);
+        boolean tag = dataUtils.compareCurrentTimeAndDueDate(product);
         if (tag) {
             product.setStatus(0);
             managerRepository.save(product);
@@ -97,11 +114,9 @@ public class ManagerServiceImpl implements ManagerService {
         /**check the productCode unique*/
         Product compareProduct = managerRepository.findByid(product.getId());
         CommonTool commonTool = new CommonTool();
-
         boolean checkDataBoolean = commonTool.checkData(product, file);
         if (checkDataBoolean) {
             List<Product> products = managerRepository.findByStatus(1);
-
             msg = commonTool.getMessage(product, compareProduct);
             tag = commonTool.checkUniqueOfProduct(product, products);
             if (tag) {
@@ -110,7 +125,6 @@ public class ManagerServiceImpl implements ManagerService {
                 commonTool.setLog(log);
                 log.setOperation(msg);
                 logRepository.save(log);
-
             }
         }
         return tag;

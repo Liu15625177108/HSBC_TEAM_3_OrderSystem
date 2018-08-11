@@ -60,22 +60,19 @@ public class CommonTool {
      */
     public boolean checkData(Product product, MultipartFile file) throws IOException {
         boolean productCodeBoolean;
+
         /*check the product's code unique*/
         /*check the product'code in a suitable format */
         DataCheckTool dataCheckTool = new DataCheckTool();
         productCodeBoolean = dataCheckTool.checkProductCode(product.getProductCode());
         /*if productCodeBoolean is true then it can go next step */
         if (productCodeBoolean) {
-            /*check the Icon's format of .jpeg .png .gif*/
-            boolean iconBoolean = dataCheckTool.checkIcon(file);
-            if (iconBoolean) {
                 /**check checkDeadline*/
                 boolean deadlineBoolean = dataCheckTool.checkDeadline(product.getSellData(), product.getDeadline(), product.getDueDate());
                 if (deadlineBoolean) {
                     return true;
                 }
             }
-        }
         return false;
     }
 
@@ -109,4 +106,6 @@ public class CommonTool {
         }
         return msg;
     }
+
+
 }

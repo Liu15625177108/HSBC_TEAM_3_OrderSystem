@@ -1,8 +1,12 @@
 package hsbc.team03.ordersystem.displayproduct.common;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
@@ -13,9 +17,10 @@ import java.util.Date;
  * @Return:
  * @Param:
  */
+@Component
 public class DataCheckTool {
-    @Value("${fileMax}")
-    byte fileSize;
+   @Value("${uploadImage}")
+    private String rootPath;
     DataUtils dataUtils = new DataUtils();
 
     /**
@@ -27,17 +32,14 @@ public class DataCheckTool {
      * @date 2018/8/10 11:22
      */
     public boolean checkProductCode(String productCode) {
-        String str;
-        boolean tag = true;
-        int n;
+        /**character.isdigit():check the char whethere is number*/
         for (int i = 0; i < productCode.length(); i++) {
-            str = productCode.substring(i);
-            n = Integer.parseInt(str);
-            if (n != 0 || n != 1 || n != 2 || n != 3 || n != 4 || n != 5 || n != 6 || n != 7 || n != 8 || n != 9) {
-                tag = false;
+            if (!Character.isDigit(productCode.charAt(i))) {
+                return false;
             }
         }
-        return tag;
+        return true;
+
     }
 
     /**
@@ -62,24 +64,33 @@ public class DataCheckTool {
      * @descripe it check the product'Icon Whether the effectiveness of ".jpg .png" and son on
      * @date 2018/8/10 11:25
      */
-    public Boolean checkIcon(MultipartFile file) throws IOException {
+    public String checkIconAndUploadIcon(MultipartFile file) throws IOException {
         // file.getBytes(); 文件大小
-        String suffix1 = "jpeg";
-        String suffix2 = "gif";
-        String suffix3 = "png";
+        boolean tag = true;
+        String suffix1 = ".jpeg";
+        String suffix2 = ".gif";
+        String suffix3 = ".png";
         if (file.isEmpty()) {
-            return false;
+            return "0";
         }
         String fileName = file.getOriginalFilename();
         // 获取文件的后缀名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         if (!(suffix1.equals(suffixName)) && !(suffix2.equals(suffixName)) && !(suffix3.equals(suffixName))) {
-            return false;
+            return "0";
         }
-        if (fileSize < file.getSize()) {
-            return false;
-        }
-        return true;
+        DataUtils dataUtils = new DataUtils();
+        String uploadFileName = dataUtils.getCurrentTime() + suffixName;
+        File f = new File(rootPath + uploadFileName);
+     /*   if (!f.exists()){
+            f.mkdirs();
+        }*/
+        file.transferTo(f);
+       /* if ( file.getSize()>fileSize) {
+            tag=false;
+            return tag;
+        }*/
+        return uploadFileName;
     }
 
     /**
@@ -108,12 +119,12 @@ public class DataCheckTool {
      * @descript check the deadline whether effectiveness :The deadline of products must be greater than the product sale date
      * @date 2018/8/10 11:30
      */
-    public boolean checkDeadline( String selldate,String deadling, String dueDate) {
-        Date deadling1 = dataUtils.formatTime(deadling);
+    public boolean checkDeadline(String selldate, String deadline, String dueDate) {
         Date selldate1 = dataUtils.formatTime(selldate);
+        Date deadline1 = dataUtils.formatTime(deadline);
         Date dueDate1 = dataUtils.formatTime(dueDate);
         /*if the selldate is smaller than deadline,it count not do it */
-        if (deadling1.getTime() - selldate1.getTime() <= 0 || deadling1.getTime() - dueDate1.getTime() >= 0) {
+        if (deadline1.getTime() - selldate1.getTime() <= 0 || deadline1.getTime() - dueDate1.getTime() >= 0) {
             return false;
         }
         return true;
