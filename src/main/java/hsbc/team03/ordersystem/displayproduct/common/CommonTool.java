@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct.common;
 
-import hsbc.team03.ordersystem.displayproduct.Log;
+import hsbc.team03.ordersystem.displayproduct.SystemLog;
 import hsbc.team03.ordersystem.displayproduct.Product;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,13 +42,13 @@ public class CommonTool {
 
     /**
      *
-     * @param log
+     * @param systemLog
      */
-    public void setLog(Log log) {
+    public void setLog(SystemLog systemLog) {
         DataUtils dataUtils = new DataUtils();
-        log.setTime(dataUtils.getCurrentTime());
-        log.setName("admin");
-        log.setId(UUIDUtils.getUUID());
+        systemLog.setTime(dataUtils.getCurrentTime());
+        systemLog.setName("admin");
+        systemLog.setId(UUIDUtils.getUUID());
     }
 
     /**

@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 public class ManagerServiceImpl implements ManagerService {
-    private final LogRepository logRepository;
+    private final SystemLogRepository systemLogRepository;
     private final ManagerRepository managerRepository;
     private final DataCheckTool dataCheckTool;
     CommonTool commonTool = new CommonTool();
@@ -29,9 +29,9 @@ public class ManagerServiceImpl implements ManagerService {
      * the ManagerServiceImpl constructor  is to init managerRepository
      */
     @Autowired
-    public ManagerServiceImpl(ManagerRepository managerRepository, LogRepository logRepository, DataCheckTool dataCheckTool) {
+    public ManagerServiceImpl(ManagerRepository managerRepository, SystemLogRepository systemLogRepository, DataCheckTool dataCheckTool) {
         this.managerRepository = managerRepository;
-        this.logRepository = logRepository;
+        this.systemLogRepository = systemLogRepository;
         this.dataCheckTool = dataCheckTool;
     }
 
@@ -98,10 +98,10 @@ public class ManagerServiceImpl implements ManagerService {
             product.setStatus(0);
             managerRepository.save(product);
             /*if manager modify the production information,it should be recording*/
-            Log log = new Log();
-            commonTool.setLog(log);
-            log.setOperation(msg);
-            logRepository.save(log);
+            SystemLog systemLog = new SystemLog();
+            commonTool.setLog(systemLog);
+            systemLog.setOperation(msg);
+            systemLogRepository.save(systemLog);
             n = 1;
         }
         return n;
@@ -121,10 +121,10 @@ public class ManagerServiceImpl implements ManagerService {
             tag = commonTool.checkUniqueOfProduct(product, products);
             if (tag) {
                 managerRepository.saveAndFlush(product);
-                Log log = new Log();
-                commonTool.setLog(log);
-                log.setOperation(msg);
-                logRepository.save(log);
+                SystemLog systemLog = new SystemLog();
+                commonTool.setLog(systemLog);
+                systemLog.setOperation(msg);
+                systemLogRepository.save(systemLog);
             }
         }
         return tag;

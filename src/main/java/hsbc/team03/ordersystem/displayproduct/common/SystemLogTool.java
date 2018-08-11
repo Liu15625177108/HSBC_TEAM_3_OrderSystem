@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct.common;
 
-import hsbc.team03.ordersystem.displayproduct.Log;
+import hsbc.team03.ordersystem.displayproduct.SystemLog;
 import org.apache.poi.hssf.usermodel.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,14 +22,14 @@ import java.util.List;
 public class SystemLogTool {
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-    public List<Log> screeningSystemLog(int n, List<Log> logList) throws ParseException {
+    public List<SystemLog> screeningSystemLog(int n, List<SystemLog> systemLogList) throws ParseException {
 
         int i = 0;
         /*得到当前时间并转换成时间类型*/
         String currentTime = sdf.format(new Date());
         Date currentTime1 = sdf.parse(currentTime);
-        List<Log> logs = new ArrayList<>();
-        Iterator<Log> it = logList.iterator();
+        List<SystemLog> systemLogs = new ArrayList<>();
+        Iterator<SystemLog> it = systemLogList.iterator();
         while (it.hasNext()) {
             /*get the systemlog 's time and parse to date type*/
             Date logTime = sdf.parse(it.next().getTime());
@@ -37,17 +37,17 @@ public class SystemLogTool {
                 it.remove();
             }
         }
-       /* for (int i = 0; i < logList.size(); i++) {
-            Date logTime = sdf.parse(logList.get(i).getTime());
+       /* for (int i = 0; i < systemLogList.size(); i++) {
+            Date logTime = sdf.parse(systemLogList.get(i).getTime());
             if ((int) ((currentTime1.getTime() - logTime.getTime()) / (1000 * 3600 * 24)) <= n) {
                 System.out.println((int) ((currentTime1.getTime() - logTime.getTime()) / (1000 * 3600 * 24)));
-                logs.add(logList.get(i));
+                systemLogs.add(systemLogList.get(i));
             }
         }*/
-        return logList;
+        return systemLogList;
     }
 
-    public String exportSystomLogToExcel(List<Log> logs, HttpServletResponse response) throws IOException {
+    public String exportSystomLogToExcel(List<SystemLog> systemLogs, HttpServletResponse response) throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("系统日志");
 
@@ -68,12 +68,12 @@ public class SystemLogTool {
         }
 
         //在表中存放查询到的数据放入对应的列
-        for (Log log : logs) {
+        for (SystemLog systemLog : systemLogs) {
             HSSFRow row1 = sheet.createRow(rowNum);
             row1.createCell(0).setCellValue(rowNum);
-            row1.createCell(1).setCellValue(log.getName());
-            row1.createCell(2).setCellValue(log.getOperation());
-            row1.createCell(3).setCellValue(log.getTime());
+            row1.createCell(1).setCellValue(systemLog.getName());
+            row1.createCell(2).setCellValue(systemLog.getOperation());
+            row1.createCell(3).setCellValue(systemLog.getTime());
             rowNum++;
         }
         response.setContentType("application/octet-stream");

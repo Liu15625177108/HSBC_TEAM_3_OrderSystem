@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<base href="${request.scheme+'://'+request.serverName+':'+request.serverPort+'/'+ctxPath}"/>-->
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword"
+          content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>CoreUI - Open Source Bootstrap Admin Template</title>
+
+    <!-- Icons -->
+    <link href="vendors/css/flag-icon.min.css" rel="stylesheet">
+    <link href="vendors/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet">
+
+    <!-- Main styles for this application -->
+    <link href="css/style.css" rel="stylesheet">
+   <!-- Styles required by this views -->
+    <script type="text/javascript">
+        function setImagePreview(avalue) {
+            var docObj = document.getElementById("file");
+            var imgObjPreview = document.getElementById("preview");
+            if (docObj.files && docObj.files[0]) {
+                //火狐下，直接设img属性
+                imgObjPreview.style.display = 'block';
+                imgObjPreview.style.width = '100px';
+                imgObjPreview.style.height = '100px';
+                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+            }
+            else {
+                //IE下，使用滤镜
+                docObj.select();
+                var imgSrc = document.selection.createRange().text;
+                var localImagId = document.getElementById("localImag"); //必须设置初始大小
+                localImagId.style.width = "100px";
+                localImagId.style.height = "100px"; //图片异常的捕捉，防止用户修改后缀来伪造图片
+                try {
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                } catch (e) {
+                    alert("您上传的图片格式不正确，请重新选择!");
+                    return false;
+                }
+                imgObjPreview.style.display = 'none';
+                document.selection.empty();
+            }
+            return true;
+        }
+
+
+    </script>
+
+
+
+</head>
+
+<!-- BODY options, add following classes to body to change options
+
+// Header options
+1. '.header-fixed'					- Fixed Header
+
+// Brand options
+1. '.brand-minimized'       - Minimized brand (Only symbol)
+
+// Sidebar options
+1. '.sidebar-fixed'					- Fixed Sidebar
+2. '.sidebar-hidden'				- Hidden Sidebar
+3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
+5. '.sidebar-compact'			  - Compact Sidebar
+
+// Aside options
+1. '.aside-menu-fixed'			- Fixed Aside Menu
+2. '.aside-menu-hidden'			- Hidden Aside Menu
+3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+// Breadcrumb options
+1. '.breadcrumb-fixed'			- Fixed Breadcrumb
+
+// Footer options
+1. '.footer-fixed'					- Fixed footer
+
+-->
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+<header class="app-header navbar">
+
+    <h4 style="margin: auto">教学管理后台系统</h4>
+
+    <!--<button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="#"></a>-->
+    <!--<button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+    <!--<ul class="nav navbar-nav d-md-down-none">-->
+    <!--<li class="nav-item px-3">-->
+    <!--<a class="nav-link" href="#">Users</a>-->
+    <!--</li>-->
+    <!--<li class="nav-item px-3">-->
+    <!--<a class="nav-link" href="#">Settings</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <ul class="nav navbar-nav ml-auto">
+        <!--<li class="nav-item d-md-down-none">-->
+        <!--<a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>-->
+        <!--</li>-->
+        <!--<li class="nav-item d-md-down-none">-->
+        <!--<a class="nav-link" href="#"><i class="icon-list"></i></a>-->
+        <!--</li>-->
+        <!--<li class="nav-item d-md-down-none">-->
+        <!--<a class="nav-link" href="#"><i class="icon-location-pin"></i></a>-->
+        <!--</li>-->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+               aria-expanded="false">
+                <img id="adminImage" src="img/avatars/6.jpg" class="img-avatar">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <!--<div class="dropdown-header text-center">-->
+                <!--<strong>Account</strong>-->
+                <!--</div>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comments<span class="badge badge-warning">42</span></a>-->
+                <!--<div class="dropdown-header text-center">-->
+                <!--<strong>Settings</strong>-->
+                <!--</div>-->
+                <a class="dropdown-item" id="showAdminMessage" href="#" data-toggle="modal" data-target="#adminModal"
+                   data-whatever="1"><i class="fa fa-user"></i>个人信息</a>
+
+
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateAdminPasswordModal"><i
+                        class="fa fa-wrench"></i>修改密码</a>
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-secondary">42</span></a>-->
+                <a class="dropdown-item" href="#"><i class="fa fa-file"></i>退出</a>
+                <!--<div class="divider"></div>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>-->
+                <!--<a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>-->
+            </div>
+        </li>
+    </ul>
+    <!--<button class="navbar-toggler aside-menu-toggler" type="button">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-title">
+                    <!--<a class="nav-title" href="#"><i class="icon-speedometer"></i>教学系统功能界面</a>-->
+                    教学系统功能界面
+                </li>
+
+                <!--<li class="nav-title">-->
+                <!--Theme-->
+                <!--</li>-->
+                <li class="nav-item">
+                    <a href="/student/students" class="nav-link"><i class="fa fa-user-circle-o"></i> 学生信息管理</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/teacher/teachers" class="nav-link"><i class="fa fa-gear"></i>教师信息管理</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<a href="#" class="nav-link"><i class="fa fa-bar-chart-o "></i>批量导入和导出</a>-->
+                <!--</li>-->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 批量导入和导出</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/student/export">
+                                <i class="icon-puzzle"></i>学生批量导出
+                                <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#infoModal">
+
+                                 </button>-->
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="icon-puzzle"></i>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#successModal">
+                                    学生批量导入
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">>学生信息管理</li>
+            <!--<li class="breadcrumb-item"><a href="#">Admin</a></li>-->
+            <!--<li class="breadcrumb-item active">Dashboard</li>-->
+
+            <!--&lt;!&ndash; Breadcrumb Menu&ndash;&gt;-->
+            <!--<li class="breadcrumb-menu d-md-down-none">-->
+            <!--<div class="btn-group" role="group" aria-label="Button group">-->
+            <!---->
+            <!--<a class="btn" href="#"><i class="icon-speech"></i></a>-->
+            <!--<a class="btn" href="./"><i class="icon-graph"></i> &nbsp;Dashboard</a>-->
+            <!--<a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>-->
+            <!--</div>-->
+            <!--</li>-->
+        </ol>
+
+
+        <!--查询输入框-->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="input-prepend input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                    </div>
+                    <input id="search_name" class="form-control" size="16" type="text" placeholder="请输入查询信息">
+                    <span class="input-group-append">
+                <button id="search" class="btn btn-info" type="button">查询</button>
+              </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> 学生信息表
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button style="float: right" type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#primaryModal">
+                                    添加学生
+                                </button>
+                            </div>
+                        </div>
+
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>产品代码</th>
+                                <th>产品名</th>
+                                <th>价格</th>
+                                <th>类型</th>
+                                <th>发售日期</th>
+                                <th>截止发售日期</th>
+                                <th>产品到期日</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <div ng-app="myApp" ng-controller="customersCtrl">
+                                <tr ng-repeat="product in products">
+                                    <td>product.productCode</td>
+                                    <td>product.name</td>
+                                    <td>product.price</td>
+                                    <td>product.type</td>
+                                    <td>product.sellData</td>
+                                    <td>product.deadline</td>
+                                    <td>product.dueDate</td>
+                                    <td>
+                                        <span class="badge badge-success">正在发售</span>
+                                    </td>
+                                </tr>
+                            </div>
+                            </tbody>
+                        </table>
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+        <!-- /.conainer-fluid -->
+    </main>
+
+</div>
+
+<footer class="app-footer">
+    <span><a href="http://coreui.io">CoreUI</a> © 2018 creativeLabs.</span>
+    <span class="ml-auto">Powered by <a href="http://coreui.io">CoreUI</a></span>
+</footer>
+
+<!--管理员个人信息-->
+<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="display: none;">
+    <div class="modal-dialog modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">管理员个人信息</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<p>One fine body…</p>-->
+                <!--<form action="/user/form" method="post">-->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">ID</span>
+                    </div>
+                    <input type="text" id="adminId" name="adminId" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">用户名</span>
+                    </div>
+                    <input type="text" id="adminName" name="adminName" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">密码</span>
+                    </div>
+                    <input type="text" id="adminPassword" name="adminPassword" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">真实姓名</span>
+                    </div>
+                    <input type="text" id="adminTruename" name="adminTruename" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-address-card-o fa-lg"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">电话</span>
+                    </div>
+                    <input type="text" id="adminTelephone" name="adminTelephone" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-phone fa-lg"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">邮箱</span>
+                    </div>
+                    <input type="text" id="adminEmail" name="adminEmail" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">地址</span>
+                    </div>
+                    <input type="text" id="adminAddress" name="adminAddress" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">头像</span>
+                    </div>
+                    <input type="text" id="adminImg" name="adminImg" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!--学生信息批量导入模态框-->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">请选择excel 导入学生信息</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>请选择excel文件</p>
+                <input type="file" id="studentDatas" value="选择excel文件" enctype="multipart/form-data">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" id="inputStudentDate" class="btn btn-success">开始导入</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!--学生信息批量导出模态框-->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;"
+     aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">学生信息批量导出</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>请选择excel文件</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!--修改管理员密码的模态框-->
+<div class="modal fade" id="updateAdminPasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-primary" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">修改密码</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">姓名</span>
+                            </div>
+                            <input type="text" id="updateAdminName" name="updateAdminName" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">旧密码</span>
+                            </div>
+                            <input type="password" id="oldPassword" name="oldPassword" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">新密码</span>
+                            </div>
+                            <input type="password" id="newPassword" name="newPassword" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button id="updateAdminPassword" type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!--新增和编辑的模态框-->
+<!--<div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"-->
+     <!--style="display: none;">-->
+    <!--<div class="modal-dialog modal-primary" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<h4 class="modal-title">用户信息</h4>-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--<span aria-hidden="true">×</span>-->
+                <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<form id="form-add" enctype="multipart/form-data">-->
+                    <!--<div class="card-body">-->
+                        <!--<div class="form-group">-->
+                            <!--<input type="hidden" id="studentId" name="studentId" class="form-control">-->
+                            <!--<input type="hidden" id="studentOldName" name="studentOldName" class="form-control">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group mb-1">-->
+                                <!--<span id="span_studentNameTip" style="color:#f00;display:inline-block;"></span>-->
+                            <!--</div>-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">用户名</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentName" name="studentName" class="form-control"-->
+                                       <!--onblur="m_nameTipOnblur()">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-user"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">密码</span>-->
+                                <!--</div>-->
+                                <!--<input type="password" id="studentPassword" name="studentPassword" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="icon-lock"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">真实姓名</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentTruename" name="studentTruename" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-asterisk"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">学校</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentSchool" name="studentSchool" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-asterisk"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">学院</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentAcademy" name="studentAcademy" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-asterisk"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">班级</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentClass" name="studentClass" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-asterisk"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                                <!--<div class="input-group-prepend">-->
+                                    <!--<span class="input-group-text">邮箱</span>-->
+                                <!--</div>-->
+                                <!--<input type="text" id="studentEmail" name="studentEmail" class="form-control">-->
+                                <!--<div class="input-group-append">-->
+                                    <!--<span class="input-group-text"><i class="fa fa-asterisk"></i></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"-->
+                                                     <!--style="display: block; width: 100px; height: 100px;">-->
+                            <!--</div>-->
+                            <!--<input type="file" name="file" id="file" style="width:150px;"-->
+                                   <!--onchange="javascript:setImagePreview();"/>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+
+                <!--</form>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>-->
+                <!--<button type="button" class="btn btn-primary" id="save">保存</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash;删除模态框&ndash;&gt;-->
+<!--<div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"-->
+     <!--style="display: none;" aria-hidden="true">-->
+    <!--<div class="modal-dialog modal-danger" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<h4 class="modal-title">删除用户信息</h4>-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--<span aria-hidden="true">×</span>-->
+                <!--</button>-->
+            <!--</div>-->
+
+            <!--<div class="modal-body">-->
+                <!--<input type="hidden" id="del_id" name="del_id" class="form-control">-->
+                <!--确定要删除<p style="display: inline;"></p>的数据吗?-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>-->
+                <!--<button id="delete" type="button" class="btn btn-danger">确定</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash;定义table模板&ndash;&gt;-->
+
+<!--&lt;!&ndash;定义分页条模板&ndash;&gt;-->
+<script id="student-dividePage-template" type="text/html">
+    <nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" id="prev" onclick="pageFunction('{{pageNum-1}}')">Prev</a></li>
+            <li class="page-item active">
+                <a class="page-link" onclick="pageFunction('{{pageNum}}')">{{pageNum+1}}</a>
+            </li>
+            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+1}}')">{{pageNum+2}}</a></li>
+            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+2}}')">{{pageNum+3}}</a></li>
+            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+3}}')">{{pageNum+4}}</a></li>
+            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+1}}')">Next</a></li>
+        </ul>
+    </nav>
+    &nbsp;&nbsp;共{{totalPageNum}}页 &nbsp;&nbsp;当前第{{pageNum+1}}页&nbsp;&nbsp;<a href="javascript:void(0)"
+                                                                               onclick="pageFunction(0)">首页</a>&nbsp;&nbsp;
+    <a href="javascript:void(0)" onclick="pageFunction('{{totalPageNum-1}}')">尾页</a>
+    到第<input type="text" id="findPage" name="findPage" style="width: 40px"/> 页
+    <input type="submit" value="确定" onclick="findPage()"/>
+    <!--每页<select id="select">-->
+    <!--<option value="2" selected>2</option>-->
+    <!--<option value="3">3</option>-->
+    <!--<option value="4">4</option>-->
+    <!--<option value="5">5</option>-->
+    <!--</select>条数据-->
+
+</script>
+<!-- Bootstrap and necessary plugins -->
+<script src="vendors/js/jquery.min.js"></script>
+<script src="vendors/js/popper.min.js"></script>
+<script src="vendors/js/bootstrap.min.js"></script>
+<script src="vendors/js/pace.min.js"></script>
+
+
+<!-- Plugins and scripts required by all views -->
+<script src="vendors/js/Chart.min.js"></script>
+
+<!-- CoreUI main scripts -->
+<script src="js/app.js"></script>
+<script src="js/art-template-web.js"></script>
+
+
+<!-- <script>
+     var i=0;
+     &lt;!&ndash;获取所有的用户信息&ndash;&gt;
+     var students = [];  //存放用户信息的数组
+     var userIndex = -1;  //定义变量修改用户的信息
+     var currentPageNumber = 0;  //当前的分页数据
+     var totalPage = 0;   //总页数
+     var pageSize = 0;    //每页的数据
+     var pageTotalSize = 0 //分页的总数据
+
+
+     var adminName;//登录成功后的管理员用户名
+
+
+     var userPattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/;
+     var namePattern = /^[\u4E00-\u9FA5A-Za-z]+$/;
+     var emailPattern = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+     var phonePattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+     var passwordPattern = /^[a-zA-Z]\w{5,17}$/;
+
+
+     function m_nameTipOnblur() {
+         var m_inp_name = $("#studentName").val();
+         $("#span_studentNameTip").css("display","inline-block")//使span_userTip控件显示，对一个对象指定inline-block属性，可以将对象呈递为内联对象，但是对象的内容作为块对象呈递。
+         if(m_inp_name == ""){//如果姓名为空，提示不能为空
+             $("#span_studentNameTip").css("color","#f00");//span_userTip控件的字为红色
+             $("#span_studentNameTip")[0].innerText = " * 姓名不能为空(允许字母中文)";
+         }else{
+             if(namePattern.test(m_inp_name)){
+                 m_nameOrNo = 0;
+                 $("#span_studentNameTip").css("color","#0094ff");//span_userTip控件的字为蓝色
+                 $("#span_studentNameTip")[0].innerText = " * 姓名输入正确";
+             }else{
+                 m_nameOrNo = 1;
+                 $("#span_studentNameTip").css("color","#f00");//span_userTip控件的字为红色
+                 $("#span_studentNameTip")[0].innerText = " * 存在非法字符(允许字母中文)";
+             }
+         }
+     }
+
+
+
+
+    //当页面加载时查询登录管理员的信息
+     var AdminName = {"adminName":1}
+     $.ajax({
+         type: 'get',
+         url: '/admin/findByAdminName',
+         data:AdminName,
+         success: function (admin) {
+                    var adminImg =  admin.adminImg
+                  //显示管理员的头像
+                  $("#adminImage").attr("src",adminImg);
+
+            }
+        });
+
+
+
+
+
+
+     //默认在界面上显示两条数据
+     var page = {"pageNum":currentPageNumber}
+     $.ajax({
+         type: 'get',
+         url: '/student/findAllStudentByPage',
+         data:page,
+         success: function (result) {
+             students = result.content;
+             currentPageNumber = result.number;//当前页数
+             totalPage = result.totalPages;//总页数
+             pageSize = result.numberOfElements;//每页要显示多少条数据
+             pageTotalSize = result.totalElements;//总共有多少条数据
+             var html = template('student-manage-template', {
+                 items: students
+             });
+             document.getElementById('student-list').innerHTML = html;
+
+             var pageData = {
+                 pageNum: currentPageNumber,
+                 totalPageNum:totalPage
+             }
+
+             if(currentPageNumber==0) {
+                 var html = template('student-dividePage-template',pageData);
+                 document.getElementById('divide-page').innerHTML = html;
+             }else{
+                 var html = template('student-dividePage-template',pageData);
+                 document.getElementById('divide-page').innerHTML = "";
+             }
+         }
+     });
+
+     function pageFunction(pageNum) {
+         currentPageNumber = parseInt(pageNum)
+         //判断首页
+         if(currentPageNumber<0){
+             alert("抱歉！没有上一页了！")
+             currentPageNumber = 0;
+             return;
+         }
+         //判断尾页
+         if(currentPageNumber>totalPage-1){
+             alert("抱歉！已经是最后一页啦！")
+             currentPageNumber = totalPage-1
+             return;
+         }
+         var page = {"pageNum":currentPageNumber}
+         $.ajax({
+             type: 'get',
+             url: '/student/findAllStudentByPage',
+             data:page,
+             success: function (result) {
+                 students = result.content;
+                 pageNum = result.number;
+                 combineTemplateWithData();
+             }
+         });
+     }
+
+     //查找页号
+     function findPage() {
+         var findPage = $('#findPage').val()-1
+         if (findPage<0||findPage>totalPage-1) {
+             alert("查询页号不合理！")
+             return;
+         }
+         pageFunction(findPage);
+     }
+
+
+     //查询用户信息
+     $("#search").click(function () {
+         var studentName = $("#search_name").val();
+         var student = {"studentName":studentName}
+         $.ajax({
+             type: 'get',
+             url: '/student/search',
+             data: student,
+             success: function (result) {
+                 if(result.length==0) {
+                     alert("抱歉，没有找到你查询的信息");
+                 }
+                 students = result;
+                 //2.显示查询的数据
+                 var html = template('student-manage-template', {
+                     items: students
+                 });
+                 document.getElementById('student-list').innerHTML = html;
+
+                 var pageData = {
+                     pageNum: currentPageNumber,
+                     totalPageNum:totalPage
+                 }
+                 var html = template('student-dividePage-template',pageData);
+                 document.getElementById('divide-page').innerHTML = "";
+
+             }
+         });
+     });
+
+
+     // 新增用户
+     $("#save").click(function () {
+         var oldStudentName = $("#studentOldName").val();
+            //判断用户名是否可用
+         var studentName =$("#studentName").val();
+         $("#studentName").keyup(function () {
+             studentName = $("#this").val();
+              temp = 1;
+          });
+         var student = {"studentName":studentName}
+         if(userIndex==-1) {
+             $.ajax({
+                 type:'get',
+                 url:'/student/checkStudentName',
+                 data:student,
+                 success: function (result) {
+                     if(studentName==result.studentName){
+                         alert("用户名不可用！");
+                         return;
+                     }else{
+                         //保存数据
+                         saveData()
+                     }
+                 }
+             });
+         }else{
+                   //编辑
+                 $.ajax({
+                     type: 'get',
+                     url: '/student/checkStudentName',
+                     data: student,
+                     success: function (result) {
+                         //判断是否数据库是否存在该用户
+                            if (result.studentName == undefined) {
+                             //保存数据
+                             saveData()
+                         } else {
+                             if(result.studentName == oldStudentName){
+//                                  alert("没有修改用户信息");
+                                $("#primaryModal").modal('hide');
+                                 saveData();
+                                 return;
+                             }else{
+                                 alert("用户名不可用！");
+//                                  $("#primaryModal").modal('hide');
+                                 return;
+                             }
+                         }
+                     }
+                 });
+         }
+     });
+
+     function saveData() {
+         //保存数据
+         var formData = new FormData($("#form-add")[0]);
+         $.ajax({
+             type:'POST',
+             url:'/student/addStudent',
+             async: false,
+             cache: false,
+             contentType: false,
+             processData: false,
+             data:formData,
+             success: function (student) {
+                 //1.关闭模态框
+                 $("#primaryModal").modal('hide');
+
+
+
+                 //刷新页面window.location.reload();
+                 //新增,发送请求，跳到最后一页显示新增的数据
+                 if(userIndex==-1){
+                     //获取分页的总页数
+                     page = {"pageNum":currentPageNumber}
+                     $.ajax({
+                         type: 'get',
+                         url: '/student/findAllStudentByPage',
+                         data:page,
+                         success: function (result) {
+                             totalPage = result.totalPages;
+
+                             currentPageNumber = totalPage-1;
+                             page = {"pageNum":currentPageNumber};
+                             //重新发送请求获取数据
+                             $.ajax({
+                                 type: 'get',
+                                 url: '/student/findAllStudentByPage',
+                                 data:page,
+                                 success: function (result) {
+                                     students = result.content;
+                                     currentPageNumber = result.number;
+                                     totalPage = result.totalPages;
+                                     pageSize = result.numberOfElements;
+                                     pageTotalSize = result.totalElements;
+                                     combineTemplateWithData();
+                                 }
+                             });
+                         }
+                     });
+                 }else {
+                     //编辑
+                     students[userIndex] = student;
+                 }
+                 //2.显示用户新增的数据
+                 var html = template('student-manage-template', {
+                     items: students
+                 });
+                 document.getElementById('student-list').innerHTML = html;
+             }
+         });
+     }
+
+
+
+     var del_id = -1;
+     //删除用户信息
+     $('#dangerModal').on('show.bs.modal', function (event) {
+         var button = $(event.relatedTarget) // Button that triggered the modal
+         var recipient = button.data('whatever') // Extract info from data-* attributes
+         var modal = $(this)
+         modal.find('.modal-body input#del_id').val(students[recipient].studentId);
+         modal.find('.modal-body p').text("'"+students[recipient].studentName+"'")
+
+         del_id =  modal.find('.modal-body input#del_id').val();
+     });
+
+
+     //删除delete
+     $("#delete").click(function () {
+         var studentId = del_id;
+         var student = {"studentId":studentId};
+         $.ajax({
+             type:'get',
+             url:'/student/deleteStudent',
+             data:student,
+             success:function (result) {
+                 //1.关闭模态框
+                 $("#dangerModal").modal('hide');
+                 for(var i=students.length-1;i>=0;i&#45;&#45;){
+                     if(students[i].studentId == studentId)
+                     //第一个参数代表删除下标为第几，最后一个参数代表删除多少个1代表一个，2代表两个
+                         students.splice(i,1);
+                 }
+
+                 if(students.length==0)
+                 {
+                     //第一页
+                     if(currentPageNumber==0){
+                         currentPageNumber = 0
+                     }else {
+                         currentPageNumber = currentPageNumber - 1;
+                     }
+                     page = {"pageNum": currentPageNumber};
+                     $.ajax({
+                         type: 'get',
+                         url: '/student/findAllStudentByPage',
+                         data: page,
+                         success: function (result) {
+                             students = result.content;
+                             totalPage = result.totalPages;
+                             pageSize = result.numberOfElements;
+                             pageTotalSize = result.totalElements;
+                             combineTemplateWithData();
+                         }
+                     });
+                 }else{
+                     //判断是否是最后一页
+                     if(currentPageNumber ==totalPage-1){
+                         combineTemplateWithData();
+                     }else {
+                         var new_student = [];
+                         page = {"pageNum": currentPageNumber};
+                         $.ajax({
+                             type: 'get',
+                             url: '/student/findAllStudentByPage',
+                             data: page,
+                             success: function (result) {
+                                 new_student = result.content;
+                                 totalPage = result.totalPages;
+                                 pageSize = result.numberOfElements;
+                                 pageTotalSize = result.totalElements;
+//                                  console.log(new_student);
+                                 students.push(new_student[new_student.length-1]);
+                                 combineTemplateWithData();
+                             }
+                         });
+                     }
+                 }
+
+             }
+
+         });
+     });
+
+     // 修改学生的信息
+     $('#primaryModal').on('show.bs.modal', function (event) {
+         var button = $(event.relatedTarget) // Button that triggered the modal
+         var recipient = button.data('whatever') // Extract info from data-* attributes
+         var modal = $(this)
+
+         //判断是新增还是编辑
+         if(recipient!=null){
+             userIndex = recipient;
+             modal.find('.modal-title').text('编辑用户')
+             modal.find('.modal-body input#studentId').val(students[recipient].studentId)
+             modal.find('.modal-body input#studentName').val(students[recipient].studentName)
+             modal.find('.modal-body input#studentPassword').val(students[recipient].studentPassword)
+             modal.find('.modal-body input#studentTruename').val(students[recipient].studentTruename)
+             modal.find('.modal-body input#studentSchool').val(students[recipient].studentSchool)
+             modal.find('.modal-body input#studentAcademy').val(students[recipient].studentAcademy)
+             modal.find('.modal-body input#studentClass').val(students[recipient].studentClass)
+             modal.find('.modal-body input#studentEmail').val(students[recipient].studentEmail)
+             modal.find('.modal-body img#preview').attr("src",students[recipient].studentImg);
+             modal.find('.modal-body input#file').val("");
+             modal.find('.modal-body input#studentOldName').val(students[recipient].studentName);
+//
+
+         }else{
+             //清空模态框的数据
+             modal.find('.modal-body input#studentId').val(0);
+             modal.find('.modal-body input#studentName').val("");
+             modal.find('.modal-body input#studentPassword').val("");
+             modal.find('.modal-body input#studentTruename').val("");
+             modal.find('.modal-body input#studentSchool').val("");
+             modal.find('.modal-body input#studentAcademy').val("");
+             modal.find('.modal-body input#studentClass').val("");
+             modal.find('.modal-body input#studentEmail').val("");
+             modal.find('.modal-body img#preview').innerHTML="";
+             modal.find('.modal-body input#file').val("");
+             //修改为默认显示头像的背景图片
+             $("#preview").attr("src","img/head.jpg");
+             userIndex = -1;
+         }
+     });
+
+
+     //把模板和数据结合起来
+     function combineTemplateWithData() {
+         var pageData = {
+             pageNum: currentPageNumber,
+             totalPageNum:totalPage
+         }
+         var html = template('student-manage-template', {
+             items: students
+         });
+         document.getElementById('student-list').innerHTML = html;
+
+         var html = template('student-dividePage-template', pageData);
+         document.getElementById('divide-page').innerHTML = html;
+     }
+
+
+     //查看管理员个人的信息
+     $('#adminModal').on('show.bs.modal', function (event) {
+         var button = $(event.relatedTarget) // Button that triggered the modal
+         var adminName = button.data('whatever') // Extract info from data-* attributes
+         var modal = $(this)
+         var admin = {"adminName":adminName}
+         $.ajax({
+             type: 'get',
+             url: '/admin/findByAdminName',
+             data: admin,
+             success: function (admin) {
+//                   modal.find('.modal-title').text('管理员')
+                 modal.find('.modal-body input#adminId').val(admin.adminId)
+                 modal.find('.modal-body input#adminName').val(admin.adminName)
+                 modal.find('.modal-body input#adminPassword').val(admin.adminPassword)
+                 modal.find('.modal-body input#adminTruename').val(admin.adminTruename)
+                 modal.find('.modal-body input#adminTelephone').val(admin.adminTelephone)
+                 modal.find('.modal-body input#adminEmail').val(admin.adminEmail)
+                 modal.find('.modal-body input#adminAddress').val(admin.adminAddress)
+                 modal.find('.modal-body input#adminImg').val(admin.adminImg)
+             }
+         });
+     });
+
+     //修改管理员密码
+     $("#updateAdminPassword").click(function () {
+         var adminName = $("#updateAdminName").val();
+         var oldPassword = $("#oldPassword").val();
+         var newPassword = $("#newPassword").val();
+         var admin = {"adminName":adminName,"oldPassword":oldPassword,"newPassword":newPassword}
+         $.ajax({
+             type: 'get',
+             url: '/admin/updateAdminPassword',
+             data: admin,
+             success: function (result) {
+                 if(result==true){
+                      alert("修改成功！")
+                     $("#updateAdminPasswordModal").modal('hide');
+                 }else{
+                     alert("修改失败！用户名或密码错误")
+                 }
+             }
+         });
+     });
+
+
+
+     function checkFindPage() {
+         var findPage = $("#findPage").val();
+         if (findPage<=0||findPage>totalPage){
+             alert("查询页号不合理！")
+             return false;
+         }
+         currentPageNumber = findPage;
+         return true;
+     }
+
+
+     /*导入学生信息到数据库*/
+
+     $("#inputStudentDate").click(function () {
+       var formData=new FormData();
+         var data=document.getElementById("studentDatas").files[0];
+         formData.append('filename',data)
+         $.ajax({
+             type: 'POST',
+             url: '/student/import',
+             data: formData,
+             contentType: false,
+             processData: false,
+             success: function (result) {
+
+                 $("#successModal").modal('hide');
+                   alert("导入成功")
+             }
+         });
+     });
+ </script>-->
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function ($scope, $http) {
+        $http.get("/manager/productlist")
+            .success(function (response) {
+                $scope.products = response;
+            });
+    });
+</script>
+
+</body>
+
+</html>

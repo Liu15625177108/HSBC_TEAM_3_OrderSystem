@@ -2,23 +2,19 @@ package hsbc.team03.ordersystem.displayproduct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
-
 /**
  * @author @Evan
  * @return No such property: code for class: Script1
  * @exception
  * @date 2018/8/5 22:14
  */
-@Controller
+@RestController
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
@@ -33,12 +29,13 @@ public class ManagerController {
      * @UpdateDate: 2018/8/5 21:56
      * @Version: 1.0
      */
-    @RequestMapping(value = "/manager-product", method = RequestMethod.GET)
-    public ModelAndView managerPage() {
+    @RequestMapping(value = "/manager-index", method = RequestMethod.GET)
+    public ModelAndView managerIndexPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("managerproduct.html");
+        modelAndView.setViewName("managerIndex.html");
         return modelAndView;
     }
+
 
     /**
      * @Description: manager get all the production
@@ -48,6 +45,7 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/productlist", method = RequestMethod.GET)
+    @ResponseBody
     public List<Product> getAllProduct() {
         List<Product> list = managerService.productList();
         return list;
