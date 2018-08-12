@@ -23,7 +23,7 @@ import java.util.Date;
  * @since 1.0.0
  */
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrdersServiceImpl implements OrdersService {
     /**
      * @Author Chen
      * @Description //TODO TO place the order
@@ -33,10 +33,10 @@ public class OrderServiceImpl implements OrderService{
      **/
     @Override
     public Object toOrder(ProductInfo productInfo,UserInfo userInfo) {
-        OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
+        OrdersInfo orderInfo=new OrdersInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
                 productInfo.getProductNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
                 userInfo.getUserAddress(),productInfo.getProductPrice(),1,new Date());
-        ResultView resultView=new ResultView<OrderInfo>(200,"成功",orderInfo);
+        ResultView resultView=new ResultView<OrdersInfo>(200,"成功",orderInfo);
         return resultView;
     }
     /**
@@ -62,7 +62,7 @@ public class OrderServiceImpl implements OrderService{
      **/
     @Override
     public boolean toCancelOrder(String orderId) {
-        OrderInfo orderInfo=getOrderInfoByOrderId(orderId);
+        OrdersInfo orderInfo=getOrderInfoByOrderId(orderId);
         Date date=new Date();
         Date date1=new Date(date.getTime()- 7* 60 * 60 * 1000);
         System.out.println(date1+"@111111");
@@ -77,10 +77,10 @@ public class OrderServiceImpl implements OrderService{
      * @Description //TODO get orderInfo by orderid
      * @Date 11:38 2018/8/10
      * @Param [orderId]
-     * @return hsbc.team03.ordersystem.toorder.product.OrderInfo
+     * @return hsbc.team03.ordersystem.toorder.product.OrdersInfo
      **/
     @Override
-    public OrderInfo getOrderInfoByOrderId(String orderId) {
+    public OrdersInfo getOrderInfoByOrderId(String orderId) {
         return null;
     }
 

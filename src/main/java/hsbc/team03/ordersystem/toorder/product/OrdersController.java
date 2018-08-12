@@ -13,7 +13,6 @@ package hsbc.team03.ordersystem.toorder.product;
 import hsbc.team03.ordersystem.toorder.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,13 +22,14 @@ import javax.servlet.http.HttpServletRequest;
  * @description〈the controller of order〉
  * @create 2018/8/2
  * @since 1.0.0
+ * , produces = "application/json; charset=utf-8"
  */
 @Slf4j
-@Controller
-@RequestMapping(value = "/order", produces = "application/json; charset=utf-8")
-public class OrderController {
+@RestController
+@RequestMapping(value = "/order")
+public class OrdersController {
     @Autowired
-    private OrderService orderService;
+    private OrdersService orderService;
     @Autowired
     private UserService userService;
 
@@ -41,7 +41,7 @@ public class OrderController {
      * @Param []
      **/
     @PostMapping(value = "/toorder")
-    public @ResponseBody
+    public
     Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
         String userId = (String) request.getSession().getAttribute("userId");
         UserInfo userInfo = userService.getUserInfoByUserId(userId);
@@ -71,15 +71,16 @@ public class OrderController {
         return resultView;
     }
 
-    @PostMapping(value = "/test1")
-    public @ResponseBody
-    UserInfo test1(String a) {
+    @GetMapping(value = "/t1")
+    public
+    Object test1() {
         UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
-        return userInfo;
+        ResultView resultview= new ResultView<UserInfo>(200, "success", userInfo);
+        return resultview;
     }
 
     @PutMapping(value = "/tocancelorder")
-    public @ResponseBody
+    public
     Object toCancelOrder(@RequestParam("orderId") String orderId) {
         if (orderId != null && !orderId.equals("")) {
             if (orderService.toCancelOrder(orderId)) {

@@ -25,14 +25,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes=OrderController.class)
-@WebMvcTest(OrderController.class)
+@ContextConfiguration(classes= OrdersController.class)
+@WebMvcTest(OrdersController.class)
 @Slf4j
-public class OrderControllerTest {
+public class OrdersControllerTest {
     @Autowired
     private MockMvc mvc;
     @MockBean
-    private OrderService orderService;
+    private OrdersService orderService;
     @MockBean
     private UserService userService;
     @Test
@@ -43,12 +43,12 @@ public class OrderControllerTest {
                 "岗顶");
         ProductInfo productInfo=new ProductInfo(CommonsUtils.getUUID(),3,
                 100,"信用卡");
-        OrderInfo orderInfo=new OrderInfo(CommonsUtils.getUUID(),
+        OrdersInfo orderInfo=new OrdersInfo(CommonsUtils.getUUID(),
                 productInfo.getProductName(),productInfo.getProductNumber(),
                 userInfo.getUserName(),userInfo.getUserPhone(),
                 userInfo.getUserAddress(),productInfo.getProductPrice(),
                 1,new Date());
-        ResultView resultView=new ResultView<OrderInfo>(200,"success",orderInfo);
+        ResultView resultView=new ResultView<OrdersInfo>(200,"success",orderInfo);
         
         
         given(this.userService.toValidatePayPassword(Mockito.any(UserInfo.class),eq("123"))).willReturn(true);
@@ -77,7 +77,7 @@ public class OrderControllerTest {
     /*    String beginTime=new String("2018-08-7 10:22:22");
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date bt=sdf.parse(beginTime);
-        OrderInfo orderInfo=new OrderInfo("01","信用卡",
+        OrdersInfo orderInfo=new OrdersInfo("01","信用卡",
                 12,"Chen","12313212312",
                 "岗顶",1000.0,1,bt);
         

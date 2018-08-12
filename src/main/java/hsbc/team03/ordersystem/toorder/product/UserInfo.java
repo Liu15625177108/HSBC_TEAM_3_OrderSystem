@@ -62,4 +62,5 @@ public class UserInfo {
         this.userPhone = userPhone;
         this.userAddress = userAddress;
     }
+    
 }
