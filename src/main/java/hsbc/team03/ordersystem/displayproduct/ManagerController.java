@@ -45,7 +45,6 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/productlist", method = RequestMethod.GET)
-    @ResponseBody
     public List<Product> getAllProduct() {
         List<Product> list = managerService.productList();
         return list;
