@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品中心</title>
+    <script src="vendors/js/bootstrap.min.js"></script>
+    <script src="vendors/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link rel="stylesheet" href="vendors/css/bootstrap.min.css">
+
+</head>
+<body ng-app="myApp" ng-app="myApp" ng-controller="customersCtrl">
+<div>
+
+    <!--显示全部：<input type="checkbox" name="radiobutton" value="radiobutton" ng-onchange="allProduct()">-->
+
+    类型筛选：<select id="protype" ng-model="myselect">
+    <option></option>
+    <option ng-repeat="x in productsType">{{x.productType}}</option>
+</select>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>产品代码</th>
+            <th>产品名</th>
+            <th>价格</th>
+            <th>类型</th>
+            <th>发售日期</th>
+            <th>截止发售日期</th>
+            <th>产品到期日</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="pro in products | filter:myselect | orderBy:'price'">
+            <td>{{pro.productCode}}</td>
+            <td>{{pro.name}}</td>
+            <td>{{pro.price}}</td>
+            <td>{{pro.type}}</td>
+            <td>{{pro.sellData}}</td>
+            <td>{{pro.deadline}}</td>
+            <td>{{pro.dueDate}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var product = [];
+    var app = angular.module("myApp", []);
+    app.controller("customersCtrl", function ($scope, $http) {
+        $http({
+            method: 'get',
+            url: "/user/get/products"
+        })
+            .then(function success(result) {
+                    $scope.products = result.data;
+                    product = result.data;
+                },
+                function error() {
+                    alert("出错了")
+                }
+            );
+        //2.then回调嵌套
+        $http({
+            url: "/get/productType",
+            method: "get"
+        }).then(function (resp) {
+            $scope.productsType = resp.data;
+        })
+
+        $scope.allProduct = function () {
+            $scope.products = product;
+        }
+    });
+
+</script>
+</body>
+
+</html>
