@@ -10,6 +10,7 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +22,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceimpl implements UserService {
 
+    @Autowired
+    private UserRepository userRepository;
     /**
      * @return boolean
      * @Author Chen
@@ -41,16 +44,30 @@ public class UserServiceimpl implements UserService {
     }
 
     /**
+     * @return UserInfo
      * @Author Chen
      * @Description //TODO to get userinfo by userid
      * @Date 12:38 2018/8/9
      * @Param [userId]
-     * @return UserInfo
      **/
     @Override
     public UserInfo getUserInfoByUserId(String userId) {
-            UserInfo userInfo =new UserInfo(userId,"Chen",10000000.0,"123","13244444444","岗顶");
-            return userInfo;
+        UserInfo userInfo = new UserInfo(userId, "Chen", 10000000.0, "123", "13244444444", "岗顶");
+        return userInfo;
 
     }
+
+
+    /**
+     * @return
+     * @Author Chen
+     * @Description //TODO test
+     * @Date 14:36 2018/8/13
+     * @Param
+     **/
+    @Override
+    public void addTest(UserInfo userInfo) {
+        userRepository.save(userInfo);
+    }
+
 }

@@ -13,17 +13,22 @@ package hsbc.team03.ordersystem.toorder.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @description〈the pojo of Product〉
  * @author Chen
  * @create 2018/8/7
  * @since 1.0.0
  */
+@Entity
 @Data
 public class ProductInfo {
     /**
      * productId
      */
+    @Id
     @JsonProperty(value = "productid")
     private String productId;
     /**

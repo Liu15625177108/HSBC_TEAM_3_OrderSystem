@@ -10,7 +10,8 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
-import hsbc.team03.ordersystem.toorder.result.ResultView;
+import hsbc.team03.ordersystem.toorder.result.ResultViewService;
+import hsbc.team03.ordersystem.toorder.result.ResultViewServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,15 +24,19 @@ import javax.servlet.http.HttpServletRequest;
  * @description〈the controller of order〉
  * @create 2018/8/2
  * @since 1.0.0
+ * , produces = "application/json; charset=utf-8"
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/order", produces = "application/json; charset=utf-8")
-public class OrderController {
+@RequestMapping(value = "/order")
+public class OrdersController {
     @Autowired
-    private OrderService orderService;
+    private OrdersService orderService;
     @Autowired
     private UserService userService;
+    //    @Autowired
+//    private ResultViewService resultViewService;
+    private ResultViewService resultViewService = new ResultViewServiceImpl();
 
     /**
      * @return java.lang.Object
@@ -50,32 +55,31 @@ public class OrderController {
 
             //to check userPayPassword
             if (userService.toValidatePayPassword(userInfo, payPassword)) {
-
-                Object resultView = orderService.toOrder(productInfo, userInfo);
-                String result = resultView.toString();
-                log.info(result);
-                return resultView;
-
+                if (orderService.toOrder(productInfo, userInfo)) {
+                    return resultViewService.ResultSuccess(23);
+                }
+                return resultViewService.ResultSuccess(23);
             }
-
-            String result = "Sorry,your password is wrong,please reenter it";
-            log.info(result);
-            ResultView resultView = new ResultView<String>(401, "error", result);
-            return resultView;
-
+            return resultViewService.ResultSuccess(26);
         }
-
-        String result = "Sorry,your money is not enough,please recharge";
-        log.info(result);
-        ResultView resultView = new ResultView<String>(401, "error", result);
-        return resultView;
+        return resultViewService.ResultSuccess(27);
     }
 
-    @PostMapping(value = "/test1")
+    @GetMapping(value = "/t1")
     public @ResponseBody
-    UserInfo test1(String a) {
-        UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
-        return userInfo;
+    TestInfo test1() {
+//        UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
+//        ResultView resultview = new ResultView<UserInfo>(200, "success", userInfo);
+//        userService.addTest(userInfo);
+//        String result="add +++++++";
+//        ResultView resultview = new ResultView<String>(200, "success", result);
+        /*OrdersInfo ordersInfo=new OrdersInfo("111","难",
+                1,"chen","111",
+                "地球", 11.1,1,new Date());*/
+        TestInfo testInfo = new TestInfo();
+        testInfo.setTestId(11);
+        testInfo.setCode(1);
+        return testInfo;
     }
 
     @PutMapping(value = "/tocancelorder")
@@ -84,16 +88,10 @@ public class OrderController {
         if (orderId != null && !orderId.equals("")) {
             if (orderService.toCancelOrder(orderId)) {
                 orderService.updateOrderStatus(orderId);
-                String result = "Your order has been cancelled";
-                ResultView resultView = new ResultView<String>(200, "success", result);
-                return resultView;
-            }
-            String result = "Your order cancellation failure,because has been more than seven days";
-            ResultView resultView = new ResultView<String>(401, "error", result);
-            return resultView;
+                return resultViewService.ResultSuccess(22);
+            };
+            return resultViewService.ResultSuccess(28);
         }
-        String result = "Sorry,you must select at least one order";
-        ResultView resultView = new ResultView<String>(401, "error", result);
-        return resultView;
+        return resultViewService.ResultSuccess(29);
     }
 }

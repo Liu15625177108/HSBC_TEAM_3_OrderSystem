@@ -1,6 +1,6 @@
 /**
  * Copyright (C), 2018-2018, CLPS
- * FileName: OrderService
+ * FileName: OrdersService
  * Author:   ca
  * Date:     2018/8/2 17:37
  * Description: the interface of orderservice
@@ -18,7 +18,7 @@ package hsbc.team03.ordersystem.toorder.product;
  * @create 2018/8/2
  * @since 1.0.0
  */
-public interface OrderService {
+public interface OrdersService {
    /**
     * @Author Chen
     * @Description //TODO To place an order
@@ -26,7 +26,7 @@ public interface OrderService {
     * @Param [ProductInfo productInfo,UserInfo userInfo]
     * @return Object
     **/
-    Object toOrder(ProductInfo productInfo,UserInfo userInfo);
+    boolean toOrder(ProductInfo productInfo,UserInfo userInfo);
  
     /**
      * @Author Chen
@@ -51,9 +51,9 @@ public interface OrderService {
      * @Description //TODO  get orderinfo by orderid
      * @Date 10:24 2018/8/10
      * @Param [orderId]
-     * @return OrderInfo
+     * @return OrdersInfo
      **/
-    OrderInfo getOrderInfoByOrderId(String orderId);
+    OrdersInfo getOrderInfoByOrderId(String orderId);
     
     /**
      * @Author Chen
@@ -64,5 +64,6 @@ public interface OrderService {
      **/
     boolean updateOrderStatus(String orderId);
     
+
 }
  
