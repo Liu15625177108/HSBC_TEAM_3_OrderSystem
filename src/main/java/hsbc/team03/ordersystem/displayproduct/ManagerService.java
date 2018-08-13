@@ -38,4 +38,6 @@ public interface ManagerService {
      * @return
      */
    boolean modifyProduct(Product product, MultipartFile file) throws IOException;
+
+    List<ProductType> getProductType();
 }

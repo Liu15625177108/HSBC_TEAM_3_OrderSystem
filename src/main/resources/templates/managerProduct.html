@@ -20,7 +20,10 @@
 
     <!-- Main styles for this application -->
     <link href="css/style.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">-->
     <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+
     <!-- Styles required by this views -->
     <script type="text/javascript">
         function setImagePreview(avalue) {
@@ -89,7 +92,8 @@
 
 -->
 
-<body ng-app="myApp" ng-controller="customersCtrl" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+<body ng-app="myApp" ng-controller="customersCtrl"
+      class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 <header class="app-header navbar">
 
     <h4 style="margin: auto">教学管理后台系统</h4>
@@ -259,44 +263,48 @@
                                 </button>
                             </div>
                         </div>
-                            <table class="table table-responsive-sm table-bordered table-striped table-sm">
-                                <thead>
-                                <tr>
-                                    <th>产品代码</th>
-                                    <th>产品名</th>
-                                    <th>价格</th>
-                                    <th>类型</th>
-                                    <th>发售日期</th>
-                                    <th>截止发售日期</th>
-                                    <th>产品到期日</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="pro in products">
-                                    <input type="hidden" value="{{pro.id}}">
-                                    <td>{{pro.productCode}}</td>
-                                    <td>{{pro.name}}</td>
-                                    <td>{{pro.price}}</td>
-                                    <td>{{pro.type}}</td>
-                                    <td>{{pro.sellData}}</td>
-                                    <td>{{pro.deadline}}</td>
-                                    <td>{{pro.dueDate}}</td>
-                                    <td>
-                                        <span class="badge badge-success">正在发售</span>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#primaryModal" data-whatever="{{$index}}"><i class="fa fa-edit"></i>&nbsp;
-                                            编辑
-                                        </button>
-                                        <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#dangerModal" data-whatever="{{$index}}"><i class="fa fa-trash"></i>&nbsp;
-                                            删除
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>产品代码</th>
+                                <th>产品名</th>
+                                <th>价格</th>
+                                <th>类型</th>
+                                <th>发售日期</th>
+                                <th>截止发售日期</th>
+                                <th>产品到期日</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="pro in products">
+                                <input type="hidden" value="{{pro.id}}">
+                                <td>{{pro.productCode}}</td>
+                                <td>{{pro.name}}</td>
+                                <td>{{pro.price}}</td>
+                                <td>{{pro.type}}</td>
+                                <td>{{pro.sellData}}</td>
+                                <td>{{pro.deadline}}</td>
+                                <td>{{pro.dueDate}}</td>
+                                <td>
+                                    <span class="badge badge-success">正在发售</span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#primaryModal" data-whatever="{{$index}}"><i
+                                            class="fa fa-edit"></i>&nbsp;
+                                        编辑
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                            data-target="#dangerModal" data-whatever="{{$index}}"><i
+                                            class="fa fa-trash"></i>&nbsp;
+                                        删除
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <nav>
                             <ul class="pagination">
                                 <li class="page-item"><a class="page-link" href="#">Prev</a></li>
@@ -585,86 +593,85 @@
                                     <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">类型</span>
-                                </div>
-                                <input type="text" id="type" name="type" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <a class="input-group-text">类型</a>
+                                <a>
+                                    <input type="text" id="type" name="type" class="form-control1 ">
+                                    <select>
+                                        <option ng-repeat="x in productsType">
+                                            {{x.productType}}
+                                        </option>
+                                    </select>
+                                </a>
                             </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">发售起始日</span>
-                                </div>
-                                <input type="text" id="sellData" name="sellData" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">发售截止日</span>
-                                </div>
-                                <input type="text" id="deadline" name="deadline" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">产品到期日</span>
-                                </div>
-                                <input type="text" id="dueDate" name="dueDate" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">产品描述</span>
-                                </div>
-                                <input type="text" id="description" name="description" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"
-                                                     style="display: block; width: 100px; height: 100px;">
-                            </div>
-                            <input type="file" name="file" id="file" style="width:150px;"
-                                   onchange="javascript:setImagePreview();"/>
                         </div>
                     </div>
-                </form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">发售起始日</span>
+                            </div>
+                            <input type="text" id="sellData" name="sellData" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">发售截止日</span>
+                            </div>
+                            <input type="text" id="deadline" name="deadline" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">产品到期日</span>
+                            </div>
+                            <input type="text" id="dueDate" name="dueDate" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">产品描述</span>
+                            </div>
+                            <input type="text" id="description" name="description" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"
+                                                 style="display: block; width: 100px; height: 100px;">
+                        </div>
+                        <input type="file" name="file" id="file" style="width:150px;"
+                               onchange="javascript:setImagePreview();"/>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="save">保存</button>
             </div>
         </div>
-        <!-- /.modal-content -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="save">保存</button>
+        </div>
     </div>
-    <!-- /.modal-dialog -->
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
 </div>
 
 <!--&lt;!&ndash;删除模态框&ndash;&gt;-->
@@ -743,7 +750,7 @@
 <script src="js/art-template-web.js"></script>
 
 <script>
-    var product=[];
+    var product = [];
     var app = angular.module("myApp", []);
     app.controller("customersCtrl", function ($scope, $http) {
         $http({
@@ -752,13 +759,34 @@
         })
             .then(function success(result) {
                     $scope.products = result.data;
-                    product=result.data;
+                    product = result.data;
                 },
                 function error() {
                     alert("出错了")
                 }
             );
+        //2.then回调嵌套
+        $http({
+            url: "/get/productType",
+            method: "get"
+        }).then(function (resp) {
+            $scope.productsType = resp.data;
+        })
     });
+    /*//2.then回调嵌套
+        $http({
+            url: "data.json",
+            method: "get"
+        }).then(function (resp) {
+            $http({
+                url: "/get/productType",
+                method: "get"
+            }).then(function (resp) {
+                $scope.productsType = resp.data;
+            })
+        })
+    });*/
+
 
     // 修改用户的信息
     $('#primaryModal').on('show.bs.modal', function (event) {
@@ -767,7 +795,7 @@
         var modal = $(this)
         //判断是新增还是编辑
         // teachers[recipient].teacherId
-        if(recipient!=null){
+        if (recipient != null) {
             userIndex = recipient;
             modal.find('.modal-title').text('编辑用户')
             modal.find('.modal-body input#productCode').val(product[recipient].productCode)
@@ -783,7 +811,7 @@
             // modal.find('.modal-body input#teacherOldName').val(teachers[recipient].teacherName);
 //
 
-        }else{
+        } else {
             //清空模态框的数据
             modal.find('.modal-body input#teacherId').val(0);
             modal.find('.modal-body input#teacherName').val("");
@@ -793,17 +821,15 @@
             modal.find('.modal-body input#teacherAcademy').val("");
             modal.find('.modal-body input#teacherClass').val("");
             modal.find('.modal-body input#teacherEmail').val("");
-            modal.find('.modal-body img#preview').innerHTML="";
+            modal.find('.modal-body img#preview').innerHTML = "";
             modal.find('.modal-body input#file').val("");
             //修改为默认显示头像的背景图片
-            $("#preview").attr("src","img/head.jpg");
+            $("#preview").attr("src", "img/head.jpg");
             userIndex = -1;
         }
     });
 
 </script>
-
-
 </body>
 
 </html>

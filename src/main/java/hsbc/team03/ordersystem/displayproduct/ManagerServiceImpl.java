@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Service
 public class ManagerServiceImpl implements ManagerService {
+    private final ProductTypeRepository productTypeRepository;
     private final SystemLogRepository systemLogRepository;
     private final ManagerRepository managerRepository;
     private final DataCheckTool dataCheckTool;
@@ -29,7 +30,8 @@ public class ManagerServiceImpl implements ManagerService {
      * the ManagerServiceImpl constructor  is to init managerRepository
      */
     @Autowired
-    public ManagerServiceImpl(ManagerRepository managerRepository, SystemLogRepository systemLogRepository, DataCheckTool dataCheckTool) {
+    public ManagerServiceImpl(ProductTypeRepository productTypeRepository, ManagerRepository managerRepository, SystemLogRepository systemLogRepository, DataCheckTool dataCheckTool) {
+        this.productTypeRepository = productTypeRepository;
         this.managerRepository = managerRepository;
         this.systemLogRepository = systemLogRepository;
         this.dataCheckTool = dataCheckTool;
@@ -128,6 +130,11 @@ public class ManagerServiceImpl implements ManagerService {
             }
         }
         return tag;
+    }
+
+    @Override
+    public List<ProductType> getProductType() {
+        return productTypeRepository.findAll();
     }
 
 }

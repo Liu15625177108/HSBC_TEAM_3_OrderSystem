@@ -107,4 +107,9 @@ public class ManagerController {
         return n;
     }
 
+    @GetMapping("/get/productType")
+    public List<ProductType> getProductTypeList(){
+        List<ProductType> list=managerService.getProductType();
+        return list;
+    }
 }
