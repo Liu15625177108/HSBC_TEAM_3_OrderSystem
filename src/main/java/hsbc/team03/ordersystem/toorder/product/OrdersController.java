@@ -10,6 +10,7 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
+import hsbc.team03.ordersystem.toorder.result.ResultView;
 import hsbc.team03.ordersystem.toorder.result.ResultViewService;
 import hsbc.team03.ordersystem.toorder.result.ResultViewServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -46,13 +47,13 @@ public class OrdersController {
      * @Param []
      **/
     @PostMapping(value = "/toorder")
-    public @ResponseBody
+    public
     Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
         String userId = (String) request.getSession().getAttribute("userId");
+        System.out.println(userId);
         UserInfo userInfo = userService.getUserInfoByUserId(userId);
         //To compare userMoney and orderPrice
         if (userInfo.getUserMoney() > orderService.getOrderPrice(productInfo.getProductNumber(), productInfo.getProductPrice())) {
-
             //to check userPayPassword
             if (userService.toValidatePayPassword(userInfo, payPassword)) {
                 if (orderService.toOrder(productInfo, userInfo)) {
@@ -81,7 +82,6 @@ public class OrdersController {
         testInfo.setCode(1);
         return testInfo;
     }
-
     @PutMapping(value = "/tocancelorder")
     public @ResponseBody
     Object toCancelOrder(@RequestParam("orderId") String orderId) {

@@ -11,8 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-//@ComponentScan(basePackageClasses=OrdersController.class)
+
 public class OrdersystemApplication   {
+
     public static void main(String[] args) {
         SpringApplication.run(OrdersystemApplication.class, args);
         

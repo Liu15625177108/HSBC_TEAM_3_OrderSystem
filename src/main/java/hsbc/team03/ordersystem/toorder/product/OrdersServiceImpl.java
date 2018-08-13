@@ -10,6 +10,8 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
+import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
+import hsbc.team03.ordersystem.toorder.result.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +25,11 @@ import java.util.Date;
  */
 @Service
 public class OrdersServiceImpl implements OrdersService {
+
     
     @Autowired
     private OrdersRepository ordersRepository;
+
     /**
      * @Author Chen
      * @Description //TODO TO place the order
@@ -34,8 +38,10 @@ public class OrdersServiceImpl implements OrdersService {
      * @return java.lang.Object
      **/
     @Override
+
     public boolean toOrder(ProductInfo productInfo,UserInfo userInfo) {
         return true;
+
     }
     /**
      * @Author Chen

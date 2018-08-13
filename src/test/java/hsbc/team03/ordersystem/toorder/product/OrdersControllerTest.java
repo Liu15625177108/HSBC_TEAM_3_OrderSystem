@@ -66,7 +66,6 @@ public class OrdersControllerTest {
                 .content(jsonString)
                 .sessionAttr("userId","111")
                 .param("payPassword","123"))
-                .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(); //return response's value
         log.info(result);

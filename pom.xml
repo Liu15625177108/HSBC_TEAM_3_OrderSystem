@@ -32,6 +32,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+
         </dependency>
         <!--json-->
         <dependency>
@@ -39,17 +40,7 @@
         <artifactId>fastjson</artifactId>
         <version>1.2.12</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--<artifactId>jackson-core</artifactId>-->
-        <!--<version>2.3.0</version>-->
-        <!--</dependency>-->
 
-        <!--<dependency>-->
-        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--<artifactId>jackson-databind</artifactId>-->
-        <!--<version>2.3.0</version>-->
-        <!--</dependency>-->
         <!--test class to ues mockmvc-->
         <dependency>
             <groupId>org.springframework.restdocs</groupId>
@@ -94,6 +85,7 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
+
         <!--data jap-->
         <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -105,6 +97,19 @@
         <artifactId>mysql-connector-java</artifactId>
         <!--<version>5.1.24</version>-->
         </dependency>
+=======
+        <!--&lt;!&ndash;data jap&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;mysql connection&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.24</version>-->
+        <!--</dependency>-->
+>>>>>>> 73d1c9ac1717d3538266d15b21c3bb69da144683
     </dependencies>
     <scm>
         <url>https://github.com/Liu15625177108/HSBC_TEAM_3_OrderSystem</url>

@@ -29,7 +29,7 @@ public class TestInfo implements Serializable {
     @Id
     @JsonProperty(value = "testid")
     private int testId;
-    @JsonProperty(value = "testid")
+    @JsonProperty(value = "code")
     private int code;
 
     public int getTestId() {
