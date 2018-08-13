@@ -1,4 +1,6 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.services;
+
+import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
 
 import java.util.List;
 
@@ -12,14 +14,14 @@ import java.util.List;
 public interface RegisterServices {
     /**
      * @param : []
-     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.pojo.UserInfo>
      * @Description to get all the user
      */
     List<UserInfo> findAllUser();
 
     /**
      * @param : [username]
-     * @return hsbc.team03.ordersystem.loginregister.UserInfo
+     * @return hsbc.team03.ordersystem.loginregister.pojo.UserInfo
      * @Description to get user by username
      */
     UserInfo findUserByUsername(String username);

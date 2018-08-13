@@ -1,6 +1,9 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.controller;
 
+import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
 import hsbc.team03.ordersystem.loginregister.resultview.ResultView;
+import hsbc.team03.ordersystem.loginregister.services.RegisterServicesImpl;
+import hsbc.team03.ordersystem.loginregister.utils.SendSmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;

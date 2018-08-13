@@ -1,7 +1,6 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
@@ -11,7 +10,7 @@ import java.io.IOException;
  * @Description: user info filter
  * @date : 2018年08月10日 15:45:57
  **/
-@WebFilter(urlPatterns = "/*", filterName = "UserInfoFilter")
+//@WebFilter(urlPatterns = "", filterName = "UserInfoFilter")
 public class UserInfoFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

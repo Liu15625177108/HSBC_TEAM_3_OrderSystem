@@ -1,6 +1,5 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.filter;
 
-import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,7 @@ import java.io.PrintWriter;
  * @Author: Jeff.Li
  * @Created: 2018年08月07日 16:36:48
  **/
-@Service
+//@Service
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override

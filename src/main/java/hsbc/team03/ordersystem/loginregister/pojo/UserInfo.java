@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.pojo;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.NotNull;

@@ -1,5 +1,7 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.services;
 
+import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
+import hsbc.team03.ordersystem.loginregister.repo.UserInfoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class RegisterServicesImpl implements RegisterServices {
 
     /**
      * @param : []
-     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.pojo.UserInfo>
      * @Description to get all user implement
      */
     @Override
@@ -29,7 +31,7 @@ public class RegisterServicesImpl implements RegisterServices {
     /**
      * @Description to get user by username
      * @param : [username]
-     * @return java.util.List<hsbc.team03.ordersystem.loginregister.UserInfo>
+     * @return java.util.List<hsbc.team03.ordersystem.loginregister.pojo.UserInfo>
      *
      */
     @Override

@@ -1,6 +1,8 @@
 package hsbc.team03.ordersystem.loginregister;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
+import hsbc.team03.ordersystem.loginregister.services.RegisterServicesImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

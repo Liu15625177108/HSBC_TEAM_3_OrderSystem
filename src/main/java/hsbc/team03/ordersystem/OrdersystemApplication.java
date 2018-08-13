@@ -1,6 +1,6 @@
 package hsbc.team03.ordersystem;
 
-//import hsbc.team03.ordersystem.loginregister.WebSecurityConfig;
+//import hsbc.team03.ordersystem.loginregister.security.WebSecurityConfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
