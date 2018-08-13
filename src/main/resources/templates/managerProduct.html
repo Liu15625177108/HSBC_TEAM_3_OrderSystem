@@ -25,139 +25,66 @@
     <script src="js/angular-route.min.js"></script>
 
     <!-- Styles required by this views -->
-    <script type="text/javascript">
-        function setImagePreview(avalue) {
-            var docObj = document.getElementById("file");
-            var imgObjPreview = document.getElementById("preview");
-            if (docObj.files && docObj.files[0]) {
-                //火狐下，直接设img属性
-                imgObjPreview.style.display = 'block';
-                imgObjPreview.style.width = '100px';
-                imgObjPreview.style.height = '100px';
-                //imgObjPreview.src = docObj.files[0].getAsDataURL();
-                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
-                imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
-            }
-            else {
-                //IE下，使用滤镜
-                docObj.select();
-                var imgSrc = document.selection.createRange().text;
-                var localImagId = document.getElementById("localImag"); //必须设置初始大小
-                localImagId.style.width = "100px";
-                localImagId.style.height = "100px"; //图片异常的捕捉，防止用户修改后缀来伪造图片
-                try {
-                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
-                } catch (e) {
-                    alert("您上传的图片格式不正确，请重新选择!");
-                    return false;
-                }
-                imgObjPreview.style.display = 'none';
-                document.selection.empty();
-            }
-            return true;
-        }
+    <!-- <script type="text/javascript">
+         function setImagePreview(avalue) {
+             var docObj = document.getElementById("file");
+             var imgObjPreview = document.getElementById("preview");
+             if (docObj.files && docObj.files[0]) {
+                 //火狐下，直接设img属性
+                 imgObjPreview.style.display = 'block';
+                 imgObjPreview.style.width = '100px';
+                 imgObjPreview.style.height = '100px';
+                 //imgObjPreview.src = docObj.files[0].getAsDataURL();
+                 //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                 imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+             }
+             else {
+                 //IE下，使用滤镜
+                 docObj.select();
+                 var imgSrc = document.selection.createRange().text;
+                 var localImagId = document.getElementById("localImag"); //必须设置初始大小
+                 localImagId.style.width = "100px";
+                 localImagId.style.height = "100px"; //图片异常的捕捉，防止用户修改后缀来伪造图片
+                 try {
+                     localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                     localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                 } catch (e) {
+                     alert("您上传的图片格式不正确，请重新选择!");
+                     return false;
+                 }
+                 imgObjPreview.style.display = 'none';
+                 document.selection.empty();
+             }
+             return true;
+         }
 
 
-    </script>
+     </script>-->
 
 
 </head>
-
-<!-- BODY options, add following classes to body to change options
-
-// Header options
-1. '.header-fixed'					- Fixed Header
-
-// Brand options
-1. '.brand-minimized'       - Minimized brand (Only symbol)
-
-// Sidebar options
-1. '.sidebar-fixed'					- Fixed Sidebar
-2. '.sidebar-hidden'				- Hidden Sidebar
-3. '.sidebar-off-canvas'		- Off Canvas Sidebar
-4. '.sidebar-minimized'			- Minimized Sidebar (Only icons)
-5. '.sidebar-compact'			  - Compact Sidebar
-
-// Aside options
-1. '.aside-menu-fixed'			- Fixed Aside Menu
-2. '.aside-menu-hidden'			- Hidden Aside Menu
-3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
-
-// Breadcrumb options
-1. '.breadcrumb-fixed'			- Fixed Breadcrumb
-
-// Footer options
-1. '.footer-fixed'					- Fixed footer
-
--->
-
 <body ng-app="myApp" ng-controller="customersCtrl"
       class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
 <header class="app-header navbar">
 
     <h4 style="margin: auto">教学管理后台系统</h4>
 
-    <!--<button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
-    <!--<a class="navbar-brand" href="#"></a>-->
-    <!--<button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
-
-    <!--<ul class="nav navbar-nav d-md-down-none">-->
-    <!--<li class="nav-item px-3">-->
-    <!--<a class="nav-link" href="#">Users</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item px-3">-->
-    <!--<a class="nav-link" href="#">Settings</a>-->
-    <!--</li>-->
-    <!--</ul>-->
     <ul class="nav navbar-nav ml-auto">
-        <!--<li class="nav-item d-md-down-none">-->
-        <!--<a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>-->
-        <!--</li>-->
-        <!--<li class="nav-item d-md-down-none">-->
-        <!--<a class="nav-link" href="#"><i class="icon-list"></i></a>-->
-        <!--</li>-->
-        <!--<li class="nav-item d-md-down-none">-->
-        <!--<a class="nav-link" href="#"><i class="icon-location-pin"></i></a>-->
-        <!--</li>-->
+
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                aria-expanded="false">
                 <img id="adminImage" src="img/avatars/6.jpg" class="img-avatar">
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <!--<div class="dropdown-header text-center">-->
-                <!--<strong>Account</strong>-->
-                <!--</div>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comments<span class="badge badge-warning">42</span></a>-->
-                <!--<div class="dropdown-header text-center">-->
-                <!--<strong>Settings</strong>-->
-                <!--</div>-->
                 <a class="dropdown-item" id="showAdminMessage" href="#" data-toggle="modal" data-target="#adminModal"
                    data-whatever="1"><i class="fa fa-user"></i>个人信息</a>
-
-
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateAdminPasswordModal"><i
                         class="fa fa-wrench"></i>修改密码</a>
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-secondary">42</span></a>-->
                 <a class="dropdown-item" href="#"><i class="fa fa-file"></i>退出</a>
-                <!--<div class="divider"></div>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>-->
-                <!--<a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>-->
             </div>
         </li>
     </ul>
-    <!--<button class="navbar-toggler aside-menu-toggler" type="button">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
-
 </header>
 
 <div class="app-body">
@@ -166,14 +93,14 @@
             <ul class="nav">
                 <li class="nav-title">
                     <!--<a class="nav-title" href="#"><i class="icon-speedometer"></i>教学系统功能界面</a>-->
-                    教学系统功能界面
+                    HSBC产品管理
                 </li>
 
                 <!--<li class="nav-title">-->
                 <!--Theme-->
                 <!--</li>-->
                 <li class="nav-item">
-                    <a href="/student/students" class="nav-link"><i class="fa fa-user-circle-o"></i> 学生信息管理</a>
+                    <a href="/student/students" class="nav-link"><i class="fa fa-user-circle-o"></i> 理财产品管理</a>
                 </li>
                 <li class="nav-item">
                     <a href="/teacher/teachers" class="nav-link"><i class="fa fa-gear"></i>教师信息管理</a>
@@ -187,9 +114,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/student/export">
                                 <i class="icon-puzzle"></i>学生批量导出
-                                <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#infoModal">
-
-                                 </button>-->
                             </a>
                         </li>
                         <li class="nav-item">
@@ -208,11 +132,8 @@
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
-
-
     <!-- Main content -->
     <main class="main">
-
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">>学生信息管理</li>
@@ -229,8 +150,6 @@
             <!--</div>-->
             <!--</li>-->
         </ol>
-
-
         <!--查询输入框-->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -245,8 +164,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -430,8 +347,8 @@
     <!-- /.modal-dialog -->
 </div>
 <!--学生信息批量导入模态框-->
-<!--
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+
+<!--<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-success" role="document">
         <div class="modal-content">
@@ -453,10 +370,11 @@
         &lt;!&ndash; /.modal-content &ndash;&gt;
     </div>
     &lt;!&ndash; /.modal-dialog &ndash;&gt;
-</div>
--->
+</div>-->
+
 
 <!--学生信息批量导出模态框-->
+
 <!--
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;"
      aria-hidden="true">
@@ -482,7 +400,9 @@
 </div>
 -->
 
+
 <!--修改管理员密码的模态框-->
+<!--
 <div class="modal fade" id="updateAdminPasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-primary" role="document">
@@ -535,10 +455,11 @@
                 <button id="updateAdminPassword" type="button" class="btn btn-primary">保存</button>
             </div>
         </div>
-        <!-- /.modal-content -->
+        &lt;!&ndash; /.modal-content &ndash;&gt;
     </div>
-    <!-- /.modal-dialog -->
+    &lt;!&ndash; /.modal-dialog &ndash;&gt;
 </div>
+-->
 
 <!--新增和编辑的模态框-->
 <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
@@ -552,7 +473,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-add" enctype="multipart/form-data">
+                <form id="form-add" enctype="multipart/form-data" name="editProductInfoForm" novalidate>
                     <div class="card-body">
                         <div class="form-group">
                             <input type="hidden" id="productId" name="productId" class="form-control">
@@ -566,10 +487,17 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">产品代码</span>
                                 </div>
-                                <input type="text" id="productCode" name="productCode" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                </div>
+                                <input type="hidden" id="originProductCode" name="originProductCode">
+                                <input type="text" id="productCode" name="productCode" ng-model="productCode"
+                                       class="form-control"
+                                       ng-minlength="6" ng-maxlength="6" ng-blur="checkProductCodeUnique()" required>
+                                <!--onblur="checkProductCodeUnique()-->
+                                <span style="color:red"
+                                      ng-show="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid">
+                                 <span ng-show="editProductInfoForm.productCode.$error.required">产品代码是必须的</span>
+                                    <span ng-show="editProductInfoForm.productCode.$invalid&&editProductInfoForm.productCode.$dirty">产品代码只能6个数字</span>
+                                </span>
+                                <span id="msg-productCode" style="color:red"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -578,9 +506,6 @@
                                     <span class="input-group-text">产品名</span>
                                 </div>
                                 <input type="text" id="name" name="name" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -588,10 +513,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">价格</span>
                                 </div>
-                                <input type="text" id="price" name="price" class="form-control">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                                </div>
+                                <input type="text" id="price" name="price" class="form-control" ng-blur="checkPrice()">
+                                <span id="msg-price" style="color: red"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -613,10 +536,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售起始日</span>
                             </div>
-                            <input type="text" id="sellData" name="sellData" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
+                            <input type="text" id="sellData" name="sellData" class="form-control"
+                                   ng-blur="checkDateOfSelldate_Deadline_Duedate('{{$index}}')">
                         </div>
 
                     </div>
@@ -626,9 +547,6 @@
                                 <span class="input-group-text">发售截止日</span>
                             </div>
                             <input type="text" id="deadline" name="deadline" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
                         </div>
 
                     </div>
@@ -638,9 +556,9 @@
                                 <span class="input-group-text">产品到期日</span>
                             </div>
                             <input type="text" id="dueDate" name="dueDate" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
+                            <!-- <div class="input-group-append">
+                                 <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                             </div>-->
                         </div>
                     </div>
                     <div class="form-group">
@@ -649,9 +567,9 @@
                                 <span class="input-group-text">产品描述</span>
                             </div>
                             <input type="text" id="description" name="description" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
+                            <!-- <div class="input-group-append">
+                                 <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
+                             </div>-->
                         </div>
                     </div>
                     <div>
@@ -666,7 +584,9 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary" id="save">保存</button>
+            <button type="button" class="btn btn-primary" id="save"
+                    ng-disabled="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid ">保存
+            </button>
         </div>
     </div>
     <!-- /.modal-content -->
@@ -772,7 +692,91 @@
         }).then(function (resp) {
             $scope.productsType = resp.data;
         })
+
+        //检查产品代码的唯一性
+        $scope.checkProductCodeUnique = function () {
+            var productCode = $("#productCode").val();
+            console.log(productCode.length);
+
+            // var reg =/^[0-9]*$/;
+            var reg = /^[0-9]+.?[0-9]*$/
+            document.getElementById("msg-productCode").innerHTML = "";
+            console.log(reg.test(productCode));
+            // var productCode = document.getElementById("productCode").value;
+            //如果产品代码为空，则是新增产品，否则是编辑产品信息
+            if (productCode != null) {
+                //如果是编辑产品，那么先获得该产品的原来产品代码，可以比较该产品代码是改变了还是没改变
+                // var originProductCode = document.getElementById("originProductCode").val;
+                var originProductCode = $("#originProductCode").val();
+                if (originProductCode != productCode) {
+                    if (productCode.length == 6 && reg.test(productCode)) {
+                        //如果改动了产品代码：改动后的产品代码必须保证唯一性
+                        for (var i = 0; i < product.length; i++) {
+                            if (product[i].productCode == productCode) {
+                                document.getElementById("msg-productCode").innerHTML = "产品代码已经存在";
+                                return false;
+                            }
+                        }
+                        return true;
+                    } else {
+                        document.getElementById("msg-productCode").innerHTML = "必须为6位数字";
+                        return false
+                    }
+                } else {
+                    //如果产品代码没有更改过，那么就不用再判断
+                    document.getElementById("msg-productCode").innerHTML = "";
+                    return true
+                }
+            }
+        }
+
+
+        //check the selldate deadline duedate 检查产品的产品起始销售日、产品的销售截止日、产品的到期日
+        /**
+         * selldate(产品起始销售日)  deadline(产品的销售截止日)  duedate(产品的到期日) 之间的关系
+         * 1：产品的销售截止日一定大于产品起始销售日
+         * 2：产品的到期日一定大于产品的销售截止日
+         * 3：默认情况，产品的起始销售日必须大于系统的当前时间
+         */
+        $scope.checkDateOfSelldate_Deadline_Duedate = function (x) {
+            var selldate = $("").val;
+            var deadline = $("").val;
+            var duedate = $("").val;
+            alert("下标" + x);
+        }
+        //检查产品价格的有效性:double（并且保留两位数或者一位数）、 int
+        $scope.checkPrice = function () {
+            var price = String($("#price").val());
+            var tt = /^(([0-9]+[\.]?[0-9]{1,2})|[1-9])$/
+            if (price > 0) {
+                if (tt.test(price)) {
+                    document.getElementById("msg-price").innerText = "";
+                    return true;
+                }
+            }
+            else {
+                // layer.tips('请输入数字', '#f_money1');
+                document.getElementById("msg-price").innerText = "输入正确的产品价格";
+                return false
+            }
+            document.getElementById("msg-price").innerText = "输入正确的产品价格";
+            return false
+            // var reg = /^[0-9,.]*$/ //^[-\+]?\d+(\.\d+)?$/;
+            // //alert(reg);
+            // $("#f_money1").blur(function() {
+            //     var a = $("#f_money1").val();
+            //     //alert(a);
+            //     if (!reg.test(a)) {
+            //         layer.tips('请输入数字', '#f_money1');
+            //         $("#f_money1").focus();
+            //     }
+            // })
+
+        }
+
     });
+
+
     /*//2.then回调嵌套
         $http({
             url: "data.json",
@@ -798,6 +802,7 @@
         if (recipient != null) {
             userIndex = recipient;
             modal.find('.modal-title').text('编辑用户')
+            modal.find('.modal-body input#originProductCode').val(product[recipient].productCode)
             modal.find('.modal-body input#productCode').val(product[recipient].productCode)
             modal.find('.modal-body input#name').val(product[recipient].name)
             modal.find('.modal-body input#price').val(product[recipient].price)
@@ -809,8 +814,6 @@
             // modal.find('.modal-body img#preview').attr("src",teachers[recipient].teacherImg);
             modal.find('.modal-body input#file').val("");
             // modal.find('.modal-body input#teacherOldName').val(teachers[recipient].teacherName);
-//
-
         } else {
             //清空模态框的数据
             modal.find('.modal-body input#teacherId').val(0);
@@ -829,6 +832,41 @@
         }
     });
 
+    //编辑产品：检查产品代码的唯一
+    function checkProductCodeUnique() {
+        var productCode = document.getElementById("productCode").val;
+        //如果产品代码为空，则是新增产品，否则是编辑产品信息
+        if (productCode != null) {
+            //如果是编辑产品，那么先获得该产品的原来产品代码，可以比较该产品代码是改变了还是没改变
+            var originProductCode = document.getElementById("originProductCode").val;
+            if (!originProductCode.equals(productCode)) {
+                //如果改动了产品代码：改动后的产品代码必须保证唯一性
+                for (var i = 0; i < product.length; i++) {
+                    if (product[i].productCode == productCode) {
+                        document.getElementById("msg-productCode").innerText = "产品代码已经存在";
+                    }
+                }
+            } else {
+
+            }
+        } else {
+            //必须保证是6为数字的产品代码：
+            var reg = new RegExp("^[0-9]*$");
+            if (productCode.length != 6 || !reg.test(productCode)) {
+                document.getElementById("msg-productCode").innerText = "请输入6位数字产品代码";
+                return false;
+            }
+            //做产品代码比较的放到最后，因为循环比较需要花时间，若前面的比较不通过，不需要执行该代码，提高效率
+            for (var i = 0; i < product.length; i++) {
+                if (product[i].productCode == productCode) {
+                    document.getElementById("msg-productCode").innerText = "产品代码已经存在";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
 </script>
 </body>
 
