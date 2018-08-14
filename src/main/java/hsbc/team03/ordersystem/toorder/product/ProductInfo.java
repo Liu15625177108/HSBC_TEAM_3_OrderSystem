@@ -22,13 +22,13 @@ import javax.persistence.Id;
  * @create 2018/8/7
  * @since 1.0.0
  */
-@Entity
+//@Entity
 @Data
 public class ProductInfo {
     /**
      * productId
      */
-    @Id
+//    @Id
     @JsonProperty(value = "productid")
     private String productId;
     /**

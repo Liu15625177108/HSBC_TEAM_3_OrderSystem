@@ -27,8 +27,11 @@ import java.util.Date;
 public class OrdersServiceImpl implements OrdersService {
 
     
-    @Autowired
-    private OrdersRepository ordersRepository;
+//    @Autowired
+//    private OrdersRepository ordersRepository;
+    
+//    @Autowired
+//    private UserRepository userRepository;
 
     /**
      * @Author Chen
@@ -39,7 +42,7 @@ public class OrdersServiceImpl implements OrdersService {
      **/
     @Override
 
-    public boolean toOrder(ProductInfo productInfo,UserInfo userInfo) {
+    public boolean insertOrder(ProductInfo productInfo,UserInfo userInfo) {
         return true;
 
     }
@@ -65,7 +68,7 @@ public class OrdersServiceImpl implements OrdersService {
      * @return boolean
      **/
     @Override
-    public boolean toCancelOrder(String orderId) {
+    public boolean determineTime(String orderId) {
         OrdersInfo orderInfo=getOrderInfoByOrderId(orderId);
         Date date=new Date();
         Date date1=new Date(date.getTime()- 7* 60 * 60 * 1000);
@@ -90,13 +93,14 @@ public class OrdersServiceImpl implements OrdersService {
 
     /**
      * @Author Chen
-     * @Description //TODO update OrderStatus to 2
+     * @Description //TODO update OrderStatus to 2 and rollback money when cancel order
      * @Date 11:39 2018/8/10
      * @Param [OrderId]
      * @return boolean
      **/
     @Override
     public boolean updateOrderStatus(String orderId) {
+        
         return false;
     }
 

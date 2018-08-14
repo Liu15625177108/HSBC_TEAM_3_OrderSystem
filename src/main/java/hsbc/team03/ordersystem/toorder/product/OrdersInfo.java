@@ -26,66 +26,70 @@ import java.util.Date;
  * @since 1.0.0
  */
 @Data
-@Entity
+//@Entity
 public class OrdersInfo implements Serializable {
     /**
      * orderid
      */
-    @Id
+//    @Id
     @JsonProperty(value = "orderid")
     private String orderId;
     /**
      * productname
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "productname")
     private String productName;
     /**
      * productnumber
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "productnumber")
     private int productNumber;
     /**
      * username
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "username")
     private String userName;
     /**
      * userphone
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "userphone")
     private String userPhone;
     /**
      * useraddress
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "useraddress")
     private String userAddress;
     /**
      * one product price
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "productprice")
     private double productPrice;
     /**
      * the status of order ，1 is open,2 is undetermined,0 is close
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "orderstatus")
     private int orderStatus;
     /**
      * the time of to order
      */
-    @Column(nullable = true)
+//    @Column(nullable = true)
     @JsonProperty(value = "starttime")
     private Date startTime;
+    
+//    @Column(nullable = true)
+    @JsonProperty(value = "totalmoney")
+    private double totalMoney;
 
     public OrdersInfo(String orderId, String productName, int productNumber, String userName,
                       String userPhone, String userAddress, double productPrice, int orderStatus,
-                      Date startTime) {
+                      Date startTime,double totalMoney) {
         this.orderId = orderId;
         this.productName = productName;
         this.productNumber = productNumber;
@@ -95,6 +99,7 @@ public class OrdersInfo implements Serializable {
         this.productPrice = productPrice;
         this.orderStatus = orderStatus;
         this.startTime = startTime;
+        this.totalMoney = totalMoney;
     }
 
 

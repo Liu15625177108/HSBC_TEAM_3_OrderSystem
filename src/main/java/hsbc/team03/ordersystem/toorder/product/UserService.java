@@ -20,7 +20,7 @@ package hsbc.team03.ordersystem.toorder.product;
  */
 public interface UserService {
     
-
+    boolean toValidateMoney(UserInfo userInfo,ProductInfo productInfo);
     /**
      * @Author Chen
      * @Description //TODO To validate pay password
@@ -47,5 +47,14 @@ public interface UserService {
      * @return
      **/
     void addTest(UserInfo userInfo);
+    
+    /**
+     * @Author Chen
+     * @Description //TODO rollbackMoney when cancel order
+     * @Date 9:08 2018/8/14
+     * @Param [orderId]
+     * @return boolean
+     **/
+//    boolean rollbackMoney(String orderId);
 }
  

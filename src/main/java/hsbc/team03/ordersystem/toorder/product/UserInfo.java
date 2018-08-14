@@ -25,13 +25,13 @@ import java.io.Serializable;
  * @create 2018/8/2
  * @since 1.0.0
  */
-@Entity
+//@Entity
 @Data
 public class UserInfo implements Serializable {
     /**
      * userid
      */
-    @Id
+//    @Id
     @JsonProperty(value="userid")
     private String userId;
     /**

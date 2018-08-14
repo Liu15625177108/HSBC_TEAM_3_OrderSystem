@@ -26,7 +26,7 @@ public interface OrdersService {
     * @Param [ProductInfo productInfo,UserInfo userInfo]
     * @return Object
     **/
-    boolean toOrder(ProductInfo productInfo,UserInfo userInfo);
+    boolean insertOrder(ProductInfo productInfo,UserInfo userInfo);
  
     /**
      * @Author Chen
@@ -44,7 +44,7 @@ public interface OrdersService {
      * @Param [orderId]
      * @return boolean
      **/
-    boolean toCancelOrder(String orderId);
+    boolean determineTime(String orderId);
     
     /**
      * @Author Chen

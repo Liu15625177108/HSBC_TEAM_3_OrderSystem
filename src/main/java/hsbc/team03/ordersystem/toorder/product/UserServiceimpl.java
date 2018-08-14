@@ -13,6 +13,8 @@ package hsbc.team03.ordersystem.toorder.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * @author Chen
  * @description〈the impl of userservice〉
@@ -22,8 +24,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceimpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
+//    
+//    @Autowired
+//    private OrdersRepository ordersRepository;
+
+    @Override
+    public boolean toValidateMoney(UserInfo userInfo, ProductInfo productInfo) {
+        if(userInfo.getUserMoney() >productInfo.getProductNumber()*productInfo.getProductPrice()){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @return boolean
      * @Author Chen
@@ -67,7 +81,15 @@ public class UserServiceimpl implements UserService {
      **/
     @Override
     public void addTest(UserInfo userInfo) {
-        userRepository.save(userInfo);
+//        userRepository.save(userInfo);
     }
+
+/*    @Override
+    public boolean rollbackMoney(String orderId) {
+        Optional<OrdersInfo> ordersInfo=ordersRepository.findById(orderId);
+        userRepository.
+        return false;
+    }*/
+
 
 }
