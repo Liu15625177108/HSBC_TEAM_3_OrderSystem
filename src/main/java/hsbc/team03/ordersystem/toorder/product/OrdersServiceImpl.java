@@ -12,6 +12,7 @@ package hsbc.team03.ordersystem.toorder.product;
 
 import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
 import hsbc.team03.ordersystem.toorder.result.ResultView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -24,6 +25,14 @@ import java.util.Date;
  */
 @Service
 public class OrdersServiceImpl implements OrdersService {
+
+    
+//    @Autowired
+//    private OrdersRepository ordersRepository;
+    
+//    @Autowired
+//    private UserRepository userRepository;
+
     /**
      * @Author Chen
      * @Description //TODO TO place the order
@@ -32,12 +41,10 @@ public class OrdersServiceImpl implements OrdersService {
      * @return java.lang.Object
      **/
     @Override
-    public Object toOrder(ProductInfo productInfo,UserInfo userInfo) {
-        OrdersInfo orderInfo=new OrdersInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
-                productInfo.getProductNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProductPrice(),1,new Date());
-        ResultView resultView=new ResultView<OrdersInfo>(200,"成功",orderInfo);
-        return resultView;
+
+    public boolean insertOrder(ProductInfo productInfo,UserInfo userInfo) {
+        return true;
+
     }
     /**
      * @Author Chen
@@ -61,7 +68,7 @@ public class OrdersServiceImpl implements OrdersService {
      * @return boolean
      **/
     @Override
-    public boolean toCancelOrder(String orderId) {
+    public boolean determineTime(String orderId) {
         OrdersInfo orderInfo=getOrderInfoByOrderId(orderId);
         Date date=new Date();
         Date date1=new Date(date.getTime()- 7* 60 * 60 * 1000);
@@ -77,7 +84,7 @@ public class OrdersServiceImpl implements OrdersService {
      * @Description //TODO get orderInfo by orderid
      * @Date 11:38 2018/8/10
      * @Param [orderId]
-     * @return hsbc.team03.ordersystem.toorder.product.OrdersInfo
+     * @return hsbc.team03.ordersystem.toorder.product.OrderInfo
      **/
     @Override
     public OrdersInfo getOrderInfoByOrderId(String orderId) {

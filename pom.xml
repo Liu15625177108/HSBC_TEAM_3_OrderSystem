@@ -28,11 +28,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <!--<dependency>
+        <!--Spring Data-->
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>-->
+
+        </dependency>
+        <!--json-->
+        <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.12</version>
+        </dependency>
+
         <!--test class to ues mockmvc-->
         <dependency>
             <groupId>org.springframework.restdocs</groupId>
@@ -118,6 +126,31 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
+
+        <!--data jap-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--</dependency>-->
+        <!--mysql connection-->
+        <!--<dependency>-->
+        <!--<groupId>mysql</groupId>-->
+        <!--<artifactId>mysql-connector-java</artifactId>-->
+        <!--<version>5.1.24</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash;data jap&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;mysql connection&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.24</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 
@@ -132,7 +165,7 @@
         <plugins>
 
             <plugin>
-                <groupId>org.springframework.boot</groupId>
+                    <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
