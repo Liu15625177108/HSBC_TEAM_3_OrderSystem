@@ -1,4 +1,4 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
 

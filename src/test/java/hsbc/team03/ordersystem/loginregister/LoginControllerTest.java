@@ -1,5 +1,8 @@
 package hsbc.team03.ordersystem.loginregister;
 
+import hsbc.team03.ordersystem.loginregister.controller.LoginController;
+import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
+import hsbc.team03.ordersystem.loginregister.services.LoginServicesImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

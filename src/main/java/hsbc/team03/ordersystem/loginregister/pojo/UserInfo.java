@@ -1,5 +1,9 @@
-package hsbc.team03.ordersystem.loginregister;
+package hsbc.team03.ordersystem.loginregister.pojo;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Map;
 
@@ -11,14 +15,31 @@ import java.util.Map;
  * @Created: 2018年08月03日 10:23:24
  **/
 public class UserInfo implements Serializable {
+
+    @Null
     private String userId;
+
+    @NotNull
+    @Size(min = 6, max = 20)
     private String username;
+
+    @NotNull
+    @Size(min = 6, max = 20)
     private String password;
+
+    @NotNull
     private String realName;
+
     private int gender;
+
+    @DecimalMax("99")
     private int age;
+
     private String position;
+
     private String income;
+
+    @NotNull
     private Map<String, String> securityQuestions;
 
     public UserInfo() {

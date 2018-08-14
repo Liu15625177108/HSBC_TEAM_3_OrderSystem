@@ -19,6 +19,8 @@ public class BankManageController {
     @Autowired
     private  BankManagerService bankManagerService;
 
+    @Autowired
+    private JwtTool jwtTool;
 
     @RequestMapping(path ="/manager/login",method = RequestMethod.GET)
     /**
@@ -29,12 +31,15 @@ public class BankManageController {
     *@Package: hsbc_team_3.ordersystem.bankmanager
     */
     public  ReturnValue managerLogin(@RequestParam(value = "workernumber",required = true) String workerNumber,
-                                     @RequestParam(value = "password",required = true)String workerPassword) {
+                                     @RequestParam(value = "password", required = true) String workerPassword,
+                                     HttpServletResponse response) {
         if (bankManagerService.login(workerNumber, workerPassword) == true) {
             ReturnValue<BankManager> returnValue = new ReturnValue<BankManager>();
             BankManager bankManager = (BankManager) bankManagerService.findByWorkernum(workerNumber);
             returnValue.setCode("200");
             returnValue.setMsg("success");
+            response.setHeader("Authorization", "Bearer " +
+                    jwtTool.generateToken(bankManager.getWorkerNum(), bankManager.getWorkerName()));
             returnValue.setBankManager(bankManager);
             return returnValue;
         } else {

@@ -1,22 +1,18 @@
 package hsbc.team03.ordersystem;
 
+//import hsbc.team03.ordersystem.loginregister.security.WebSecurityConfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
-
-@SpringBootApplication()
-//        scanBasePackages = {
-//                "hsbc.team03.ordersystem.toorder",
-//                "hsbc.team03.ordersystem.bankmanager",
-//                "hsbc.team03.ordersystem.productsshow",
-//                "hsbc.team03.ordersystem.displayproduct",
-//                /*"hsbc.team03.ordersystem.orderlistshow",*/
-//        })
-public class OrdersystemApplication {
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@ServletComponentScan
+public class OrdersystemApplication /*extends AbstractAnnotationConfigDispatcherServletInitializer*/ {
 
     public static void main(String[] args) {
         SpringApplication.run(OrdersystemApplication.class, args);
