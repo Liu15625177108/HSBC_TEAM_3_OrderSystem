@@ -1,17 +1,11 @@
 package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.Product;
-//import hsbc.team03.ordersystem.displayproduct.ProductRepository;
-import hsbc.team03.ordersystem.displayproduct.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import hsbc.team03.ordersystem.displayproduct.ProductRepository;
 
 /**
  * @Author:Evan
@@ -22,7 +16,7 @@ import java.util.List;
  */
 @Service
 public class ProductServiceImpl implements ProductService {
-//    private ProductRepository productRepository;
+    //    private ProductRepository productRepository;
 //    @Autowired
 //    public ProductServiceImpl(ProductRepository productRepository) {
 //        this.productRepository = productRepository;

@@ -14,8 +14,8 @@ import hsbc.team03.ordersystem.toorder.enums.ResultEnum;
 import org.springframework.stereotype.Service;
 
 /**
- * @description〈to impl resultview〉
  * @author Chen
+ * @description〈to impl resultview〉
  * @create 2018/8/13
  * @since 1.0.0
  */
@@ -30,19 +30,19 @@ public class ResultViewServiceImpl implements ResultViewService {
 //        resultView.setData(ResultEnum.PARAM_ERROR.getMessage());
 //
 //        return resultView;
-        if(i==27){
-            ResultView resultView=new ResultView<String>(401,"error",ResultEnum.MONEY_NOT_ENOUGH.getMessage());
+        if (i == 27) {
+            ResultView resultView = new ResultView<String>(401, "error", ResultEnum.MONEY_NOT_ENOUGH.getMessage());
             return resultView;
-        }else if(i==26){
-            ResultView resultView=new ResultView<String>(401,"error",ResultEnum.PAY_PASSWORD_FAIL.getMessage());
+        } else if (i == 26) {
+            ResultView resultView = new ResultView<String>(401, "error", ResultEnum.PAY_PASSWORD_FAIL.getMessage());
             return resultView;
-        }else if(i==28){
-            ResultView resultView=new ResultView<String>(401,"error",ResultEnum.ORDER_CANCEL_FAIL.getMessage());
+        } else if (i == 28) {
+            ResultView resultView = new ResultView<String>(401, "error", ResultEnum.ORDER_CANCEL_FAIL.getMessage());
             return resultView;
-        }else if(i==29){
-            ResultView resultView=new ResultView<String>(401,"error",ResultEnum.SELECT_NOT_ENOUGH.getMessage());
+        } else if (i == 29) {
+            ResultView resultView = new ResultView<String>(401, "error", ResultEnum.SELECT_NOT_ENOUGH.getMessage());
             return resultView;
-            
+
         }
 
 
@@ -51,11 +51,11 @@ public class ResultViewServiceImpl implements ResultViewService {
 
     @Override
     public ResultView ResultSuccess(int i) {
-        if(i==22){
-            ResultView resultView=new ResultView<String>(200,"success",ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
+        if (i == 22) {
+            ResultView resultView = new ResultView<String>(200, "success", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
             return resultView;
-        }else if(i==23){
-            ResultView resultView=new ResultView<String>(200,"success",ResultEnum.ORDER_FINISH_SUCCESS.getMessage());
+        } else if (i == 23) {
+            ResultView resultView = new ResultView<String>(200, "success", ResultEnum.ORDER_FINISH_SUCCESS.getMessage());
             return resultView;
         }
         return null;

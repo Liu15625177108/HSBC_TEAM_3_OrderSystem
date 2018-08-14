@@ -51,7 +51,7 @@ public class OrdersController {
         String userId = (String) request.getSession().getAttribute("userId");
         UserInfo userInfo = userService.getUserInfoByUserId(userId);
         //To compare userMoney and orderPrice
-        if (userService.toValidateMoney(userInfo,productInfo)) {
+        if (userService.toValidateMoney(userInfo, productInfo)) {
             //to check userPayPassword
             if (userService.toValidatePayPassword(userInfo, payPassword)) {
                 if (orderService.insertOrder(productInfo, userInfo)) {
@@ -88,7 +88,8 @@ public class OrdersController {
             if (orderService.determineTime(orderId)) {
                 orderService.updateOrderStatus(orderId);
                 return resultViewService.ResultSuccess(22);
-            };
+            }
+            ;
             return resultViewService.ResultSuccess(28);
         }
         return resultViewService.ResultSuccess(29);

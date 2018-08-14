@@ -13,9 +13,6 @@ package hsbc.team03.ordersystem.toorder.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -82,14 +79,14 @@ public class OrdersInfo implements Serializable {
 //    @Column(nullable = true)
     @JsonProperty(value = "starttime")
     private Date startTime;
-    
-//    @Column(nullable = true)
+
+    //    @Column(nullable = true)
     @JsonProperty(value = "totalmoney")
     private double totalMoney;
 
     public OrdersInfo(String orderId, String productName, int productNumber, String userName,
                       String userPhone, String userAddress, double productPrice, int orderStatus,
-                      Date startTime,double totalMoney) {
+                      Date startTime, double totalMoney) {
         this.orderId = orderId;
         this.productName = productName;
         this.productNumber = productNumber;

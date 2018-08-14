@@ -19,15 +19,15 @@ package hsbc.team03.ordersystem.toorder.product;
  * @since 1.0.0
  */
 public interface UserService {
-    
+
     /**
+     * @return boolean
      * @Author Chen
      * @Description //TODO to validateMoney
      * @Date 13:56 2018/8/14
      * @Param [userInfo, productInfo]
-     * @return boolean
      **/
-    boolean toValidateMoney(UserInfo userInfo,ProductInfo productInfo);
+    boolean toValidateMoney(UserInfo userInfo, ProductInfo productInfo);
     
     /**
      * @Author Chen
@@ -36,14 +36,14 @@ public interface UserService {
      * @Param [UserInfo userInfo,String payPassword]
      * @return boolean
      **/
-    boolean toValidatePayPassword(UserInfo userInfo,String payPassword);
-    
+    boolean toValidatePayPassword(UserInfo userInfo, String payPassword);
+
     /**
+     * @return UserInfo
      * @Author Chen
      * @Description //TODO to get userinfo by userid
      * @Date 12:36 2018/8/9
      * @Param [userId]
-     * @return UserInfo
      **/
     UserInfo getUserInfoByUserId(String userId);
 
@@ -55,7 +55,7 @@ public interface UserService {
      * @return
      **/
 //    void addTest(UserInfo userInfo);
-    
+
     /**
      * @Author Chen
      * @Description //TODO rollbackMoney when cancel order

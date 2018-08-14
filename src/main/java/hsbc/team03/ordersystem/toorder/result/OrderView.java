@@ -19,18 +19,18 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * @description〈the view〉
  * @author Chen
+ * @description〈the view〉
  * @create 2018/8/13
  * @since 1.0.0
  */
 @Component
 public class OrderView {
-    public OrdersInfo getOrderInfo(ProductInfo productInfo, UserInfo userInfo){
-        OrdersInfo orderInfo=new OrdersInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
-                productInfo.getProductNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProductPrice(),1,new Date(),
-                productInfo.getProductNumber()*productInfo.getProductPrice());
-        return  orderInfo;
+    public OrdersInfo getOrderInfo(ProductInfo productInfo, UserInfo userInfo) {
+        OrdersInfo orderInfo = new OrdersInfo(CommonsUtils.getUUID(), productInfo.getProductName(),
+                productInfo.getProductNumber(), userInfo.getUserName(), userInfo.getUserPhone(),
+                userInfo.getUserAddress(), productInfo.getProductPrice(), 1, new Date(),
+                productInfo.getProductNumber() * productInfo.getProductPrice());
+        return orderInfo;
     }
 }

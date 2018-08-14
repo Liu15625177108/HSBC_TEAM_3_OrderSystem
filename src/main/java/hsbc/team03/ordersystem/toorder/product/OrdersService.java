@@ -26,7 +26,7 @@ public interface OrdersService {
     * @Param [ProductInfo productInfo,UserInfo userInfo]
     * @return Object
     **/
-    boolean insertOrder(ProductInfo productInfo,UserInfo userInfo);
+   boolean insertOrder(ProductInfo productInfo, UserInfo userInfo);
  
     /**
      * @Author Chen
@@ -35,32 +35,32 @@ public interface OrdersService {
      * @Param [int productNumber,double productPrice]
      * @return double
      **/
-    double getOrderPrice(int productNumber,double productPrice );
-    
+    double getOrderPrice(int productNumber, double productPrice);
+
     /**
+     * @return boolean
      * @Author Chen
      * @Description //TODO cancelorder verify time
      * @Date 10:20 2018/8/10
      * @Param [orderId]
-     * @return boolean
      **/
     boolean determineTime(String orderId);
-    
+
     /**
+     * @return OrdersInfo
      * @Author Chen
      * @Description //TODO  get orderinfo by orderid
      * @Date 10:24 2018/8/10
      * @Param [orderId]
-     * @return OrdersInfo
      **/
     OrdersInfo getOrderInfoByOrderId(String orderId);
-    
+
     /**
+     * @return boolean
      * @Author Chen
-     * @Description //TODO 
+     * @Description //TODO
      * @Date 11:36 2018/8/10
      * @Param [orderId]
-     * @return boolean
      **/
     boolean updateOrderStatus(String orderId);
     

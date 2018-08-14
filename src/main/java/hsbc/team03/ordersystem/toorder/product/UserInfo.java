@@ -13,10 +13,6 @@ package hsbc.team03.ordersystem.toorder.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -73,5 +69,5 @@ public class UserInfo implements Serializable {
         this.userPhone = userPhone;
         this.userAddress = userAddress;
     }
-    
+
 }

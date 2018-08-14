@@ -13,9 +13,6 @@ package hsbc.team03.ordersystem.toorder.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * @description〈the pojo of Product〉
  * @author Chen

@@ -29,7 +29,7 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public boolean toValidateMoney(UserInfo userInfo, ProductInfo productInfo) {
-        if(userInfo.getUserMoney() >productInfo.getProductNumber()*productInfo.getProductPrice()){
+        if (userInfo.getUserMoney() > productInfo.getProductNumber() * productInfo.getProductPrice()) {
             return true;
         }
         return false;
@@ -55,16 +55,16 @@ public class UserServiceimpl implements UserService {
     }
 
     /**
+     * @return UserInfo
      * @Author Chen
      * @Description //TODO to get userinfo by userid
      * @Date 12:38 2018/8/9
      * @Param [userId]
-     * @return UserInfo
      **/
     @Override
     public UserInfo getUserInfoByUserId(String userId) {
-            UserInfo userInfo =new UserInfo(userId,"Chen",10000000.0,"123","13244444444","岗顶");
-            return userInfo;
+        UserInfo userInfo = new UserInfo(userId, "Chen", 10000000.0, "123", "13244444444", "岗顶");
+        return userInfo;
 
     }
 }

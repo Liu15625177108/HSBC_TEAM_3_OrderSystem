@@ -10,9 +10,6 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
-import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
-import hsbc.team03.ordersystem.toorder.result.ResultView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -26,10 +23,10 @@ import java.util.Date;
 @Service
 public class OrdersServiceImpl implements OrdersService {
 
-    
+
 //    @Autowired
 //    private OrdersRepository ordersRepository;
-    
+
 //    @Autowired
 //    private UserRepository userRepository;
 
@@ -42,7 +39,7 @@ public class OrdersServiceImpl implements OrdersService {
      **/
     @Override
 
-    public boolean insertOrder(ProductInfo productInfo,UserInfo userInfo) {
+    public boolean insertOrder(ProductInfo productInfo, UserInfo userInfo) {
         return true;
 
     }
@@ -59,32 +56,32 @@ public class OrdersServiceImpl implements OrdersService {
         double orderPice=productNumber*productPrice;
         return orderPice;
     }
-    
+
     /**
+     * @return boolean
      * @Author Chen
-     * @Description //TODO 
+     * @Description //TODO
      * @Date 10:21 2018/8/10
      * @Param [orderId]
-     * @return boolean
      **/
     @Override
     public boolean determineTime(String orderId) {
-        OrdersInfo orderInfo=getOrderInfoByOrderId(orderId);
-        Date date=new Date();
-        Date date1=new Date(date.getTime()- 7* 60 * 60 * 1000);
-        System.out.println(date1+"@111111");
-        if(date1.before(orderInfo.getStartTime())){
+        OrdersInfo orderInfo = getOrderInfoByOrderId(orderId);
+        Date date = new Date();
+        Date date1 = new Date(date.getTime() - 7 * 60 * 60 * 1000);
+        System.out.println(date1 + "@111111");
+        if (date1.before(orderInfo.getStartTime())) {
             return true;
         }
         return false;
     }
 
     /**
+     * @return hsbc.team03.ordersystem.toorder.product.OrderInfo
      * @Author Chen
      * @Description //TODO get orderInfo by orderid
      * @Date 11:38 2018/8/10
      * @Param [orderId]
-     * @return hsbc.team03.ordersystem.toorder.product.OrderInfo
      **/
     @Override
     public OrdersInfo getOrderInfoByOrderId(String orderId) {
@@ -92,11 +89,11 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     /**
+     * @return boolean
      * @Author Chen
      * @Description //TODO update OrderStatus to 2
      * @Date 11:39 2018/8/10
      * @Param [OrderId]
-     * @return boolean
      **/
     @Override
     public boolean updateOrderStatus(String orderId) {

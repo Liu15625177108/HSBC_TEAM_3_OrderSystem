@@ -1,8 +1,8 @@
 package hsbc.team03.ordersystem.toorder.product;
 
 
-import hsbc.team03.ordersystem.toorder.result.ResultView;
 import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
+import hsbc.team03.ordersystem.toorder.result.ResultView;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +55,7 @@ public class OrdersControllerTest {
 
         given(this.userService.toValidatePayPassword(Mockito.any(UserInfo.class), eq("123"))).willReturn(true);
         given(this.orderService.insertOrder(Mockito.any(ProductInfo.class), Mockito.any(UserInfo.class))).willReturn(true);
-        given(this.userService.toValidateMoney(Mockito.any(UserInfo.class),Mockito.any(ProductInfo.class))).willReturn(true);
+        given(this.userService.toValidateMoney(Mockito.any(UserInfo.class), Mockito.any(ProductInfo.class))).willReturn(true);
         given(this.orderService.getOrderPrice(eq(3), eq(100.0))).willReturn(300.0);
         given(this.userService.getUserInfoByUserId(eq("111"))).willReturn(userInfo);
 

@@ -11,15 +11,14 @@
 package hsbc.team03.ordersystem.toorder.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * @description〈test pojo〉
  * @author Chen
+ * @description〈test pojo〉
  * @create 2018/8/13
  * @since 1.0.0
  */
