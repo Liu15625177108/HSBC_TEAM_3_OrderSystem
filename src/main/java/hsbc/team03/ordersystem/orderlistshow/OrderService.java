@@ -17,7 +17,7 @@ public interface OrderService {
      * @Author Alan Ruan
      * @Date 2018/08/07 09:34:43
      * @Param []
-     * @Return java.util.List<OrderInfo>
+     * @Return java.util.List<OrdersInfo>
      */
 
     List<OrderInfo> findAllOrder();

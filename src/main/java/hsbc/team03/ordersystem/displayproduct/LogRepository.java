@@ -1,4 +1,6 @@
+
 /*
+>>>>>>> 0565a83164174a1aeb20e590e1facb0c30a1c1ca:src/main/java/hsbc/team03/ordersystem/displayproduct/LogRepository.java
 package hsbc.team03.ordersystem.displayproduct;
 import hsbc.team03.ordersystem.displayproduct.Log;
 import org.springframework.data.jpa.repository.JpaRepository;

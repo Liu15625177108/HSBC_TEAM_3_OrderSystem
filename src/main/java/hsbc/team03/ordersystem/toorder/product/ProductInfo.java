@@ -13,39 +13,44 @@ package hsbc.team03.ordersystem.toorder.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @description〈the pojo of Product〉
  * @author Chen
  * @create 2018/8/7
  * @since 1.0.0
  */
+//@Entity
 @Data
 public class ProductInfo {
     /**
      * productId
      */
+//    @Id
     @JsonProperty(value = "productid")
     private String productId;
     /**
      * productNumber
      */
-    @JsonProperty(value = "prodcutnumber")
-    private int prodcutNumber;
+    @JsonProperty(value = "productnumber")
+    private int productNumber;
     /**
      * productPrice
      */
-    @JsonProperty(value = "prodcutprice")
-    private double prodcutPrice;
+    @JsonProperty(value = "productprice")
+    private double productPrice;
     /**
      * productName
      */
     @JsonProperty(value = "productname")
     private String productName;
 
-    public ProductInfo(String productId, int prodcutNumber, double prodcutPrice, String productName) {
+    public ProductInfo(String productId, int productNumber, double productPrice, String productName) {
         this.productId = productId;
-        this.prodcutNumber = prodcutNumber;
-        this.prodcutPrice = prodcutPrice;
+        this.productNumber = productNumber;
+        this.productPrice = productPrice;
         this.productName = productName;
     }
 }

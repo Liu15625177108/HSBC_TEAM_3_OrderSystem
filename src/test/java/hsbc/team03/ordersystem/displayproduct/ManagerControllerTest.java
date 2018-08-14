@@ -2,15 +2,25 @@ package hsbc.team03.ordersystem.displayproduct;
 
 import com.alibaba.fastjson.JSONObject;
 import hsbc.team03.ordersystem.displayproduct.common.UUIDUtils;
+
+import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
@@ -51,12 +61,14 @@ public class ManagerControllerTest {
         this.mvc.perform(get("/manager/productlist")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
+
                 .andExpect(status().isOk())
                 .andDo(print());
     }
 
     @Test
     public void managerAddProduct() throws Exception {
+
         Mockito.when(managerService.addProduct(Mockito.any(Product.class))).thenReturn(true);
 
         Product product = new Product();
@@ -83,6 +95,7 @@ public class ManagerControllerTest {
 
     @Test
     public void managerDeleteProduct() throws Exception {
+
         Mockito.when(managerService.deleteProductByProductCode(Mockito.any(Product.class))).thenReturn(1);
         Product product = new Product("xdghhmbhnllllgcgxdf", "200871", "中海基金", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         String jsondata = JSONObject.toJSONString(product);
@@ -96,6 +109,7 @@ public class ManagerControllerTest {
 
     @Test
     public void managerModifyProduct() throws Exception {
+
         Mockito.when(managerService.modifyProduct(Mockito.any(Product.class))).thenReturn(true);
         Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "010101", "gaile", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         String jsondata = JSONObject.toJSONString(product);
