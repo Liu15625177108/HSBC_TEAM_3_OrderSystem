@@ -34,20 +34,28 @@ public class JwtAthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+        /** to get the token*/
         final String bearer = "Bearer ";
         String authheader = httpServletRequest.getHeader("Authorization");
         if (authheader != null && authheader.startsWith(bearer)) {
+
+            /** to get the username in the body of token*/
             final String authToken = authheader.replace("Bearer ", "");
-            String userId = jwtTool.getUserIdFromToken(authToken);
-            if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = jwtUserInfoDetailServices.loadUserByUsername(userId);
+            String username = jwtTool.getUsernameFromToken(authToken);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+                /** to get the detail of the user and validate*/
+                UserDetails userDetails = jwtUserInfoDetailServices.loadUserByUsername(username);
                 if (jwtTool.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken =
                             new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+                    /** to set the spring-security authentication to user*/
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
-                    httpServletRequest.setAttribute("userId", userId);
+                    /** to set userId in request, which will be used in controller*/
+                    httpServletRequest.setAttribute("userId", jwtTool.getUserIdFromToken(authToken));
                 }
             }
         }

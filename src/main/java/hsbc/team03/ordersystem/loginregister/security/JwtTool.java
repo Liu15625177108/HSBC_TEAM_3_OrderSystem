@@ -21,12 +21,23 @@ import java.util.Map;
  **/
 @Component
 public class JwtTool {
-    private static final String CLAIM_KEY_USERNAME = "sub";
+    private static final String CLAIM_KEY_USERNAME = "aud";
+    private static final String CLAIM_KEY_USERID = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
 
     private final String secret = "mySecret";
-
     private final Long expiration = 604800L;
+
+    public String getUsernameFromToken(String token) {
+        String username;
+        try {
+            final Claims claims = getClaimsFromToken(token);
+            username = claims.getAudience();
+        } catch (Exception e) {
+            username = null;
+        }
+        return username;
+    }
 
     public String getUserIdFromToken(String token) {
         String userId;
@@ -34,7 +45,6 @@ public class JwtTool {
             final Claims claims = getClaimsFromToken(token);
             userId = claims.getSubject();
         } catch (Exception e) {
-            e.printStackTrace();
             userId = null;
         }
         return userId;
@@ -88,9 +98,10 @@ public class JwtTool {
         return (lastPasswordReset != null && created.before(lastPasswordReset));
     }
 
-    public String generateToken(String userId) {
+    public String generateToken(String userId, String username) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_USERNAME, userId);
+        claims.put(CLAIM_KEY_USERID, userId);
+        claims.put(CLAIM_KEY_USERNAME, username);
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
@@ -123,12 +134,11 @@ public class JwtTool {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         JwtUserInfo user = (JwtUserInfo) userDetails;
-        final String username = getUserIdFromToken(token);
+        final String username = getUsernameFromToken(token);
         final Date created = getCreatedDateFromToken(token);
         //final Date expiration = getExpirationDateFromToken(token);
         return (
-                username.equals(
-                        user.getUsername())
+                username.equals(user.getUsername())
                         && !isTokenExpired(token)
                         && !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate()));
     }

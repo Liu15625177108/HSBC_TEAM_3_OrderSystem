@@ -48,7 +48,8 @@ public class LoginController {
         } else if (userInfo.getPassword().equals(password)) {
             resultView.setCode(200);
             resultView.setMsg("OK");
-            response.setHeader("Authorization", "Bearer " + jwtTool.generateToken(userInfo.getUserId()));
+            response.setHeader("Authorization", "Bearer " +
+                    jwtTool.generateToken(userInfo.getUserId(), userInfo.getUsername()));
 
         } else {
             resultView.setCode(500);

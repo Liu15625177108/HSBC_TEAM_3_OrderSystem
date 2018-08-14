@@ -45,6 +45,9 @@ public class RegisterController {
         ResultView resultView = new ResultView();
         resultView.setCode(200);
         resultView.setMsg("message sent");
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+
         return resultView;
     }
 
