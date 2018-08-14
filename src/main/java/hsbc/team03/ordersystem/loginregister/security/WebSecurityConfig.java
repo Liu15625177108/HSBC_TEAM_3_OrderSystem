@@ -25,14 +25,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-//        auth.inMemoryAuthentication()
-//                .passwordEncoder(new BCryptPasswordEncoder()).withUser("ljf")
-//                .password(new BCryptPasswordEncoder().encode("123456"))
-//        .roles("USER");
-//    }
-
     @Autowired
     private JwtUserInfoDetailServicesImpl jwtUserInfoDetailsService;
 
@@ -42,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public JwtAthenticationFilter athenticationFilter() throws Exception {
+    public JwtAthenticationFilter authenticationFilter() throws Exception {
         return new JwtAthenticationFilter();
     }
 
@@ -55,6 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/register/**").permitAll()
                 .antMatchers("/user/login/**").permitAll()
                 .anyRequest().authenticated();
-        http.addFilterBefore(athenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(authenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

@@ -28,15 +28,16 @@ public class JwtTool {
 
     private final Long expiration = 604800L;
 
-    public String getUsernameFromToken(String token) {
-        String username;
+    public String getUserIdFromToken(String token) {
+        String userId;
         try {
             final Claims claims = getClaimsFromToken(token);
-            username = claims.getSubject();
+            userId = claims.getSubject();
         } catch (Exception e) {
-            username = null;
+            e.printStackTrace();
+            userId = null;
         }
-        return username;
+        return userId;
     }
 
     public Date getCreatedDateFromToken(String token) {
@@ -87,9 +88,9 @@ public class JwtTool {
         return (lastPasswordReset != null && created.before(lastPasswordReset));
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(String userId) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
+        claims.put(CLAIM_KEY_USERNAME, userId);
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
@@ -98,7 +99,7 @@ public class JwtTool {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
@@ -122,7 +123,7 @@ public class JwtTool {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         JwtUserInfo user = (JwtUserInfo) userDetails;
-        final String username = getUsernameFromToken(token);
+        final String username = getUserIdFromToken(token);
         final Date created = getCreatedDateFromToken(token);
         //final Date expiration = getExpirationDateFromToken(token);
         return (

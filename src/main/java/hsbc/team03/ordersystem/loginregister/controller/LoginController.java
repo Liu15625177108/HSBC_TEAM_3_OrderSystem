@@ -3,7 +3,6 @@ package hsbc.team03.ordersystem.loginregister.controller;
 import hsbc.team03.ordersystem.loginregister.pojo.UserInfo;
 import hsbc.team03.ordersystem.loginregister.resultview.ResultView;
 import hsbc.team03.ordersystem.loginregister.security.JwtTool;
-import hsbc.team03.ordersystem.loginregister.security.JwtUserInfo;
 import hsbc.team03.ordersystem.loginregister.services.LoginServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,9 +48,8 @@ public class LoginController {
         } else if (userInfo.getPassword().equals(password)) {
             resultView.setCode(200);
             resultView.setMsg("OK");
-            JwtUserInfo jwtUserInfo = new JwtUserInfo(userInfo.getUserId(), userInfo.getUsername(), userInfo.getPassword());
-            response.setHeader("Authorization", "Bearer " + jwtTool.generateToken(jwtUserInfo));
-//            request.getSession().setAttribute("userId", userInfo.getUserId());
+            response.setHeader("Authorization", "Bearer " + jwtTool.generateToken(userInfo.getUserId()));
+
         } else {
             resultView.setCode(500);
             resultView.setMsg("wrong password");

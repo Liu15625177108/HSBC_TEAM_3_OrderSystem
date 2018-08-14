@@ -34,19 +34,20 @@ public class JwtAthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+        final String bearer = "Bearer ";
         String authheader = httpServletRequest.getHeader("Authorization");
-        if (authheader != null && authheader.startsWith("Bearer ")) {
-            final String authToken = authheader.substring(7);
-            String username = jwtTool.getUsernameFromToken(authToken);
-            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                System.out.println("开始验证");
-                UserDetails userDetails = jwtUserInfoDetailServices.loadUserByUsername(username);
-                if (jwtTool.validateToken(username, userDetails)) {
-                    System.err.println("开始授权");
+        if (authheader != null && authheader.startsWith(bearer)) {
+            final String authToken = authheader.replace("Bearer ", "");
+            String userId = jwtTool.getUserIdFromToken(authToken);
+            if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = jwtUserInfoDetailServices.loadUserByUsername(userId);
+                if (jwtTool.validateToken(authToken, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken =
                             new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+
+                    httpServletRequest.setAttribute("userId", userId);
                 }
             }
         }

@@ -24,9 +24,7 @@ public class JwtUserInfoDetailServicesImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-//        User user = new User(s,"123456",
-//                AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
-//        return user;
+
         JwtUserInfo jwtUserInfo = new JwtUserInfo("123", s, "123456");
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
