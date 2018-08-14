@@ -55,7 +55,7 @@ public class Product {
     /**
      * 产品状态：0表示下架（表示删除），1代表正常(正在出售：此时不能下架该产品)
      */
-    private int status;
+    private int status=1;
 
     public Product(String id, String productCode, String name, double price, String type, String description, String icon, String sellData, String deadline, String dueDate, int status) {
         this.id = id;

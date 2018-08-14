@@ -1,10 +1,8 @@
 package hsbc.team03.ordersystem.displayproduct;
 
-import hsbc.team03.ordersystem.displayproduct.Product;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -25,6 +23,6 @@ public interface ProductService {
      */
     List<Product> getAllProduct();
 
-    Page<Product> getProductListByPage(PageRequest request);
+    Page<Product> getProductListByPage(int page, String productType, int count, Sort sort);
 
 }
