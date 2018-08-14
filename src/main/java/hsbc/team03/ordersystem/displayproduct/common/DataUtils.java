@@ -34,7 +34,6 @@ public class DataUtils {
         /*当前时间*/
         String currentTime = sdf.format(new Date());
         Date time1 = formatTime(currentTime);
-
         /*产品的出售到期时间*/
         Date time2 = formatTime(product.getDueDate());
         /*如果当前时间比产品出售的截止时间小，那么该产品不能删除，则返回false*/

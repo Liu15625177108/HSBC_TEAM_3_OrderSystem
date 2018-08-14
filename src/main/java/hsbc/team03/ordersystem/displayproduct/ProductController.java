@@ -36,7 +36,7 @@ public class ProductController {
 
     @GetMapping("/productIndex")
     public ModelAndView productIndex(){
-        ModelAndView mv=new ModelAndView("displayProduct.html");
+        ModelAndView mv=new ModelAndView("display.html");
         return mv;
     }
 
