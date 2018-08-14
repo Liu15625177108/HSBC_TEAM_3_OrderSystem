@@ -53,7 +53,7 @@ public class RegisterController {
 
     /**
      * @param :code, request
-     * @return java.util.HashMap<java.lang.String , java.lang.Boolean>
+     * @return java.util.HashMap<java.lang.String       ,       java.lang.Boolean>
      * @Description verify the code from user
      */
     @PostMapping("/verify-code")
@@ -80,7 +80,7 @@ public class RegisterController {
 
     /**
      * @param :username
-     * @return java.util.HashMap<java.lang.String , java.lang.Boolean>
+     * @return java.util.HashMap<java.lang.String       ,       java.lang.Boolean>
      * @Description check if the username available
      */
     @GetMapping("/username-check")

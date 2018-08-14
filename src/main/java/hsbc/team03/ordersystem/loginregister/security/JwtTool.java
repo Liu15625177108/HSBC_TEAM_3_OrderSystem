@@ -28,6 +28,12 @@ public class JwtTool {
     private final String secret = "mySecret";
     private final Long expiration = 604800L;
 
+    /**
+     * to get username from token
+     *
+     * @param token
+     * @return java.lang.String
+     */
     public String getUsernameFromToken(String token) {
         String username;
         try {
@@ -39,6 +45,12 @@ public class JwtTool {
         return username;
     }
 
+    /**
+     * to get user id from token
+     *
+     * @param : [token]
+     * @return java.lang.String
+     */
     public String getUserIdFromToken(String token) {
         String userId;
         try {
@@ -98,6 +110,12 @@ public class JwtTool {
         return (lastPasswordReset != null && created.before(lastPasswordReset));
     }
 
+    /**
+     * to generate token with user id and user name
+     *
+     * @param : [userId, username]
+     * @return java.lang.String
+     */
     public String generateToken(String userId, String username) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERID, userId);
@@ -106,6 +124,12 @@ public class JwtTool {
         return generateToken(claims);
     }
 
+    /**
+     * generate token with claims
+     *
+     * @param : [claims]
+     * @return java.lang.String
+     */
     String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
                 .setClaims(claims)
@@ -132,6 +156,12 @@ public class JwtTool {
         return refreshedToken;
     }
 
+    /**
+     * to validate the token
+     *
+     * @param : [token, userDetails]
+     * @return java.lang.Boolean
+     */
     public Boolean validateToken(String token, UserDetails userDetails) {
         JwtUserInfo user = (JwtUserInfo) userDetails;
         final String username = getUsernameFromToken(token);

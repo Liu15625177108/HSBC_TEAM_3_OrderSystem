@@ -22,6 +22,12 @@ import java.util.List;
 public class JwtUserInfoDetailServicesImpl implements UserDetailsService {
 
 
+    /**
+     * to load user by username
+     *
+     * @param : [s]
+     * @return org.springframework.security.core.userdetails.UserDetails
+     */
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
