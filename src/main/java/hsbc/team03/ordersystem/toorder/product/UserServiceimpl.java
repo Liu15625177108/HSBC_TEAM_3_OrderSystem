@@ -13,7 +13,6 @@ package hsbc.team03.ordersystem.toorder.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 /**
  * @author Chen
@@ -24,15 +23,20 @@ import java.util.Optional;
 @Service
 public class UserServiceimpl implements UserService {
 
-//    @Autowired
-//    private UserRepository userRepository;
-//    
-//    @Autowired
-//    private OrdersRepository ordersRepository;
+    @Autowired
+    private UserRepository userRepository;
+    
 
+    /**
+     * @Author Chen
+     * @Description //TODO to validate money
+     * @Date 11:27 2018/8/15
+     * @Param [userInfo, productInfo]
+     * @return boolean
+     **/
     @Override
     public boolean toValidateMoney(UserInfo userInfo, ProductInfo productInfo) {
-        if(userInfo.getUserMoney() >productInfo.getProductNumber()*productInfo.getProductPrice()){
+        if (userInfo.getUserMoney() > productInfo.getProductNumber() * productInfo.getProductPrice()) {
             return true;
         }
         return false;
@@ -66,11 +70,9 @@ public class UserServiceimpl implements UserService {
      **/
     @Override
     public UserInfo getUserInfoByUserId(String userId) {
-        UserInfo userInfo = new UserInfo(userId, "Chen", 10000000.0, "123", "13244444444", "岗顶");
+        UserInfo userInfo = userRepository.getOne(userId);
         return userInfo;
-
     }
-
 
     /**
      * @return
@@ -83,13 +85,5 @@ public class UserServiceimpl implements UserService {
     public void addTest(UserInfo userInfo) {
 //        userRepository.save(userInfo);
     }
-
-/*    @Override
-    public boolean rollbackMoney(String orderId) {
-        Optional<OrdersInfo> ordersInfo=ordersRepository.findById(orderId);
-        userRepository.
-        return false;
-    }*/
-
-
+    
 }

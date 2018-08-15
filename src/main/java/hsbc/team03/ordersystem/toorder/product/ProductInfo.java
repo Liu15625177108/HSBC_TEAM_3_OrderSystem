@@ -12,9 +12,9 @@ package hsbc.team03.ordersystem.toorder.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * @description〈the pojo of Product〉
@@ -22,13 +22,13 @@ import javax.persistence.Id;
  * @create 2018/8/7
  * @since 1.0.0
  */
-//@Entity
+@Entity
 @Data
-public class ProductInfo {
+public class ProductInfo implements Serializable {
     /**
      * productId
      */
-//    @Id
+    @Id
     @JsonProperty(value = "productid")
     private String productId;
     /**
@@ -47,6 +47,8 @@ public class ProductInfo {
     @JsonProperty(value = "productname")
     private String productName;
 
+//    public ProductInfo(){}
+    
     public ProductInfo(String productId, int productNumber, double productPrice, String productName) {
         this.productId = productId;
         this.productNumber = productNumber;

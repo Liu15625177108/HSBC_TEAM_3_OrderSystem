@@ -10,13 +10,9 @@
  */
 package hsbc.team03.ordersystem.toorder.result;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 /**
  * @description<br>
  * 〈the interface of resultview〉
- *
  * @author Chen
  * @create 2018/8/13
  * @since 1.0.0

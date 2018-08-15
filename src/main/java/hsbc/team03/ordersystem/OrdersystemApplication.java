@@ -9,10 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-
+//exclude = DataSourceAutoConfiguration.class
+@SpringBootApplication()
+/**open transaction*/
+@EnableTransactionManagement
 public class OrdersystemApplication   {
 
     public static void main(String[] args) {

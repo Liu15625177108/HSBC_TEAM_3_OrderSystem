@@ -10,8 +10,7 @@
  */
 package hsbc.team03.ordersystem.toorder.product;
 
-import hsbc.team03.ordersystem.toorder.enums.ResultEnum;
-import hsbc.team03.ordersystem.toorder.result.ResultView;
+
 import hsbc.team03.ordersystem.toorder.result.ResultViewService;
 import hsbc.team03.ordersystem.toorder.result.ResultViewServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -48,11 +47,15 @@ public class OrdersController {
      * @Param []
      **/
     @PostMapping(value = "/toorder")
-    public
+    public @ResponseBody
     Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
         String userId = (String) request.getAttribute("userId");
         System.out.println(userId);
-        UserInfo userInfo = userService.getUserInfoByUserId(userId);
+        UserInfo userInfo = userService.getUserInfoByUserId("11");
+        if(userInfo!=null){
+            System.out.println(userInfo.getUserName()+"++");
+            System.out.println(productInfo.getProductName());
+        }
         //To compare userMoney and orderPrice
         if (userService.toValidateMoney(userInfo,productInfo)) {
             //to check userPayPassword
@@ -60,31 +63,36 @@ public class OrdersController {
                 if (orderService.insertOrder(productInfo, userInfo)) {
                     return resultViewService.ResultSuccess(23);
                 }
-                return resultViewService.ResultSuccess(23);
+                return resultViewService.ResultErrorView(14);
             }
-            return resultViewService.ResultSuccess(26);
+            return resultViewService.ResultErrorView(26);
         }
-        return resultViewService.ResultSuccess(27);
+        return resultViewService.ResultErrorView(27);
     }
 
+    /**
+     * @Author Chen
+     * @Description //TODO test method
+     * @Date 15:29 2018/8/14
+     * @Param []
+     * @return java.lang.Object
+     **/
     @GetMapping(value = "/t1")
     public @ResponseBody
     Object test1() {
-//        UserInfo userInfo = new UserInfo("11", "chen", 1.2, "12", "123", "汕头");
-//        ResultView resultview = new ResultView<UserInfo>(200, "success", userInfo);
-//        userService.addTest(userInfo);
-//        String result="add +++++++";
-//        ResultView resultview = new ResultView<String>(200, "success", result);
-        /*OrdersInfo ordersInfo=new OrdersInfo("111","难",
-                1,"chen","111",
-                "地球", 11.1,1,new Date());*/
         TestInfo testInfo = new TestInfo();
         testInfo.setTestId(11);
         testInfo.setCode(1);
-//        ResultView resultView =resultViewService.ResultErrorView(28);
-//        System.out.println(resultView);
         return null;
     }
+    
+    /**
+     * @Author Chen
+     * @Description //TODO to cancel order
+     * @Date 15:28 2018/8/4
+     * @Param [orderId]
+     * @return java.lang.Object
+     **/
     @PutMapping(value = "/tocancelorder")
     public @ResponseBody
     Object toCancelOrder(@RequestParam("orderId") String orderId) {
@@ -92,7 +100,7 @@ public class OrdersController {
             if (orderService.determineTime(orderId)) {
                 orderService.updateOrderStatus(orderId);
                 return resultViewService.ResultSuccess(22);
-            };
+            }
             return resultViewService.ResultErrorView(28);
         }
         return resultViewService.ResultErrorView(29);

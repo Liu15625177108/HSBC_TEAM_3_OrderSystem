@@ -35,7 +35,7 @@ public interface OrdersService {
      * @Param [int productNumber,double productPrice]
      * @return double
      **/
-    double getOrderPrice(int productNumber,double productPrice );
+    double getOrderPrice(ProductInfo productInfo);
     
     /**
      * @Author Chen

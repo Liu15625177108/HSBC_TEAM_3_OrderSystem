@@ -28,8 +28,6 @@ public class ResultView<T>{
 
     /** content of data */
     private T data;
-   /* *//** content of data *//*
-    private String status;*/
     
     public ResultView(Integer status, String msg, T data) {
         this.status = status;

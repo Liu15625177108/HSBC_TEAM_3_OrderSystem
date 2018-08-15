@@ -11,6 +11,7 @@
 package hsbc.team03.ordersystem.toorder.result;
 
 import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
+import hsbc.team03.ordersystem.toorder.commonsutils.DataUtils;
 import hsbc.team03.ordersystem.toorder.product.OrdersInfo;
 import hsbc.team03.ordersystem.toorder.product.ProductInfo;
 import hsbc.team03.ordersystem.toorder.product.UserInfo;
@@ -26,10 +27,18 @@ import java.util.Date;
  */
 @Component
 public class OrderView {
+    
+    /**
+     * @Author Chen
+     * @Description //TODO  get orderInfo
+     * @Date 11:28 2018/8/15
+     * @Param [productInfo, userInfo]
+     * @return hsbc.team03.ordersystem.toorder.product.OrdersInfo
+     **/
     public OrdersInfo getOrderInfo(ProductInfo productInfo, UserInfo userInfo){
         OrdersInfo orderInfo=new OrdersInfo(CommonsUtils.getUUID(),productInfo.getProductName(),
                 productInfo.getProductNumber(),userInfo.getUserName(),userInfo.getUserPhone(),
-                userInfo.getUserAddress(),productInfo.getProductPrice(),1,new Date(),
+                userInfo.getUserAddress(),productInfo.getProductPrice(),1, DataUtils.getCurrentTime(),
                 productInfo.getProductNumber()*productInfo.getProductPrice());
         return  orderInfo;
     }

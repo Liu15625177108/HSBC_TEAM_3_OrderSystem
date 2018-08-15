@@ -48,13 +48,5 @@ public interface UserService {
      **/
     void addTest(UserInfo userInfo);
     
-    /**
-     * @Author Chen
-     * @Description //TODO rollbackMoney when cancel order
-     * @Date 9:08 2018/8/14
-     * @Param [orderId]
-     * @return boolean
-     **/
-//    boolean rollbackMoney(String orderId);
 }
  

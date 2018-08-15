@@ -1,6 +1,7 @@
 package hsbc.team03.ordersystem.toorder.product;
 
 
+import hsbc.team03.ordersystem.toorder.commonsutils.DataUtils;
 import hsbc.team03.ordersystem.toorder.result.ResultView;
 import hsbc.team03.ordersystem.toorder.commonsutils.CommonsUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +49,7 @@ public class OrdersControllerTest {
                 productInfo.getProductName(), productInfo.getProductNumber(),
                 userInfo.getUserName(), userInfo.getUserPhone(),
                 userInfo.getUserAddress(), productInfo.getProductPrice(),
-                1, new Date(), productInfo.getProductNumber() *
+                1,DataUtils.getCurrentTime(),productInfo.getProductNumber() *
                 productInfo.getProductPrice());
         ResultView resultView = new ResultView<OrdersInfo>(200, "success", orderInfo);
 
@@ -56,12 +57,12 @@ public class OrdersControllerTest {
         given(this.userService.toValidatePayPassword(Mockito.any(UserInfo.class), eq("123"))).willReturn(true);
         given(this.orderService.insertOrder(Mockito.any(ProductInfo.class), Mockito.any(UserInfo.class))).willReturn(true);
         given(this.userService.toValidateMoney(Mockito.any(UserInfo.class),Mockito.any(ProductInfo.class))).willReturn(true);
-        given(this.orderService.getOrderPrice(eq(3), eq(100.0))).willReturn(300.0);
+        given(this.orderService.getOrderPrice(Mockito.any(ProductInfo.class))).willReturn(300.0);
         given(this.userService.getUserInfoByUserId(eq("111"))).willReturn(userInfo);
 
 
         String jsonString = "{\"productid\":\"17e5372f-dfc1-41e7-b37a-a1edae87d299\"," +
-                "\"prodcutnumber\":3,\"prodcutprice\":100.0,\"productname\":\"信用卡\"}";
+                "\"productnumber\":3,\"productprice\":100.0,\"productname\":\"信用卡\"}";
 
 
         String result = this.mvc.perform(post("/order/toorder")
@@ -72,6 +73,7 @@ public class OrdersControllerTest {
                 .param("payPassword", "123"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(); //return response's value
+        System.out.println(result);
         log.info(result);
     }
 
