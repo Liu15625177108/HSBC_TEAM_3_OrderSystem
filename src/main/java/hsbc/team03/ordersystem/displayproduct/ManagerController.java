@@ -1,6 +1,8 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,8 +33,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/manager-index", method = RequestMethod.GET)
     public ModelAndView managerIndexPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("managerIndex.html");
+        ModelAndView modelAndView = new ModelAndView("managerProduct.html");
         return modelAndView;
     }
 
@@ -44,10 +45,14 @@ public class ManagerController {
      * @UpdateDate: 2018/8/5 21:56
      * @Version: 1.0
      */
-    @RequestMapping(value = "/manager/productlist", method = RequestMethod.GET)
-    public List<Product> getAllProduct() {
-        List<Product> list = managerService.productList();
-        return list;
+    @RequestMapping(value = "/manager/productlist", method = RequestMethod.POST)
+    public  Page<Product> getAllProduct(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNum, @RequestParam(name = "dataCount", defaultValue = "2") int dataCount, @RequestParam(name = "productType", defaultValue = "短期型") String productType) {
+
+        Sort sort = Sort.by("type");
+        Page<Product> products = managerService.getProductListByPage(pageNum,productType,dataCount, sort);
+
+//        List<Product> list = managerService.productList();
+        return products;
     }
 
     /**
@@ -58,7 +63,6 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/modify/products", method = RequestMethod.POST)
-    @ResponseBody
     public boolean modifyProduct(Product product, MultipartFile file) {
 //     Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         boolean tag = false;

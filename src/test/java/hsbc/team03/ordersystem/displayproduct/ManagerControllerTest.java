@@ -46,7 +46,7 @@ public class ManagerControllerTest {
     @Test
     public void getProductTest() throws Exception {
         List<Product> list=new ArrayList<>();
-        Mockito.when(managerServiceImpl.productList()).thenReturn(list);
+//        Mockito.when(managerServiceImpl.productList()).thenReturn(list);
         this.mvc.perform(get("/user/get/products")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())

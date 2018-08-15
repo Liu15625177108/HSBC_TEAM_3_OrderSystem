@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" >
+<head >
     <!--<base href="${request.scheme+'://'+request.serverName+':'+request.serverPort+'/'+ctxPath}"/>-->
     <meta charset="utf-8">
     <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword"
-          content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
     <link rel="shortcut icon" href="img/favicon.png">
     <title>HSBC后台产品管理</title>
 
@@ -17,14 +16,13 @@
     <link href="vendors/css/flag-icon.min.css" rel="stylesheet">
     <link href="vendors/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet">
-
     <!-- Main styles for this application -->
     <link href="css/style.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">-->
-    <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Styles required by this views -->
+    <script src="https://cdn.bootcss.com/angular.js/1.5.5/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
+
     <!-- <script type="text/javascript">
          function setImagePreview(avalue) {
              var docObj = document.getElementById("file");
@@ -61,12 +59,11 @@
 
      </script>-->
 
-
+    <!--ng-controller="modelcontroller"-->
 </head>
-<body ng-app="myApp" ng-controller="customersCtrl"
-      class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-<header class="app-header navbar">
-
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" ng-app="app" ng-controller="customersCtrl" >
+<header class="app-header navbar" >
+    <button ng-click="openModal()">打开模态框</button>
     <h4 style="margin: auto">教学管理后台系统</h4>
 
     <ul class="nav navbar-nav ml-auto">
@@ -164,11 +161,31 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">
-                        <i class="fa fa-align-justify"></i> 学生信息表
+                    <div class="card-header container">
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="fa fa-align-justify"></i> 产品列表
+                            </div>
+                            <div class="col-6">
+                                <i>
+                                    产品类型筛选-<select id="productType" ng-blur="getDataNumberOrProductType()">
+                                    <option ng-repeat="x in productsType" ng-bind="x.productType"></option>
+                                </select>
+                                </i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <i>
+                                    显示条数-<select id="dataNumber" ng-blur="getDataNumberOrProductType()">
+                                    <option>2</option>
+                                    <option>5</option>
+                                    <option>10</option>
+                                    <option>15</option>
+                                </select>
+                                </i>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -197,13 +214,13 @@
                             <tbody>
                             <tr ng-repeat="pro in products">
                                 <input type="hidden" value="{{pro.id}}">
-                                <td>{{pro.productCode}}</td>
-                                <td>{{pro.name}}</td>
-                                <td>{{pro.price}}</td>
-                                <td>{{pro.type}}</td>
-                                <td>{{pro.sellData}}</td>
-                                <td>{{pro.deadline}}</td>
-                                <td>{{pro.dueDate}}</td>
+                                <td ng-bind="pro.productCode"></td>
+                                <td ng-bind="pro.name"></td>
+                                <td ng-bind="pro.price"></td>
+                                <td ng-bind="pro.type"></td>
+                                <td ng-bind="pro.sellData"></td>
+                                <td ng-bind="pro.deadline"></td>
+                                <td ng-bind="pro.dueDate"></td>
                                 <td>
                                     <span class="badge badge-success">正在发售</span>
                                 </td>
@@ -224,14 +241,24 @@
                         </table>
                         <nav>
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
+                                <li class="page-item"><a class="page-link" ng-model="totalElements">总共{{totalElements}}条数据</a>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li class="page-item"><a class="page-link" ng-model="totalPages">总共{{totalPages}}页</a>
+                                </li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li class="page-item"><a class="page-link" ng-model="pageNumber"
+                                                         ng-click="pageFunction(0)">首页</a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li class="page-item"><a class="page-link" ng-model="pageNumber"
+                                                         ng-click="pageFunction(pageNumber-1)">上一页</a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li class="page-item"><a class="page-link" ng-model="pageNumber"
+                                                         ng-click="pageFunction(pageNumber+1)">下一页</a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li class="page-item"><a class="page-link" ng-model="lastPage"
+                                                         ng-click="pageFunction(lastPage-1)">尾页</a></li>
+
                             </ul>
                         </nav>
                     </div>
@@ -245,136 +272,12 @@
     </main>
 
 </div>
+
 <footer class="app-footer">
     <span><a href="http://coreui.io">Team-Three</a> © 2018 creativeLabs.</span>
     <span class="ml-auto">Powered by <a href="http://coreui.io">Team-Three</a></span>
 </footer>
-
-<!--管理员个人信息-->
-<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-     style="display: none;">
-    <div class="modal-dialog modal-primary" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">管理员个人信息</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!--<p>One fine body…</p>-->
-                <!--<form action="/user/form" method="post">-->
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">ID</span>
-                    </div>
-                    <input type="text" id="adminId" name="adminId" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">用户名</span>
-                    </div>
-                    <input type="text" id="adminName" name="adminName" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">密码</span>
-                    </div>
-                    <input type="text" id="adminPassword" name="adminPassword" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">真实姓名</span>
-                    </div>
-                    <input type="text" id="adminTruename" name="adminTruename" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-address-card-o fa-lg"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">电话</span>
-                    </div>
-                    <input type="text" id="adminTelephone" name="adminTelephone" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-phone fa-lg"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">邮箱</span>
-                    </div>
-                    <input type="text" id="adminEmail" name="adminEmail" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">地址</span>
-                    </div>
-                    <input type="text" id="adminAddress" name="adminAddress" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">头像</span>
-                    </div>
-                    <input type="text" id="adminImg" name="adminImg" class="form-control">
-                    <div class="input-group-append">
-                        <span class="input-group-text"><i class="fa fa-user"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">保存</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!--学生信息批量导入模态框-->
-
-<!--<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-success" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">请选择excel 导入学生信息</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>请选择excel文件</p>
-                <input type="file" id="studentDatas" value="选择excel文件" enctype="multipart/form-data">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" id="inputStudentDate" class="btn btn-success">开始导入</button>
-            </div>
-        </div>
-        &lt;!&ndash; /.modal-content &ndash;&gt;
-    </div>
-    &lt;!&ndash; /.modal-dialog &ndash;&gt;
-</div>-->
-
-
 <!--学生信息批量导出模态框-->
-
 <!--
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;"
      aria-hidden="true">
@@ -401,65 +304,6 @@
 -->
 
 
-<!--修改管理员密码的模态框-->
-<!--
-<div class="modal fade" id="updateAdminPasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-primary" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">修改密码</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">姓名</span>
-                            </div>
-                            <input type="text" id="updateAdminName" name="updateAdminName" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-user"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">旧密码</span>
-                            </div>
-                            <input type="password" id="oldPassword" name="oldPassword" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">新密码</span>
-                            </div>
-                            <input type="password" id="newPassword" name="newPassword" class="form-control">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button id="updateAdminPassword" type="button" class="btn btn-primary">保存</button>
-            </div>
-        </div>
-        &lt;!&ndash; /.modal-content &ndash;&gt;
-    </div>
-    &lt;!&ndash; /.modal-dialog &ndash;&gt;
-</div>
--->
 
 <!--新增和编辑的模态框-->
 <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
@@ -476,8 +320,7 @@
                 <form id="form-add" enctype="multipart/form-data" name="editProductInfoForm" novalidate>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="hidden" id="productId" name="productId" class="form-control">
-                            <!--<input type="hidden" id="studentOldName" name="studentOldName" class="form-control">-->
+                            <input type="hidden" id="id" name="id">
                         </div>
                         <div class="form-group">
                             <div class="input-group mb-1">
@@ -537,7 +380,7 @@
                                 <span class="input-group-text">发售起始日</span>
                             </div>
                             <input type="text" id="sellData" name="sellData" class="form-control"
-                                   ng-blur="checkDateOfSelldate_Deadline_Duedate('{{$index}}')">
+                                   ng-blur="checkDateOfSelldate_Deadline_Duedate($index)">
                         </div>
 
                     </div>
@@ -579,17 +422,15 @@
                         <input type="file" name="file" id="file" style="width:150px;"
                                onchange="javascript:setImagePreview();"/>
                     </div>
+                    <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存</button>
                 </form>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary" id="save"
-                    ng-disabled="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid ">保存
-            </button>
         </div>
     </div>
-    <!-- /.modal-content -->
+    <!--&lt;!&ndash; /.modal-content &ndash;&gt;ng-disabled="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid "-->
 </div>
 <!-- /.modal-dialog -->
 </div>
@@ -620,41 +461,6 @@
 
 </div>
 
-<!--&lt;!&ndash;定义table模板&ndash;&gt;-->
-
-<!--&lt;!&ndash;定义分页条模板&ndash;&gt;-->
-<script id="student-dividePage-template" type="text/html">
-    <nav>
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" id="prev"
-                                     onclick="pageFunction('{{pageNum-1}}')">Prev</a></li>
-            <li class="page-item active">
-                <a class="page-link" onclick="pageFunction('{{pageNum}}')">{{pageNum+1}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+1}}')">{{pageNum+2}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+2}}')">{{pageNum+3}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+3}}')">{{pageNum+4}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" onclick="pageFunction('{{pageNum+1}}')">Next</a></li>
-        </ul>
-    </nav>
-    &nbsp;&nbsp;共{{totalPageNum}}页 &nbsp;&nbsp;当前第{{pageNum+1}}页&nbsp;&nbsp;<a href="javascript:void(0)"
-                                                                               onclick="pageFunction(0)">首页</a>&nbsp;&nbsp;
-    <a href="javascript:void(0)" onclick="pageFunction('{{totalPageNum-1}}')">尾页</a>
-    到第<input type="text" id="findPage" name="findPage" style="width: 40px"/> 页
-    <input type="submit" value="确定" onclick="findPage()"/>
-    <!--每页<select id="select">-->
-    <!--<option value="2" selected>2</option>-->
-    <!--<option value="3">3</option>-->
-    <!--<option value="4">4</option>-->
-    <!--<option value="5">5</option>-->
-    <!--</select>条数据-->
-
-</script>
-
-
 <!-- Bootstrap and necessary plugins -->
 <script src="vendors/js/jquery.min.js"></script>
 <script src="vendors/js/popper.min.js"></script>
@@ -663,20 +469,57 @@
 <!-- Plugins and scripts required by all views -->
 <script src="vendors/js/Chart.min.js"></script>
 <!-- CoreUI main scripts -->
-<script src="js/app.js"></script>
-<script src="js/art-template-web.js"></script>
+<script type="text/ng-template" id="modal.html">
+    <div>
+        <div class="modal-header">
+            <h3 class="modal-title" align="center">
+                标题信息
+            </h3>
+        </div>
+        <div class="modal-body">
+            <div align="center">
+                模态框内容 <br>
+                {{data}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">
+                确认
+            </button>
+            <button class="btn btn-warning" ng-click="cancel()">
+                退出
+            </button>
+        </div>
+    </div>
+</script>
 
-<script>
+<script type="text/javascript">
     var product = [];
-    var app = angular.module("myApp", []);
+    var app = angular.module('app', ['ui.bootstrap']);
     app.controller("customersCtrl", function ($scope, $http) {
         $http({
-            method: 'get',
+            method: 'post',
             url: "/manager/productlist"
         })
             .then(function success(result) {
-                    $scope.products = result.data;
-                    product = result.data;
+                    $scope.products = result.data.content;
+                    //总页数
+                    $scope.totalPages = result.data.totalPages
+
+                    //总共有多少条记录
+                    $scope.totalElements = result.data.totalElements
+                    //当前页数
+                    $scope.currentPage = result.data.number;
+                    //用于控制上一页。下一页
+                    $scope.pageNumber = result.data.pageable.pageNumber
+
+                    //总页数
+                    totlePageNumber = result.data.totalPages
+
+                    //用于控制尾页
+                    $scope.lastPage = result.data.totalPages
+                    //用于控制首页
+                    product = result.data.content;
                 },
                 function error() {
                     alert("出错了")
@@ -689,6 +532,119 @@
         }).then(function (resp) {
             $scope.productsType = resp.data;
         })
+
+        //控制分页显示函数  pageFunction：选择上一页、下一页；getDataNumberOrProductType：获取产品类型，分类型展示、获取页面显示多少条数量
+        $scope.pageFunction = function (pageNumber) {
+            if (pageNumber >= totlePageNumber) {
+                alert("没有下一页了");
+                return false;
+            }
+            if (pageNumber < 0) {
+                alert("没有上一页了");
+                return false;
+            }
+            var jsonData = {"pageNumber": pageNumber};
+            $http({
+                url: "/manager/productlist",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            }).then(function (result) {
+                //后台返回的数据
+                $scope.products = result.data.content;
+                //总页数
+                $scope.totalPages = result.data.totalPages
+                //总共有多少条记录
+                $scope.totalElements = result.data.totalElements
+                //当前页数
+                $scope.currentPage = result.data.number;
+                //用于控制上一页。下一页
+                $scope.pageNumber = result.data.pageable.pageNumber
+                totlePageNumber = result.data.totalPages
+
+                //更新数组，模态框才能获取正确的数据
+                product = result.data.content;
+            })
+        }
+
+        //根据选择的数据显示数量，从新获取数据
+        $scope.getDataNumberOrProductType = function () {
+            var productType = $("#productType").find("option:selected").text();//选中的文本
+            var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
+            var jsonData = {"dataCount": dataNumber, "productType": productType};
+            $http({
+                url: "/manager/productlist",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            })
+                .then(function (result) {
+                    //后台返回的数据
+                    $scope.products = result.data.content;
+                    //总页数
+                    $scope.totalPages = result.data.totalPages
+
+                    //总共有多少条记录
+                    $scope.totalElements = result.data.totalElements
+                    //当前页数
+                    $scope.currentPage = result.data.number;
+                    //用于控制上一页。下一页
+                    $scope.pageNumber = result.data.pageable.pageNumber
+                    totlePageNumber = result.data.totalPages
+
+                    product = result.data.content;
+                })
+        }
+
+        //修改或者新增产品
+        $scope.saveProduct = function () {
+            //要再一次验证产品的产品代码、产品价格等信息
+            var id = $("#id").val();
+            var productCode = $("#productCode").val();
+            var name = $("#name").val();
+            var price = $("#price").val();
+            var type = $("#type").val();
+            var sellData = $("#sellData").val();
+            var deadline = $("#deadline").val();
+            var dueDate = $("#dueDate").val();
+            var description = $("#description").val();
+            var formdata = new FormData()
+            formdata.append('id', id);
+            formdata.append('productCode', productCode);
+            formdata.append('name', name);
+            formdata.append('price', price);
+            formdata.append('type', type);
+            formdata.append('sellData', sellData);
+            formdata.append('deadline', deadline);
+            formdata.append('dueDate', dueDate);
+            formdata.append('description', description);
+            $http({
+                url: "/manager/modify/products",
+                method: "post",
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+            }) .then(function (result) {
+
+            })
+        }
+
 
         //检查产品代码的唯一性
         $scope.checkProductCodeUnique = function () {
@@ -758,36 +714,37 @@
             }
             document.getElementById("msg-price").innerText = "输入正确的产品价格";
             return false
-            // var reg = /^[0-9,.]*$/ //^[-\+]?\d+(\.\d+)?$/;
-            // //alert(reg);
-            // $("#f_money1").blur(function() {
-            //     var a = $("#f_money1").val();
-            //     //alert(a);
-            //     if (!reg.test(a)) {
-            //         layer.tips('请输入数字', '#f_money1');
-            //         $("#f_money1").focus();
-            //     }
-            // })
-
         }
-
     });
 
 
-    /*//2.then回调嵌套
-        $http({
-            url: "data.json",
-            method: "get"
-        }).then(function (resp) {
-            $http({
-                url: "/get/productType",
-                method: "get"
-            }).then(function (resp) {
-                $scope.productsType = resp.data;
-            })
-        })
-    });*/
 
+    // app.controller("customersCtrl", function($scope, $rootScope, $modal) {
+    //     var data = "通过modal传递的数据";
+    //     $scope.openModal = function() {
+    //         var modalInstance = $modal.open({
+    //             templateUrl : 'modal.html',//script标签中定义的id
+    //             controller : 'modalCtrl',//modal对应的Controller
+    //             resolve : {
+    //                 data : function() {//data作为modal的controller传入的参数
+    //                     return data;//用于传递数据
+    //                 }
+    //             }
+    //         })
+    //     }
+    // })
+    // //模态框对应的Controller
+    // app.controller('modalCtrl', function($scope, $modalInstance, data) {
+    //     $scope.data= data;
+    //
+    //     //在这里处理要进行的操作
+    //     $scope.ok = function() {
+    //         $modalInstance.close();
+    //     };
+    //     $scope.cancel = function() {
+    //         $modalInstance.dismiss('cancel');
+    //     }
+    // });
 
     // 修改用户的信息
     $('#primaryModal').on('show.bs.modal', function (event) {
@@ -799,6 +756,7 @@
         if (recipient != null) {
             userIndex = recipient;
             modal.find('.modal-title').text('编辑用户')
+            modal.find('.modal-body input#id').val(product[recipient].id)
             modal.find('.modal-body input#originProductCode').val(product[recipient].productCode)
             modal.find('.modal-body input#productCode').val(product[recipient].productCode)
             modal.find('.modal-body input#name').val(product[recipient].name)
@@ -828,43 +786,8 @@
             userIndex = -1;
         }
     });
-
-    //编辑产品：检查产品代码的唯一
-    function checkProductCodeUnique() {
-        var productCode = document.getElementById("productCode").val;
-        //如果产品代码为空，则是新增产品，否则是编辑产品信息
-        if (productCode != null) {
-            //如果是编辑产品，那么先获得该产品的原来产品代码，可以比较该产品代码是改变了还是没改变
-            var originProductCode = document.getElementById("originProductCode").val;
-            if (!originProductCode.equals(productCode)) {
-                //如果改动了产品代码：改动后的产品代码必须保证唯一性
-                for (var i = 0; i < product.length; i++) {
-                    if (product[i].productCode == productCode) {
-                        document.getElementById("msg-productCode").innerText = "产品代码已经存在";
-                    }
-                }
-            } else {
-
-            }
-        } else {
-            //必须保证是6为数字的产品代码：
-            var reg = new RegExp("^[0-9]*$");
-            if (productCode.length != 6 || !reg.test(productCode)) {
-                document.getElementById("msg-productCode").innerText = "请输入6位数字产品代码";
-                return false;
-            }
-            //做产品代码比较的放到最后，因为循环比较需要花时间，若前面的比较不通过，不需要执行该代码，提高效率
-            for (var i = 0; i < product.length; i++) {
-                if (product[i].productCode == productCode) {
-                    document.getElementById("msg-productCode").innerText = "产品代码已经存在";
-                    return false;
-                }
-            }
-            return true;
-        }
-
-    }
 </script>
+
 </body>
 
 </html>

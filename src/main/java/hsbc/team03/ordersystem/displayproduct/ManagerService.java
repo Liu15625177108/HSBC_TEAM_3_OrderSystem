@@ -2,6 +2,8 @@ package hsbc.team03.ordersystem.displayproduct;
 
 
 import hsbc.team03.ordersystem.displayproduct.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -17,7 +19,14 @@ import java.util.List;
 
 public interface ManagerService {
     /**this is manager to get all the products*/
-    List<Product> productList();
+    /**
+     * @param page
+     * @param productType
+     * @param count
+     * @param sort
+     * @return
+     */
+    Page<Product> getProductListByPage(int page, String productType, int count, Sort sort);
 
     /**
      * @descripe:add product

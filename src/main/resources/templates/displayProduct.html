@@ -172,7 +172,7 @@
 
             <!-- CONTENT -->
             <div id="content">
-                <div class="container">
+                <div class="container clearfix">
 
                     <div id="main">
                         <div class="row">
@@ -199,7 +199,7 @@
                                                 </label>
                                                 <div class="controls">
                                                     <select id="productType" ng-blur="getDataNumberOrProductType()">
-                                                        <option ng-repeat="x in productsType">{{x.productType}}</option>
+                                                        <option ng-repeat="x in productsType" ng-bind="x.productType"></option>
                                                     </select>
                                                 </div><!-- /.controls -->
                                             </div><!-- /.control-group -->
@@ -225,7 +225,7 @@
                                 <div class="properties-rows clearfix">
                                     <div class="row">
                                         <div class="property span9 clearfix"
-                                             ng-repeat="pro in products | filter:myselect | orderBy:'price'">
+                                             ng-repeat="pro in products | orderBy:'price'">
                                             <div class="row">
                                                 <div class="image span3">
                                                     <div class="content">
@@ -238,30 +238,31 @@
                                                     <div class="title-price row">
 
                                                         <div class="title span4">
-                                                            产品代码：<h2><a
-                                                                href="detail.html">{{pro.productCode}}</a></h2>
+                                                            产品代码：<h2><a href="detail.html"  ng-bind="pro.productCode"></a></h2>
                                                         </div><!-- /.title -->
-                                                        <div class="price">
-                                                            价格:{{pro.price}}
-                                                        </div>
+                                                        <div class="price" ng-bind="pro.price" >价格:</div>
                                                     </div>
 
                                                     <div class="location clearfix">
-                                                        <div style="float: left;">描述</div>
-                                                        <div style="float: right;">产品类型:{{pro.type}}</div>
+                                                        <div style="float: left;" >描述</div>
+                                                        <div style="float: right;" ng-bind="pro.type">产品类型:</div>
                                                     </div>
 
                                                     <p>{{pro.description}}</p>
                                                     <div class="">
                                                         <span class="key">发售起始日：</span>
-                                                        <span class="value">{{pro.sellData}}</span>
+                                                        <span class="value" ng-bind="pro.sellData"></span>
                                                         <div style="float:right">
                                                             <span class="key">发售截止日:</span>
-                                                            <span class="value">{{pro.deadline}}</span>
+                                                            <span class="value" ng-bind="pro.deadline"></span>
                                                         </div>
                                                         <div>
                                                             <span class="key">产品到期日:</span>
-                                                            <span class="value">{{pro.dueDate}}</span>
+                                                            <span class="value" ng-bind="pro.dueDate"></span>
+                                                        </div>
+                                                        <div style="float: right">
+                                                            <button class="button btn-primary">购买</button>
+                                                            <!--<span class="value"></span>-->
                                                         </div>
                                                     </div><!-- /.area -->
                                                 </div>
@@ -272,8 +273,6 @@
                             </div><!-- /.properties-rows -->
                             <div class="pagination pagination-centered">
                                 <ul>
-                                    <a></a>
-                                    <a></a>&nbsp;&nbsp;&nbsp;
                                     <!--<a ng-model="totalElements">第{{}}页</a>-->
                                     <li><a ng-model="totalElements">总共{{totalElements}}条数据</a></li>
                                     <li><a ng-model="totalPages">总共{{totalPages}}页</a></li>
@@ -418,7 +417,7 @@
                         </div><!-- /#wrapper -->
                     </div><!-- /#wrapper-outer -->
 
-                    <div class="palette">
+                    <div class="palette clearfix">
                         <div class="inner">
                             <div class="headers">
                                 <h2>Header styles</h2>
