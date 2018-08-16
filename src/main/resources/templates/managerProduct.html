@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head >
+<html lang="en">
+<head>
     <!--<base href="${request.scheme+'://'+request.serverName+':'+request.serverPort+'/'+ctxPath}"/>-->
     <meta charset="utf-8">
     <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+    <meta name="keyword"
+          content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
     <link rel="shortcut icon" href="img/favicon.png">
     <title>HSBC后台产品管理</title>
 
@@ -18,7 +19,7 @@
     <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
 
     <script src="https://cdn.bootcss.com/angular.js/1.5.5/angular.min.js"></script>
     <script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
@@ -61,10 +62,10 @@
 
     <!--ng-controller="modelcontroller"-->
 </head>
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" ng-app="app" ng-controller="customersCtrl" >
-<header class="app-header navbar" >
-    <button ng-click="openModal()">打开模态框</button>
-    <h4 style="margin: auto">教学管理后台系统</h4>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" ng-app="app"
+      ng-controller="customersCtrl">
+<header class="app-header navbar">
+    <h4 style="margin: auto">产品信息后台系统</h4>
 
     <ul class="nav navbar-nav ml-auto">
 
@@ -97,33 +98,33 @@
                 <!--Theme-->
                 <!--</li>-->
                 <li class="nav-item">
-                    <a href="/student/students" class="nav-link"><i class="fa fa-user-circle-o"></i> 理财产品管理</a>
+                    <a href="#" class="nav-link"><i class="fa fa-user-circle-o"></i> 理财产品管理</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/teacher/teachers" class="nav-link"><i class="fa fa-gear"></i>教师信息管理</a>
+                    <a href="/teacher/teachers" class="nav-link"><i class="fa fa-gear"></i>系统日志</a>
                 </li>
                 <!--<li class="nav-item">-->
                 <!--<a href="#" class="nav-link"><i class="fa fa-bar-chart-o "></i>批量导入和导出</a>-->
                 <!--</li>-->
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 批量导入和导出</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/student/export">
-                                <i class="icon-puzzle"></i>学生批量导出
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">
-                                <i class="icon-puzzle"></i>
-                                <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#successModal">
-                                    学生批量导入
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <!-- <li class="nav-item nav-dropdown">
+                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 批量导入和导出</a>
+                     <ul class="nav-dropdown-items">
+                         <li class="nav-item">
+                             <a class="nav-link" href="/student/export">
+                                 <i class="icon-puzzle"></i>学生批量导出
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link">
+                                 <i class="icon-puzzle"></i>
+                                 <button type="button" class="btn btn-success" data-toggle="modal"
+                                         data-target="#successModal">
+                                     学生批量导入
+                                 </button>
+                             </a>
+                         </li>
+                     </ul>
+                 </li>-->
 
             </ul>
         </nav>
@@ -133,7 +134,7 @@
     <main class="main">
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">>学生信息管理</li>
+            <li class="breadcrumb-item">>产品信息管理</li>
             <!--<li class="breadcrumb-item"><a href="#">Admin</a></li>-->
             <!--<li class="breadcrumb-item active">Dashboard</li>-->
 
@@ -161,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header container">
@@ -193,7 +194,7 @@
                                 <button style="float: right" type="button" class="btn btn-primary"
                                         data-toggle="modal"
                                         data-target="#primaryModal">
-                                    添加学生
+                                    添加产品
                                 </button>
                             </div>
                         </div>
@@ -302,7 +303,6 @@
     &lt;!&ndash; /.modal-dialog &ndash;&gt;
 </div>
 -->
-
 
 
 <!--新增和编辑的模态框-->
@@ -419,8 +419,7 @@
                         <div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"
                                                  style="display: block; width: 100px; height: 100px;">
                         </div>
-                        <input type="file" name="file" id="file" style="width:150px;"
-                               onchange="javascript:setImagePreview();"/>
+                        <input type="file" name="file" id="file" style="width:150px;"/>
                     </div>
                     <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存</button>
                 </form>
@@ -441,7 +440,7 @@
     <div class="modal-dialog modal-danger" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">删除用户信息</h4>
+                <h4 class="modal-title">删除产品</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -469,32 +468,10 @@
 <!-- Plugins and scripts required by all views -->
 <script src="vendors/js/Chart.min.js"></script>
 <!-- CoreUI main scripts -->
-<script type="text/ng-template" id="modal.html">
-    <div>
-        <div class="modal-header">
-            <h3 class="modal-title" align="center">
-                标题信息
-            </h3>
-        </div>
-        <div class="modal-body">
-            <div align="center">
-                模态框内容 <br>
-                {{data}}
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">
-                确认
-            </button>
-            <button class="btn btn-warning" ng-click="cancel()">
-                退出
-            </button>
-        </div>
-    </div>
-</script>
 
 <script type="text/javascript">
     var product = [];
+    var productIndex;
     var app = angular.module('app', ['ui.bootstrap']);
     app.controller("customersCtrl", function ($scope, $http) {
         $http({
@@ -622,6 +599,8 @@
             var deadline = $("#deadline").val();
             var dueDate = $("#dueDate").val();
             var description = $("#description").val();
+            //获取图片
+            var file = document.getElementById("file").files[0]; // js 获取文件对象
             var formdata = new FormData()
             formdata.append('id', id);
             formdata.append('productCode', productCode);
@@ -632,29 +611,26 @@
             formdata.append('deadline', deadline);
             formdata.append('dueDate', dueDate);
             formdata.append('description', description);
+            formdata.append('file', file);
             $http({
-                url: "/manager/modify/products",
+                url: "/manager/add/products",
                 method: "post",
                 data: formdata,
                 headers: {
                     'Content-Type': undefined
                 },
                 transformRequest: angular.identity
-            }) .then(function (result) {
+            }).then(function (result) {
 
-            })
+            });
         }
-
 
         //检查产品代码的唯一性
         $scope.checkProductCodeUnique = function () {
             var productCode = $("#productCode").val();
-            console.log(productCode.length);
-
             // var reg =/^[0-9]*$/;
             var reg = /^[0-9]+.?[0-9]*$/
             document.getElementById("msg-productCode").innerHTML = "";
-            console.log(reg.test(productCode));
             // var productCode = document.getElementById("productCode").value;
             //如果产品代码为空，则是新增产品，否则是编辑产品信息
             if (productCode != null) {
@@ -718,7 +694,6 @@
     });
 
 
-
     // app.controller("customersCtrl", function($scope, $rootScope, $modal) {
     //     var data = "通过modal传递的数据";
     //     $scope.openModal = function() {
@@ -748,14 +723,15 @@
 
     // 修改用户的信息
     $('#primaryModal').on('show.bs.modal', function (event) {
+
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
         var modal = $(this)
         //判断是新增还是编辑
         // teachers[recipient].teacherId
         if (recipient != null) {
-            userIndex = recipient;
-            modal.find('.modal-title').text('编辑用户')
+            productIndex = recipient;
+            modal.find('.modal-title').text('编辑产品')
             modal.find('.modal-body input#id').val(product[recipient].id)
             modal.find('.modal-body input#originProductCode').val(product[recipient].productCode)
             modal.find('.modal-body input#productCode').val(product[recipient].productCode)
@@ -771,19 +747,19 @@
             // modal.find('.modal-body input#teacherOldName').val(teachers[recipient].teacherName);
         } else {
             //清空模态框的数据
-            modal.find('.modal-body input#teacherId').val(0);
-            modal.find('.modal-body input#teacherName').val("");
-            modal.find('.modal-body input#teacherPassword').val("");
-            modal.find('.modal-body input#teacherTruename').val("");
-            modal.find('.modal-body input#teacherschool').val("");
-            modal.find('.modal-body input#teacherAcademy').val("");
-            modal.find('.modal-body input#teacherClass').val("");
-            modal.find('.modal-body input#teacherEmail').val("");
-            modal.find('.modal-body img#preview').innerHTML = "";
-            modal.find('.modal-body input#file').val("");
+            modal.find('.modal-title').text('编辑产品')
+            modal.find('.modal-body input#productCode').val("");
+            modal.find('.modal-body input#name').val("");
+            modal.find('.modal-body input#price').val("");
+            modal.find('.modal-body input#type').val("");
+            modal.find('.modal-body input#sellData').val("");
+            modal.find('.modal-body input#deadline').val("");
+            modal.find('.modal-body input#dueDate').val("");
+            modal.find('.modal-body input#description').val("");
+            // modal.find('.modal-body input#file').val("");
             //修改为默认显示头像的背景图片
-            $("#preview").attr("src", "img/head.jpg");
-            userIndex = -1;
+            // $("#preview").attr("src", "img/head.jpg");
+            productIndex = -1;
         }
     });
 </script>

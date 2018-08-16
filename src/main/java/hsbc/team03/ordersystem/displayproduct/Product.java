@@ -1,6 +1,7 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 
 /**
@@ -9,6 +10,7 @@ import javax.persistence.Id;
  * @Describe：产品的详细信息
  */
 @Entity
+//@EntityListeners()
 public class Product {
     /**
      * id--UUID

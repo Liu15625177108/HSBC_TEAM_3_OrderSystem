@@ -56,14 +56,11 @@ public class ManagerServiceImpl implements ManagerService {
         Specification<Product> specification = new Specification<Product>() {
             @Override
             public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-//                return criteriaBuilder.in(root.get("status")).value(1);
-
                 List<Predicate> predicates = new ArrayList<Predicate>();
                 Path<Long> status = root.get("status");
                 Predicate predicate = criteriaBuilder.equal(status, 1);
                 predicates.add(predicate);
                 Path<Long> path = root.get("type");
-//               String productType= String
                 Predicate predicate1 = criteriaBuilder.equal(path, productType);
                 predicates.add(predicate1);
                 return criteriaBuilder.and(predicates
@@ -73,9 +70,6 @@ public class ManagerServiceImpl implements ManagerService {
 
         Pageable pageable = PageRequest.of(page, count, sort);
         return managerRepository.findAll(specification, pageable);
-
-//        Page<Product> products= productRepository.findAll();
-
     }
 
     /**
@@ -87,33 +81,38 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     public boolean addProduct(Product product, MultipartFile file) throws IOException {
+        System.out.println("产品"+product.getId()+"=id");
         boolean tag = false;
         String flage = "0";
+        /*it use to judge modify product or add product*/
+        String judgeProductId="";
         /*check the data whether in a rule*/
-        boolean checkDataBoolean = commonTool.checkData(product, file);
-        if (checkDataBoolean) {
-            /*check the Icon's format of .jpeg .png .gif and upload icon*/
-            String uploadFileName = dataCheckTool.checkIconAndUploadIcon(file);
-            if (!flage.equals(uploadFileName)) {
-                /*check the productCode of unique*/
-                List<Product> products = managerRepository.findByStatus(1);
-                tag = commonTool.checkUniqueOfProduct(product, products);
-                /*if the productCode is unique,allow add product*/
-                if (tag) {
-                    /*save the production to database*/
-                    product.setId(UUIDUtils.getUUID());
-                    product.setStatus(1);
-                    product.setIcon(uploadFileName);
-                    managerRepository.save(product);
-                    /* *//*if save fail,then managerRepository operation database return null,so it will return false*//*
-                if (product == null) {
-                    tag = false;
-                    return tag;
-                }*/
+        /*如果是修改产品信息，产品的id一定不为空*/
+        if(!judgeProductId.equals(product.getId())){
+            modifyProduct(product,file);
+        } else {
+            /*set the product's id*/
+            boolean checkDataBoolean = commonTool.checkData(product, file);
+            if (checkDataBoolean) {
+                /*check the Icon's format of .jpeg .png .gif and upload icon*/
+                String uploadFileName = dataCheckTool.checkIconAndUploadIcon(file);
+                if (!flage.equals(uploadFileName)) {
+                    /*check the productCode of unique*/
+                    List<Product> products = managerRepository.findByStatus(1);
+                    tag = commonTool.checkUniqueOfProduct(product, products);
+                    /*if the productCode is unique,allow add product*/
+                    if (tag) {
+                        /*save the production to database*/
+                        product.setId(UUIDUtils.getUUID());
+                        product.setStatus(1);
+                        product.setIcon(uploadFileName);
+                        managerRepository.save(product);
+                    }
                 }
-            }
 
+            }
         }
+
         return tag;
     }
 

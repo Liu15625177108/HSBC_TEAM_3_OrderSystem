@@ -70,13 +70,14 @@ public class DataCheckTool {
         String suffix1 = ".jpeg";
         String suffix2 = ".gif";
         String suffix3 = ".png";
+        String suffix4 = ".jpg";
         if (file.isEmpty()) {
             return "0";
         }
         String fileName = file.getOriginalFilename();
         // 获取文件的后缀名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        if (!(suffix1.equals(suffixName)) && !(suffix2.equals(suffixName)) && !(suffix3.equals(suffixName))) {
+        if (!(suffix1.equals(suffixName)) && !(suffix2.equals(suffixName)) && !(suffix3.equals(suffixName)) &&!(suffix4.equals(suffixName)) ) {
             return "0";
         }
         DataUtils dataUtils = new DataUtils();
