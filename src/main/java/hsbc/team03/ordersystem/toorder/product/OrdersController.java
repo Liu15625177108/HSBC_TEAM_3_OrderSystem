@@ -42,6 +42,11 @@ public class OrdersController {
 //    private ResultViewService resultViewService;
     private ResultViewService resultViewService = new ResultViewServiceImpl();
 
+    @GetMapping(value = "/toshoworder")
+    public Object showOrder(@RequestParam("productId")String productId){
+        
+    }
+    
     /**
      * @return java.lang.Object
      * @Author Chen
