@@ -356,7 +356,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">价格</span>
                                 </div>
-                                <input type="text" id="price" name="price" class="form-control" ng-blur="checkPrice()">
+                                <input type="text" style="size: 20px" id="price" name="price" class="form-control" ng-blur="checkPrice()">
                                 <span id="msg-price" style="color: red"></span>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                             <div class="input-group-prepend">
                                 <a class="input-group-text">类型</a>
                                 <a>
-                                    <input type="text" id="type" name="type" class="form-control1 ">
+                                    <input type="text" id="type" name="type" style="size: 20px" class="form-control1 ">
                                     <select>
                                         <option ng-repeat="x in productsType">
                                             {{x.productType}}
@@ -375,14 +375,16 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <span id="dataMsg" style="color: red"></span>
+                    </div>
+                    <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售起始日</span>
                             </div>
-                            <input type="text" id="sellData" name="sellData" class="form-control"
-                                   ng-blur="checkDateOfSelldate_Deadline_Duedate($index)">
+                            <input type="text" id="sellData" name="sellData" class="form-control" ng-blur="checkDateOfSelldate_Deadline_Duedate()">
+                            <div style="float: left">请选择时间：<input type="date" id="newSelldata" size="20px"><a style="color: red">*</a></div>
                         </div>
-
                     </div>
                     <div class="form-group">
                         <div class="input-group">
@@ -390,6 +392,8 @@
                                 <span class="input-group-text">发售截止日</span>
                             </div>
                             <input type="text" id="deadline" name="deadline" class="form-control">
+                            <div style="float: left">请选择时间：<input type="date" id="newDeadline" size="20px"><a style="color: red">*</a></div>
+
                         </div>
 
                     </div>
@@ -398,10 +402,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品到期日</span>
                             </div>
-                            <input type="text" id="dueDate" name="dueDate" class="form-control">
-                            <!-- <div class="input-group-append">
-                                 <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
-                             </div>-->
+                            <input type="text" id="dueDate" name="dueDate" size="15px" class="form-control">
+                            <div style="float: left">请选择时间：<input type="date" id="newDuedate" size="15px"><a style="color: red">*</a></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -667,11 +669,21 @@
          * 2：产品的到期日一定大于产品的销售截止日
          * 3：默认情况，产品的起始销售日必须大于系统的当前时间
          */
-        $scope.checkDateOfSelldate_Deadline_Duedate = function (x) {
-            var selldate = $("").val;
-            var deadline = $("").val;
-            var duedate = $("").val;
-            alert("下标" + x);
+        $scope.checkDateOfSelldate_Deadline_Duedate = function () {
+            //产品的更改后的发售起始日
+            var newSelldata = document.getElementById("newSelldata").value;
+            //产品的更改后的发售截止日
+            var newDeadline = document.getElementById("newDeadline").value;
+            //产品的更改后的到期日
+            var newDuedate = document.getElementById("newDuedate").value;
+           if (newDeadline<newSelldata){
+               document.getElementById("dataMsg").innerHTML = "发售截止日不能小于发售起始日";
+               return false;
+           }
+           if (newDuedate<newDeadline){
+               document.getElementById("dataMsg").innerHTML = "产品到期日不能小于发售截止日";
+               return false;
+           }
         }
         //检查产品价格的有效性:double（并且保留两位数或者一位数）、 int
         $scope.checkPrice = function () {
@@ -693,35 +705,7 @@
         }
     });
 
-
-    // app.controller("customersCtrl", function($scope, $rootScope, $modal) {
-    //     var data = "通过modal传递的数据";
-    //     $scope.openModal = function() {
-    //         var modalInstance = $modal.open({
-    //             templateUrl : 'modal.html',//script标签中定义的id
-    //             controller : 'modalCtrl',//modal对应的Controller
-    //             resolve : {
-    //                 data : function() {//data作为modal的controller传入的参数
-    //                     return data;//用于传递数据
-    //                 }
-    //             }
-    //         })
-    //     }
-    // })
-    // //模态框对应的Controller
-    // app.controller('modalCtrl', function($scope, $modalInstance, data) {
-    //     $scope.data= data;
-    //
-    //     //在这里处理要进行的操作
-    //     $scope.ok = function() {
-    //         $modalInstance.close();
-    //     };
-    //     $scope.cancel = function() {
-    //         $modalInstance.dismiss('cancel');
-    //     }
-    // });
-
-    // 修改用户的信息
+    // 修改产品的信息
     $('#primaryModal').on('show.bs.modal', function (event) {
 
         var button = $(event.relatedTarget) // Button that triggered the modal
