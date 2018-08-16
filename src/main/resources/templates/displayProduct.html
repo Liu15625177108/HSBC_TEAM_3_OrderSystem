@@ -2,10 +2,9 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8"/>
-    <meta productName="viewport" content="width=device-width, initial-scale=1.0">
-    <meta productName="author" content="Aviators - byaviators.com">
-
-    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aviators - byaviators.com">
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="assets/css/bootstrap-responsive.css" type="text/css">
@@ -199,7 +198,8 @@
                                                 </label>
                                                 <div class="controls">
                                                     <select id="productType" ng-blur="getDataNumberOrProductType()">
-                                                        <option ng-repeat="x in productsType" ng-bind="x.productType"></option>
+                                                        <option ng-repeat="x in productsType"
+                                                                ng-bind="x.productType"></option>
                                                     </select>
                                                 </div><!-- /.controls -->
                                             </div><!-- /.control-group -->
@@ -234,20 +234,21 @@
                                                 </div><!-- /.image -->
                                                 <!--ng-repeat="pro in products | filter:myselect | orderBy:'productPrice'"-->
                                                 <div class="body span6">
-                                                    <div class="title-productPrice row">
-
+                                                    <div class="title-price row">
                                                         <div class="title span4">
-                                                            产品代码：<h2><a href="detail.html"  ng-bind="pro.productCode"></a></h2>
+                                                            <h2>产品代码：<a href="" ng-bind="pro.productCode"></a></h2>
                                                         </div><!-- /.title -->
-                                                        价格:<div class="productPrice" ng-bind="pro.productPrice" ></div>
+                                                        <div class="" style="float: right;">
+                                                            <h4>价格:<a class="price" style="color: red" ng-bind="pro.productPrice"></a></h4>
+                                                        </div>
                                                     </div>
 
                                                     <div class="location clearfix">
-                                                        <div style="float: left;" >描述</div>
-                                                        <div style="float: right;" ng-bind="pro.type">产品类型:</div>
-                                                    </div>
+                                                        <div style="float: left;">描述</div>
+                                                        <div style="float: right;">产品类型:<a style="float: right;" ng-bind="pro.productType"></a></div>
 
-                                                    <p>{{pro.description}}</p>
+                                                    </div>
+                                                    <p ng-bind="pro.description"></p>
                                                     <div class="">
                                                         <span class="key">发售起始日：</span>
                                                         <span class="value" ng-bind="pro.sellData"></span>
@@ -571,7 +572,7 @@
             $scope.getDataNumberOrProductType = function () {
                 var productType = $("#productType").find("option:selected").text();//选中的文本
                 var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
-                var jsonData = {"dataCount": dataNumber,"productType":productType};
+                var jsonData = {"dataCount": dataNumber, "productType": productType};
                 $http({
                     url: "/user/get/products",
                     method: "post",
