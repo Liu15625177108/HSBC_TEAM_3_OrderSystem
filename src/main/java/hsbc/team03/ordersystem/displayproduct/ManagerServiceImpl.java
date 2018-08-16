@@ -60,7 +60,7 @@ public class ManagerServiceImpl implements ManagerService {
                 Path<Long> status = root.get("status");
                 Predicate predicate = criteriaBuilder.equal(status, 1);
                 predicates.add(predicate);
-                Path<Long> path = root.get("type");
+                Path<Long> path = root.get("productType");
                 Predicate predicate1 = criteriaBuilder.equal(path, productType);
                 predicates.add(predicate1);
                 return criteriaBuilder.and(predicates

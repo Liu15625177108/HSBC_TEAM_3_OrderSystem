@@ -2,8 +2,8 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Aviators - byaviators.com">
+    <meta productName="viewport" content="width=device-width, initial-scale=1.0">
+    <meta productName="author" content="Aviators - byaviators.com">
 
     <!--<link href='http://fonts.useso.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
@@ -65,9 +65,9 @@
                                                 </a>
                                             </div><!-- /.logo -->
 
-                                            <div class="site-name">
+                                            <div class="site-productName">
                                                 <a href="/" title="Home" class="brand">Realia</a>
-                                            </div><!-- /.site-name -->
+                                            </div><!-- /.site-productName -->
 
                                             <div class="site-slogan">
                                                 <span>Real estate &amp; Rental<br>made easy</span>
@@ -161,7 +161,7 @@
                                 <div class="input-append">
                                     <input title="Enter the terms you wish to search for."
                                            class="search-query span2 form-text" placeholder="Search" type="text"
-                                           name="">
+                                           productName="">
                                     <button type="submit" class="btn"><i class="icon-search"></i></button>
                                 </div><!-- /.input-append -->
                             </form><!-- /.site-search -->
@@ -187,7 +187,7 @@
                                                 </label>
                                                 <div class="controls">
                                                     <select id="inputSortBy">
-                                                        <option id="price">Price</option>
+                                                        <option id="productPrice">Price</option>
                                                         <option id="published">Published</option>
                                                     </select>
                                                 </div><!-- /.controls -->
@@ -225,21 +225,21 @@
                                 <div class="properties-rows clearfix">
                                     <div class="row">
                                         <div class="property span9 clearfix"
-                                             ng-repeat="pro in products | orderBy:'price'">
+                                             ng-repeat="pro in products | orderBy:'productPrice'">
                                             <div class="row">
                                                 <div class="image span3">
                                                     <div class="content">
                                                         <img src="{{pro.icon}}" alt="">
                                                     </div><!-- /.content -->
                                                 </div><!-- /.image -->
-                                                <!--ng-repeat="pro in products | filter:myselect | orderBy:'price'"-->
+                                                <!--ng-repeat="pro in products | filter:myselect | orderBy:'productPrice'"-->
                                                 <div class="body span6">
-                                                    <div class="title-price row">
+                                                    <div class="title-productPrice row">
 
                                                         <div class="title span4">
                                                             产品代码：<h2><a href="detail.html"  ng-bind="pro.productCode"></a></h2>
                                                         </div><!-- /.title -->
-                                                        <div class="price" ng-bind="pro.price" >价格:</div>
+                                                        价格:<div class="productPrice" ng-bind="pro.productPrice" ></div>
                                                     </div>
 
                                                     <div class="location clearfix">
@@ -351,31 +351,31 @@
                                             </div><!-- /.controls -->
                                         </div><!-- /.control-group -->
 
-                                        <div class="price-from control-group">
+                                        <div class="productPrice-from control-group">
                                             <label class="control-label" for="inputPriceFrom">
                                                 Price from
                                             </label>
                                             <div class="controls">
-                                                <input type="text" id="inputPriceFrom" name="inputPriceFrom">
+                                                <input type="text" id="inputPriceFrom" productName="inputPriceFrom">
                                             </div><!-- /.controls -->
                                         </div><!-- /.control-group -->
 
-                                        <div class="price-to control-group">
+                                        <div class="productPrice-to control-group">
                                             <label class="control-label" for="inputPriceTo">
                                                 Price to
                                             </label>
                                             <div class="controls">
-                                                <input type="text" id="inputPriceTo" name="inputPriceTo">
+                                                <input type="text" id="inputPriceTo" productName="inputPriceTo">
                                             </div><!-- /.controls -->
                                         </div><!-- /.control-group -->
 
-                                        <div class="price-value">
+                                        <div class="productPrice-value">
                                             <span class="from"></span><!-- /.from -->
                                             -
                                             <span class="to"></span><!-- /.to -->
-                                        </div><!-- /.price-value -->
+                                        </div><!-- /.productPrice-value -->
 
-                                        <div class="price-slider"></div><!-- /.price-slider -->
+                                        <div class="productPrice-slider"></div><!-- /.productPrice-slider -->
                                         <div class="form-actions">
                                             <input type="submit" value="Filter now!"
                                                    class="btn btn-primary btn-large">
@@ -393,7 +393,7 @@
                                         <div class="image">
                                             <img src="assets/img/photos/emma-small.png" alt="">
                                         </div><!-- /.image -->
-                                        <div class="name">Victoria Summer</div><!-- /.name -->
+                                        <div class="productName">Victoria Summer</div><!-- /.productName -->
                                         <div class="phone">333-666-777</div><!-- /.phone -->
                                         <div class="email"><a
                                                 href="mailto:victoria@example.com">victoria@example.com</a>
@@ -404,7 +404,7 @@
                                         <div class="image">
                                             <img src="assets/img/photos/john-small.png" alt="">
                                         </div><!-- /.image -->
-                                        <div class="name">John Doe</div><!-- /.name -->
+                                        <div class="productName">John Doe</div><!-- /.productName -->
                                         <div class="phone">111-222-333</div><!-- /.phone -->
                                         <div class="email"><a
                                                 href="mailto:john.doe@example.com">victoria@example.com</a>

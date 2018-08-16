@@ -1,7 +1,6 @@
 package hsbc.team03.ordersystem.displayproduct;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 
 /**
@@ -22,17 +21,17 @@ public class Product {
      */
     private String productCode;
     /**
-     * product' name
+     * product' productName
      */
-    private String name;
+    private String productName;
     /**
-     * product'price
+     * product'productPrice
      */
-    private double price;
+    private double productPrice;
     /**
      * product's type
      */
-    private String type;
+    private String productType;
     /**
      * product' description
      */
@@ -59,12 +58,12 @@ public class Product {
      */
     private int status=1;
 
-    public Product(String id, String productCode, String name, double price, String type, String description, String icon, String sellData, String deadline, String dueDate, int status) {
+    public Product(String id, String productCode, String productName, double productPrice, String productType, String description, String icon, String sellData, String deadline, String dueDate, int status) {
         this.id = id;
         this.productCode = productCode;
-        this.name = name;
-        this.price = price;
-        this.type = type;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productType = productType;
         this.description = description;
         this.icon = icon;
         this.sellData = sellData;
@@ -92,28 +91,28 @@ public class Product {
         this.productCode = productCode;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public double getPrice() {
-        return price;
+    public double getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public String getType() {
-        return type;
+    public String getProductType() {
+        return productType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 
     public String getDescription() {
@@ -169,9 +168,9 @@ public class Product {
         return "Product{" +
                 "id='" + id + '\'' +
                 ", productCode='" + productCode + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", type='" + type + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productPrice=" + productPrice +
+                ", type='" + productType + '\'' +
                 ", description='" + description + '\'' +
                 ", icon='" + icon + '\'' +
                 ", sellData='" + sellData + '\'' +

@@ -56,7 +56,7 @@ public class ProductController {
         // @RequestParam(value = "pageNum", defaultValue = "0") int pageNum
 //        Page<Product> products = productService.getProductListByPage(request);
 
-        Sort sort = Sort.by("type");
+        Sort sort = Sort.by("productType");
         Page<Product> products = productService.getProductListByPage(pageNum,productType,dataCount, sort);
 
         return products;

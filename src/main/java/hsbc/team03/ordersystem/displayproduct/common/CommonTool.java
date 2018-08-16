@@ -27,11 +27,11 @@ public class CommonTool {
         boolean tag = true;
         if (products != null) {
             for (int i = 0; i < products.size(); i++) {
-                if (product.getProductCode().equals(products.get(i).getProductCode()) && product.getName().equals(products.get(i).getName())) {
+                if (product.getProductCode().equals(products.get(i).getProductCode()) && product.getProductName().equals(products.get(i).getProductName())) {
                     tag = false;
                     return tag;
                 }
-                if (!(product.getName().equals(products.get(i).getName())) && product.getProductCode().equals(products.get(i).getProductCode())) {
+                if (!(product.getProductName().equals(products.get(i).getProductName())) && product.getProductCode().equals(products.get(i).getProductCode())) {
                     tag = true;
                     return tag;
                 }
@@ -86,23 +86,23 @@ public class CommonTool {
         if (!(compareProduct.getProductCode().equals(product.getProductCode()))) {
             msg = "Changed the original product code =" + compareProduct.getProductCode() + " to " + product.getProductCode();
         }
-        if (!(compareProduct.getName().equals(product.getName()))) {
-            msg = "Changed the original product name =" + compareProduct.getName() + " to " + product.getName();
+        if (!(compareProduct.getProductName().equals(product.getProductName()))) {
+            msg = "Changed the original product name =" + compareProduct.getProductName() + " to " + product.getProductName();
         }
-        if (compareProduct.getPrice() != product.getPrice()) {
-            msg = "Changed the original product price =" + compareProduct.getPrice();
+        if (compareProduct.getProductPrice() != product.getProductPrice()) {
+            msg = "Changed the original product price =" + compareProduct.getProductPrice();
         }
-        if (compareProduct.getPrice() != product.getPrice() && !(compareProduct.getName().equals(product.getName()))) {
-            msg = "Changed the original product price and name=" + compareProduct.getPrice() + " " + compareProduct.getName() + "to" + product.getName() + " " + product.getPrice() + " where origin'produceCode is" + compareProduct.getProductCode();
+        if (compareProduct.getProductPrice() != product.getProductPrice() && !(compareProduct.getProductName().equals(product.getProductName()))) {
+            msg = "Changed the original product price and name=" + compareProduct.getProductPrice() + " " + compareProduct.getProductName() + "to" + product.getProductName() + " " + product.getProductPrice() + " where origin'produceCode is" + compareProduct.getProductCode();
         }
-        if (compareProduct.getPrice() != product.getPrice() && !(compareProduct.getProductCode().equals(product.getProductCode()))) {
-            msg = "Changed the original product price and produceCode=" + compareProduct.getPrice() + " " + compareProduct.getProductCode() + "to" + product.getProductCode() + " " + product.getPrice();
+        if (compareProduct.getProductPrice() != product.getProductPrice() && !(compareProduct.getProductCode().equals(product.getProductCode()))) {
+            msg = "Changed the original product price and produceCode=" + compareProduct.getProductPrice() + " " + compareProduct.getProductCode() + "to" + product.getProductCode() + " " + product.getProductPrice();
         }
-        if (!(compareProduct.getName().equals(product.getName())) && !(compareProduct.getProductCode().equals(product.getProductCode()))) {
-            msg = "Changed the original product name and productCode =" + compareProduct.getName() + " " + compareProduct.getProductCode() + "to " + product.getName() + " " + product.getProductCode();
+        if (!(compareProduct.getProductName().equals(product.getProductName())) && !(compareProduct.getProductCode().equals(product.getProductCode()))) {
+            msg = "Changed the original product name and productCode =" + compareProduct.getProductName() + " " + compareProduct.getProductCode() + "to " + product.getProductName() + " " + product.getProductCode();
         }
-        if (!(compareProduct.getName().equals(product.getName())) && !(compareProduct.getProductCode().equals(product.getProductCode())) && compareProduct.getPrice() != product.getPrice()) {
-            msg = "modify product's name、code and price of product' code =" + compareProduct.getName() + "、" + compareProduct.getProductCode() + "、" + compareProduct.getPrice() + " of origin information is " + product.getName() + "、" + product.getProductCode() + "、" + product.getPrice();
+        if (!(compareProduct.getProductName().equals(product.getProductName())) && !(compareProduct.getProductCode().equals(product.getProductCode())) && compareProduct.getProductPrice() != product.getProductPrice()) {
+            msg = "modify product's name、code and price of product' code =" + compareProduct.getProductName() + "、" + compareProduct.getProductCode() + "、" + compareProduct.getProductPrice() + " of origin information is " + product.getProductName() + "、" + product.getProductCode() + "、" + product.getProductPrice();
         }
         return msg;
     }

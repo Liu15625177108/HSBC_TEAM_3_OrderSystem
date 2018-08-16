@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword"
+    <meta productName="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta productName="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta productName="author" content="Łukasz Holeczek">
+    <meta productName="keyword"
           content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
     <link rel="shortcut icon" href="img/favicon.png">
     <title>HSBC后台产品管理</title>
@@ -216,9 +216,9 @@
                             <tr ng-repeat="pro in products">
                                 <input type="hidden" value="{{pro.id}}">
                                 <td ng-bind="pro.productCode"></td>
-                                <td ng-bind="pro.name"></td>
-                                <td ng-bind="pro.price"></td>
-                                <td ng-bind="pro.type"></td>
+                                <td ng-bind="pro.productName"></td>
+                                <td ng-bind="pro.productPrice"></td>
+                                <td ng-bind="pro.productType"></td>
                                 <td ng-bind="pro.sellData"></td>
                                 <td ng-bind="pro.deadline"></td>
                                 <td ng-bind="pro.dueDate"></td>
@@ -317,10 +317,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-add" enctype="multipart/form-data" name="editProductInfoForm" novalidate>
+                <form id="form-add" enctype="multipart/form-data" productName="editProductInfoForm" novalidate>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="hidden" id="id" name="id">
+                            <input type="hidden" id="id" productName="id">
                         </div>
                         <div class="form-group">
                             <div class="input-group mb-1">
@@ -330,8 +330,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">产品代码</span>
                                 </div>
-                                <input type="hidden" id="originProductCode" name="originProductCode">
-                                <input type="text" id="productCode" name="productCode" ng-model="productCode"
+                                <input type="hidden" id="originProductCode" productName="originProductCode">
+                                <input type="text" id="productCode" productName="productCode" ng-model="productCode"
                                        class="form-control"
                                        ng-minlength="6" ng-maxlength="6" ng-blur="checkProductCodeUnique()" required>
                                 <!--onblur="checkProductCodeUnique()-->
@@ -348,7 +348,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">产品名</span>
                                 </div>
-                                <input type="text" id="name" name="name" class="form-control">
+                                <input type="text" id="productName" productName="productName" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -356,7 +356,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">价格</span>
                                 </div>
-                                <input type="text" style="size: 20px" id="price" name="price" class="form-control" ng-blur="checkPrice()">
+                                <input type="text" style="size: 20px" id="price" productName="price" class="form-control" ng-blur="checkPrice()">
                                 <span id="msg-price" style="color: red"></span>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                             <div class="input-group-prepend">
                                 <a class="input-group-text">类型</a>
                                 <a>
-                                    <input type="text" id="type" name="type" style="size: 20px" class="form-control1 ">
+                                    <input type="text" id="type" productName="type" style="size: 20px" class="form-control1 ">
                                     <select>
                                         <option ng-repeat="x in productsType">
                                             {{x.productType}}
@@ -382,7 +382,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售起始日</span>
                             </div>
-                            <input type="text" id="sellData" name="sellData" class="form-control" ng-blur="checkDateOfSelldate_Deadline_Duedate()">
+                            <input type="text" id="sellData" productName="sellData" class="form-control" ng-blur="checkDateOfSelldate_Deadline_Duedate()">
                             <div style="float: left">请选择时间：<input type="date" id="newSelldata" size="20px"><a style="color: red">*</a></div>
                         </div>
                     </div>
@@ -391,7 +391,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售截止日</span>
                             </div>
-                            <input type="text" id="deadline" name="deadline" class="form-control">
+                            <input type="text" id="deadline" productName="deadline" class="form-control">
                             <div style="float: left">请选择时间：<input type="date" id="newDeadline" size="20px"><a style="color: red">*</a></div>
 
                         </div>
@@ -402,7 +402,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品到期日</span>
                             </div>
-                            <input type="text" id="dueDate" name="dueDate" size="15px" class="form-control">
+                            <input type="text" id="dueDate" productName="dueDate" size="15px" class="form-control">
                             <div style="float: left">请选择时间：<input type="date" id="newDuedate" size="15px"><a style="color: red">*</a></div>
                         </div>
                     </div>
@@ -411,7 +411,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品描述</span>
                             </div>
-                            <input type="text" id="description" name="description" class="form-control">
+                            <input type="text" id="description" productName="description" class="form-control">
                             <!-- <div class="input-group-append">
                                  <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
                              </div>-->
@@ -421,7 +421,7 @@
                         <div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"
                                                  style="display: block; width: 100px; height: 100px;">
                         </div>
-                        <input type="file" name="file" id="file" style="width:150px;"/>
+                        <input type="file" productName="file" id="file" style="width:150px;"/>
                     </div>
                     <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存</button>
                 </form>
@@ -449,7 +449,7 @@
             </div>
 
             <div class="modal-body">
-                <input type="hidden" id="del_id" name="del_id" class="form-control">
+                <input type="hidden" id="del_id" productName="del_id" class="form-control">
                 确定要删除<p style="display: inline;"></p>的数据吗?
             </div>
             <div class="modal-footer">
@@ -594,7 +594,7 @@
             //要再一次验证产品的产品代码、产品价格等信息
             var id = $("#id").val();
             var productCode = $("#productCode").val();
-            var name = $("#name").val();
+            var productName = $("#productName").val();
             var price = $("#price").val();
             var type = $("#type").val();
             var sellData = $("#sellData").val();
@@ -606,7 +606,7 @@
             var formdata = new FormData()
             formdata.append('id', id);
             formdata.append('productCode', productCode);
-            formdata.append('name', name);
+            formdata.append('productName', productName);
             formdata.append('price', price);
             formdata.append('type', type);
             formdata.append('sellData', sellData);
@@ -719,9 +719,9 @@
             modal.find('.modal-body input#id').val(product[recipient].id)
             modal.find('.modal-body input#originProductCode').val(product[recipient].productCode)
             modal.find('.modal-body input#productCode').val(product[recipient].productCode)
-            modal.find('.modal-body input#name').val(product[recipient].name)
-            modal.find('.modal-body input#price').val(product[recipient].price)
-            modal.find('.modal-body input#type').val(product[recipient].type)
+            modal.find('.modal-body input#productName').val(product[recipient].productName)
+            modal.find('.modal-body input#price').val(product[recipient].productPrice)
+            modal.find('.modal-body input#type').val(product[recipient].productType)
             modal.find('.modal-body input#sellData').val(product[recipient].sellData)
             modal.find('.modal-body input#deadline').val(product[recipient].deadline)
             modal.find('.modal-body input#dueDate').val(product[recipient].dueDate)
@@ -733,7 +733,7 @@
             //清空模态框的数据
             modal.find('.modal-title').text('编辑产品')
             modal.find('.modal-body input#productCode').val("");
-            modal.find('.modal-body input#name').val("");
+            modal.find('.modal-body input#productName').val("");
             modal.find('.modal-body input#price').val("");
             modal.find('.modal-body input#type').val("");
             modal.find('.modal-body input#sellData').val("");

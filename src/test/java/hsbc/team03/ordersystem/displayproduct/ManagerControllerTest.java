@@ -60,9 +60,9 @@ public class ManagerControllerTest {
         Product product = new Product();
         product.setId(UUIDUtils.getUUID());
         product.setProductCode("231701");
-        product.setName("中海");
-        product.setPrice(20.8);
-        product.setType("稳健型");
+        product.setProductName("中海");
+        product.setProductPrice(20.8);
+        product.setProductType("稳健型");
         product.setDescription("这是1");
         product.setStatus(1);
         product.setDeadline("2018-8-10");

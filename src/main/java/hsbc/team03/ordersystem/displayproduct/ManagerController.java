@@ -48,10 +48,9 @@ public class ManagerController {
     @RequestMapping(value = "/manager/productlist", method = RequestMethod.POST)
     public  Page<Product> getAllProduct(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNum, @RequestParam(name = "dataCount", defaultValue = "2") int dataCount, @RequestParam(name = "productType", defaultValue = "短期型") String productType) {
 
-        Sort sort = Sort.by("type");
+        Sort sort = Sort.by("productType");
         Page<Product> products = managerService.getProductListByPage(pageNum,productType,dataCount, sort);
 
-//        List<Product> list = managerService.productList();
         return products;
     }
 
