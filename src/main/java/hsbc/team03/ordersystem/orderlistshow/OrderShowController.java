@@ -5,6 +5,7 @@ import hsbc.team03.ordersystem.result.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,12 +38,18 @@ public class OrderShowController {
         OrderView orderView = new OrderView();
         orderView.setOrderInfoList(orderService.findAllOrder());
 
-        resultView.setStatus(1);
+        resultView.setStatus(200);
         resultView.setMsg("已经是登录状态");
         resultView.setData(orderView);
 
         System.out.println(resultView.toString());
         return resultView;
+    }
+
+    @GetMapping("/findOrder")
+    public OrderInfo findOrderById(@RequestParam(defaultValue = "orderId",required = true)
+                                               String orderId){
+        return orderService.showOrderByUserId(orderId);
     }
 
 }

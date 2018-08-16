@@ -18,4 +18,19 @@ public class ProductShowServiceImpl implements ProductShowService {
     public List<ProductInfoView> listAll() {
         return null;
     }
+
+    @Override
+    public ProductInfoView showProductDetailsById(String productId){
+        return this.getProductById(productId);
+    }
+
+    @Override
+    public ProductInfoView getProductById(String productId){
+        for(ProductInfoView x: listAll()){
+            if (productId == x.getProductId()){
+                return x;
+            }
+        }
+        return null;
+    }
 }

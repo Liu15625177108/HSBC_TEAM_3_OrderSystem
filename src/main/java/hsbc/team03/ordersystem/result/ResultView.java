@@ -56,6 +56,7 @@ public class ResultView<T> implements Serializable {
 
     @Override
     public String toString(){
-        return "status: " + this.status + "; msg: " + this.msg + "; data: " + this.data.toString();
+        System.out.println(" ");
+        return "status: " + this.status + "; msg: " + this.msg + "; data: " + this.data;
     }
 }

@@ -21,4 +21,23 @@ public interface ProductShowService {
      */
     List<ProductInfoView> listAll();
 
+    /**
+     * @Method showProductDetailsById
+     * @Description //TODO
+     * @Author Alan Ruan
+     * @Date 2018/08/16 11:15:35
+     * @Param [productId]
+     * @Return hsbc.team03.ordersystem.productsshow.ProductInfoView
+     */
+    ProductInfoView showProductDetailsById(String productId);
+
+    /**
+     * @Method getProductById
+     * @Description //TODO
+     * @Author Alan Ruan
+     * @Date 2018/08/16 11:16:32
+     * @Param [productId]
+     * @Return hsbc.team03.ordersystem.productsshow.ProductInfoView
+     */
+    ProductInfoView getProductById(String productId);
 }

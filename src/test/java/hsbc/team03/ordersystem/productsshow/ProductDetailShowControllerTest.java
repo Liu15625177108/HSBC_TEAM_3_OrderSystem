@@ -1,9 +1,8 @@
 package hsbc.team03.ordersystem.productsshow;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -16,6 +15,7 @@ import java.util.List;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(ProductDetailShowController.class)
+@Slf4j
 public class ProductDetailShowControllerTest {
 
     @MockBean
@@ -37,10 +38,12 @@ public class ProductDetailShowControllerTest {
     private MockMvc mvc;
 
 
-    private static final String TEST = "{\"status\":1,\"msg\":\"已经登录\",\"data\":{\"products\":[" +
+    private static final String TEST = "{\"status\":200,\"msg\":\"已经登录\",\"data\":{\"products\":[" +
             "{\"id\":\"1111\",\"name\":\"朝朝盈\",\"price\":4.44,\"description\":\"赚得更多\",\"icon\":\"ZhaoZhaoYing.jpg\"}," +
             "{\"id\":\"2222\",\"name\":\"余额宝\",\"price\":3.33,\"description\":\"稳赚不亏\",\"icon\":\"YuEBao.jpg\"}]}}";
 
+
+    private static final String TEST2 = "{\"id\":\"1111\",\"name\":\"朝朝盈\",\"price\":4.44,\"description\":\"赚得更多\",\"icon\":\"ZhaoZhaoYing.jpg\"}";
 
     /**
      * @Method getList
@@ -73,14 +76,49 @@ public class ProductDetailShowControllerTest {
         list.add(productInfoView1);
         list.add(productInfoView2);
 
+        System.out.println(" ");
         System.out.println(list.toString());
+        System.out.println(" ");
        // Logger logger = LoggerFactory.getLogger(list.toString());
         given(this.productShowService.listAll()).willReturn(list);
 
-        this.mvc.perform(get("/user/product/list")
+
+        String result = this.mvc.perform(get("/user/product/list")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(3));
+                .andExpect(content().string(TEST))
+                .andExpect(jsonPath("$.length()").value(3))
+                .andReturn().getResponse().getContentAsString();
+        log.info(result);
+    }
+
+    /**
+     * @Method showProductDetailsById
+     * @Description //TODO
+     * @Author Alan Ruan
+     * @Date 2018/08/16 11:55:08
+     * @Param []
+     * @Return void
+     */
+    @Test
+    public void showProductDetailsById() throws Exception{
+
+        ProductInfoView productInfoView1 = new ProductInfoView();
+
+        productInfoView1.setProductId("1111");
+        productInfoView1.setProductName("朝朝盈");
+        productInfoView1.setProductPrice(4.44);
+        productInfoView1.setProductDescription("赚得更多");
+        productInfoView1.setProductIcon("ZhaoZhaoYing.jpg");
+
+        given(this.productShowService.getProductById("1111")).willReturn(productInfoView1);
+
+        System.out.println(productInfoView1.toString());
+        String result = this.mvc.perform(get("/user/product/show?productId=1111").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk()).andExpect(content().string(TEST2))
+                .andReturn().getResponse().getContentAsString();
+
+        log.info(result);
 
     }
 }

@@ -4,6 +4,7 @@ import hsbc.team03.ordersystem.result.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,11 +37,28 @@ public class ProductDetailShowController {
 
         productView.setProductInfoViewList(productShowService.listAll());
 
-        resultView.setStatus(1);
+        resultView.setStatus(200);
         resultView.setMsg("已经登录");
         resultView.setData(productView);
 
         return resultView;
+    }
+
+    /**
+     * @Method showProductDetailsById
+     * @Description //TODO
+     * @Author Alan Ruan
+     * @Date 2018/08/16 11:44:17
+     * @Param [productId]
+     * @Return hsbc.team03.ordersystem.productsshow.ProductInfoView
+     */
+    @GetMapping("/show")
+    public ProductInfoView showProductDetailsById(@RequestParam(value = "productId",
+            required = true) String productId){
+
+        //ProductInfoView productInfoView = new ProductInfoView();
+        return productShowService.getProductById(productId);
+
     }
 
 }
