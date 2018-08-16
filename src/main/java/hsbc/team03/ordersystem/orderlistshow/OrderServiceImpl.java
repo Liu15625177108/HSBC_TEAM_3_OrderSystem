@@ -18,4 +18,23 @@ public class OrderServiceImpl implements OrderService{
     public List<OrderInfo> findAllOrder() {
         return null;
     }
+
+    @Override
+    public List<OrderInfo> sortAllOrder(){return this.findAllOrder();}
+
+    @Override
+    public OrderInfo showOrderByUserId(String orderId){
+        return this.matchOrderByUserId(orderId);
+    }
+
+    @Override
+    public OrderInfo matchOrderByUserId(String orderId){
+        for (OrderInfo x:this.findAllOrder()){
+            if (x.getOrderId() == orderId){
+                return x;
+            }
+        }
+        return null;
+    }
+
 }

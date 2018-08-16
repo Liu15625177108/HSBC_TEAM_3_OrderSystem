@@ -28,4 +28,13 @@ public class ProductInfoView {
     @JsonProperty("icon")
     private String productIcon;
 
+    @Override
+    public String toString(){
+        return "productId: "+ this.productId+
+                "; productName: "+ this.productName+
+                "; productPrice: "+this.productPrice+
+                "; productDescription: "+ this.productDescription+
+                "; productIcon: "+this.productIcon;
+    }
+
 }

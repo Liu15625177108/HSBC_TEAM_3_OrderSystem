@@ -46,7 +46,6 @@ public class OrderInfo {
      * @Param []
      * @Return void
      */
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -94,5 +93,15 @@ public class OrderInfo {
 
     public Date getOrderTime() {
         return orderTime;
+    }
+
+    @Override
+    public String toString(){
+        return "Consumer's Name: "+this.consumerName+
+                "; Product's Name: "+this.productName+
+                "; Product's Num: "+this.productNum+
+                "; Consumer's Address: "+this.address+
+                "; OrderId: "+this.orderId+
+                "; OrderTime: "+ this.orderTime;
     }
 }
