@@ -45,18 +45,17 @@ public class OrdersServiceImpl implements OrdersService {
      **/
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean insertOrder(ProductInfo productInfo, UserInfo userInfo) {
-        OrdersInfo ordersInfo = new OrdersInfo(CommonsUtils.getUUID(), productInfo.getProductName(),
-                productInfo.getProductNumber(), userInfo.getUserName(), userInfo.getUserPhone(),
-                userInfo.getUserAddress(), productInfo.getProductPrice(), 1,
-                DataUtils.getCurrentTime(), getOrderPrice(productInfo));
-        ordersRepository.save(ordersInfo);
-        double userMoney=userInfo.getUserMoney()-getOrderPrice(productInfo);
+    public synchronized  boolean insertOrder(ProductInfo productInfo, UserInfo userInfo) {
+            OrdersInfo ordersInfo = new OrdersInfo(CommonsUtils.getUUID(), productInfo.getProductName(),
+                    productInfo.getProductNumber(), userInfo.getUserName(), userInfo.getUserPhone(),
+                    userInfo.getUserAddress(), productInfo.getProductPrice(), 1,
+                    DataUtils.getCurrentTime(), getOrderPrice(productInfo));
+            ordersRepository.save(ordersInfo);
+            double userMoney = userInfo.getUserMoney() - getOrderPrice(productInfo);
 //        int i=1/0;
-        //to reduce money
-        userRepository.updateUserInfoByUserId(userInfo.getUserId(),userMoney);
+            //to reduce money
+            userRepository.updateUserInfoByUserId(userInfo.getUserId(), userMoney);
         return true;
-
     }
 
     /**

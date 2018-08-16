@@ -10,25 +10,25 @@ logging:
 #spring.jpa.hibernate.ddl-auto=update
 
 
-spring:
-  datasource:
-    url: jdbc:mysql://123.207.22.215/ordersystem?useUnicode=true&characterEncoding=utf-8
-    username: user
-    password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
-  jpa: 
-    database: mysql
-    hibernate:
-      ddl-auto: update
-
 #spring:
 #  datasource:
-#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
-#    username: root
-#    password: root
+#    url: jdbc:mysql://123.207.22.215/ordersystem?useUnicode=true&characterEncoding=utf-8
+#    username: user
+#    password: 123456
 #    driver-class-name: com.mysql.jdbc.Driver
 #  jpa: 
 #    database: mysql
 #    hibernate:
 #      ddl-auto: update
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ordersystem?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa: 
+    database: mysql
+    hibernate:
+      ddl-auto: update
 

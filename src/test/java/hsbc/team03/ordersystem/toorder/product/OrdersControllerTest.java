@@ -36,6 +36,8 @@ public class OrdersControllerTest {
     private OrdersService orderService;
     @MockBean
     private UserService userService;
+    @MockBean
+    private ProductService productService;
 
     @Test
     public void testToOrder() throws Exception {
@@ -43,7 +45,7 @@ public class OrdersControllerTest {
         UserInfo userInfo = new UserInfo(CommonsUtils.getUUID(), "Chen",
                 100000, "123", "11111111111",
                 "岗顶");
-        ProductInfo productInfo = new ProductInfo(CommonsUtils.getUUID(), 3,
+        ProductInfo productInfo = new ProductInfo("11", 3,
                 100, "信用卡");
         OrdersInfo orderInfo = new OrdersInfo(CommonsUtils.getUUID(),
                 productInfo.getProductName(), productInfo.getProductNumber(),
@@ -55,21 +57,23 @@ public class OrdersControllerTest {
 
 
         given(this.userService.toValidatePayPassword(Mockito.any(UserInfo.class), eq("123"))).willReturn(true);
+        given(this.productService.getProductInfoByProductId(eq("11"))).willReturn(productInfo);
         given(this.orderService.insertOrder(Mockito.any(ProductInfo.class), Mockito.any(UserInfo.class))).willReturn(true);
         given(this.userService.toValidateMoney(Mockito.any(UserInfo.class),Mockito.any(ProductInfo.class))).willReturn(true);
         given(this.orderService.getOrderPrice(Mockito.any(ProductInfo.class))).willReturn(300.0);
         given(this.userService.getUserInfoByUserId(eq("111"))).willReturn(userInfo);
 
 
-        String jsonString = "{\"productid\":\"17e5372f-dfc1-41e7-b37a-a1edae87d299\"," +
-                "\"productnumber\":3,\"productprice\":100.0,\"productname\":\"信用卡\"}";
+//        String jsonString = "{\"productid\":\"17e5372f-dfc1-41e7-b37a-a1edae87d299\"," +
+//                "\"productnumber\":3,\"productprice\":100.0,\"productname\":\"信用卡\"}";
 
 
         String result = this.mvc.perform(post("/order/toorder")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(jsonString)
+//                .content(jsonString)
                 .requestAttr("userId", "111")
 //                .sessionAttr("userId", "111")
+                .param("productId","11")
                 .param("payPassword", "123"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(); //return response's value
@@ -90,7 +94,7 @@ public class OrdersControllerTest {
         given(this.orderService.determineTime(eq("01"))).willReturn(true);
         given(this.orderService.updateOrderStatus(eq("01"))).willReturn(true);
 
-        String result = this.mvc.perform(put("/order/tocancelorder")
+        String result = this.mvc.perform(post("/order/tocancelorder")
                 .param("orderId", "01"))
                 .andExpect(jsonPath("$.length()").value(3))
                 .andExpect(status().isOk())

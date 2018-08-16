@@ -6,6 +6,10 @@ spring:
       enabled: true
   profiles:
     active: prod
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
 server:
   tomcat:
     uri-encoding: UTF-8

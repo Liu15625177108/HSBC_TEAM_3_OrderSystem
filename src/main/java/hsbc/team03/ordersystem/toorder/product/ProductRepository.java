@@ -20,6 +20,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since 1.0.0
  */
 public interface ProductRepository extends JpaRepository<ProductInfo,String>{
-    
+    ProductInfo findByProductId(String productId);
 }
  

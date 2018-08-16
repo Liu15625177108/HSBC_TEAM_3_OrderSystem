@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="siteCtrl">
+
+<input type="password" id="paypassword"></input>
+<button ng-click="ToOrder()">点击下单</button>
+
+</body>
+<script>
+	var app = angular.module('myApp', []);
+app.controller('siteCtrl', function($scope, $http) {
+	
+	$scope.ToOrder=function(){
+		alert(productId);
+   $http({
+            method: 'POST',
+            url: 'http://localhost:8080/order/toorder',
+			params: {"productId":"11"},
+			params: {"payPassword":"123"}
+        }).then(function successCallback(response) {
+	  var a = response.data.resultView;
+	  });
+	  alert(a.code + a.msg + a.data);
+	}
+	})
+</script>
+</html>

@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Chen
@@ -35,6 +36,8 @@ public class OrdersController {
     private OrdersService orderService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
     //    @Autowired
 //    private ResultViewService resultViewService;
     private ResultViewService resultViewService = new ResultViewServiceImpl();
@@ -48,7 +51,11 @@ public class OrdersController {
      **/
     @PostMapping(value = "/toorder")
     public @ResponseBody
-    Object toOrder(@RequestBody ProductInfo productInfo, @RequestParam("payPassword") String payPassword, HttpServletRequest request) {
+    Object toOrder(@RequestParam("productId")String productId, @RequestParam("payPassword") String payPassword, HttpServletResponse response, HttpServletRequest request) {
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        System.out.println(payPassword);
+        ProductInfo productInfo = productService.getProductInfoByProductId(productId);
         String userId = (String) request.getAttribute("userId");
         System.out.println(userId);
         UserInfo userInfo = userService.getUserInfoByUserId("11");
@@ -93,9 +100,11 @@ public class OrdersController {
      * @Param [orderId]
      * @return java.lang.Object
      **/
-    @PutMapping(value = "/tocancelorder")
+    @PostMapping(value = "/tocancelorder")
     public @ResponseBody
-    Object toCancelOrder(@RequestParam("orderId") String orderId) {
+    Object toCancelOrder(@RequestParam("orderId") String orderId,HttpServletResponse response,HttpServletRequest request) {
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         if (orderId != null && !orderId.equals("")) {
             if (orderService.determineTime(orderId)) {
                 orderService.updateOrderStatus(orderId);
