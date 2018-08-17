@@ -98,10 +98,10 @@
                 <!--Theme-->
                 <!--</li>-->
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-user-circle-o"></i> 理财产品管理</a>
+                    <a href="/manager-index" class="nav-link"><i class="fa fa-user-circle-o"></i> 理财产品管理</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/teacher/teachers" class="nav-link"><i class="fa fa-gear"></i>系统日志</a>
+                    <a href="#" class="nav-link"><i class="fa fa-gear"></i>系统日志</a>
                 </li>
                 <!--<li class="nav-item">-->
                 <!--<a href="#" class="nav-link"><i class="fa fa-bar-chart-o "></i>批量导入和导出</a>-->
@@ -181,7 +181,7 @@
                             <div class="col-sm-12">
                                 <button style="float: right" type="button" class="btn btn-primary"
                                         data-toggle="modal"
-                                        data-target="#primaryModal">
+                                        data-target="#infoModal">
                                     导出系统日志
                                 </button>
                             </div>
@@ -243,30 +243,47 @@
     <span class="ml-auto">Powered by <a href="http://coreui.io">Team-Three</a></span>
 </footer>
 <!--学生信息批量导出模态框-->
-<!--
 <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;"
      aria-hidden="true">
     <div class="modal-dialog modal-info" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">学生信息批量导出</h4>
+                <h4 class="modal-title">Output SystemLog</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>请选择excel文件</p>
+                <p>Please Choose Data</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                          <span>
+                              <input type="radio" id="fiveDays" name="radio" class="radio_sync" value="5"/>Five Days
+                         </span>
+                        </div>
+                        <div class="col-4">
+                          <span>
+                              <input type="radio" id="fifteenDays" name="radio" class="radio_sync" value="15"/>Fifteen Days
+                         </span>
+                        </div>
+                        <div class="col-5">
+                          <span>
+                             自定义 ：<input type="text" id="MySelect" name="radio" size="10px" class="radio_sync"/>
+                         </span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info">Save changes</button>
+                <button type="button" class="btn btn-info" ng-click="OutputSystemLog()">Save changes</button>
             </div>
         </div>
-        &lt;!&ndash; /.modal-content &ndash;&gt;
+        <!-- /.modal-content -->
     </div>
-    &lt;!&ndash; /.modal-dialog &ndash;&gt;
+    <!-- /.modal-dialog -->
 </div>
--->
 <!-- /.modal-dialog -->
 </div>
 
@@ -424,6 +441,42 @@
                 })
         }
 
+        $scope.OutputSystemLog = function () {
+            var mychoose;
+            var fiveDays = $("#fiveDays").val();
+            var fifteenDays = $("#fifteenDays").val();
+            var MySelect = $("#MySelect").val();
+            if (fiveDays != "") {
+                mychoose = fiveDays
+            }
+            if (fifteenDays != "") {
+                mychoose = fifteenDays;
+            }
+            if (MySelect != "") {
+                mychoose = MySelect;
+            }
+            Number(mychoose)
+            var jsonData = {"mychoose": mychoose}
+
+            $http({
+                url: '/export/systemlog',
+                method: "POST",
+                data: jsonData,
+                responseType: 'arraybuffer'
+            })
+                .then(function (data) {
+                    console.log(data)
+                    var blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+                    var objectUrl = URL.createObjectURL(blob);
+                    //  创建a标签模拟下载
+                    var aForExcel = $("<a><span class='forExcel'>下载excel</span></a>").attr("href",objectUrl);
+                    $("body").append(aForExcel);
+                    $(".forExcel").click();
+                    aForExcel.remove();
+
+            });
+
+        }
 
     });
 
@@ -432,9 +485,9 @@
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
         var modal = $(this)
-            modal.find('.modal-body input#del_product_id').val(product[recipient].id)
-            modal.find('.modal-body input#del_ProductCode').val(product[recipient].productCode)
-            modal.find('.modal-body input#del_ProductDuedata').val(product[recipient].productDuedate)
+        modal.find('.modal-body input#del_product_id').val(product[recipient].id)
+        modal.find('.modal-body input#del_ProductCode').val(product[recipient].productCode)
+        modal.find('.modal-body input#del_ProductDuedata').val(product[recipient].productDuedate)
     });
 </script>
 

@@ -19,14 +19,16 @@ public class SystemLogController {
     @Autowired
     SystemLogService systemLogService;
     @RequestMapping(value = "/export/systemlog",method = RequestMethod.POST)
-    public void getSystemLogList(int n, HttpServletResponse response) {
+    public String getSystemLogList( HttpServletResponse response) {
+        int n=20;
         String str = systemLogService.getSystemLog(n, response);
+        return str;
     }
 
     @GetMapping("/get/system/log/list")
-    public Page<SystemLog> getSystemLogList(){
+    public Page<SystemLog> getSystemLogList(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNum){
         Sort sort = Sort.by("time");
-        PageRequest request = PageRequest.of(0, 2, sort);
+        PageRequest request = PageRequest.of(pageNum, 5, sort);
         Page<SystemLog> logs = systemLogService.getSystemLogListPage(request);
         return logs;
     }

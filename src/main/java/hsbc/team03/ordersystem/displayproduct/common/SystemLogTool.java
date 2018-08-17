@@ -37,13 +37,6 @@ public class SystemLogTool {
                 it.remove();
             }
         }
-       /* for (int i = 0; i < systemLogList.size(); i++) {
-            Date logTime = sdf.parse(systemLogList.get(i).getTime());
-            if ((int) ((currentTime1.getTime() - logTime.getTime()) / (1000 * 3600 * 24)) <= n) {
-                System.out.println((int) ((currentTime1.getTime() - logTime.getTime()) / (1000 * 3600 * 24)));
-                systemLogs.add(systemLogList.get(i));
-            }
-        }*/
         return systemLogList;
     }
 

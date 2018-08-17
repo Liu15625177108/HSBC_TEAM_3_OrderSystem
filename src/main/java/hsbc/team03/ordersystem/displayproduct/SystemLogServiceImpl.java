@@ -21,7 +21,7 @@ import java.util.List;
 @Service
 public class SystemLogServiceImpl implements SystemLogService {
     public static final String FAIL = "无满足要求的数据";
-    public static final String SUCCESS = "系统日志导出成功";
+    public static final String SUCCESS = "Output-sueecss";
     final SystemLogRepository systemLogRepository;
 
     @Autowired
