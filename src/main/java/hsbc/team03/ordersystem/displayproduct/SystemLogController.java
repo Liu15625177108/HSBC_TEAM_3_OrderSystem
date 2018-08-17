@@ -25,7 +25,7 @@ public class SystemLogController {
 
     @GetMapping("/get/system/log/list")
     public Page<SystemLog> getSystemLogList(){
-        Sort sort = Sort.by("type");
+        Sort sort = Sort.by("time");
         PageRequest request = PageRequest.of(0, 2, sort);
         Page<SystemLog> logs = systemLogService.getSystemLogListPage(request);
         return logs;

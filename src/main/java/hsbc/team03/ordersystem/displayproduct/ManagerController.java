@@ -102,7 +102,7 @@ public class ManagerController {
      */
     @RequestMapping(value = "/manager/delete/products", method = RequestMethod.POST)
     @ResponseBody
-    public String deleteProductByProductCode(Product product) {
+    public String deleteProductByProductId(Product product) {
 //        Product product = new Product("xdghhmbhnllllgcgxdf", "200871", "中海基金", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 0);
         int n = 0;
         n = managerService.deleteProductByProductId(product);
