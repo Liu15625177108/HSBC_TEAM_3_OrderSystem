@@ -43,22 +43,22 @@ public class Product {
     /**
      * 产品发售起始日
      */
-    private String sellData;
+    private String productSelldata;
     /**
-     * 发售截止日 Sales deadline
+     * 发售截止日 Sales productDeadline
      */
-    private String deadline;
+    private String productDeadline;
 
     /**
      * 产品到期日
      */
-    private String dueDate;
+    private String productDuedate;
     /**
      * 产品状态：0表示下架（表示删除），1代表正常(正在出售：此时不能下架该产品)
      */
     private int status=1;
 
-    public Product(String id, String productCode, String productName, double productPrice, String productType, String description, String icon, String sellData, String deadline, String dueDate, int status) {
+    public Product(String id, String productCode, String productName, double productPrice, String productType, String description, String icon, String productSelldata, String productDeadline, String productDuedate, int status) {
         this.id = id;
         this.productCode = productCode;
         this.productName = productName;
@@ -66,9 +66,9 @@ public class Product {
         this.productType = productType;
         this.description = description;
         this.icon = icon;
-        this.sellData = sellData;
-        this.deadline = deadline;
-        this.dueDate = dueDate;
+        this.productSelldata = productSelldata;
+        this.productDeadline = productDeadline;
+        this.productDuedate = productDuedate;
         this.status = status;
     }
 
@@ -131,28 +131,28 @@ public class Product {
         this.icon = icon;
     }
 
-    public String getSellData() {
-        return sellData;
+    public String getProductSelldata() {
+        return productSelldata;
     }
 
-    public void setSellData(String sellData) {
-        this.sellData = sellData;
+    public void setProductSelldata(String productSelldata) {
+        this.productSelldata = productSelldata;
     }
 
-    public String getDeadline() {
-        return deadline;
+    public String getProductDeadline() {
+        return productDeadline;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
+    public void setProductDeadline(String productDeadline) {
+        this.productDeadline = productDeadline;
     }
 
-    public String getDueDate() {
-        return dueDate;
+    public String getProductDuedate() {
+        return productDuedate;
     }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
+    public void setProductDuedate(String productDuedate) {
+        this.productDuedate = productDuedate;
     }
 
     public int getStatus() {
@@ -173,9 +173,9 @@ public class Product {
                 ", type='" + productType + '\'' +
                 ", description='" + description + '\'' +
                 ", icon='" + icon + '\'' +
-                ", sellData='" + sellData + '\'' +
-                ", deadline='" + deadline + '\'' +
-                ", dueDate='" + dueDate + '\'' +
+                ", productSelldata='" + productSelldata + '\'' +
+                ", productDeadline='" + productDeadline + '\'' +
+                ", productDuedate='" + productDuedate + '\'' +
                 ", status=" + status +
                 '}';
     }

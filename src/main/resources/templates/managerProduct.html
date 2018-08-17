@@ -207,9 +207,9 @@
                                 <td ng-bind="pro.productName"></td>
                                 <td ng-bind="pro.productPrice"></td>
                                 <td ng-bind="pro.productType"></td>
-                                <td ng-bind="pro.sellData"></td>
-                                <td ng-bind="pro.deadline"></td>
-                                <td ng-bind="pro.dueDate"></td>
+                                <td ng-bind="pro.productSelldata"></td>
+                                <td ng-bind="pro.productDeadline"></td>
+                                <td ng-bind="pro.productDuedate"></td>
                                 <td>
                                     <span class="badge badge-success">正在发售</span>
                                 </td>
@@ -344,7 +344,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">价格</span>
                                 </div>
-                                <input type="text" style="size: 20px" id="price" productName="price" class="form-control" ng-blur="checkPrice()">
+                                <input type="text" style="size: 20px" id="price" productName="price"
+                                       class="form-control" ng-blur="checkPrice()">
                                 <span id="msg-price" style="color: red"></span>
                             </div>
                         </div>
@@ -352,7 +353,7 @@
                             <div class="input-group-prepend">
                                 <a class="input-group-text">类型</a>
                                 <a>
-                                    <input type="text" id="type" productName="type" style="size: 20px" class="form-control1 ">
+                                    <input type="text" id="type" name="type" style="size: 20px" class="form-control1 ">
                                     <select>
                                         <option ng-repeat="x in productsType">
                                             {{x.productType}}
@@ -370,8 +371,10 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售起始日</span>
                             </div>
-                            <input type="text" id="sellData" productName="sellData" class="form-control" ng-blur="checkDateOfSelldate_Deadline_Duedate()">
-                            <div style="float: left">请选择时间：<input type="date" id="newSelldata" size="20px"><a style="color: red">*</a></div>
+                            <input type="text" id="productSelldata" productName="productSelldata" class="form-control"
+                                   ng-blur="checkDateOfSelldate_Deadline_Duedate()">
+                            <div style="float: left">请选择时间：<input type="date" id="newSelldata" size="20px"><a
+                                    style="color: red">*</a></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -379,8 +382,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售截止日</span>
                             </div>
-                            <input type="text" id="deadline" productName="deadline" class="form-control">
-                            <div style="float: left">请选择时间：<input type="date" id="newDeadline" size="20px"><a style="color: red">*</a></div>
+                            <input type="text" id="productDeadline" productName="productDeadline" class="form-control">
+                            <div style="float: left">请选择时间：<input type="date" id="newDeadline" size="20px"><a
+                                    style="color: red">*</a></div>
 
                         </div>
 
@@ -390,8 +394,10 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品到期日</span>
                             </div>
-                            <input type="text" id="dueDate" productName="dueDate" size="15px" class="form-control">
-                            <div style="float: left">请选择时间：<input type="date" id="newDuedate" size="15px"><a style="color: red">*</a></div>
+                            <input type="text" id="productDuedate" productName="productDuedate" size="15px"
+                                   class="form-control">
+                            <div style="float: left">请选择时间：<input type="date" id="newDuedate" size="15px"><a
+                                    style="color: red">*</a></div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -437,12 +443,14 @@
             </div>
 
             <div class="modal-body">
-                <input type="hidden" id="del_id" productName="del_id" class="form-control">
+                <input type="hidden" id="del_product_id" name="del_id" class="form-control">
+                <input type="hidden" id="del_ProductCode" name="del_ProductCode" class="form-control">
+                <input type="hidden" id="del_ProductDuedata" name="del_ProductDuedata" class="form-control">
                 确定要删除<p style="display: inline;"></p>的数据吗?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button id="delete" type="button" class="btn btn-danger">确定</button>
+                <button id="delete" type="button" class="btn btn-danger" ng-click="delectProduct()">确定</button>
             </div>
         </div>
 
@@ -462,6 +470,12 @@
 <script type="text/javascript">
     var product = [];
     var productIndex;
+    //产品的更改后的发售起始日
+    var newSelldata;
+    //产品的更改后的发售截止日
+    var newDeadline;
+    //产品的更改后的到期日
+    var newDuedate;
     var app = angular.module('app', ['ui.bootstrap']);
     app.controller("customersCtrl", function ($scope, $http) {
         $http({
@@ -583,11 +597,11 @@
             var id = $("#id").val();
             var productCode = $("#productCode").val();
             var productName = $("#productName").val();
-            var price = $("#price").val();
-            var type = $("#type").val();
-            var sellData = $("#sellData").val();
-            var deadline = $("#deadline").val();
-            var dueDate = $("#dueDate").val();
+            var productPrice = $("#price").val();
+            var productType = $("#type").val();
+            // var productSelldata = $("#productSelldata").val();
+            // var productDeadline = $("#productDeadline").val();
+            // var productDuedate = $("#productDuedate").val();
             var description = $("#description").val();
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
@@ -595,11 +609,11 @@
             formdata.append('id', id);
             formdata.append('productCode', productCode);
             formdata.append('productName', productName);
-            formdata.append('price', price);
-            formdata.append('type', type);
-            formdata.append('sellData', sellData);
-            formdata.append('deadline', deadline);
-            formdata.append('dueDate', dueDate);
+            formdata.append('productPrice', productPrice);
+            formdata.append('productType', productType);
+            formdata.append('productSelldata', newSelldata);
+            formdata.append('productDeadline', newDeadline);
+            formdata.append('productDuedate', newDuedate);
             formdata.append('description', description);
             formdata.append('file', file);
             $http({
@@ -613,6 +627,43 @@
             }).then(function (result) {
 
             });
+        }
+
+        $scope.delectProduct=function () {
+            //得到产品的id
+            var productId= $("#del_product_id").val();
+            var productCode= $("#del_ProductCode").val();
+            var productDuedate= $("#del_ProductDuedata").val();
+            var jsonData={id:productId,productCode:productCode,productDuedate:productDuedate}
+            $http({
+                url: "/manager/delete/products",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            })
+                .then(function (result) {
+                    //后台返回的数据
+                    $scope.products = result.data.content;
+                    //总页数
+                    $scope.totalPages = result.data.totalPages
+
+                    //总共有多少条记录
+                    $scope.totalElements = result.data.totalElements
+                    //当前页数
+                    $scope.currentPage = result.data.number;
+                    //用于控制上一页。下一页
+                    $scope.pageNumber = result.data.pageable.pageNumber
+                    totlePageNumber = result.data.totalPages
+
+                    product = result.data.content;
+                })
         }
 
         //检查产品代码的唯一性
@@ -633,26 +684,28 @@
                         for (var i = 0; i < product.length; i++) {
                             if (product[i].productCode == productCode) {
                                 document.getElementById("msg-productCode").innerHTML = "产品代码已经存在";
-                                return false;
+
+                                return true;
                             }
                         }
                         return true;
                     } else {
                         document.getElementById("msg-productCode").innerHTML = "必须为6位数字";
-                        return false
+
+                        return true
                     }
                 } else {
                     //如果产品代码没有更改过，那么就不用再判断
                     document.getElementById("msg-productCode").innerHTML = "";
-                    return true
+                    return false
                 }
             }
         }
 
 
-        //check the selldate deadline duedate 检查产品的产品起始销售日、产品的销售截止日、产品的到期日
+        //check the selldate productDeadline duedate 检查产品的产品起始销售日、产品的销售截止日、产品的到期日
         /**
-         * selldate(产品起始销售日)  deadline(产品的销售截止日)  duedate(产品的到期日) 之间的关系
+         * selldate(产品起始销售日)  productDeadline(产品的销售截止日)  duedate(产品的到期日) 之间的关系
          * 1：产品的销售截止日一定大于产品起始销售日
          * 2：产品的到期日一定大于产品的销售截止日
          * 3：默认情况，产品的起始销售日必须大于系统的当前时间
@@ -664,14 +717,14 @@
             var newDeadline = document.getElementById("newDeadline").value;
             //产品的更改后的到期日
             var newDuedate = document.getElementById("newDuedate").value;
-           if (newDeadline<newSelldata){
-               document.getElementById("dataMsg").innerHTML = "发售截止日不能小于发售起始日";
-               return false;
-           }
-           if (newDuedate<newDeadline){
-               document.getElementById("dataMsg").innerHTML = "产品到期日不能小于发售截止日";
-               return false;
-           }
+            if (newDeadline < newSelldata) {
+                document.getElementById("dataMsg").innerHTML = "发售截止日不能小于发售起始日";
+                return true;
+            }
+            if (newDuedate < newDeadline) {
+                document.getElementById("dataMsg").innerHTML = "产品到期日不能小于发售截止日";
+                return true;
+            }
         }
         //检查产品价格的有效性:double（并且保留两位数或者一位数）、 int
         $scope.checkPrice = function () {
@@ -680,22 +733,23 @@
             if (price > 0) {
                 if (tt.test(price)) {
                     document.getElementById("msg-price").innerText = "";
-                    return true;
+                    return false;
                 }
             }
             else {
                 // layer.tips('请输入数字', '#f_money1');
                 document.getElementById("msg-price").innerText = "输入正确的产品价格";
-                return false
+                return true
             }
             document.getElementById("msg-price").innerText = "输入正确的产品价格";
-            return false
+            return true
         }
+
+
     });
 
     // 修改产品的信息
     $('#primaryModal').on('show.bs.modal', function (event) {
-
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
         var modal = $(this)
@@ -710,9 +764,9 @@
             modal.find('.modal-body input#productName').val(product[recipient].productName)
             modal.find('.modal-body input#price').val(product[recipient].productPrice)
             modal.find('.modal-body input#type').val(product[recipient].productType)
-            modal.find('.modal-body input#sellData').val(product[recipient].sellData)
-            modal.find('.modal-body input#deadline').val(product[recipient].deadline)
-            modal.find('.modal-body input#dueDate').val(product[recipient].dueDate)
+            modal.find('.modal-body input#productSelldata').val(product[recipient].productSelldata)
+            modal.find('.modal-body input#productDeadline').val(product[recipient].productDeadline)
+            modal.find('.modal-body input#productDuedate').val(product[recipient].productDuedate)
             modal.find('.modal-body input#description').val(product[recipient].description)
             // modal.find('.modal-body img#preview').attr("src",teachers[recipient].teacherImg);
             modal.find('.modal-body input#file').val("");
@@ -724,15 +778,24 @@
             modal.find('.modal-body input#productName').val("");
             modal.find('.modal-body input#price').val("");
             modal.find('.modal-body input#type').val("");
-            modal.find('.modal-body input#sellData').val("");
-            modal.find('.modal-body input#deadline').val("");
-            modal.find('.modal-body input#dueDate').val("");
+            modal.find('.modal-body input#productSelldata').val("");
+            modal.find('.modal-body input#productDeadline').val("");
+            modal.find('.modal-body input#productDuedate').val("");
             modal.find('.modal-body input#description').val("");
             // modal.find('.modal-body input#file').val("");
             //修改为默认显示头像的背景图片
             // $("#preview").attr("src", "img/head.jpg");
             productIndex = -1;
         }
+    });
+
+    $('#dangerModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
+        var modal = $(this)
+            modal.find('.modal-body input#del_product_id').val(product[recipient].id)
+            modal.find('.modal-body input#del_ProductCode').val(product[recipient].productCode)
+            modal.find('.modal-body input#del_ProductDuedata').val(product[recipient].productDuedate)
     });
 </script>
 

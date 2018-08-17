@@ -81,21 +81,18 @@ public class ManagerServiceImpl implements ManagerService {
      */
     @Override
     public boolean addProduct(Product product, MultipartFile file) throws IOException {
-        System.out.println("产品"+product.getId()+"=id");
+
         boolean tag = false;
         String flage = "0";
-        /*it use to judge modify product or add product*/
-        String judgeProductId="";
+        String checkProductId="";
+        String uploadFileName = "img/logo-symbol.png";
         /*check the data whether in a rule*/
-        /*如果是修改产品信息，产品的id一定不为空*/
-        if(!judgeProductId.equals(product.getId())){
-            modifyProduct(product,file);
-        } else {
-            /*set the product's id*/
-            boolean checkDataBoolean = commonTool.checkData(product, file);
+            boolean checkDataBoolean = commonTool.checkData(product);
             if (checkDataBoolean) {
                 /*check the Icon's format of .jpeg .png .gif and upload icon*/
-                String uploadFileName = dataCheckTool.checkIconAndUploadIcon(file);
+                if (file!=null){
+                    uploadFileName = dataCheckTool.checkIconAndUploadIcon(file);
+                }
                 if (!flage.equals(uploadFileName)) {
                     /*check the productCode of unique*/
                     List<Product> products = managerRepository.findByStatus(1);
@@ -103,29 +100,29 @@ public class ManagerServiceImpl implements ManagerService {
                     /*if the productCode is unique,allow add product*/
                     if (tag) {
                         /*save the production to database*/
-                        product.setId(UUIDUtils.getUUID());
-                        product.setStatus(1);
+                        if(checkProductId.equals(product.getId())){
+                            product.setId(UUIDUtils.getUUID());
+                        }
                         product.setIcon(uploadFileName);
                         managerRepository.save(product);
                     }
                 }
-
-            }
         }
 
         return tag;
     }
 
     @Override
-    public int deleteProductByProductCode(Product product) {
+    public int deleteProductByProductId(Product product) {
         int n = 0;
-        String msg = "delete product's of code =" + product.getProductCode();
+        String msg = "delete product's of code = " + product.getProductCode()+"and product's id= "+product.getId();
         /*judge the of current time and product's dueDate,if current'time not in the rang of dueDate ,can't not delete product*/
         DataUtils dataUtils = new DataUtils();
         boolean tag = dataUtils.compareCurrentTimeAndDueDate(product);
         if (tag) {
-            product.setStatus(0);
-            managerRepository.save(product);
+            Product pro=managerRepository.findByid(product.getId());
+            pro.setStatus(0);
+            managerRepository.save(pro);
             /*if manager modify the production information,it should be recording*/
             SystemLog systemLog = new SystemLog();
             commonTool.setLog(systemLog);
@@ -143,7 +140,7 @@ public class ManagerServiceImpl implements ManagerService {
         /**check the productCode unique*/
         Product compareProduct = managerRepository.findByid(product.getId());
         CommonTool commonTool = new CommonTool();
-        boolean checkDataBoolean = commonTool.checkData(product, file);
+        boolean checkDataBoolean = commonTool.checkData(product);
         if (checkDataBoolean) {
             List<Product> products = managerRepository.findByStatus(1);
             msg = commonTool.getMessage(product, compareProduct);

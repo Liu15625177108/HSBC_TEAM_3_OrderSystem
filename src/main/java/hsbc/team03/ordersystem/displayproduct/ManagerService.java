@@ -40,7 +40,7 @@ public interface ManagerService {
      * @param product
      * @return int 0:fail,1:success
      */
-    int deleteProductByProductCode(Product product);
+    int deleteProductByProductId(Product product);
     /**
      * @Descript:it is modify the product's information
      * @param product

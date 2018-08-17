@@ -65,7 +65,7 @@ public class ManagerControllerTest {
         product.setProductType("稳健型");
         product.setDescription("这是1");
         product.setStatus(1);
-        product.setDeadline("2018-8-10");
+        product.setProductDeadline("2018-8-10");
         String requestJson = JSONObject.toJSONString(product);
         mvc.perform(
                 post("/manager/add/products")
@@ -81,7 +81,7 @@ public class ManagerControllerTest {
 
     @Test
     public void managerDeleteProduct() throws Exception {
-        Mockito.when(managerServiceImpl.deleteProductByProductCode(Mockito.any(Product.class))).thenReturn(1);
+//        Mockito.when(managerServiceImpl.deleteProductByProductCode(Mockito.any(Product.class))).thenReturn(1);
         Product product = new Product("xdghhmbhnllllgcgxdf", "200871", "中海基金", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         String jsondata = JSONObject.toJSONString(product);
         mvc.perform(

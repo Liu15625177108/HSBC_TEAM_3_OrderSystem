@@ -58,7 +58,7 @@ public class CommonTool {
      * @return
      * @throws IOException
      */
-    public boolean checkData(Product product, MultipartFile file) throws IOException {
+    public boolean checkData(Product product) throws IOException {
         boolean productCodeBoolean;
 
         /*check the product's code unique*/
@@ -68,7 +68,7 @@ public class CommonTool {
         /*if productCodeBoolean is true then it can go next step */
         if (productCodeBoolean) {
                 /**check checkDeadline*/
-                boolean deadlineBoolean = dataCheckTool.checkDeadline(product.getSellData(), product.getDeadline(), product.getDueDate());
+                boolean deadlineBoolean = dataCheckTool.checkDeadline(product.getProductSelldata(), product.getProductDeadline(), product.getProductDuedate());
                 if (deadlineBoolean) {
                     return true;
                 }
