@@ -10,7 +10,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /** it enablescheduling to run:*/
 @EnableScheduling
 public class OrdersystemApplication {
-
     @Bean
     public DataCheckTool  dataCheckTool(){
         return new DataCheckTool();
