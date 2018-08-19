@@ -28,4 +28,13 @@ public interface ProductRepository extends JpaRepository<Product, String> {
      */
     @Override
     Page<Product> findAll(Pageable pageable);
+
+    /**
+     *
+     * @param productCode
+     * @param productName
+     * @return
+     */
+    List<Product> findByProductCodeOrProductName(String productCode, String productName);
+
 }

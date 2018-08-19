@@ -66,7 +66,7 @@
       ng-controller="customersCtrl">
 <header class="app-header navbar">
     <h4 style="margin: auto">系统日志查看</h4>
-
+    <button ng-click="download()">下载</button>
     <ul class="nav navbar-nav ml-auto">
 
         <li class="nav-item dropdown">
@@ -269,7 +269,7 @@
                         </div>
                         <div class="col-5">
                           <span>
-                             自定义 ：<input type="text" id="MySelect" name="radio" size="10px" class="radio_sync"/>
+                             自定义 ：<input type="text" id="MySelect" size="10px" class="radio_sync"/>
                          </span>
                         </div>
                     </div>
@@ -441,40 +441,52 @@
                 })
         }
 
+        // $scope.download = function() {
+        //     $http({
+        //         method:'GET',
+        //         url:"/download",
+        //         responseType: "arraybuffer"
+        //     })
+        //         .then( function ( data )
+        //     {     // 这里会弹出一个下载框，增强用户体验
+        //         var blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+        //         var objectUrl = URL.createObjectURL(blob);
+        //         //  创建a标签模拟下载
+        //         var aForExcel = $("<a><span class='forExcel'>下载excel</span></a>").attr("href",objectUrl);
+        //         $("body").append(aForExcel);
+        //         $(".forExcel").click();
+        //         aForExcel.remove();
+        //     });
+        //
+        // }
+        //
+
         $scope.OutputSystemLog = function () {
             var mychoose;
-            var fiveDays = $("#fiveDays").val();
-            var fifteenDays = $("#fifteenDays").val();
-            var MySelect = $("#MySelect").val();
-            if (fiveDays != "") {
-                mychoose = fiveDays
-            }
-            if (fifteenDays != "") {
-                mychoose = fifteenDays;
+            var MySelect;
+            var checkvale = "undefined";
+            MySelect = $("#MySelect").val();
+            checkvale = $('input:radio:checked').val();
+            console.log(checkvale)
+            if (checkvale != "undefined") {
+                mychoose = checkvale;
             }
             if (MySelect != "") {
                 mychoose = MySelect;
             }
+            if (MySelect != "" && checkvale != "undefined") {
+                alert("只能选择一个日期")
+                return
+            }
+            if (MySelect == "" && checkvale == "undefined") {
+                alert("请选择一个日期")
+                return
+            }
             Number(mychoose)
-            var jsonData = {"mychoose": mychoose}
-
-            $http({
-                url: '/export/systemlog',
-                method: "POST",
-                data: jsonData,
-                responseType: 'arraybuffer'
-            })
-                .then(function (data) {
-                    console.log(data)
-                    var blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
-                    var objectUrl = URL.createObjectURL(blob);
-                    //  创建a标签模拟下载
-                    var aForExcel = $("<a><span class='forExcel'>下载excel</span></a>").attr("href",objectUrl);
-                    $("body").append(aForExcel);
-                    $(".forExcel").click();
-                    aForExcel.remove();
-
-            });
+            var data = new Object;
+            data.n = mychoose;
+            $("#infoModal").hidden;
+            window.open("http://localhost/export/systemlog?n=" + mychoose + "")
 
         }
 

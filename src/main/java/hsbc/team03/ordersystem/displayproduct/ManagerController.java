@@ -3,13 +3,13 @@ package hsbc.team03.ordersystem.displayproduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
+
 /**
  * @author @Evan
  * @return No such property: code for class: Script1
@@ -24,6 +24,7 @@ public class ManagerController {
     public ManagerController(ManagerService managerService) {
         this.managerService = managerService;
     }
+
     /**
      * @Description:
      * @Author: @Evan
@@ -46,10 +47,10 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/productlist", method = RequestMethod.POST)
-    public  Page<Product> getAllProduct(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNum, @RequestParam(name = "dataCount", defaultValue = "2") int dataCount, @RequestParam(name = "productType", defaultValue = "短期型") String productType) {
+    public Page<Product> getAllProduct(@RequestParam(name = "pageNumber", defaultValue = "0") int pageNum, @RequestParam(name = "dataCount", defaultValue = "2") int dataCount, @RequestParam(name = "productType", defaultValue = "短期型") String productType) {
 
         Sort sort = Sort.by("productType");
-        Page<Product> products = managerService.getProductListByPage(pageNum,productType,dataCount, sort);
+        Page<Product> products = managerService.getProductListByPage(pageNum, productType, dataCount, sort);
 
         return products;
     }
@@ -111,8 +112,14 @@ public class ManagerController {
     }
 
     @GetMapping("/get/productType")
-    public List<ProductType> getProductTypeList(){
-        List<ProductType> list=managerService.getProductType();
+    public List<ProductType> getProductTypeList() {
+        List<ProductType> list = managerService.getProductType();
         return list;
+    }
+//    @RequestParam(value = "productCodeOrProductName",defaultValue = "汇丰HSBC")
+    @PostMapping("/manager/findProduct/byProductCodeOrProductName")
+    public List<Product> findByProductCodeOrProductName(String productCode,String productName) {
+        List<Product> productList = managerService.findByProductCodeOrProductName(productCode,productName);
+        return productList;
     }
 }

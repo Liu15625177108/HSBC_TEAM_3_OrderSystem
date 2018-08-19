@@ -143,9 +143,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
-                    <input id="search_name" class="form-control" size="16" type="text" placeholder="请输入查询信息">
+                    <input id="productCodeOrProductName" class="form-control" size="16" type="text" placeholder="请输入查询信息">
                     <span class="input-group-append">
-                <button id="search" class="btn btn-info" type="button">查询</button>
+                <button id="search" class="btn btn-info" type="button" ng-click="searchProduct()">查询</button>
               </span>
                 </div>
             </div>
@@ -599,9 +599,12 @@
             var productName = $("#productName").val();
             var productPrice = $("#price").val();
             var productType = $("#type").val();
-            // var productSelldata = $("#productSelldata").val();
-            // var productDeadline = $("#productDeadline").val();
-            // var productDuedate = $("#productDuedate").val();
+            //产品的更改后的发售起始日
+             newSelldata = document.getElementById("newSelldata").value;
+            //产品的更改后的发售截止日
+             newDeadline = document.getElementById("newDeadline").value;
+            //产品的更改后的到期日
+             newDuedate = document.getElementById("newDuedate").value;
             var description = $("#description").val();
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
@@ -745,6 +748,46 @@
             return true
         }
 
+        //查找产品
+        $scope.searchProduct=function () {
+            var productCode;
+            var productName;
+            var productCodeOrProductName=$("#productCodeOrProductName").val();
+            var reg = /^[0-9]+.?[0-9]*$/;
+            if (reg.test(productCodeOrProductName)){
+                productCode =productCodeOrProductName;
+            }else {
+                productName=productCodeOrProductName;
+            }
+            var jsondata={productCode:productCode,productName:productName}
+            $http({
+                url: "/manager/findProduct/byProductCodeOrProductName",
+                method: "post",
+                data: jsondata,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            })
+                .then(function (result) {
+                    //后台返回的数据
+                    $scope.products = result.data;
+
+                 /*   //总页数
+                    $scope.totalPages = result.data.length
+
+                    //总共有多少条记录
+                    $scope.totalElements = result.data.length
+                    //用于控制上一页。下一页
+                    $scope.pageNumber = result.data.length
+                    totlePageNumber = result.data.length*/
+                    product = result.data
+                })
+        }
 
     });
 

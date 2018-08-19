@@ -156,12 +156,12 @@
                                 </div><!-- /.options -->
                             </div><!-- /.language-switcher -->
 
-                            <form method="get" class="site-search" action="?">
+                            <form  class="site-search">
                                 <div class="input-append">
                                     <input title="Enter the terms you wish to search for."
                                            class="search-query span2 form-text" placeholder="Search" type="text"
-                                           productName="">
-                                    <button type="submit" class="btn"><i class="icon-search"></i></button>
+                                           name="" id="productCodeOrProductName" >
+                                    <button type="button" class="btn" ng-click="searchProduct()"><i class="icon-search"></i></button>
                                 </div><!-- /.input-append -->
                             </form><!-- /.site-search -->
                         </div><!-- /.navigation -->
@@ -566,6 +566,48 @@
                     $scope.pageNumber = result.data.pageable.pageNumber
                     totlePageNumber = result.data.totalPages
                 })
+            }
+
+
+            //查找产品
+            $scope.searchProduct=function () {
+                var productCode;
+                var productName;
+                var productCodeOrProductName=$("#productCodeOrProductName").val();
+                var reg = /^[0-9]+.?[0-9]*$/;
+                if (reg.test(productCodeOrProductName)){
+                    productCode =productCodeOrProductName;
+                }else {
+                    productName=productCodeOrProductName;
+                }
+                var jsonData={productCode:productCode,productName:productName}
+                $http({
+                    url: "/findProduct/byProductCodeOrProductName",
+                    method: "post",
+                    data: jsonData,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (obj) {
+                        var str = [];
+                        for (var p in obj) {
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        }
+                        return str.join("&");
+                    }
+                })
+                    .then(function (result) {
+                        //后台返回的数据
+                        $scope.products = result.data;
+
+                        /*   //总页数
+                           $scope.totalPages = result.data.length
+
+                           //总共有多少条记录
+                           $scope.totalElements = result.data.length
+                           //用于控制上一页。下一页
+                           $scope.pageNumber = result.data.length
+                           totlePageNumber = result.data.length*/
+                        product = result.data
+                    })
             }
 
             //根据选择的数据显示数量，从新获取数据

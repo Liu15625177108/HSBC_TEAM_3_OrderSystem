@@ -17,7 +17,7 @@ import java.util.List;
 public class CommonTool {
     /**
      * @Description: the method check productCode whether exist,if it exist,return true,else return false
-     * @Author: @Evan
+     * @Author: @Evan  //my  English 'name xixi
      * @CreateDate: 2018/8/5 22:10
      * @UpdateDate: 2018/8/5 22:10
      * @Version: 1.0

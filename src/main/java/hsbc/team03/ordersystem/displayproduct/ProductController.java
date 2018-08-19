@@ -18,14 +18,13 @@ import java.util.List;
  * @Return:
  * @Param:
  */
-@Controller
+@RestController
 public class ProductController {
     @Autowired
     private ProductService productService;
 
     @Autowired
     ProductRepository productRepository;
-    private int pageNum;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
@@ -60,5 +59,17 @@ public class ProductController {
         Page<Product> products = productService.getProductListByPage(pageNum,productType,dataCount, sort);
 
         return products;
+    }
+
+    /**
+     *
+     * @param productCode
+     * @param productName
+     * @return
+     */
+    @PostMapping("/findProduct/byProductCodeOrProductName")
+    public List<Product> findByProductCodeOrProductName(String productCode,String productName) {
+        List<Product> productList = productService.findByProductCodeOrProductName(productCode,productName);
+        return productList;
     }
 }

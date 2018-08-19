@@ -25,4 +25,12 @@ public interface ProductService {
 
     Page<Product> getProductListByPage(int page, String productType, int count, Sort sort);
 
+    /**
+     *
+     * @param productCode
+     * @param productName
+     * @return
+     */
+    List<Product> findByProductCodeOrProductName(String productCode, String productName);
+
 }

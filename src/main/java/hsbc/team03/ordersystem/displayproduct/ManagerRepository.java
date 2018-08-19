@@ -40,5 +40,12 @@ public interface ManagerRepository extends JpaRepository<Product, String> {
      */
     List<Product> findByStatus(int n);
 
+    /**
+     *  manager find product by product's name or productCode
+     * @param productCode
+     * @param productName
+     * @return
+     */
+    List<Product> findByProductCodeOrProductName(String productCode,String productName);
 
 }
