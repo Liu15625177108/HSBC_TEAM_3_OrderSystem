@@ -8,14 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.springframework.data.domain.Pageable;
 
@@ -28,9 +21,12 @@ import org.springframework.data.domain.Pageable;
  */
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
+
+    private final PageableTool pageableTool;
+    private final ProductRepository productRepository;
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(PageableTool pageableTool, ProductRepository productRepository) {
+        this.pageableTool = pageableTool;
         this.productRepository = productRepository;
     }
     @Override
@@ -41,7 +37,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> getProductListByPage(int page, String productType, int count, Sort sort) {
-        PageableTool pageableTool=new PageableTool();
         Specification<Product> specification=pageableTool.specifucation(productType);
         Pageable pageable = PageRequest.of(page, count, sort);
         return productRepository.findAll(specification, pageable);

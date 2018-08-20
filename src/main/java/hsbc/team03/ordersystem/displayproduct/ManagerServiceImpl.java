@@ -10,9 +10,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.criteria.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,17 +26,17 @@ public class ManagerServiceImpl implements ManagerService {
     private final SystemLogRepository systemLogRepository;
     private final ManagerRepository managerRepository;
     private final DataCheckTool dataCheckTool;
-    CommonTool commonTool = new CommonTool();
-
+    private final CommonTool commonTool;
     /**
      * the ManagerServiceImpl constructor  is to init managerRepository
      */
     @Autowired
-    public ManagerServiceImpl(ProductTypeRepository productTypeRepository, ManagerRepository managerRepository, SystemLogRepository systemLogRepository, DataCheckTool dataCheckTool) {
+    public ManagerServiceImpl(ProductTypeRepository productTypeRepository, ManagerRepository managerRepository, SystemLogRepository systemLogRepository, DataCheckTool dataCheckTool, CommonTool commonTool) {
         this.productTypeRepository = productTypeRepository;
         this.managerRepository = managerRepository;
         this.systemLogRepository = systemLogRepository;
         this.dataCheckTool = dataCheckTool;
+        this.commonTool = commonTool;
     }
 
     /**
@@ -123,7 +121,7 @@ public class ManagerServiceImpl implements ManagerService {
         String msg = "";
         /**check the productCode unique*/
         Product compareProduct = managerRepository.findByid(product.getId());
-        CommonTool commonTool = new CommonTool();
+        CommonTool commonTool = new CommonTool(dataCheckTool);
         boolean checkDataBoolean = commonTool.checkData(product);
         if (checkDataBoolean) {
             List<Product> products = managerRepository.findByStatus(1);

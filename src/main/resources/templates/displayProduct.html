@@ -540,7 +540,9 @@
                     alert("没有上一页了");
                     return false;
                 }
-                var jsonData = {"pageNumber": pageNumber};
+                var productType = $("#productType").find("option:selected").text();//选中的文本
+                var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
+                var jsonData = {"pageNumber": pageNumber,productType:productType,dataNumber:dataNumber};
                 $http({
                     url: "/user/get/products",
                     method: "post",

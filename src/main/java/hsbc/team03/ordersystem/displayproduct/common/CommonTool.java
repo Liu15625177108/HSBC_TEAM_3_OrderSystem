@@ -2,7 +2,8 @@ package hsbc.team03.ordersystem.displayproduct.common;
 
 import hsbc.team03.ordersystem.displayproduct.SystemLog;
 import hsbc.team03.ordersystem.displayproduct.Product;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +15,15 @@ import java.util.List;
  * @Return:
  * @Param:
  */
+@Component
 public class CommonTool {
+    @Autowired
+    private final DataCheckTool dataCheckTool;
+
+    public CommonTool(DataCheckTool dataCheckTool) {
+        this.dataCheckTool = dataCheckTool;
+    }
+
     /**
      * @Description: the method check productCode whether exist,if it exist,return true,else return false
      * @Author: @Evan  //my  English 'name xixi
@@ -52,9 +61,7 @@ public class CommonTool {
     }
 
     /**
-     *
      * @param product
-     * @param file
      * @return
      * @throws IOException
      */
@@ -63,7 +70,7 @@ public class CommonTool {
 
         /*check the product's code unique*/
         /*check the product'code in a suitable format */
-        DataCheckTool dataCheckTool = new DataCheckTool();
+//        DataCheckTool dataCheckTool = new DataCheckTool();
         productCodeBoolean = dataCheckTool.checkProductCode(product.getProductCode());
         /*if productCodeBoolean is true then it can go next step */
         if (productCodeBoolean) {

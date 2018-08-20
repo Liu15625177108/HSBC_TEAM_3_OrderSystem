@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 /** it enablescheduling to run:*/
-@EnableScheduling
+//@EnableScheduling
 public class OrdersystemApplication {
     @Bean
     public DataCheckTool  dataCheckTool(){

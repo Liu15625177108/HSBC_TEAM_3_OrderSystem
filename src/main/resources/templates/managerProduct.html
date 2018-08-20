@@ -143,7 +143,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
-                    <input id="productCodeOrProductName" class="form-control" size="16" type="text" placeholder="请输入查询信息">
+                    <input id="productCodeOrProductName" class="form-control" size="16" type="text"
+                           placeholder="请输入查询信息">
                     <span class="input-group-append">
                 <button id="search" class="btn btn-info" type="button" ng-click="searchProduct()">查询</button>
               </span>
@@ -470,6 +471,8 @@
 <script type="text/javascript">
     var product = [];
     var productIndex;
+    var totalElement;
+    var totalpage;
     //产品的更改后的发售起始日
     var newSelldata;
     //产品的更改后的发售截止日
@@ -477,7 +480,7 @@
     //产品的更改后的到期日
     var newDuedate;
     var app = angular.module('app', ['ui.bootstrap']);
-    app.controller("customersCtrl", function ($scope, $http) {
+    app.controller("customersCtrl", function ($scope, $http, $filter) {
         $http({
             method: 'post',
             url: "/manager/productlist"
@@ -489,6 +492,7 @@
 
                     //总共有多少条记录
                     $scope.totalElements = result.data.totalElements
+                    totalElement = result.data.totalElements
                     //当前页数
                     $scope.currentPage = result.data.number;
                     //用于控制上一页。下一页
@@ -496,7 +500,7 @@
 
                     //总页数
                     totlePageNumber = result.data.totalPages
-
+                    totalpage = result.data.totalPages
                     //用于控制尾页
                     $scope.lastPage = result.data.totalPages
                     //用于控制首页
@@ -524,7 +528,9 @@
                 alert("没有上一页了");
                 return false;
             }
-            var jsonData = {"pageNumber": pageNumber};
+            var productType = $("#productType").find("option:selected").text();//选中的文本
+            var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
+            var jsonData = {"pageNumber": pageNumber, productType: productType, dataNumber: dataNumber};
             $http({
                 url: "/manager/productlist",
                 method: "post",
@@ -600,11 +606,11 @@
             var productPrice = $("#price").val();
             var productType = $("#type").val();
             //产品的更改后的发售起始日
-             newSelldata = document.getElementById("newSelldata").value;
+            newSelldata = document.getElementById("newSelldata").value;
             //产品的更改后的发售截止日
-             newDeadline = document.getElementById("newDeadline").value;
+            newDeadline = document.getElementById("newDeadline").value;
             //产品的更改后的到期日
-             newDuedate = document.getElementById("newDuedate").value;
+            newDuedate = document.getElementById("newDuedate").value;
             var description = $("#description").val();
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
@@ -628,16 +634,40 @@
                 },
                 transformRequest: angular.identity
             }).then(function (result) {
+                $("#primaryModal").modal('hide');
+                if (result) {
+                    alert("操作成功")
+                }
 
             });
         }
 
-        $scope.delectProduct=function () {
+        $scope.delectProduct = function () {
+            var productDeadline;
+            var productDueline;
             //得到产品的id
-            var productId= $("#del_product_id").val();
-            var productCode= $("#del_ProductCode").val();
-            var productDuedate= $("#del_ProductDuedata").val();
-            var jsonData={id:productId,productCode:productCode,productDuedate:productDuedate}
+            var productId = $("#del_product_id").val();
+            var productCode = $("#del_ProductCode").val();
+            var productDuedate = $("#del_ProductDuedata").val();
+            /*get product's deadline and dueline*/
+            var productDeadline;
+            var productDueDate;
+            for (var j = 0; j < product.length; j++) {
+                if (product[j].id == productId) {
+                    productDeadline = $filter('date')(product[j].productDeadline, "yyyy-MM-dd");
+                    productDueDate = $filter('date')(product[j].productDuedate, "yyyy-MM-dd");
+                }
+            }
+            var today = new Date();
+            currentTime = $filter('date')(today, 'yyyy-MM-dd');
+
+            if (currentTime <= productDeadline || currentTime <= productDueline) {
+                $("#dangerModal").modal('hide');
+                alert("产品正在销售，不能删除")
+                return
+            }
+
+            var jsonData = {id: productId, productCode: productCode, productDuedate: productDuedate}
             $http({
                 url: "/manager/delete/products",
                 method: "post",
@@ -652,20 +682,30 @@
                 }
             })
                 .then(function (result) {
-                    //后台返回的数据
-                    $scope.products = result.data.content;
+                    $("#dangerModal").modal('hide');
+                    if (result.data == 0) {
+                        alert("产品正在销售，不能删除")
+                        return
+                    }
+
+                    for (var i = product.length - 1; i >= 0; i--) {
+                        if (product[i].id == productId)
+                        //第一个参数代表删除下标为第几，最后一个参数代表删除多少个1代表一个，2代表两个
+                            product.splice(i, 1);
+                    }
+                    if (product.length == 0) {
+                        //总页数
+                        $scope.totalPages = 0
+                        //总共有多少条记录
+                        $scope.totalElements = 0
+                    }
+                    $scope.products = product;
                     //总页数
-                    $scope.totalPages = result.data.totalPages
-
+                    $scope.totalPages = totalpage
                     //总共有多少条记录
-                    $scope.totalElements = result.data.totalElements
-                    //当前页数
-                    $scope.currentPage = result.data.number;
-                    //用于控制上一页。下一页
-                    $scope.pageNumber = result.data.pageable.pageNumber
-                    totlePageNumber = result.data.totalPages
+                    $scope.totalElements = totalElement - 1
 
-                    product = result.data.content;
+
                 })
         }
 
@@ -749,17 +789,17 @@
         }
 
         //查找产品
-        $scope.searchProduct=function () {
+        $scope.searchProduct = function () {
             var productCode;
             var productName;
-            var productCodeOrProductName=$("#productCodeOrProductName").val();
+            var productCodeOrProductName = $("#productCodeOrProductName").val();
             var reg = /^[0-9]+.?[0-9]*$/;
-            if (reg.test(productCodeOrProductName)){
-                productCode =productCodeOrProductName;
-            }else {
-                productName=productCodeOrProductName;
+            if (reg.test(productCodeOrProductName)) {
+                productCode = productCodeOrProductName;
+            } else {
+                productName = productCodeOrProductName;
             }
-            var jsondata={productCode:productCode,productName:productName}
+            var jsondata = {productCode: productCode, productName: productName}
             $http({
                 url: "/manager/findProduct/byProductCodeOrProductName",
                 method: "post",
@@ -777,14 +817,14 @@
                     //后台返回的数据
                     $scope.products = result.data;
 
-                 /*   //总页数
-                    $scope.totalPages = result.data.length
+                    /*   //总页数
+                       $scope.totalPages = result.data.length
 
-                    //总共有多少条记录
-                    $scope.totalElements = result.data.length
-                    //用于控制上一页。下一页
-                    $scope.pageNumber = result.data.length
-                    totlePageNumber = result.data.length*/
+                       //总共有多少条记录
+                       $scope.totalElements = result.data.length
+                       //用于控制上一页。下一页
+                       $scope.pageNumber = result.data.length
+                       totlePageNumber = result.data.length*/
                     product = result.data
                 })
         }
@@ -813,7 +853,7 @@
             modal.find('.modal-body input#description').val(product[recipient].description)
             // modal.find('.modal-body img#preview').attr("src",teachers[recipient].teacherImg);
             modal.find('.modal-body input#file').val("");
-            // modal.find('.modal-body input#teacherOldName').val(teachers[recipient].teacherName);
+
         } else {
             //清空模态框的数据
             modal.find('.modal-title').text('编辑产品')
@@ -836,9 +876,9 @@
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
         var modal = $(this)
-            modal.find('.modal-body input#del_product_id').val(product[recipient].id)
-            modal.find('.modal-body input#del_ProductCode').val(product[recipient].productCode)
-            modal.find('.modal-body input#del_ProductDuedata').val(product[recipient].productDuedate)
+        modal.find('.modal-body input#del_product_id').val(product[recipient].id)
+        modal.find('.modal-body input#del_ProductCode').val(product[recipient].productCode)
+        modal.find('.modal-body input#del_ProductDuedata').val(product[recipient].productDuedate)
     });
 </script>
 

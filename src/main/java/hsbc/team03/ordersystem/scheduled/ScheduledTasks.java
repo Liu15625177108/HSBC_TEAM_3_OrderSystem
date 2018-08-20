@@ -21,7 +21,7 @@ import java.util.List;
  * @Return:
  * @Param:
  */
-//@Component
+@Component
 public class ScheduledTasks {
     private static Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
     private static SimpleDateFormat dateFormat = new SimpleDateFormat();
@@ -29,9 +29,9 @@ public class ScheduledTasks {
     private ProductRepository productRepository;
 
     /**
-     * @Scheduled(cron="0 0 0 * * ?")//每天0点开始
+     * @Scheduled(fixedRate = 5000)
      */
-//    @Scheduled(fixedRate = 5000)
+//    @Scheduled(cron="0 0 0 * * ?")//每天0点开始
     public void reportCurrent() {
         logger.info("现在时间：{}", dateFormat.format(new Date()));
         /*get the product which its status is 1 ,2*/
