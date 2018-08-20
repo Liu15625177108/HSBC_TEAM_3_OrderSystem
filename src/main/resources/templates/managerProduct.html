@@ -103,29 +103,6 @@
                 <li class="nav-item">
                     <a href="displaySystemLog.html" class="nav-link"><i class="fa fa-gear"></i>系统日志</a>
                 </li>
-                <!--<li class="nav-item">-->
-                <!--<a href="#" class="nav-link"><i class="fa fa-bar-chart-o "></i>批量导入和导出</a>-->
-                <!--</li>-->
-                <!-- <li class="nav-item nav-dropdown">
-                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 批量导入和导出</a>
-                     <ul class="nav-dropdown-items">
-                         <li class="nav-item">
-                             <a class="nav-link" href="/student/export">
-                                 <i class="icon-puzzle"></i>学生批量导出
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a class="nav-link">
-                                 <i class="icon-puzzle"></i>
-                                 <button type="button" class="btn btn-success" data-toggle="modal"
-                                         data-target="#successModal">
-                                     学生批量导入
-                                 </button>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>-->
-
             </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -267,31 +244,6 @@
     <span><a href="http://coreui.io">Team-Three</a> © 2018 creativeLabs.</span>
     <span class="ml-auto">Powered by <a href="http://coreui.io">Team-Three</a></span>
 </footer>
-<!--学生信息批量导出模态框-->
-<!--
-<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;"
-     aria-hidden="true">
-    <div class="modal-dialog modal-info" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">学生信息批量导出</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>请选择excel文件</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info">Save changes</button>
-            </div>
-        </div>
-        &lt;!&ndash; /.modal-content &ndash;&gt;
-    </div>
-    &lt;!&ndash; /.modal-dialog &ndash;&gt;
-</div>
--->
 
 
 <!--新增和编辑的模态框-->
@@ -306,10 +258,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-add" enctype="multipart/form-data" productName="editProductInfoForm" novalidate>
+                <form id="form-add" enctype="multipart/form-data" name="editProductInfoForm" novalidate>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="hidden" id="id" productName="id">
+                            <input type="hidden" id="id" name="id">
                         </div>
                         <div class="form-group">
                             <div class="input-group mb-1">
@@ -319,8 +271,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">产品代码</span>
                                 </div>
-                                <input type="hidden" id="originProductCode" productName="originProductCode">
-                                <input type="text" id="productCode" productName="productCode" ng-model="productCode"
+                                <input type="hidden" id="originProductCode" name="originProductCode">
+                                <input type="text" id="productCode" name="productCode" ng-model="productCode"
                                        class="form-control"
                                        ng-minlength="6" ng-maxlength="6" ng-blur="checkProductCodeUnique()" required>
                                 <!--onblur="checkProductCodeUnique()-->
@@ -337,7 +289,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">产品名</span>
                                 </div>
-                                <input type="text" id="productName" productName="productName" class="form-control">
+                                <input type="text" id="productName" name="productName" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -345,7 +297,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">价格</span>
                                 </div>
-                                <input type="text" style="size: 20px" id="price" productName="price"
+                                <input type="text" style="size: 20px" id="price" name="price"
                                        class="form-control" ng-blur="checkPrice()">
                                 <span id="msg-price" style="color: red"></span>
                             </div>
@@ -372,7 +324,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售起始日</span>
                             </div>
-                            <input type="text" id="productSelldata" productName="productSelldata" class="form-control"
+                            <input type="text" id="productSelldata" name="productSelldata" class="form-control"
                                    ng-blur="checkDateOfSelldate_Deadline_Duedate()">
                             <div style="float: left">请选择时间：<input type="date" id="newSelldata" size="20px"><a
                                     style="color: red">*</a></div>
@@ -383,7 +335,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">发售截止日</span>
                             </div>
-                            <input type="text" id="productDeadline" productName="productDeadline" class="form-control">
+                            <input type="text" id="productDeadline" name="productDeadline" class="form-control">
                             <div style="float: left">请选择时间：<input type="date" id="newDeadline" size="20px"><a
                                     style="color: red">*</a></div>
 
@@ -395,7 +347,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品到期日</span>
                             </div>
-                            <input type="text" id="productDuedate" productName="productDuedate" size="15px"
+                            <input type="text" id="productDuedate" name="productDuedate" size="15px"
                                    class="form-control">
                             <div style="float: left">请选择时间：<input type="date" id="newDuedate" size="15px"><a
                                     style="color: red">*</a></div>
@@ -406,17 +358,17 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">产品描述</span>
                             </div>
-                            <input type="text" id="description" productName="description" class="form-control">
+                            <input type="text" id="description" name="description" class="form-control">
                             <!-- <div class="input-group-append">
                                  <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
                              </div>-->
                         </div>
                     </div>
                     <div>
-                        <div id="localImag"><img id="preview" src="img/head.jpg" width="100" height="100"
-                                                 style="display: block; width: 100px; height: 100px;">
-                        </div>
-                        <input type="file" productName="file" id="file" style="width:150px;"/>
+                        <div id="localImag"><img id="preview" src="" width="100" height="100"
+                                                 style="display: block; width: 100px; height: 100px;"></div>
+                        <input type="file" name="file" id="file" style="width:150px;"/>
+                        <label style="color: red">图片格式支持：.jpg .jpeg .png .gif</label>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存
@@ -617,14 +569,13 @@
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
 
-            /*做日期判断：产品的销售截止时间>产品起始销售时间，产品到期时间>销售截止时间*/
-            if(newDeadline<newSelldata){
-                alert("请注意：产品的销售截止时间必须大于等于产品起始销售时间")
-                return
+            if ($scope.checkPrice()) {
+                $("#primaryModal").modal('hide');
+                alert("请输入正确格式的产品价格")
             }
-            if(newDuedate<newDeadline){
-                alert("请注意：产品的到期时间必须大于等于销售截止时间时间")
-                return
+            if ($scope.checkDateOfSelldate_Deadline_Duedate()) {
+                $("#primaryModal").modal('hide');
+                alert("请注意产品时间的关系：产品到期时间>产品销售截止时间，产品截止销售时间>产品起始销售时间")
             }
             var formdata = new FormData()
             formdata.append('id', id);
@@ -678,7 +629,6 @@
                 alert("产品正在销售，不能删除")
                 return
             }
-
             var jsonData = {id: productId, productCode: productCode, productDuedate: productDuedate}
             $http({
                 url: "/manager/delete/products",
@@ -699,24 +649,33 @@
                         alert("产品正在销售，不能删除")
                         return
                     }
-
                     for (var i = product.length - 1; i >= 0; i--) {
                         if (product[i].id == productId)
                         //第一个参数代表删除下标为第几，最后一个参数代表删除多少个1代表一个，2代表两个
                             product.splice(i, 1);
                     }
                     if (product.length == 0) {
-                        //总页数
-                        $scope.totalPages = 0
-                        //总共有多少条记录
-                        $scope.totalElements = 0
+                        /*如果当前的页面没有数据，则重新请求数据*/
                     }
+                    /*获取页面显示多少条数据：重新计算分页*/
                     $scope.products = product;
-                    //总页数
-                    $scope.totalPages = totalpage
+
                     //总共有多少条记录
                     $scope.totalElements = totalElement - 1
 
+                    var displaynumber = $("#dataNumber").val();
+                    if(($scope.totalElements/displaynumber)!=0){
+                        //总页数
+                        $scope.totalPages = totalpage
+                        //用于控制上一页。下一页
+                        $scope.pageNumber = 0
+                    }
+                    else {
+                        //总页数
+                        $scope.totalPages = totalpage-1
+                        //用于控制上一页。下一页
+                        $scope.pageNumber = 0
+                    }
 
                 })
         }

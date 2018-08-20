@@ -31,7 +31,7 @@ public class ScheduledTasks {
     /**
      * @Scheduled(fixedRate = 5000)
      */
-//    @Scheduled(cron="0 0 0 * * ?")//每天0点开始
+   @Scheduled(cron="0 0 0 * * ?")//每天0点开始
     public void reportCurrent() {
         logger.info("现在时间：{}", dateFormat.format(new Date()));
         /*get the product which its status is 1 ,2*/
