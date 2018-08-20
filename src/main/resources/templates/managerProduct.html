@@ -617,7 +617,15 @@
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
 
-            /*做日期判断：产品的销售截止时间>产品起始销售时间，产品到期时间>*/
+            /*做日期判断：产品的销售截止时间>产品起始销售时间，产品到期时间>销售截止时间*/
+            if(newDeadline<newSelldata){
+                alert("请注意：产品的销售截止时间必须大于等于产品起始销售时间")
+                return
+            }
+            if(newDuedate<newDeadline){
+                alert("请注意：产品的到期时间必须大于等于销售截止时间时间")
+                return
+            }
             var formdata = new FormData()
             formdata.append('id', id);
             formdata.append('productCode', productCode);
