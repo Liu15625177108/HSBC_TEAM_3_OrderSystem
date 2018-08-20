@@ -14,8 +14,7 @@ import java.util.Date;
  * @Param:
  */
 public class DataUtils {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     /**
      * Format time
      */
@@ -52,8 +51,7 @@ public class DataUtils {
      */
     public String getCurrentTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
-        String time = sdf.format(new Date());
-        return time;
+        return sdf.format(new Date());
     }
 
     public Date getSystemTime() {

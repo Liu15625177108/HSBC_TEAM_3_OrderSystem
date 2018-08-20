@@ -25,13 +25,24 @@ public interface ProductRepository extends JpaRepository<Product, String> {
      * @return
      */
     @Query(value = "SELECT * FROM product where status=?1 or status=?2",nativeQuery = true)
-    public List<Product> getProduct(int n,int m);
+     List<Product> getProduct(int n,int m);
 //    @Query("select * from Product u where u.sex=?1")
 
-
-
+    /**
+     * @method findByStatus
+     * @descript it find product of its status of 1
+     * @param i
+     * @return
+     */
     List<Product> findByStatus(int i);
 
+    /**
+     * @method findAll
+     * @param specification
+     * @param pageable
+     * @descript find by product's type and its status of 1
+     * @return
+     */
     Page<Product> findAll(Specification<Product> specification, Pageable pageable);
 
     /**
