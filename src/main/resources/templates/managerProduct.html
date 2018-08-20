@@ -418,13 +418,15 @@
                         </div>
                         <input type="file" productName="file" id="file" style="width:150px;"/>
                     </div>
-                    <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存</button>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">保存
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        </div>
+
     </div>
     <!--&lt;!&ndash; /.modal-content &ndash;&gt;ng-disabled="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid "-->
 </div>
@@ -510,7 +512,7 @@
                     alert("出错了")
                 }
             );
-        //2.then回调嵌套
+        //获取产品的产品类型
         $http({
             url: "/get/productType",
             method: "get"
@@ -614,6 +616,8 @@
             var description = $("#description").val();
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
+
+            /*做日期判断：产品的销售截止时间>产品起始销售时间，产品到期时间>*/
             var formdata = new FormData()
             formdata.append('id', id);
             formdata.append('productCode', productCode);
@@ -831,7 +835,7 @@
 
     });
 
-    // 修改产品的信息
+    // 修改或新增产品的信息模态框
     $('#primaryModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
