@@ -24,6 +24,8 @@
     <script src="https://cdn.bootcss.com/angular.js/1.5.5/angular.min.js"></script>
     <script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
 
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- <script type="text/javascript">
          function setImagePreview(avalue) {
              var docObj = document.getElementById("file");
@@ -64,9 +66,11 @@
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" ng-app="app"
       ng-controller="customersCtrl">
+
+
 <header class="app-header navbar">
     <h4 style="margin: auto">产品信息后台系统</h4>
-
+    <button ng-click="openModal()">打开模态框</button>
     <ul class="nav navbar-nav ml-auto">
 
         <li class="nav-item dropdown">
@@ -421,6 +425,25 @@
 <!-- Plugins and scripts required by all views -->
 <script src="vendors/js/Chart.min.js"></script>
 <!-- CoreUI main scripts -->
+<script type="text/ng-template" id="modal.html">
+    <div>
+        <div class="modal-header">
+            <h3 class="modal-title" align="center">
+                标题信息
+            </h3>
+        </div>
+        <div class="modal-body">
+            <div align="center">
+                模态框内容 <br>
+                {{data}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">确认</button>
+            <button class="btn btn-warning" ng-click="cancel()">退出</button>
+        </div>
+    </div>
+</script>
 
 <script type="text/javascript">
     var product = [];
@@ -434,6 +457,34 @@
     //产品的更改后的到期日
     var newDuedate;
     var app = angular.module('app', ['ui.bootstrap']);
+
+    app.controller('customersCtrl', function($scope, $rootScope, $modal) {
+        var data = "通过modal传递的数据";
+        $scope.openModal = function() {
+            var modalInstance = $modal.open({
+                templateUrl : 'modal.html',//script标签中定义的id
+                controller : 'modalCtrl',//modal对应的Controller
+                resolve : {
+                    data : function() {//data作为modal的controller传入的参数
+                        return data;//用于传递数据
+                    }
+                }
+            })
+        }
+    })
+    //模态框对应的Controller
+    app.controller('modalCtrl', function($scope, $modalInstance, data) {
+        $scope.data= data;
+
+        //在这里处理要进行的操作
+        $scope.ok = function() {
+            $modalInstance.close();
+        };
+        $scope.cancel = function() {
+            $modalInstance.dismiss('cancel');
+        }
+    });
+
     app.controller("customersCtrl", function ($scope, $http, $filter) {
         $http({
             method: 'post',

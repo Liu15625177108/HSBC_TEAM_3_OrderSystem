@@ -257,16 +257,17 @@
                 <p>Please Choose Data</p>
                 <div class="container">
                     <div class="row">
-                        <div class="col-3">
+
+                            <div class="col-3">
                           <span>
                               <input type="radio" id="fiveDays" name="radio" class="radio_sync" value="5"/>Five Days
                          </span>
-                        </div>
-                        <div class="col-4">
+                            </div>
+                            <div class="col-4">
                           <span>
                               <input type="radio" id="fifteenDays" name="radio" class="radio_sync" value="15"/>Fifteen Days
                          </span>
-                        </div>
+                            </div>
                         <div class="col-5">
                           <span>
                              自定义 ：<input type="text" id="MySelect" size="10px" class="radio_sync"/>
@@ -276,8 +277,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" ng-click="clearChoose()">Clear Choose</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-info" ng-click="OutputSystemLog()">Save changes</button>
+
             </div>
         </div>
         <!-- /.modal-content -->
@@ -461,13 +464,20 @@
         // }
         //
 
+        $scope.clearChoose = function () {
+            document.getElementById("MySelect").value = "";
+            for (var i = 0; i < form.radio.length; i++) {
+                form.radio.checked = false;
+            }
+        }
+
         $scope.OutputSystemLog = function () {
             var mychoose;
             var MySelect;
             var checkvale = "undefined";
-            MySelect = $("#MySelect").val();
+            // MySelect = $("#MySelect").val();
+            MySelect = document.getElementById("MySelect").value
             checkvale = $('input:radio:checked').val();
-            console.log(checkvale)
             if (checkvale != "undefined") {
                 mychoose = checkvale;
             }
