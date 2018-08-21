@@ -464,11 +464,17 @@
         // }
         //
 
+        /*clear choose*/
         $scope.clearChoose = function () {
             document.getElementById("MySelect").value = "";
-            for (var i = 0; i < form.radio.length; i++) {
-                form.radio.checked = false;
+            var x=document.getElementsByName("radio");
+            for(var i=0;i<x.length;i++){ //对所有结果进行遍历，如果状态是被选中的，则将其选择取消
+                if (x[i].checked==true)
+                {
+                    x[i].checked=false;
+                }
             }
+
         }
 
         $scope.OutputSystemLog = function () {
