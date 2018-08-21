@@ -495,8 +495,28 @@
             </div>
         </div>
     </div>
+
+
+
     <script>
         var totlePageNumber;//用来记录总共有多少页，进行翻页时，判断是否超出页数，如果超出页数，则不能翻页
+
+        /*define of messageFunction*/
+       /*error function*/
+        function warnMessage(msg){
+            $.message({
+                message: msg,
+                type: 'warning'
+            });
+        }
+
+        function errorMessage(msg) {
+            $.message({
+                message: msg,
+                type: 'error'
+            });
+        }
+
         var app = angular.module("myApp", []);
         app.controller("customersCtrl", function ($scope, $http) {
             $http({
@@ -519,7 +539,7 @@
                         totlePageNumber = result.data.totalPages
                     },
                     function error() {
-                        alert("出错了")
+                        errorMessage("出错了")
                     }
                 );
             //得到所有的产品类型
@@ -533,11 +553,11 @@
 
             $scope.pageFunction = function (pageNumber) {
                 if (pageNumber >= totlePageNumber) {
-                    alert("没有下一页了");
+                    warnMessage("没有下一页了")
                     return false;
                 }
                 if (pageNumber < 0) {
-                    alert("没有上一页了");
+                    warnMessage("没有上一页了")
                     return false;
                 }
                 var productType = $("#productType").find("option:selected").text();//选中的文本
@@ -659,12 +679,14 @@
 <script type="text/javascript" src="assets/js/carousel.js"></script>
 <script type="text/javascript" src="assets/js/gmap3.min.js"></script>
 <script type="text/javascript" src="assets/js/gmap3.infobox.min.js"></script>
-<script type="text/javascript"
-        src="assets/libraries/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="assets/libraries/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
 <script type="text/javascript" src="assets/libraries/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript"
-        src="assets/libraries/iosslider/_src/jquery.iosslider.min.js"></script>
-<script type="text/javascript"
-        src="assets/libraries/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="assets/libraries/iosslider/_src/jquery.iosslider.min.js"></script>
 <script type="text/javascript" src="assets/js/realia.js"></script>
+
+<script src="myjquery/js/jquery.min.js"></script>
+<script src="myjquery/js/message.js"></script>
+<script src="myjquery/js/messageIE.js"></script>
+
+
 </html>
