@@ -610,11 +610,19 @@
         //修改或者新增产品
         $scope.saveProduct = function () {
             //要再一次验证产品的产品代码、产品价格等信息
+            //得到产品的原来的产品代码
+            var originProductCode = $("#originProductCode").val();
             var id = $("#id").val();
             var productCode = $("#productCode").val();
             var productName = $("#productName").val();
             var productPrice = $("#price").val();
             var productType = $("#type").val();
+            //产品的更改后的发售起始日
+            newSelldata = document.getElementById("newSelldata").value;
+            //产品的更改后的发售截止日
+            newDeadline = document.getElementById("newDeadline").value;
+            //产品的更改后的到期日
+            newDuedate = document.getElementById("newDuedate").value;
             if (productCode==""){
                 errorMessage("产品代码不能为空");
                 return
@@ -632,12 +640,25 @@
                 errorMessage("请填写产品类型");
                 return
             }
-            //产品的更改后的发售起始日
-            newSelldata = document.getElementById("newSelldata").value;
-            //产品的更改后的发售截止日
-            newDeadline = document.getElementById("newDeadline").value;
-            //产品的更改后的到期日
-            newDuedate = document.getElementById("newDuedate").value;
+            //判断是新增还是编辑产品信息
+           //如果是编辑，则取input type=text 和input type=date 之间的日期，如果input type=date为空，则取input type=text的时间，否则相反
+            if (productIndex!=""){
+                var selldate=$("#productSelldata").val()
+                var deadline=$("#productDeadline").val()
+                var duedate=$("#productDuedate").val()
+                //如果产品的更改后的发售起始日为空,取原值
+                if (newSelldata==""){
+                    newSelldata=selldate;
+                }
+                if(newDeadline==""){
+                    newDeadline=deadline
+                }
+                if(newDuedate==""){
+                    newDuedate=duedate
+                }
+            }
+
+
             var description = $("#description").val();
             //获取图片
             var file = document.getElementById("file").files[0]; // js 获取文件对象
@@ -660,8 +681,9 @@
             formdata.append('productType', productType);
             formdata.append('productSelldata', newSelldata);
             formdata.append('productDeadline', newDeadline);
-            formdata.append('productDuedate', newDuedate);
+            formdata.append('productDuedate', newDuedate);originProductCode
             formdata.append('description', description);
+            formdata.append('originProductCode', originProductCode);
             formdata.append('file', file);
             $http({
                 url: "/manager/add/products",
@@ -804,11 +826,28 @@
          */
         $scope.checkDateOfSelldate_Deadline_Duedate = function () {
             //产品的更改后的发售起始日
-            var newSelldata = document.getElementById("newSelldata").value;
+             newSelldata = document.getElementById("newSelldata").value;
             //产品的更改后的发售截止日
-            var newDeadline = document.getElementById("newDeadline").value;
+             newDeadline = document.getElementById("newDeadline").value;
             //产品的更改后的到期日
-            var newDuedate = document.getElementById("newDuedate").value;
+             newDuedate = document.getElementById("newDuedate").value;
+
+            //如果是编辑，则取input type=text 和input type=date 之间的日期，如果input type=date为空，则取input type=text的时间，否则相反
+            if (productIndex!=""){
+                var selldate=$("#productSelldata").val()
+                var deadline=$("#productDeadline").val()
+                var duedate=$("#productDuedate").val()
+                //如果产品的更改后的发售起始日为空,取原值
+                if (newSelldata==""){
+                    newSelldata=selldate;
+                }
+                if(newDeadline==""){
+                    newDeadline=deadline
+                }
+                if(newDuedate==""){
+                    newDuedate=duedate
+                }
+            }
             if (newDeadline < newSelldata) {
                 document.getElementById("dataMsg").innerHTML = "发售截止日不能小于发售起始日";
                 return true;
@@ -882,7 +921,8 @@
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
         var modal = $(this)
-        console.log("lll"+recipient+"kk")
+        //productIndex：在$scope.saveProduct用来判断记新增还是编辑
+        productIndex=recipient;
         //判断是新增还是编辑
         if (recipient !=null ) {
             $("#type").show()

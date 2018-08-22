@@ -62,7 +62,7 @@ public class ManagerServiceImpl implements ManagerService {
      * @Version: 1.0
      */
     @Override
-    public boolean addProduct(Product product, MultipartFile file) throws IOException {
+    public boolean addProduct(Product product,String originProductCode, MultipartFile file) throws IOException {
 
         boolean tag = false;
         String flage = "0";
@@ -78,7 +78,7 @@ public class ManagerServiceImpl implements ManagerService {
                 if (!flage.equals(uploadFileName)) {
                     /*check the productCode of unique*/
                     List<Product> products = managerRepository.findByStatus(1);
-                    tag = commonTool.checkUniqueOfProduct(product, products);
+                    tag = commonTool.checkUniqueOfProduct(product,originProductCode, products);
                     /*if the productCode is unique,allow add product*/
                     if (tag) {
                         /*save the production to database*/
@@ -116,7 +116,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public boolean modifyProduct(Product product, MultipartFile file) throws IOException {
+    public boolean modifyProduct(Product product,String originProductCode, MultipartFile file) throws IOException {
         boolean tag = false;
         String msg = "";
         /**check the productCode unique*/
@@ -126,7 +126,7 @@ public class ManagerServiceImpl implements ManagerService {
         if (checkDataBoolean) {
             List<Product> products = managerRepository.findByStatus(1);
             msg = commonTool.getMessage(product, compareProduct);
-            tag = commonTool.checkUniqueOfProduct(product, products);
+            tag = commonTool.checkUniqueOfProduct(product,originProductCode, products);
             if (tag) {
                 managerRepository.saveAndFlush(product);
                 SystemLog systemLog = new SystemLog();

@@ -34,7 +34,7 @@ public interface ManagerService {
      * @return boolean
      *
      */
-    boolean addProduct(Product product,MultipartFile file) throws IOException;
+    boolean addProduct(Product product,String originProductCode,MultipartFile file) throws IOException;
 
     /**
      * @param product
@@ -46,7 +46,7 @@ public interface ManagerService {
      * @param product
      * @return
      */
-   boolean modifyProduct(Product product, MultipartFile file) throws IOException;
+   boolean modifyProduct(Product product,String originProductCode, MultipartFile file) throws IOException;
 
     List<ProductType> getProductType();
 

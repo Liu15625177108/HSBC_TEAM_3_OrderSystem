@@ -35,6 +35,7 @@ public class ManagerController {
     @RequestMapping(value = "/manager-index", method = RequestMethod.GET)
     public ModelAndView managerIndexPage() {
         ModelAndView modelAndView = new ModelAndView("managerProduct.html");
+
         return modelAndView;
     }
 
@@ -63,11 +64,11 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/modify/products", method = RequestMethod.POST)
-    public boolean modifyProduct(Product product, MultipartFile file) {
+    public boolean modifyProduct(Product product,String originProductCode, MultipartFile file) {
 //     Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中非让", 20.8, "稳", "这是一个", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         boolean tag = false;
         try {
-            tag = managerService.modifyProduct(product, file);
+            tag = managerService.modifyProduct(product,originProductCode, file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,12 +83,13 @@ public class ManagerController {
      * @Version: 1.0
      */
     @RequestMapping(value = "/manager/add/products", method = RequestMethod.POST)
-    public Product addProduct(Product product, @RequestParam(value = "file") MultipartFile file) {
+    public Product addProduct(Product product,@RequestParam(value = "originProductCode") String originProductCode ,@RequestParam(value = "file") MultipartFile file) {
         // @RequestBody Product product Product product = new Product("ewfsdgsrhdfgxvadfgsfnxzdz", "200701", "中海", 20.8, "稳健型", "这是一个值得1", "http://8080", "2018-7-1", "2018-8-10", "2018-7-3", 1);
         //@RequestParam(value = "name") String name,@RequestParam(value = "price") double price, @RequestParam(value = "type") String type,@RequestParam(value = "description") String description,@RequestParam(value = "sellData") String sellData,@RequestParam(value = "deadline") String deadline,@RequestParam(value = "dueDate") String dueDate
+        System.out.println(originProductCode);
         boolean tag = false;
         try {
-            tag = managerService.addProduct(product, file);
+            tag = managerService.addProduct(product,originProductCode, file);
         } catch (IOException e) {
             e.printStackTrace();
         }
