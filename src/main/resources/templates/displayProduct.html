@@ -4,49 +4,21 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Aviators - byaviators.com">
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="assets/css/bootstrap-responsive.css" type="text/css">
     <link rel="stylesheet" href="assets/libraries/chosen/chosen.css" type="text/css">
-    <link rel="stylesheet" href="assets/libraries/bootstrap-fileupload/bootstrap-fileupload.css" type="text/css">
-    <link rel="stylesheet"
-          href="assets/libraries/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css"
-          type="text/css">
+    <link rel="stylesheet" href="assets/libraries/jquery-ui-1.10.2.custom/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/realia-blue.css" type="text/css" id="color-variant-default">
     <link rel="stylesheet" href="#" type="text/css" id="color-variant">
 
-    <!--<script src="vendors/js/bootstrap.min.js"></script>-->
-    <!--<script src="vendors/js/jquery.min.js"></script>-->
     <script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-
-    <title>Realia | HTML Template</title>
+    <title>HSBC理财产品</title>
 </head>
 <body ng-app="myApp" ng-controller="customersCtrl">
 <div id="wrapper-outer">
     <div id="wrapper">
         <div id="wrapper-inner">
-            <!-- BREADCRUMB -->
-            <div class="breadcrumb-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <ul class="breadcrumb pull-left">
-                                <li><a href="index.html">Home</a></li>
-                            </ul><!-- /.breadcrumb -->
-
-                            <div class="account pull-right">
-                                <ul class="nav nav-pills">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="registration.html">Registration</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- /.span12 -->
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </div><!-- /.breadcrumb-wrapper -->
-
             <!-- HEADER -->
             <div id="header-wrapper">
                 <div id="header">
@@ -59,17 +31,17 @@
                                             <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
 
                                             <div class="logo">
-                                                <a href="index.html" title="Home">
-                                                    <img src="assets/img/logo.png" alt="Home">
+                                                <a href="#" title="Home">
+                                                    <img src="assets/img/logo.png" alt="HSBC Home">
                                                 </a>
                                             </div><!-- /.logo -->
 
                                             <div class="site-productName">
-                                                <a href="/" title="Home" class="brand">Realia</a>
+                                                <a href="/" title="HSBC" class="brand">HSBC</a>
                                             </div><!-- /.site-productName -->
 
                                             <div class="site-slogan">
-                                                <span>Real estate &amp; Rental<br>made easy</span>
+                                                <span>HSBC Financial&amp; Earn Money<br>Made Easy</span>
                                             </div><!-- /.site-slogan -->
                                         </div><!-- /.logo-wrapper -->
 
@@ -146,22 +118,13 @@
                                 <li><a href="http://www.cssmoban.com">More theme</a></li>
                             </ul><!-- /.nav -->
 
-                            <div class="language-switcher">
-                                <div class="current en"><a href="/" lang="en">English</a></div><!-- /.current -->
-                                <div class="options">
-                                    <ul>
-                                        <li class="fr"><a href="#">Français</a></li>
-                                        <li class="de"><a href="#">Deutsch</a></li>
-                                    </ul>
-                                </div><!-- /.options -->
-                            </div><!-- /.language-switcher -->
-
-                            <form  class="site-search">
+                            <form  class="site-search" action="#">
                                 <div class="input-append">
                                     <input title="Enter the terms you wish to search for."
                                            class="search-query span2 form-text" placeholder="Search" type="text"
-                                           name="" id="productCodeOrProductName" >
-                                    <button type="button" class="btn" ng-click="searchProduct()"><i class="icon-search"></i></button>
+                                           name="" id="productCodeOrProductName">
+                                    <button type="submit" class="btn" ng-click="searchProduct()"><i
+                                            class="icon-search"></i></button>
                                 </div><!-- /.input-append -->
                             </form><!-- /.site-search -->
                         </div><!-- /.navigation -->
@@ -178,51 +141,46 @@
                             <div class="span9">
                                 <div class="properties-rows">
                                     <div class="filter">
-                                        <form action="?" method="get" class="form-horizontal">
-                                            <div class="control-group">
-                                                <label class="control-label" for="inputSortBy">
-                                                    排序-
-                                                    <span class="form-required" title="This field is required.">*</span>
-                                                </label>
-                                                <div class="controls">
-                                                    <select id="inputSortBy">
-                                                        <option id="productPrice">Price</option>
-                                                        <option id="published">Published</option>
-                                                    </select>
-                                                </div><!-- /.controls -->
-                                            </div><!-- /.control-group -->
-                                            <div class="control-group">
-                                                <label class="control-label"> <!--for="inputOrder"-->
-                                                    产品类型筛选-
-                                                    <span class="form-required" title="This field is required.">*</span>
-                                                </label>
-                                                <div class="controls">
-                                                    <select id="productType" ng-blur="getDataNumberOrProductType()">
-                                                        <option ng-repeat="x in productsType"
-                                                                ng-bind="x.productType"></option>
-                                                    </select>
-                                                </div><!-- /.controls -->
-                                            </div><!-- /.control-group -->
-
-                                            <div class="control-group">
-                                                <label class="control-label"> <!--for="inputOrder"-->
-                                                    显示数据条数-
-                                                    <span class="form-required" title="This field is required.">*</span>
-                                                </label>
-                                                <div class="controls">
-                                                    <select id="dataNumber" ng-blur="getDataNumberOrProductType()">
-                                                        <option>2</option>
-                                                        <option>5</option>
-                                                        <option>10</option>
-                                                        <option>15</option>
-                                                    </select>
-                                                </div><!-- /.controls -->
-                                            </div><!-- /.control-group -->
+                                        <form action="#" class="form-horizontal">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="control-group">
+                                                            <label class="control-label"> <!--for="inputOrder"-->
+                                                                Product type selection -
+                                                                <a class="form-required" title="This field is required.">*</a>
+                                                            </label>
+                                                            <div class="controls">
+                                                                <select id="productType" ng-blur="getDataNumberOrProductType()">
+                                                                    <option ng-repeat="x in productsType"
+                                                                            ng-bind="x.productType"></option>
+                                                                </select>
+                                                            </div><!-- /.controls -->
+                                                        </div><!-- /.control-group -->
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="control-group">
+                                                            <label class="control-label"> <!--for="inputOrder"-->
+                                                                Article display the data -
+                                                                <a class="form-required" title="This field is required.">*</a>
+                                                            </label>
+                                                            <div class="controls">
+                                                                <select id="dataNumber" ng-blur="getDataNumberOrProductType()">
+                                                                    <option>2</option>
+                                                                    <option>5</option>
+                                                                    <option>10</option>
+                                                                    <option>15</option>
+                                                                </select>
+                                                            </div><!-- /.controls -->
+                                                        </div><!-- /.control-group -->
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div><!-- /.filter -->
                                 </div><!-- /.properties-rows -->
 
-                                <div class="properties-rows clearfix">
+                                <div class="properties-rows">
                                     <div class="row">
                                         <div class="property span9 clearfix"
                                              ng-repeat="pro in products | orderBy:'productPrice'">
@@ -239,29 +197,38 @@
                                                             <h2>产品代码：<a href="" ng-bind="pro.productCode"></a></h2>
                                                         </div><!-- /.title -->
                                                         <div class="" style="float: right;">
-                                                            <h4>价格:<a class="price" style="color: red" ng-bind="pro.productPrice"></a></h4>
+                                                            <h4>价格:<a class="price" style="color: red"
+                                                                      ng-bind="pro.productPrice"></a></h4>
                                                         </div>
                                                     </div>
 
                                                     <div class="location clearfix">
                                                         <div style="float: left;">描述</div>
-                                                        <div style="float: right;">产品类型:<a style="float: right;" ng-bind="pro.productType"></a></div>
+                                                        <div style="float: right;">产品类型:<a style="float: right;"
+                                                                                           ng-bind="pro.productType"></a>
+                                                        </div>
 
                                                     </div>
                                                     <p ng-bind="pro.description"></p>
                                                     <div class="">
                                                         <span class="key">发售起始日：</span>
-                                                        <span class="value" ng-bind="pro.productSelldata"></span>
+                                                        <span class="value" style="color: red" ng-bind="pro.productSelldata"></span>
                                                         <div style="float:right">
-                                                            <span class="key">发售截止日:</span>
-                                                            <span class="value" ng-bind="pro.productDeadline"></span>
+                                                            <span class="key">发售截止日：</span>
+                                                            <span class="value" style="color: red" ng-bind="pro.productDeadline"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="key">产品到期日:</span>
-                                                            <span class="value" ng-bind="pro.productDuedate"></span>
+                                                            <span class="key">产品到期日：</span>
+                                                            <span class="value" style="color: red" ng-bind="pro.productDuedate"></span>
                                                         </div>
                                                         <div style="float: right">
-                                                            <button class="button btn-primary">购买</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                    data-toggle="modal"
+                                                                    data-target="#primaryModal"
+                                                                    data-whatever="{{$index}}"><i
+                                                                    class="fa fa-edit"></i>&nbsp;
+                                                                购买
+                                                            </button>
                                                             <!--<span class="value"></span>-->
                                                         </div>
                                                     </div><!-- /.area -->
@@ -270,151 +237,124 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="pagination pagination-centered">
+                                    <ul>
+                                        <!--<a ng-model="totalElements">第{{}}页</a>-->
+                                        <li><a ng-model="totalElements">总共{{totalElements}}条数据</a></li>
+                                        <li><a ng-model="totalPages">总共{{totalPages}}页</a></li>
+                                        <li><a ng-model="pageNumber" ng-click="pageFunction(pageNumber-1)">上一页</a></li>
+                                        <li><a ng-model="pageNumber" ng-click="pageFunction(pageNumber+1)">下一页</a></li>
+                                        <li><a>最后一页</a></li>
+                                    </ul>
+                                </div><!-- /.pagination -->
                             </div><!-- /.properties-rows -->
-                            <div class="pagination pagination-centered">
-                                <ul>
-                                    <!--<a ng-model="totalElements">第{{}}页</a>-->
-                                    <li><a ng-model="totalElements">总共{{totalElements}}条数据</a></li>
-                                    <li><a ng-model="totalPages">总共{{totalPages}}页</a></li>
-                                    <li><a ng-model="pageNumber" ng-click="pageFunction(pageNumber-1)">上一页</a></li>
-                                    <li><a ng-model="pageNumber" ng-click="pageFunction(pageNumber+1)">下一页</a></li>
-                                    <li><a>最后一页</a></li>
-                                </ul>
-                            </div><!-- /.pagination -->
-                        </div>
-                        <div class="sidebar span3 clearfix">
-                            <h2>Property filter</h2>
-                            <div class="property-filter widget">
-                                <div class="content">
-                                    <form method="get" action="?">
-                                        <div class="location control-group">
-                                            <label class="control-label" for="inputLocation">
-                                                Location
-                                            </label>
-                                            <div class="controls">
-                                                <select id="inputLocation">
-                                                    <option id="malibu">Malibu, CA</option>
-                                                    <option id="palo-alto">Palo Alto, CA</option>
-                                                </select>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
-
-                                        <div class="type control-group">
-                                            <label class="control-label" for="inputType">
-                                                Type
-                                            </label>
-                                            <div class="controls">
-                                                <select id="inputType">
-                                                    <option id="apartment">Apartment</option>
-                                                    <option id="condo">Condo</option>
-                                                </select>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
-
-                                        <div class="beds control-group">
-                                            <label class="control-label" for="inputBeds">
-                                                Beds
-                                            </label>
-                                            <div class="controls">
-                                                <select id="inputBeds">
-                                                    <option id="11">1</option>
-                                                    <option id="22">2</option>
-                                                </select>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
-
-                                        <div class="baths control-group">
-                                            <label class="control-label" for="inputBaths">
-                                                Baths
-                                            </label>
-                                            <div class="controls">
-                                                <select id="inputBaths">
-                                                    <option id="1">1</option>
-                                                    <option id="2">2</option>
-                                                </select>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
-
-
-                                        <div class="rent control-group">
-                                            <div class="controls">
-                                                <label class="checkbox" for="inputRent">
-                                                    <input type="checkbox" id="inputRent"> Rent
+                            <div class="sidebar span3 ">
+                                <h2>Property filter</h2>
+                                <div class="property-filter widget">
+                                    <div class="content">
+                                        <form method="get" action="?">
+                                            <div class="location control-group">
+                                                <label class="control-label" for="inputLocation">
+                                                    Location
                                                 </label>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
+                                                <div class="controls">
+                                                    <select id="inputLocation">
+                                                        <option id="malibu">Malibu, CA</option>
+                                                        <option id="palo-alto">Palo Alto, CA</option>
+                                                    </select>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                        <div class="sale control-group">
-                                            <div class="controls">
-                                                <label class="checkbox" for="inputSale">
-                                                    <input type="checkbox" id="inputSale"> Sale
+                                            <div class="type control-group">
+                                                <label class="control-label" for="inputType">
+                                                    Type
                                                 </label>
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
+                                                <div class="controls">
+                                                    <select id="inputType">
+                                                        <option id="apartment">Apartment</option>
+                                                        <option id="condo">Condo</option>
+                                                    </select>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                        <div class="productPrice-from control-group">
-                                            <label class="control-label" for="inputPriceFrom">
-                                                Price from
-                                            </label>
-                                            <div class="controls">
-                                                <input type="text" id="inputPriceFrom" productName="inputPriceFrom">
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
+                                            <div class="beds control-group">
+                                                <label class="control-label" for="inputBeds">
+                                                    Beds
+                                                </label>
+                                                <div class="controls">
+                                                    <select id="inputBeds">
+                                                        <option id="11">1</option>
+                                                        <option id="22">2</option>
+                                                    </select>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                        <div class="productPrice-to control-group">
-                                            <label class="control-label" for="inputPriceTo">
-                                                Price to
-                                            </label>
-                                            <div class="controls">
-                                                <input type="text" id="inputPriceTo" productName="inputPriceTo">
-                                            </div><!-- /.controls -->
-                                        </div><!-- /.control-group -->
+                                            <div class="baths control-group">
+                                                <label class="control-label" for="inputBaths">
+                                                    Baths
+                                                </label>
+                                                <div class="controls">
+                                                    <select id="inputBaths">
+                                                        <option id="1">1</option>
+                                                        <option id="2">2</option>
+                                                    </select>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                        <div class="productPrice-value">
-                                            <span class="from"></span><!-- /.from -->
-                                            -
-                                            <span class="to"></span><!-- /.to -->
-                                        </div><!-- /.productPrice-value -->
 
-                                        <div class="productPrice-slider"></div><!-- /.productPrice-slider -->
-                                        <div class="form-actions">
-                                            <input type="submit" value="Filter now!"
-                                                   class="btn btn-primary btn-large">
-                                        </div><!-- /.form-actions -->
-                                    </form>
-                                </div><!-- /.content -->
-                            </div><!-- /.property-filter -->
-                            <div class="widget our-agents">
-                                <div class="title">
-                                    <h2>Our Agents</h2>
-                                </div><!-- /.title -->
+                                            <div class="rent control-group">
+                                                <div class="controls">
+                                                    <label class="checkbox" for="inputRent">
+                                                        <input type="checkbox" id="inputRent"> Rent
+                                                    </label>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                <div class="content">
-                                    <div class="agent">
-                                        <div class="image">
-                                            <img src="assets/img/photos/emma-small.png" alt="">
-                                        </div><!-- /.image -->
-                                        <div class="productName">Victoria Summer</div><!-- /.productName -->
-                                        <div class="phone">333-666-777</div><!-- /.phone -->
-                                        <div class="email"><a
-                                                href="mailto:victoria@example.com">victoria@example.com</a>
-                                        </div><!-- /.email -->
-                                    </div><!-- /.agent -->
+                                            <div class="sale control-group">
+                                                <div class="controls">
+                                                    <label class="checkbox" for="inputSale">
+                                                        <input type="checkbox" id="inputSale"> Sale
+                                                    </label>
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
 
-                                    <div class="agent">
-                                        <div class="image">
-                                            <img src="assets/img/photos/john-small.png" alt="">
-                                        </div><!-- /.image -->
-                                        <div class="productName">John Doe</div><!-- /.productName -->
-                                        <div class="phone">111-222-333</div><!-- /.phone -->
-                                        <div class="email"><a
-                                                href="mailto:john.doe@example.com">victoria@example.com</a>
-                                        </div><!-- /.email -->
-                                    </div><!-- /.agent -->
-                                </div><!-- /.content -->
-                            </div><!-- /.our-agents --
+                                            <div class="productPrice-from control-group">
+                                                <label class="control-label" for="inputPriceFrom">
+                                                    Price from
+                                                </label>
+                                                <div class="controls">
+                                                    <input type="text" id="inputPriceFrom" productName="inputPriceFrom">
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
+
+                                            <div class="productPrice-to control-group">
+                                                <label class="control-label" for="inputPriceTo">
+                                                    Price to
+                                                </label>
+                                                <div class="controls">
+                                                    <input type="text" id="inputPriceTo" productName="inputPriceTo">
+                                                </div><!-- /.controls -->
+                                            </div><!-- /.control-group -->
+
+                                            <div class="productPrice-value">
+                                                <span class="from"></span><!-- /.from -->
+                                                -
+                                                <span class="to"></span><!-- /.to -->
+                                            </div><!-- /.productPrice-value -->
+
+                                            <div class="productPrice-slider"></div><!-- /.productPrice-slider -->
+                                            <div class="form-actions">
+                                                <input type="submit" value="Filter now!"
+                                                       class="btn btn-primary btn-large">
+                                            </div><!-- /.form-actions -->
+                                        </form>
+                                    </div><!-- /.content -->
+                                </div><!-- /.property-filter -->
                             </div><!-- /#wrapper-inner -->
-                        </div><!-- /#wrapper -->
+                            </div><!-- /#wrapper -->
+
+                        </div>
+
                     </div><!-- /#wrapper-outer -->
 
                     <div class="palette clearfix">
@@ -496,179 +436,254 @@
         </div>
     </div>
 
+    <!--新增和编辑的模态框-->
+    <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true"
+         style="display: none;">
+        <div class="modal-dialog modal-primary" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pay...</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-add" enctype="multipart/form-data" productName="editProductInfoForm" novalidate>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" id="productcode" name="productcode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-1">
+                                <span id="span_studentNameTip" style="color:#f00;display:inline-block;"></span>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">please input your pay password</span>
+                                </div>
+                                </br>
+                                <input type="password" id="paypassword" name="paypassword" ng-model="productCode"
+                                       class="form-control" ng-minlength="6" ng-maxlength="6" required>
+                                </br>
+                            </div>
+                        </div>
 
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save" ng-model="pageNumber" ng-click="saveProduct()">confirm
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+            </div>
+        </div>
+        <!--&lt;!&ndash; /.modal-content &ndash;&gt;ng-disabled="editProductInfoForm.productCode.$dirty && editProductInfoForm.productCode.$invalid "-->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
-    <script>
-        var totlePageNumber;//用来记录总共有多少页，进行翻页时，判断是否超出页数，如果超出页数，则不能翻页
-
-        /*define of messageFunction*/
-       /*error function*/
-        function warnMessage(msg){
-            $.message({
-                message: msg,
-                type: 'warning'
-            });
-        }
-
-        function errorMessage(msg) {
-            $.message({
-                message: msg,
-                type: 'error'
-            });
-        }
-
-        var app = angular.module("myApp", []);
-        app.controller("customersCtrl", function ($scope, $http) {
-            $http({
-                method: 'POST',
-                url: "/user/get/products"
-            })
-                .then(function success(result) {
-                        //后台返回的数据
-                        $scope.products = result.data.content;
-
-                        //总页数
-                        $scope.totalPages = result.data.totalPages
-
-                        //总共有多少条记录
-                        $scope.totalElements = result.data.totalElements
-                        //当前页数
-                        $scope.currentPage = result.data.number;
-                        //用于控制上一页。下一页
-                        $scope.pageNumber = result.data.pageable.pageNumber
-                        totlePageNumber = result.data.totalPages
-                    },
-                    function error() {
-                        errorMessage("出错了")
-                    }
-                );
-            //得到所有的产品类型
-            $http({
-                url: "/get/productType",
-                method: "get"
-            }).then(function (resp) {
-                $scope.productsType = resp.data;
-            })
-
-
-            $scope.pageFunction = function (pageNumber) {
-                if (pageNumber >= totlePageNumber) {
-                    warnMessage("没有下一页了")
-                    return false;
-                }
-                if (pageNumber < 0) {
-                    warnMessage("没有上一页了")
-                    return false;
-                }
-                var productType = $("#productType").find("option:selected").text();//选中的文本
-                var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
-                var jsonData = {"pageNumber": pageNumber,productType:productType,dataNumber:dataNumber};
-                $http({
-                    url: "/user/get/products",
-                    method: "post",
-                    data: jsonData,
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    transformRequest: function (obj) {
-                        var str = [];
-                        for (var p in obj) {
-                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                        }
-                        return str.join("&");
-                    }
-                }).then(function (result) {
-                    //后台返回的数据
-                    $scope.products = result.data.content;
-                    //总页数
-                    $scope.totalPages = result.data.totalPages
-                    //总共有多少条记录
-                    $scope.totalElements = result.data.totalElements
-                    //当前页数
-                    $scope.currentPage = result.data.number;
-                    //用于控制上一页。下一页
-                    $scope.pageNumber = result.data.pageable.pageNumber
-                    totlePageNumber = result.data.totalPages
-                })
-            }
-
-
-            //查找产品
-            $scope.searchProduct=function () {
-                var productCode;
-                var productName;
-                var productCodeOrProductName=$("#productCodeOrProductName").val();
-                var reg = /^[0-9]+.?[0-9]*$/;
-                if (reg.test(productCodeOrProductName)){
-                    productCode =productCodeOrProductName;
-                }else {
-                    productName=productCodeOrProductName;
-                }
-                var jsonData={productCode:productCode,productName:productName}
-                $http({
-                    url: "/findProduct/byProductCodeOrProductName",
-                    method: "post",
-                    data: jsonData,
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    transformRequest: function (obj) {
-                        var str = [];
-                        for (var p in obj) {
-                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                        }
-                        return str.join("&");
-                    }
-                })
-                    .then(function (result) {
-                        //后台返回的数据
-                        $scope.products = result.data;
-
-                        /*   //总页数
-                           $scope.totalPages = result.data.length
-
-                           //总共有多少条记录
-                           $scope.totalElements = result.data.length
-                           //用于控制上一页。下一页
-                           $scope.pageNumber = result.data.length
-                           totlePageNumber = result.data.length*/
-                        product = result.data
-                    })
-            }
-
-            //根据选择的数据显示数量，从新获取数据
-            $scope.getDataNumberOrProductType = function () {
-                var productType = $("#productType").find("option:selected").text();//选中的文本
-                var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
-                var jsonData = {"dataCount": dataNumber, "productType": productType};
-                $http({
-                    url: "/user/get/products",
-                    method: "post",
-                    data: jsonData,
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    transformRequest: function (obj) {
-                        var str = [];
-                        for (var p in obj) {
-                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                        }
-                        return str.join("&");
-                    }
-                }).then(function (result) {
-                    //后台返回的数据
-                    $scope.products = result.data.content;
-                    //总页数
-                    $scope.totalPages = result.data.totalPages
-
-                    //总共有多少条记录
-                    $scope.totalElements = result.data.totalElements
-                    //当前页数
-                    $scope.currentPage = result.data.number;
-                    //用于控制上一页。下一页
-                    $scope.pageNumber = result.data.pageable.pageNumber
-                    totlePageNumber = result.data.totalPages
-                })
-            }
-
+<script>
+    var totlePageNumber;//用来记录总共有多少页，进行翻页时，判断是否超出页数，如果超出页数，则不能翻页
+    /*define of messageFunction*/
+    /*error function*/
+    function warnMessage(msg) {
+        $.message({
+            message: msg,
+            type: 'warning'
         });
+    }
 
-    </script>
+    function errorMessage(msg) {
+        $.message({
+            message: msg,
+            type: 'error'
+        });
+    }
 
+    var app = angular.module("myApp", []);
+    app.controller("customersCtrl", function ($scope, $http) {
+        $http({
+            method: 'POST',
+            url: "/user/get/products"
+        })
+            .then(function success(result) {
+                    //后台返回的数据
+                    $scope.products = result.data.content;
+
+                    //总页数
+                    $scope.totalPages = result.data.totalPages
+
+                    //总共有多少条记录
+                    $scope.totalElements = result.data.totalElements
+                    //当前页数
+                    $scope.currentPage = result.data.number;
+                    //用于控制上一页。下一页
+                    $scope.pageNumber = result.data.pageable.pageNumber
+                    totlePageNumber = result.data.totalPages
+                },
+                function error() {
+                    errorMessage("出错了")
+                }
+            );
+        //得到所有的产品类型
+        $http({
+            url: "/get/productType",
+            method: "get"
+        }).then(function (resp) {
+            $scope.productsType = resp.data;
+        })
+
+        $scope.pageFunction = function (pageNumber) {
+            if (pageNumber >= totlePageNumber) {
+                warnMessage("没有下一页了")
+                return false;
+            }
+            if (pageNumber < 0) {
+                warnMessage("没有上一页了")
+                return false;
+            }
+            var productType = $("#productType").find("option:selected").text();//选中的文本
+            var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
+            var jsonData = {"pageNumber": pageNumber, productType: productType, dataCount: dataNumber};
+            $http({
+                url: "/user/get/products",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            }).then(function (result) {
+                //后台返回的数据
+                $scope.products = result.data.content;
+                //总页数
+                $scope.totalPages = result.data.totalPages
+                //总共有多少条记录
+                $scope.totalElements = result.data.totalElements
+                //当前页数
+                $scope.currentPage = result.data.number;
+                //用于控制上一页。下一页
+                $scope.pageNumber = result.data.pageable.pageNumber
+                totlePageNumber = result.data.totalPages
+            })
+        }
+
+
+        //查找产品
+        $scope.searchProduct = function () {
+            var productCode;
+            var productName;
+            var productCodeOrProductName = $("#productCodeOrProductName").val();
+            var reg = /^[0-9]+.?[0-9]*$/;
+            if (reg.test(productCodeOrProductName)) {
+                productCode = productCodeOrProductName;
+            } else {
+                productName = productCodeOrProductName;
+            }
+            var jsonData = {productCode: productCode, productName: productName}
+            $http({
+                url: "/findProduct/byProductCodeOrProductName",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            })
+                .then(function (result) {
+                    //后台返回的数据
+                    $scope.products = result.data;
+
+                    /*   //总页数
+                       $scope.totalPages = result.data.length
+
+                       //总共有多少条记录
+                       $scope.totalElements = result.data.length
+                       //用于控制上一页。下一页
+                       $scope.pageNumber = result.data.length
+                       totlePageNumber = result.data.length*/
+                    product = result.data
+                })
+        }
+
+        //根据选择的数据显示数量，从新获取数据
+        $scope.getDataNumberOrProductType = function () {
+            var productType = $("#productType").find("option:selected").text();//选中的文本
+            var dataNumber = $("#dataNumber").find("option:selected").text();//选中的文本
+            var jsonData = {"dataCount": dataNumber, "productType": productType};
+            $http({
+                url: "/user/get/products",
+                method: "post",
+                data: jsonData,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    return str.join("&");
+                }
+            }).then(function (result) {
+                //后台返回的数据
+                $scope.products = result.data.content;
+                //总页数
+                $scope.totalPages = result.data.totalPages
+
+                //总共有多少条记录
+                $scope.totalElements = result.data.totalElements
+                //当前页数
+                $scope.currentPage = result.data.number;
+                //用于控制上一页。下一页
+                $scope.pageNumber = result.data.pageable.pageNumber
+                totlePageNumber = result.data.totalPages
+            })
+        }
+
+
+        //新增加菜单
+        $scope.saveProduct = function () {
+            //要再一次验证产品的产品代码、产品价格等信息
+            var productCode = $("#productcode").val();
+            var payPassword = $("#paypassword").val();
+            $http({
+                // url: "/manager/add/products",
+                url: "/order/toorder",
+                method: "post",
+                params: {'productCode': productCode, 'payPassword': payPassword},
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+            }).then(function (result) {
+                $("#primaryModal").modal('hide');
+                alert("status: " + result.data.code + "  msg: " + result.data.msg + "  data: " + result.data.data)
+
+            });
+        }
+    });
+    var p;
+
+    // 修改产品的信息
+    $('#primaryModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes  //get the index
+        var modal = $(this)
+        modal.find('.modal-body input#productcode').val(product[recipient].productCode)
+        p = product[recipient].productCode
+        console.log(p)
+    });
+</script>
+</div>
 </body>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ezmark.js"></script>
@@ -679,14 +694,16 @@
 <script type="text/javascript" src="assets/js/carousel.js"></script>
 <script type="text/javascript" src="assets/js/gmap3.min.js"></script>
 <script type="text/javascript" src="assets/js/gmap3.infobox.min.js"></script>
-<script type="text/javascript" src="assets/libraries/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript"
+        src="assets/libraries/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
 <script type="text/javascript" src="assets/libraries/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="assets/libraries/iosslider/_src/jquery.iosslider.min.js"></script>
+<script type="text/javascript"
+        src="assets/libraries/iosslider/_src/jquery.iosslider.min.js"></script>
+<script type="text/javascript"
+        src="assets/libraries/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 <script type="text/javascript" src="assets/js/realia.js"></script>
 
 <script src="myjquery/js/jquery.min.js"></script>
 <script src="myjquery/js/message.js"></script>
 <script src="myjquery/js/messageIE.js"></script>
-
-
 </html>
