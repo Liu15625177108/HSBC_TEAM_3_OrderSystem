@@ -151,9 +151,8 @@
                                                                 <a class="form-required" title="This field is required.">*</a>
                                                             </label>
                                                             <div class="controls">
-                                                                <select id="productType" ng-blur="getDataNumberOrProductType()">
-                                                                    <option ng-repeat="x in productsType"
-                                                                            ng-bind="x.productType"></option>
+                                                                <select id="productType"  ng-change="getDataNumberOrProductType()"  ng-model="counterInput1" >
+                                                                    <option ng-repeat="x in productsType">{{x.productType}}</option>
                                                                 </select>
                                                             </div><!-- /.controls -->
                                                         </div><!-- /.control-group -->
@@ -165,7 +164,7 @@
                                                                 <a class="form-required" title="This field is required.">*</a>
                                                             </label>
                                                             <div class="controls">
-                                                                <select id="dataNumber" ng-blur="getDataNumberOrProductType()">
+                                                                <select id="dataNumber" ng-change="getDataNumberOrProductType()" ng-model="counterInput" >
                                                                     <option>2</option>
                                                                     <option>5</option>
                                                                     <option>10</option>
@@ -197,15 +196,13 @@
                                                             <h2>产品代码：<a href="" ng-bind="pro.productCode"></a></h2>
                                                         </div><!-- /.title -->
                                                         <div class="" style="float: right;">
-                                                            <h4>价格:<a class="price" style="color: red"
-                                                                      ng-bind="pro.productPrice"></a></h4>
+                                                            <h4>价格:<a class="price" style="color: red" ng-bind="pro.productPrice"></a></h4>
                                                         </div>
                                                     </div>
 
                                                     <div class="location clearfix">
                                                         <div style="float: left;">描述</div>
-                                                        <div style="float: right;">产品类型:<a style="float: right;"
-                                                                                           ng-bind="pro.productType"></a>
+                                                        <div style="float: right;">产品类型:<a style="float: right;" ng-bind="pro.productType"></a>
                                                         </div>
 
                                                     </div>

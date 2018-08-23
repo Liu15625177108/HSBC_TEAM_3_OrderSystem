@@ -693,6 +693,7 @@
                 },
                 transformRequest: angular.identity
             }).then(function (result) {
+                location.reload();
                 $("#primaryModal").modal('hide');
                 if (result) {
                     successMessage("操作成功")
@@ -744,6 +745,7 @@
                 }
             })
                 .then(function (result) {
+                    location.reload();
                     $("#dangerModal").modal('hide');
                     if (result.data == 0) {
                         errorMessage("产品正在销售，不能删除")
