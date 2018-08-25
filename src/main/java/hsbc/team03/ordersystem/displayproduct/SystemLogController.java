@@ -1,19 +1,11 @@
 package hsbc.team03.ordersystem.displayproduct;
-
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 /**
  * @Author:Evan
  * @Date:2018/8/9 10:25
@@ -29,7 +21,6 @@ public class SystemLogController {
 
     @RequestMapping(value = "/export/systemlog", method = { RequestMethod.GET,RequestMethod.POST })
     public String getSystemLogList( int n,HttpServletResponse response) {
-
         System.out.println(n);
         String str = systemLogService.getSystemLog(n, response);
         return str;
